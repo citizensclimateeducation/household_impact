@@ -1,0 +1,16 @@
+{
+    "presets":[
+        "es2017", "react"
+    ],
+    "plugins": [
+    "syntax-dynamic-import",
+    "transform-object-rest-spread",
+    [
+      "transform-class-properties",
+      {"useBuiltIns": true},
+      {
+        "spec": true
+      }
+    ]
+  ]
+}
