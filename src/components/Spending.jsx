@@ -5,17 +5,6 @@ import {nextSection} from '../lib/Utility.jsx';
 class Spending extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            elec: 100,
-            gas: 100
-        }
-    }
-
-    componentDidMount() {
-    }
-
-    componentWillUnmount() {
     }
 
     render() {
@@ -36,17 +25,17 @@ class Spending extends React.Component {
 
                     <form>
                         <div className="form-group">
-                            <label htmlFor="electricity">Typical Monthly Electricity Bill: ${this.state.elec}</label>
+                            <label htmlFor="electricity">Typical Monthly Electricity Bill: ${this.props.elec}</label>
                             <div>
-                                <Slider min={0} max={300} step={1} value={this.state.elec}
+                                <Slider min={0} max={300} step={1} value={this.props.elec}
                                         onChange={(value) => {this.setState({elec: value})}}/>
                             </div>
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="gasoline">Typical Weekly Gasoline Expenditure: ${this.state.gas}</label>
+                            <label htmlFor="gasoline">Typical Weekly Gasoline Expenditure: ${this.props.gas}</label>
                             <div>
-                                <Slider min={0} max={300} step={1} value={this.state.gas}
+                                <Slider min={0} max={300} step={1} value={this.props.gas}
                                         onChange={(value) => {this.setState({gas: value})}}/>
                             </div>
                         </div>

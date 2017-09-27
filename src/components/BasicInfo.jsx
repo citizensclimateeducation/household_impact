@@ -7,7 +7,7 @@ const impact_study_url = 'https://ummel.ocpu.io/exampleR/R/predictModel/json'
 class BasicInfo extends React.Component {
     constructor() {
         super();
-        this.state = {age: 0, adults: 1, children: 0, income: 15000}
+        this.state = {age: '', adults: 1, children: 0, income: 15000, zip: ''}
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -27,25 +27,13 @@ class BasicInfo extends React.Component {
             income: this.state.income
         }]};
 
+        const respond = this.props.setResults;
+
         axios.post(impact_study_url, JSON.stringify(data), {responseType: 'json', headers: {'Content-Type': 'application/json'}}).then(function(response) {
-            console.log(response);
+            respond(response.data[0])
         }).catch(function(error) {
             console.log(error);
         })
-
-        // trigger styles
-        // axios.get("/api/calculators/calculate?", {params : {
-        //     age: this.state.age,
-        //     adults: this.state.adults,
-        //     children: this.state.children,
-        //     income: this.state.income,
-        //     zip: this.state.zip
-        // }}).then(function (response) {
-        //     // turn off calculation
-        //     console.log(response);
-        // }).catch(function (error) {
-        //     console.log(error);
-        // });
     }
 
     render() {
@@ -61,7 +49,8 @@ class BasicInfo extends React.Component {
                         <div className="form-group row">
                             <label htmlFor="age" className="col-form-label col-sm-4">Head of Household Age</label>
                             <div className="col-sm-3">
-                                <input type="number" size="3" className="form-control" id="age" name="age"></input>
+                                <input type="number" size="3" className="form-control" id="age" name="age"
+                                    value={this.state.age} onChange={this.handleChange} />
                             </div>
                         </div>
                         <div className="form-group row">

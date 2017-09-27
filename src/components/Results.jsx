@@ -1,17 +1,8 @@
 import React from 'react';
 
 class Results extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-          results: {
-              pre_tax: 0,
-              tax_bracket: 0,
-              income: 0,
-              net_impact: 0,
-              cost: 0
-          }
-        };
+    constructor(props) {
+        super(props);
     }
 
     render() {
@@ -24,14 +15,14 @@ class Results extends React.Component {
                     </div>
                     <div className="row top_buffer">
                         <div className="col-sm-8"><h4>Yearly post-tax dividend</h4></div>
-                        <div className="col-sm-4 dividend">{this.state.results.pre_tax}</div>
+                        <div className="col-sm-4 dividend">{this.props.results.pre_tax}</div>
                     </div>
                     <div className="row top_buffer">
                         <div className="col-sm-12 text-muted">Dividend checks are based on the number of people in a household, not on income or spending.</div>
                     </div>
                     <div className="row top_buffer">
                         <div className="col-sm-8"><h4>Cost of carbon fee</h4></div>
-                        <div className="col-sm-4 cost">{this.state.results.cost}</div>
+                        <div className="col-sm-4 cost">{this.props.results.cost}</div>
                     </div>
                     <div className="row top_buffer bottom_buffer">
                         <div className="col-sm-12 text-muted">Calculated by looking at your location and energy usage.</div>
@@ -39,7 +30,7 @@ class Results extends React.Component {
                     <hr/>
                     <div className="row top_buffer">
                         <div className="col-sm-8 form_title">Estimated net impact per year*</div>
-                        <div className="col-sm-4 form_title net_impact">{this.state.results.net_impact}</div>
+                        <div className="col-sm-4 form_title net_impact">{this.props.results.net_impact}</div>
                     </div>
                     <div className="row top_buffer">
                         <div className="col-sm-12 text-muted summary">

@@ -11,7 +11,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 const provide = new webpack.ProvidePlugin({
     $: 'jquery',
     jQuery: 'jquery',
-    jquery: 'jquery',
+    jquery: 'jquery'
 });
 
 module.exports = {
