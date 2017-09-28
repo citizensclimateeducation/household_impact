@@ -2,6 +2,7 @@
   "name": "household-impact",
   "version": "1.0.0",
   "description": "Show impact of carbon fee and dividend",
+  "engines": { "node": "8.5.0" },
   "main": "index.js",
   "scripts": {
     "build": "webpack",
