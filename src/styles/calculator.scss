@@ -14,8 +14,13 @@ form {
   margin-top: 30px;
 }
 
-.menu-logo {
-  max-height: 50px;
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 50px;
+  padding: 0px;
+  width: auto;
 }
 
 .btn-join {
@@ -24,7 +29,7 @@ form {
 }
 
 section.demo.intro_container {
-  height: 100vh;
+  height: 90vh;
   align-items: center;
   text-align: center;
   div {
@@ -56,11 +61,13 @@ section.demo.intro_container {
   }
   button {
     font-weight:bold;
-    margin: 10px 0px;
+    font-size: .8em;
+    margin: 20px 0px;
   }
   i {
     font-size: 2.5em;
   }
+  padding-bottom:20px;
 }
 
 .number_select {
@@ -87,6 +94,7 @@ section.demo.intro_container {
     text-decoration: none;
     margin-left: 10px;
   }
+  padding-bottom: 20px;
 }
 
 .calculating {
@@ -104,10 +112,6 @@ section.demo.intro_container {
 
 .spending_panel {
   display:none;
-}
-
-.summary_profit {
-  display: none;
 }
 
 #results, #spending {
