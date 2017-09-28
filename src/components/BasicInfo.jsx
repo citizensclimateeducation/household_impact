@@ -17,6 +17,7 @@ class BasicInfo extends React.Component {
     handleChange = (event) => { this.setState({ [event.target.name]: event.target.value }); }
 
     calculate(e) {
+      $('#spending, #results').css('display', 'flex');
         nextSection(e, '#spending');
 
         var data = {input: [{
@@ -29,8 +30,15 @@ class BasicInfo extends React.Component {
 
         const respond = this.props.setResults;
 
-        axios.post(impact_study_url, JSON.stringify(data), {responseType: 'json', headers: {'Content-Type': 'application/json'}}).then(function(response) {
-            respond(response.data[0])
+        $('.calculating').fadeIn('slow');
+
+        axios.post(impact_study_url, JSON.stringify(data), {responseType: 'json', headers: {'Content-Type': 'application/json'}}).
+        then(function(response) {
+          $('.calculating').fadeOut('slow', function() {
+            $('.spending_panel').fadeIn('slow', function() {
+              respond(response.data[0])
+            });
+          });
         }).catch(function(error) {
             console.log(error);
         })
@@ -47,14 +55,10 @@ class BasicInfo extends React.Component {
                     </div>
                     <form id="basic_questions_form">
                         <div className="form-group row">
-                            <label htmlFor="age" className="col-form-label col-sm-4">Head of Household Age</label>
-                            <div className="col-sm-3">
-                                <input type="number" size="3" className="form-control" id="age" name="age"
-                                    value={this.state.age} onChange={this.handleChange} />
-                            </div>
+                          <label className="col-form-label col-sm-4">HOUSEHOLD SIZE</label>
                         </div>
                         <div className="form-group row">
-                            <label htmlFor="adults" className="col-form-label col-sm-4">ADULTS</label>
+                            <label htmlFor="adults" className="col-form-label col-sm-4">Adults</label>
                             <div className="col-sm-8">
                                 <select className="form-control number_select" id="adults" name="adults" value={this.state.adults} onChange={this.handleChange}>
                                     <option>1</option>
@@ -67,7 +71,7 @@ class BasicInfo extends React.Component {
                             </div>
                         </div>
                         <div className="form-group row">
-                            <label htmlFor="adults" className="col-form-label col-sm-4">CHILDREN</label>
+                            <label htmlFor="adults" className="col-form-label col-sm-4">Children</label>
                             <div className="col-sm-8">
                                 <select className="form-control number_select" id="children" name="children" value={this.state.children} onChange={this.handleChange}>>
                                     <option>0</option>
@@ -81,6 +85,14 @@ class BasicInfo extends React.Component {
                                     <option>8</option>
                                     <option>9</option>
                                 </select>
+                            </div>
+                        </div>
+                        <div className="form-group">&nbsp;</div>
+                        <div className="form-group row">
+                            <label htmlFor="age" className="col-form-label col-sm-4">Age of Head of Household</label>
+                            <div className="col-sm-3">
+                                <input type="number" size="3" className="form-control" id="age" name="age"
+                                    value={this.state.age} onChange={this.handleChange} />
                             </div>
                         </div>
                         <div className="form-group row">
@@ -110,10 +122,9 @@ class BasicInfo extends React.Component {
                     </form>
                 </div>
                 <div className="footer">
-                    <a href="#spending" id="calculate_button" className="scroll-down"
-                       onClick={(e)=>{this.calculate(e)}}>
-                        <i className="fa fa-chevron-down"></i>
-                    </a>
+                    <button className="btn btn-default" href="#spending" id="calculate_button" onClick={(e)=>{this.calculate(e)}}>
+                      CALCULATE
+                    </button>
                 </div>
             </section>
         )

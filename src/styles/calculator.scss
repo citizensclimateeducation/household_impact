@@ -24,7 +24,7 @@ form {
 }
 
 section.demo.intro_container {
-  height: 90vh;
+  height: 100vh;
   align-items: center;
   text-align: center;
   div {
@@ -50,9 +50,13 @@ section.demo.intro_container {
 .footer {
   text-align: center;
   font-size: 2.0em;
-  a, a:hover, i {
+  a, a:hover, i, button {
     color: teal;
     text-decoration: none;
+  }
+  button {
+    font-weight:bold;
+    margin: 10px 0px;
   }
   i {
     font-size: 2.5em;
@@ -87,10 +91,25 @@ section.demo.intro_container {
 
 .calculating {
   display: none;
+  width: 100%;
+  height: 100%;
   margin: 30px 0px;
   font-size: 1.8em;
+  color: teal;
+  i {
+    font-size: 3.5em;
+    opacity: .6;
+  }
+}
+
+.spending_panel {
+  display:none;
 }
 
 .summary_profit {
   display: none;
+}
+
+#results, #spending {
+  display:none;
 }

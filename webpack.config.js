@@ -3,8 +3,8 @@ const webpack = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: './src/app.html',
-  filename: 'app.html',
+  template: './src/index.html',
+  filename: 'index.html',
   inject: 'body'
 });
 
@@ -17,7 +17,7 @@ const provide = new webpack.ProvidePlugin({
 module.exports = {
      entry: './src/main.js',
      output: {
-         path: '/build',
+         path: __dirname + '/build',
          filename: 'main.bundle.js'
      },
      devServer: {

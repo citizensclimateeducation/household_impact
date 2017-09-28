@@ -6,6 +6,7 @@
 
 /node_modules
 /yarn-error.log
+/build
 
 .byebug_history
 /public/packs

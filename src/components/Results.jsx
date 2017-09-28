@@ -22,7 +22,7 @@ class Results extends React.Component {
                     </div>
                     <div className="row top_buffer">
                         <div className="col-sm-8"><h4>Cost of carbon fee</h4></div>
-                        <div className="col-sm-4 cost">{this.props.results.cost}</div>
+                        <div className="col-sm-4 cost">{this.props.results.carbon_cost}</div>
                     </div>
                     <div className="row top_buffer bottom_buffer">
                         <div className="col-sm-12 text-muted">Calculated by looking at your location and energy usage.</div>
