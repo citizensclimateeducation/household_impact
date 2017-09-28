@@ -3,7 +3,10 @@ import Introduction from './Introduction.jsx'
 import BasicInfo from './BasicInfo.jsx'
 import Spending from './Spending.jsx'
 import Results from './Results.jsx'
+import Menu from './Menu.jsx'
+import numeral from 'numeral/min/numeral.min.js';
 import {toCurrency} from '../lib/Utility.jsx'
+require('../images/favicon.ico')
 
 class App extends React.Component {
   constructor(props) {
@@ -24,7 +27,8 @@ class App extends React.Component {
     var cost = eval(this.state.cost)
     this.setState({
       net_impact: toCurrency(this.state.div_pre - cost),
-      carbon_cost: toCurrency(cost)
+      carbon_cost: toCurrency(cost),
+      div_post: toCurrency(numeral(this.state.div_pre).value() * (1.0 - numeral(this.state.mrate).value()))
     })
   }
 
@@ -42,6 +46,7 @@ class App extends React.Component {
 
     return (
     <div>
+      <Menu />
         <Introduction />
         <BasicInfo setResults={this.setResults} />
         <Spending setResults={this.setResults} gas={gas} elec={elec} handleSlide={this.handleSlide}  />

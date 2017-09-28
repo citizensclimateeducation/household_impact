@@ -16,8 +16,14 @@ class BasicInfo extends React.Component {
 
     handleChange = (event) => { this.setState({ [event.target.name]: event.target.value }); }
 
+    valid = () => {
+      return (this.state.age && this.state.income && this.state.zip)
+    }
+
     calculate(e) {
-      $('#spending, #results').css('display', 'flex');
+      if (this.valid()) {
+        $('#spending, #results').css('display', 'flex');
+        $('.spending_panel').hide();
         nextSection(e, '#spending');
 
         var data = {input: [{
@@ -42,6 +48,7 @@ class BasicInfo extends React.Component {
         }).catch(function(error) {
             console.log(error);
         })
+      }
     }
 
     render() {
@@ -90,7 +97,7 @@ class BasicInfo extends React.Component {
                         <div className="form-group">&nbsp;</div>
                         <div className="form-group row">
                             <label htmlFor="age" className="col-form-label col-sm-4">Age of Head of Household</label>
-                            <div className="col-sm-3">
+                            <div className="col-sm-2">
                                 <input type="number" size="3" className="form-control" id="age" name="age"
                                     value={this.state.age} onChange={this.handleChange} />
                             </div>
@@ -104,8 +111,9 @@ class BasicInfo extends React.Component {
                         </div>
                         <div className="form-group row">
                             <label htmlFor="income" className="col-form-label col-sm-4">Household Income</label>
-                            <div className="col-sm-8">
+                            <div className="col-sm-6">
                                 <select className="form-control" id="income" name="income" value={this.state.income} onChange={this.handleChange}>
+                                    <option value="10000">&lt; $10,000</option>
                                     <option value="15000">$10,000 - $20,000</option>
                                     <option value="30000">$20,000 - $40,000</option>
                                     <option value="50000">$40,000 - $60,000</option>
@@ -116,13 +124,15 @@ class BasicInfo extends React.Component {
                                     <option value="140000">$130,000 - $150,000</option>
                                     <option value="175000">$150,000 - $200,000</option>
                                     <option value="225000">$200,000 - $250,000</option>
+                                    <option value="300000">&gt; $250,000</option>
                                 </select>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div className="footer">
-                    <button className="btn btn-default" href="#spending" id="calculate_button" onClick={(e)=>{this.calculate(e)}}>
+                    <button className={"btn btn-default " + (this.valid() ? '' : 'disabled')} href="#spending" id="calculate_button"
+                            onClick={(e)=>{this.calculate(e)}}>
                       CALCULATE
                     </button>
                 </div>
