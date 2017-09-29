@@ -8,7 +8,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "rm -r dist/* && webpack -p",
     "start": "webpack-dev-server",
     "prod": "NODE_ENV=production node server.js",
     "postinstall": "webpack"
@@ -27,6 +27,7 @@
     "babel-preset-es2017": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "bootstrap": "^3.3.7",
+    "clean-webpack-plugin": "^0.1.17",
     "css-loader": "^0.28.7",
     "express": "^4.15.5",
     "file-loader": "^0.11.2",
