@@ -7,6 +7,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   filename: 'index.html',
   inject: 'body'
 });
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 const provide = new webpack.ProvidePlugin({
     $: 'jquery',

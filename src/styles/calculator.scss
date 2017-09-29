@@ -1,3 +1,5 @@
+$screen-sm-min: 768px;
+
 section.demo {
   max-width: 600px;
   margin-right: auto;
@@ -8,6 +10,11 @@ section.demo {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+
+@media(max-width: $screen-sm-min) {
+  section.demo > div { margin-left: 5px; }
+  div.form-group.row { margin: 0px; }
 }
 
 form {
@@ -55,6 +62,7 @@ section.demo.intro_container {
 .footer {
   text-align: center;
   font-size: 2.0em;
+  @media(max-width: $screen-sm-min) { font-size :1.2em; }
   a, a:hover, i, button {
     color: teal;
     text-decoration: none;
