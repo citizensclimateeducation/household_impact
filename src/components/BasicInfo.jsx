@@ -20,6 +20,16 @@ class BasicInfo extends React.Component {
       return (this.state.age && this.state.income && this.state.zip)
     }
 
+    validZip = (e) => {
+      const re = /^[0-9]{0,4}$/g
+      if (!re.test(e.target.value)) { e.preventDefault(); }
+    }
+
+    validAge = (e) => {
+      const re = /^[0-9]{0,2}$/g
+      if (!re.test(e.target.value)) { e.preventDefault(); }
+    }
+
     calculate(e) {
       if (this.valid()) {
         $('#spending, #results').css('display', 'flex');
@@ -99,14 +109,14 @@ class BasicInfo extends React.Component {
                             <label htmlFor="age" className="col-form-label col-sm-4">Age of Head of Household</label>
                             <div className="col-sm-2">
                                 <input type="number" size="3" className="form-control" id="age" name="age"
-                                    value={this.state.age} onChange={this.handleChange} />
+                                    value={this.state.age} onChange={this.handleChange} onKeyPress={(e) => this.validAge(e)} />
                             </div>
                         </div>
                         <div className="form-group row">
                             <label htmlFor="zip" className="col-form-label col-sm-4">Zip Code</label>
                             <div className="col-sm-4">
-                                <input type="zip" size="8" className="form-control" id="zip" name="zip" placeholder="Zip Code"
-                                       value={this.state.zip} onChange={this.handleChange} />
+                                <input type="number" size="8" className="form-control" id="zip" name="zip" placeholder="Zip Code"
+                                       value={this.state.zip} onChange={this.handleChange} onKeyPress={(e) => this.validZip(e)} />
                             </div>
                         </div>
                         <div className="form-group row">
