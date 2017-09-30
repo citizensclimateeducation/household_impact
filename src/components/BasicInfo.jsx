@@ -64,7 +64,11 @@ class BasicInfo extends React.Component {
     render() {
         return (
             <section id="basic_questions" className="demo">
-                <div></div>
+                <div className="print_banner">
+                  <a className="print_only" href="#">
+                    <img src={require('../images/ccl-logo-alpha.png')} className="menu-logo" />
+                  </a>
+                </div>
                 <div className="basic_info_panel">
                     <div className="form_title no_print">Let's start with some basic questions</div>
                     <div className="form_title print_only">Household and Spending</div>

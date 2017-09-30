@@ -15,23 +15,23 @@ class Results extends React.Component {
                     <div className="explanation">
                     </div>
                     <div className="row top_buffer">
-                        <div className="col-sm-8"><h4>Yearly post-tax dividend</h4></div>
-                        <div className="col-sm-4 dividend"><h4>{this.props.results.div_post}</h4></div>
+                        <div className="col-xs-8"><h4>Yearly post-tax dividend</h4></div>
+                        <div className="col-xs-4 dividend"><h4>{this.props.results.div_post}</h4></div>
                     </div>
                     <div className="row top_buffer">
                         <div className="col-sm-12 text-muted">Dividend checks are based on the number of people in a household, not on income or spending.</div>
                     </div>
                     <div className="row top_buffer">
-                        <div className="col-sm-8"><h4>Cost of carbon fee</h4></div>
-                        <div className="col-sm-4 cost"><h4>{this.props.results.carbon_cost}</h4></div>
+                        <div className="col-xs-8"><h4>Cost of carbon fee</h4></div>
+                        <div className="col-xs-4 cost"><h4>{this.props.results.carbon_cost}</h4></div>
                     </div>
                     <div className="row top_buffer bottom_buffer">
                         <div className="col-sm-12 text-muted">Calculated by looking at your location and energy usage.</div>
                     </div>
                     <hr/>
                     <div className="row top_buffer">
-                        <div className="col-sm-8 form_title">Estimated net impact per year*</div>
-                        <div className="col-sm-4 form_title net_impact">{this.props.results.net_impact}</div>
+                        <div className="col-xs-8 form_title">Estimated net impact per year*</div>
+                        <div className="col-xs-4 form_title net_impact">{this.props.results.net_impact}</div>
                     </div>
                     <div className="row top_buffer">
                         <div className="col-sm-12 text-muted summary">

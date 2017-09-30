@@ -4,6 +4,8 @@
     display: none;
   }
 
+  div.print_banner { width: 100%; }
+
   div.footer, .share_row { visibility: hidden; }
 
   div#impact_calculator {
@@ -28,6 +30,6 @@
       margin: 40px 0px;
     }
   }
-  div.print_only { display: block; }
+  .print_only { display: block; }
   div.no_print { display: none; }
 }

@@ -12,19 +12,19 @@ section.demo {
   align-items: center;
 }
 
-@media(max-width: $screen-sm-min) {
-  section.demo > div { margin-left: 5px; }
-  div.form-group.row { margin: 0px; }
-}
-
 form {
   margin-top: 30px;
+}
+
+section div.form-group.row {
+  margin-bottom: 15px;
 }
 
 .navbar-brand {
   padding: 0px;
 }
-.navbar-brand>img {
+
+.print_banner img, .navbar-brand>img {
   height: 50px;
   padding: 0px;
   width: auto;
@@ -127,5 +127,12 @@ section.demo.pre_calculate, div.print_spending {
   display:none;
 }
 
-div.print_only { display: none; }
+div.header { width: 100%; }
+.print_only { display: none; }
 div.no_print { display: block; }
+
+@media(max-width: $screen-sm-min) {
+  section.demo > div { margin-left: 5px; }
+  div.form-group.row { margin: 0px; }
+  .form_title {font-size: 1.5em;}
+}
