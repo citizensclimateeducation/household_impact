@@ -9,7 +9,7 @@ class Spending extends React.Component {
 
     render() {
         return (
-            <section id="spending" className="demo">
+            <section id="spending" className="demo pre_calculate">
                 <div></div>
                 <div>
                     <div className="calculating text-center">

@@ -54,10 +54,10 @@ class App extends React.Component {
     const net_impact = this.state.net_impact
 
     return (
-      <div>
+      <div id="impact_calculator">
         <Menu/>
         <Introduction/>
-        <BasicInfo setResults={this.setResults}/>
+        <BasicInfo setResults={this.setResults} gas={gas} elec={elec}/>
         <Spending setResults={this.setResults} gas={gas} elec={elec} handleSlide={this.handleSlide}/>
         <Results results={results}/>
       </div>

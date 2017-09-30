@@ -8,7 +8,7 @@ class Results extends React.Component {
 
     render() {
         return (
-            <section id="results" className="demo">
+            <section id="results" className="demo pre_calculate">
                 <div></div>
                 <div>
                     <div className="form_title">Your Results</div>
@@ -48,8 +48,9 @@ class Results extends React.Component {
                 </div>
                 <div className="share_row">
                     <div className="row">
-                        <div className="col-sm-6"><label>Print: </label> <i className="fa fa-print"></i></div>
-                        <div className="col-sm-6"><label>Share: </label> <i className="fa fa-twitter"></i><i className="fa fa-facebook"></i></div>
+                        <div className="col-sm-6"><label>Print: </label><a href="javascript:window.print()"><i className="fa fa-print"></i></a>
+                        <label>Share: </label> <i className="fa fa-twitter"></i><i className="fa fa-facebook"></i>
+                      </div>
                     </div>
                     <div className="row top_buffer">
                         <div className="col-sm-12 text-muted">* In real life there are many other factors to consider. However, this estimate is expected to be accurate within a range of 75%</div>

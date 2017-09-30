@@ -103,6 +103,7 @@ section.demo.intro_container {
     margin-left: 10px;
   }
   padding-bottom: 20px;
+  label { margin-left: 25px; }
 }
 
 .calculating {
@@ -122,6 +123,9 @@ section.demo.intro_container {
   display:none;
 }
 
-#results, #spending {
+section.demo.pre_calculate, div.print_spending {
   display:none;
 }
+
+div.print_only { display: none; }
+div.no_print { display: block; }

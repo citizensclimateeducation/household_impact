@@ -32,7 +32,7 @@ class BasicInfo extends React.Component {
 
     calculate(e) {
       if (this.valid()) {
-        $('#spending, #results').css('display', 'flex');
+        $('.pre_calculate').removeClass('pre_calculate');
         $('.spending_panel').hide();
         nextSection(e, '#spending');
 
@@ -65,18 +65,19 @@ class BasicInfo extends React.Component {
         return (
             <section id="basic_questions" className="demo">
                 <div></div>
-                <div>
-                    <div className="form_title">Let's start with some basic questions</div>
-                    <div className="explanation">
+                <div className="basic_info_panel">
+                    <div className="form_title no_print">Let's start with some basic questions</div>
+                    <div className="form_title print_only">Household and Spending</div>
+                    <div className="explanation no_print">
                         This will help us figure out your dividend check and take some first guesses at your spending.
                     </div>
                     <form id="basic_questions_form">
                         <div className="form-group row">
-                          <label className="col-form-label col-sm-4">HOUSEHOLD SIZE</label>
+                          <label className="col-form-label col-sm-8 col-xs-12">HOUSEHOLD SIZE</label>
                         </div>
                         <div className="form-group row">
-                            <label htmlFor="adults" className="col-form-label col-sm-4">Adults</label>
-                            <div className="col-sm-8">
+                            <label htmlFor="adults" className="col-form-label col-sm-4 col-xs-6">Adults</label>
+                            <div className="col-sm-8 col-xs-6">
                                 <select className="form-control number_select" id="adults" name="adults" value={this.state.adults} onChange={this.handleChange}>
                                     <option>1</option>
                                     <option>2</option>
@@ -88,8 +89,8 @@ class BasicInfo extends React.Component {
                             </div>
                         </div>
                         <div className="form-group row">
-                            <label htmlFor="adults" className="col-form-label col-sm-4">Children</label>
-                            <div className="col-sm-8">
+                            <label htmlFor="adults" className="col-form-label col-sm-4 col-xs-6">Children</label>
+                            <div className="col-sm-8 col-xs-6">
                                 <select className="form-control number_select" id="children" name="children" value={this.state.children} onChange={this.handleChange}>>
                                     <option>0</option>
                                     <option>1</option>
@@ -106,22 +107,22 @@ class BasicInfo extends React.Component {
                         </div>
                         <div className="form-group">&nbsp;</div>
                         <div className="form-group row">
-                            <label htmlFor="age" className="col-form-label col-sm-4">Age of Head of Household</label>
-                            <div className="col-sm-2">
+                            <label htmlFor="age" className="col-form-label col-sm-4 col-xs-6">Age of Head of Household</label>
+                            <div className="col-sm-2 col-xs-4">
                                 <input type="number" size="3" className="form-control" id="age" name="age"
                                     value={this.state.age} onChange={this.handleChange} onKeyPress={(e) => this.validAge(e)} />
                             </div>
                         </div>
                         <div className="form-group row">
-                            <label htmlFor="zip" className="col-form-label col-sm-4">Zip Code</label>
-                            <div className="col-sm-4">
+                            <label htmlFor="zip" className="col-form-label col-sm-4 col-xs-6">Zip Code</label>
+                            <div className="col-sm-4 col-xs-4">
                                 <input type="number" size="8" className="form-control" id="zip" name="zip" placeholder="Zip Code"
                                        value={this.state.zip} onChange={this.handleChange} onKeyPress={(e) => this.validZip(e)} />
                             </div>
                         </div>
                         <div className="form-group row">
-                            <label htmlFor="income" className="col-form-label col-sm-4">Household Income</label>
-                            <div className="col-sm-6">
+                            <label htmlFor="income" className="col-form-label col-sm-4 col-xs-6">Household Income</label>
+                            <div className="col-sm-6 col-xs-6">
                                 <select className="form-control" id="income" name="income" value={this.state.income} onChange={this.handleChange}>
                                     <option value="10000">&lt; $10,000</option>
                                     <option value="15000">$10,000 - $20,000</option>
@@ -139,6 +140,17 @@ class BasicInfo extends React.Component {
                             </div>
                         </div>
                     </form>
+                  <div className="print_spending">
+                    <hr/>
+                    <div className="row top_buffer">
+                        <div className="col-xs-8">Typical Monthly Electricity Bill</div>
+                        <div className="col-xs-4">${this.props.elec}</div>
+                    </div>
+                    <div className="row top_buffer">
+                        <div className="col-xs-8">Typical Weekly Gasoline Expenditure</div>
+                        <div className="col-xs-4">${this.props.gas}</div>
+                    </div>
+                  </div>
                 </div>
                 <div className="footer">
                     <button className={"btn btn-default " + (this.valid() ? '' : 'disabled')} href="#spending" id="calculate_button"
@@ -146,6 +158,7 @@ class BasicInfo extends React.Component {
                       CALCULATE
                     </button>
                 </div>
+
             </section>
         )
     }

@@ -1,0 +1,33 @@
+@media print {
+  @page { size: landscape; }
+  section#intro, section#spending, nav{
+    display: none;
+  }
+
+  div.footer, .share_row { visibility: hidden; }
+
+  div#impact_calculator {
+    display: flex;
+    height: 100vh;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  section#basic_questions, section#results {
+    margin: 0px;
+  }
+  section#basic_questions {
+    width: 50%;
+  }
+  div.basic_info_panel {
+    width: 90%;
+  }
+  div.print_spending {
+    display: block;
+    font-size: 1.2em;
+    hr {
+      margin: 40px 0px;
+    }
+  }
+  div.print_only { display: block; }
+  div.no_print { display: none; }
+}
