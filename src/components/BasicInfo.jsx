@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import NumericInput from 'react-numeric-input';
 import {nextSection} from '../lib/Utility.jsx';
 
 const impact_study_url = 'https://ummel.ocpu.io/exampleR/R/predictModel/json'
@@ -15,25 +16,28 @@ class BasicInfo extends React.Component {
     handleSubmit = (event) => {}
 
     handleChange = (event) => { this.setState({ [event.target.name]: event.target.value }); }
+    numberChange = (name, val) => { this.setState({[name]: val}) }
 
     valid = () => {
       return (this.state.age && this.state.income && this.state.zip)
     }
 
     validZip = (e) => {
-      const re = /^[0-9]{0,4}$/g
-      if (!re.test(e.target.value)) { e.preventDefault(); }
+      const re = /^[0-9]{0,5}$/
+      const newval = e.target.value + e.key
+      const highlighted = window.getSelection().toString()
+      if (!re.test(newval) && !highlighted) { e.preventDefault(); }
     }
 
     validAge = (e) => {
-      const re = /^[0-9]{0,2}$/g
+      const re = /^[0-9]{0,2}$/
       if (!re.test(e.target.value)) { e.preventDefault(); }
     }
 
     calculate(e) {
       if (this.valid()) {
-        $('.pre_calculate').removeClass('pre_calculate');
-        $('.spending_panel').hide();
+        $('.pre_calculate').removeClass('pre_calculate').addClass('post_calculate')
+        $('.spending_panel, .search_failed').hide();
         nextSection(e, '#spending');
 
         var data = {input: [{
@@ -47,6 +51,7 @@ class BasicInfo extends React.Component {
         const respond = this.props.setResults;
 
         $('.calculating').fadeIn('slow');
+        const zip = this.refs.zip
 
         axios.post(impact_study_url, JSON.stringify(data), {responseType: 'json', headers: {'Content-Type': 'application/json'}}).
         then(function(response) {
@@ -56,6 +61,14 @@ class BasicInfo extends React.Component {
             });
           });
         }).catch(function(error) {
+            nextSection(e, '#basic_questions')
+            $('.search_failed').fadeIn('slow');
+
+            $('.calculating').fadeOut('slow', function() {
+              $('.post_calculate').addClass('pre_calculate').removeClass('post_calculate');
+            });
+
+            zip.select();
             console.log(error);
         })
       }
@@ -74,6 +87,11 @@ class BasicInfo extends React.Component {
                     <div className="form_title print_only">Household and Spending</div>
                     <div className="explanation no_print">
                         This will help us figure out your dividend check and take some first guesses at your spending.
+                    </div>
+                    <div className="search_failed">
+                      <div className="alert alert-info" role="alert">
+                        Sorry, we couldn't find information for this search. Please double-check your zip code
+                      </div>
                     </div>
                     <form id="basic_questions_form">
                         <div className="form-group row">
@@ -113,14 +131,14 @@ class BasicInfo extends React.Component {
                         <div className="form-group row">
                             <label htmlFor="age" className="col-form-label col-sm-4 col-xs-6">Age of Head of Household</label>
                             <div className="col-sm-2 col-xs-4">
-                                <input type="number" size="3" className="form-control" id="age" name="age"
-                                    value={this.state.age} onChange={this.handleChange} onKeyPress={(e) => this.validAge(e)} />
+                                <NumericInput size={3} className="form-control" id="age" name="age" min={18} max={120}
+                                    value={this.state.age} onChange={(val) => this.numberChange('age', val)} />
                             </div>
                         </div>
                         <div className="form-group row">
                             <label htmlFor="zip" className="col-form-label col-sm-4 col-xs-6">Zip Code</label>
                             <div className="col-sm-4 col-xs-4">
-                                <input type="number" size="8" className="form-control" id="zip" name="zip" placeholder="Zip Code"
+                                <input size="8" className="form-control" id="zip" name="zip" placeholder="Zip Code" ref="zip"
                                        value={this.state.zip} onChange={this.handleChange} onKeyPress={(e) => this.validZip(e)} />
                             </div>
                         </div>

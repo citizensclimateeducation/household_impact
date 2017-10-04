@@ -127,6 +127,11 @@ section.demo.pre_calculate, div.print_spending {
   display:none;
 }
 
+.search_failed {
+  margin: 20px 0px;
+  display: none;
+}
+
 div.header { width: 100%; }
 .print_only { display: none; }
 div.no_print { display: block; }

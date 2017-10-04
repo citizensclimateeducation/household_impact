@@ -11,17 +11,7 @@ require('../images/favicon.ico')
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      div_pre: 0,
-      mrate: 0.15,
-      elec: 100,
-      gas: 100,
-      cost: '',
-      net_impact: 0,
-      carbon_cost: 0,
-      div_post: 0
-    }
-
+    this.state = { div_pre: 0, mrate: 0.15, elec: 100, gas: 100, cost: '', net_impact: 0, carbon_cost: 0, div_post: 0 }
     this.setResults = this.setResults.bind(this)
   }
 
@@ -48,18 +38,13 @@ class App extends React.Component {
   }
 
   render() {
-    const results = this.state
-    const gas = this.state.gas
-    const elec = this.state.elec
-    const net_impact = this.state.net_impact
-
     return (
       <div id="impact_calculator">
         <Menu/>
         <Introduction/>
-        <BasicInfo setResults={this.setResults} gas={gas} elec={elec}/>
-        <Spending setResults={this.setResults} gas={gas} elec={elec} handleSlide={this.handleSlide}/>
-        <Results results={results}/>
+        <BasicInfo setResults={this.setResults} gas={this.state.gas} elec={this.state.elec}/>
+        <Spending setResults={this.setResults} gas={this.state.gas} elec={this.state.elec} handleSlide={this.handleSlide}/>
+        <Results results={this.state}/>
       </div>
     )
   }
