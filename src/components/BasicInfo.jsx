@@ -17,10 +17,7 @@ class BasicInfo extends React.Component {
 
     handleChange = (event) => { this.setState({ [event.target.name]: event.target.value }); }
     numberChange = (name, val) => { this.setState({[name]: val}) }
-
-    valid = () => {
-      return (this.state.age && this.state.income && this.state.zip)
-    }
+    valid = () => { return (this.state.age && this.state.income && this.state.zip) }
 
     validZip = (e) => {
       const re = /^[0-9]{0,5}$/
@@ -76,7 +73,7 @@ class BasicInfo extends React.Component {
 
     render() {
         return (
-            <section id="basic_questions" className="demo">
+            <div id="basic_questions" className="card input">
                 <div className="print_banner">
                   <a className="print_only" href="#">
                     <img src={require('../images/ccl-logo-alpha.png')} className="menu-logo" />
@@ -130,7 +127,7 @@ class BasicInfo extends React.Component {
                         <div className="form-group">&nbsp;</div>
                         <div className="form-group row">
                             <label htmlFor="age" className="col-form-label col-sm-4 col-xs-6">Age of Head of Household</label>
-                            <div className="col-sm-2 col-xs-4">
+                            <div className="col-md-2 col-sm-3 col-xs-4">
                                 <NumericInput size={3} className="form-control" id="age" name="age" min={18} max={120}
                                     value={this.state.age} onChange={(val) => this.numberChange('age', val)} />
                             </div>
@@ -177,11 +174,11 @@ class BasicInfo extends React.Component {
                 <div className="footer">
                     <button className={"btn btn-default " + (this.valid() ? '' : 'disabled')} href="#spending" id="calculate_button"
                             onClick={(e)=>{this.calculate(e)}}>
-                      CALCULATE
+                      NEXT
                     </button>
                 </div>
 
-            </section>
+            </div>
         )
     }
 }

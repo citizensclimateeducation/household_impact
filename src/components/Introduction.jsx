@@ -8,7 +8,7 @@ class Introduction extends React.Component {
 
     render() {
         return (
-            <section id="intro" className="demo intro_container">
+            <div id="intro" className="card intro_container">
                 <div></div>
                 <div>
                     <div className="calculator_title">
@@ -25,7 +25,7 @@ class Introduction extends React.Component {
                         <i className="fa fa-chevron-down"></i>
                     </a>
                 </div>
-            </section>
+            </div>
         )
     }
 }

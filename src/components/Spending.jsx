@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from 'react-rangeslider'
-import {nextSection} from '../lib/Utility.jsx';
+import {nextSection} from '../lib/Utility.jsx'
+import BasicInfoData from './BasicInfoData.jsx'
 
 class Spending extends React.Component {
     constructor(props) {
@@ -9,7 +10,7 @@ class Spending extends React.Component {
 
     render() {
         return (
-            <section id="spending" className="demo pre_calculate">
+            <div id="spending" className="card pre_calculate input">
                 <div></div>
                 <div>
                     <div className="calculating text-center">
@@ -18,6 +19,10 @@ class Spending extends React.Component {
                     </div>
 
                     <div className="spending_panel">
+
+                      <div className="basic_info_data">
+                      </div>
+
                       <div className="form_title">Next, a couple of questions about your spending.</div>
                       <div className="spending explanation">
                           Let us know about how much you spend on electricity and gas or, if you've entered basic information above, we
@@ -48,7 +53,7 @@ class Spending extends React.Component {
                         <i className="fa fa-chevron-down"></i>
                     </a>
                 </div>
-            </section>
+            </div>
         )
     }
 }

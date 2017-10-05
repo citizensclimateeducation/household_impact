@@ -1,7 +1,19 @@
-$screen-sm-min: 768px;
+@import 'variables';
 
-section.demo {
-  max-width: 600px;
+div.section {
+  display: flex;
+  height: 100vh;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+div.card.input { background-color: $green; }
+
+#impact_calculator .navbar { margin-bottom: 0px; }
+
+div.card {
+  // max-width: 600px;
+  width: 50%;
   margin-right: auto;
   margin-left: auto;
 
@@ -10,14 +22,53 @@ section.demo {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  padding: 0 3.67037%;
+}
+
+div.card#results {
+  padding: 0;
+  > div {
+    width: 100%;
+    div {
+      padding: 0 3.67037%;
+    }
+  }
+  div.impact_panel { padding: 0; }
+}
+
+div.section.intro_basic, div.section.intro_basic div.card { height: 95vh; }
+div.footer a { visibility: hidden;}
+
+/* wrap */
+@media(max-width: $screen-sm-min) {
+  div#intro div.footer a { visibility: visible;}
+
+  div.section, div.section.intro_basic {
+    display: block;
+    height: auto;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  div.section.intro_basic div.card#intro { height: 95vh; }
+  div.section.intro_basic div.card { height: 100vh; }
+
+  div.card {
+    // max-width: 600px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    height: 100vh;
+    display:flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 form {
   margin-top: 30px;
-}
-
-section div.form-group.row {
-  margin-bottom: 15px;
 }
 
 .navbar-brand {
@@ -35,7 +86,7 @@ section div.form-group.row {
   padding: 10px 15px;
 }
 
-section.demo.intro_container {
+div.card.intro_container {
   height: 90vh;
   align-items: center;
   text-align: center;
@@ -64,7 +115,7 @@ section.demo.intro_container {
   font-size: 2.0em;
   @media(max-width: $screen-sm-min) { font-size :1.2em; }
   a, a:hover, i, button {
-    color: teal;
+    color: $dark-gray;
     text-decoration: none;
   }
   button {
@@ -98,7 +149,7 @@ section.demo.intro_container {
   width: 100%;
   min-height: 80px;
   i {
-    color: teal;
+    color: $ccl-blue;
     text-decoration: none;
     margin-left: 10px;
   }
@@ -112,7 +163,7 @@ section.demo.intro_container {
   height: 100%;
   margin: 30px 0px;
   font-size: 1.8em;
-  color: teal;
+  color: $dark-gray;
   i {
     font-size: 3.5em;
     opacity: .6;
@@ -123,7 +174,7 @@ section.demo.intro_container {
   display:none;
 }
 
-section.demo.pre_calculate, div.print_spending {
+div.pre_calculate, div.print_spending {
   display:none;
 }
 
@@ -132,12 +183,17 @@ section.demo.pre_calculate, div.print_spending {
   display: none;
 }
 
+.impact_panel { background-color: $light-gray; border-top: 1px solid #eee; }
+
 div.header { width: 100%; }
 .print_only { display: none; }
 div.no_print { display: block; }
+div.card > div div {
+  //padding: 0px 15px;
+}
 
 @media(max-width: $screen-sm-min) {
-  section.demo > div { margin-left: 5px; }
+  div.card > div { margin-left: 5px; }
   div.form-group.row { margin: 0px; }
   .form_title {font-size: 1.5em;}
 }

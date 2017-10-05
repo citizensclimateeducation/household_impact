@@ -24,10 +24,11 @@ class App extends React.Component {
     var elec = this.state.elec
     var gas = this.state.gas
     var cost = eval(this.state.cost)
+    var div_post = numeral(this.state.div_pre).value() * (1.0 - numeral(this.state.mrate).value())
     this.setState({
-      net_impact: toCurrency(this.state.div_pre - cost),
+      net_impact: toCurrency(div_post - cost),
       carbon_cost: toCurrency(cost),
-      div_post: toCurrency(numeral(this.state.div_pre).value() * (1.0 - numeral(this.state.mrate).value()))
+      div_post: toCurrency(div_post)
     })
   }
 
@@ -41,10 +42,14 @@ class App extends React.Component {
     return (
       <div id="impact_calculator">
         <Menu/>
-        <Introduction/>
-        <BasicInfo setResults={this.setResults} gas={this.state.gas} elec={this.state.elec}/>
-        <Spending setResults={this.setResults} gas={this.state.gas} elec={this.state.elec} handleSlide={this.handleSlide}/>
-        <Results results={this.state}/>
+        <div className="section intro_basic">
+          <Introduction/>
+          <BasicInfo setResults={this.setResults} gas={this.state.gas} elec={this.state.elec}/>
+        </div>
+        <div className="section pre_calculate">
+          <Spending setResults={this.setResults} gas={this.state.gas} elec={this.state.elec} handleSlide={this.handleSlide}/>
+          <Results results={this.state}/>
+        </div>
       </div>
     )
   }
