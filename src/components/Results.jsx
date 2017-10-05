@@ -6,6 +6,8 @@ class Results extends React.Component {
         super(props);
     }
 
+    net_profit = () => { return numeral(this.props.results.net_impact).value() >= 0 }
+
     render() {
         return (
             <div id="results" className="card pre_calculate">
@@ -30,13 +32,13 @@ class Results extends React.Component {
                     </div>
                     <div className="impact_panel">
                       <div className="row top_buffer">
-                          <div className="col-xs-8 form_title">Estimated net impact per year*</div>
+                          <div className="col-xs-8 form_title">Estimated {this.net_profit() ? 'profit' : 'cost'} per year*</div>
                           <div className="col-xs-4 form_title net_impact">{this.props.results.net_impact}</div>
                       </div>
                       <div className="row top_buffer">
                           <div className="col-sm-12 text-muted summary">
                               <span className="summary_profit">
-                                {numeral(this.props.results.net_impact).value() > 0 &&
+                                {this.net_profit() &&
                                   "Awesome! You should end up with some extra money each year."
                                 }
                               </span>
