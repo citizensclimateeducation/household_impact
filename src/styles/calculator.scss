@@ -41,7 +41,7 @@ div.footer a { visibility: hidden;}
 
 /* wrap */
 @media(max-width: $screen-sm-min) {
-  div#intro div.footer a { visibility: visible;}
+  div.footer a { visibility: visible;}
 
   div.section, div.section.intro_basic {
     display: block;
