@@ -17,15 +17,15 @@ class Results extends React.Component {
                     <div className="explanation">
                     </div>
                     <div className="row top_buffer">
-                        <div className="col-xs-8"><h4>Yearly post-tax dividend</h4></div>
-                        <div className="col-xs-4 dividend"><h4>{this.props.results.div_post}</h4></div>
+                        <div className="col-xs-8">Yearly post-tax dividend</div>
+                        <div className="col-xs-4 dividend">{this.props.results.div_post}</div>
                     </div>
                     <div className="row top_buffer">
                         <div className="col-sm-12 text-muted">Dividend checks are based on the number of people in a household, not on income or spending.</div>
                     </div>
                     <div className="row top_buffer">
-                        <div className="col-xs-8"><h4>Cost of carbon fee</h4></div>
-                        <div className="col-xs-4 cost"><h4>{this.props.results.carbon_cost}</h4></div>
+                        <div className="col-xs-8">Cost of carbon fee</div>
+                        <div className="col-xs-4 cost">{this.props.results.carbon_cost}</div>
                     </div>
                     <div className="row top_buffer bottom_buffer">
                         <div className="col-sm-12 text-muted">Calculated by looking at your location and energy usage.</div>
@@ -49,7 +49,7 @@ class Results extends React.Component {
                       </div>
                       <div className="share_row row">
                         <div className="col-sm-12 text-muted"><label>Print: </label><a href="javascript:window.print()"><i className="fa fa-print"></i></a>
-                        <label>Share: </label> <i className="fa fa-twitter"></i><i className="fa fa-facebook"></i></div>
+                        <label>Share: </label> <a href="#"><i className="fa fa-twitter"></i></a><a href="#"><i className="fa fa-facebook"></i></a></div>
                       </div>
                       <div className="row">
                         <div className="col-sm-12 text-muted">* In real life there are many other factors to consider. However, this estimate is expected to be accurate within a range of 75%</div>

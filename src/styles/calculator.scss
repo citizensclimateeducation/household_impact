@@ -1,5 +1,9 @@
 @import 'variables';
 
+body {
+  font-size: 1.9em;
+}
+
 div.section {
   display: flex;
   height: 100vh;
@@ -69,7 +73,7 @@ div.footer a { visibility: hidden;}
 }
 
 form {
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 .navbar-brand {
@@ -97,14 +101,14 @@ div.card.intro_container {
 }
 
 .calculator_title {
-  font-size: 2.5em;
+  font-size: 2.2em;
   font-weight: bold;
   margin-bottom: 20px;
   line-height: 1.2em;
 }
 
 .explanation {
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 
 .form_title {
@@ -112,23 +116,29 @@ div.card.intro_container {
 }
 
 .footer {
+  width: 100%;
   text-align: center;
   font-size: 2.0em;
   @media(max-width: $screen-sm-min) { font-size :1.2em; }
   a, a:hover, i, button {
-    color: $dark-gray;
+    //color: $dark-gray;
+    background-color: $dark-gray;
+    color: white;
     text-decoration: none;
   }
   button {
     font-weight:bold;
     font-size: .8em;
     margin: 20px 0px;
+    min-width: 25%;
   }
   i {
     font-size: 2.5em;
   }
   padding-bottom:20px;
 }
+
+.share_row a { font-size: 1.6em; }
 
 .number_select {
   max-width: 60px;
@@ -173,6 +183,8 @@ div.card.intro_container {
 
 .spending_panel {
   display:none;
+
+  label { font-size: 1.2em; }
 }
 
 div.pre_calculate, div.print_spending {

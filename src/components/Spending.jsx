@@ -25,8 +25,8 @@ class Spending extends React.Component {
 
                       <div className="form_title">Next, a couple of questions about your spending.</div>
                       <div className="spending explanation">
-                          Let us know about how much you spend on electricity and gas or, if you've entered basic information above, we
-                          can <a href="#spending" id="calculate">calculate</a> defaults for you based on similar households.
+                        Households similar to yours spend approximately ${this.props.initial_elec}/mo on electricity and ${this.props.initial_gas}/week on gasoline.
+                        If this doesn't align with your spending, make adjustments here. 
                       </div>
 
                       <form>

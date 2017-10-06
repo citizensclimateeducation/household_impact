@@ -8,7 +8,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "build": "rm -r dist/* && webpack -p",
+    "build": "rm -r build/* && webpack -p",
     "start": "webpack-dev-server",
     "prod": "NODE_ENV=production node server.js",
     "postinstall": "webpack"
@@ -45,7 +45,7 @@
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
     "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.9.0"
+    "webpack-dev-server": "2.7.1"
   },
   "devDependencies": {
     "uglify-js": "git://github.com/mishoo/UglifyJS2#harmony-v2.8.22"
