@@ -8,7 +8,7 @@ const impact_study_url = 'https://ummel.ocpu.io/exampleR/R/predictModel/json'
 class BasicInfo extends React.Component {
     constructor() {
         super();
-        this.state = {age: '', adults: 1, children: 0, income: 15000, zip: ''}
+        this.state = {age: 18, adults: 1, children: 0, income: 15000, zip: ''}
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
