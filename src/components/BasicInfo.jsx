@@ -49,12 +49,13 @@ class BasicInfo extends React.Component {
 
         $('.calculating').fadeIn('slow');
         const zip = this.refs.zip
+        const basic_questions = this.state;
 
         axios.post(impact_study_url, JSON.stringify(data), {responseType: 'json', headers: {'Content-Type': 'application/json'}}).
         then(function(response) {
           $('.calculating').fadeOut('slow', function() {
             $('.spending_panel').fadeIn('slow', function() {
-              respond(response.data[0])
+              respond({...response.data[0], ...basic_questions})
             });
           });
         }).catch(function(error) {
@@ -127,7 +128,7 @@ class BasicInfo extends React.Component {
                         <div className="form-group">&nbsp;</div>
                         <div className="form-group row">
                             <label htmlFor="age" className="col-form-label col-sm-4 col-xs-6">Age of Head of Household</label>
-                            <div className="col-md-2 col-sm-3 col-xs-4">
+                            <div className="col-md-3 col-sm-3 col-xs-4">
                                 <NumericInput size={3} className="form-control" id="age" name="age" min={18} max={120}
                                     value={this.state.age} onChange={(val) => this.numberChange('age', val)} />
                             </div>

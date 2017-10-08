@@ -19,14 +19,18 @@ class Spending extends React.Component {
                     </div>
 
                     <div className="spending_panel">
+                      <div className="basic_info_data">
+                        <BasicInfoData adults={this.props.adults} children={this.props.children} zip={this.props.zip} income={this.props.income} age={this.props.age} />
+                      </div>
 
                       <div className="basic_info_data">
                       </div>
 
                       <div className="form_title">Next, a couple of questions about your spending.</div>
+
                       <div className="spending explanation">
                         Households similar to yours spend approximately ${this.props.initial_elec}/mo on electricity and ${this.props.initial_gas}/week on gasoline.
-                        If this doesn't align with your spending, make adjustments here. 
+                        If this doesn't align with your spending, make adjustments here.
                       </div>
 
                       <form>
@@ -49,9 +53,8 @@ class Spending extends React.Component {
                     </div>
                 </div>
                 <div className="footer">
-                    <a href="#results" className="scroll-down" onClick={(e)=>{nextSection(e, '#results')}}>
-                        <i className="fa fa-chevron-down"></i>
-                    </a>
+                    <button href="#results" className="btn btn-default btn_results" onClick={(e)=>{nextSection(e, '#results')}}>RESULTS</button>
+                    <button className="btn btn-default btn_back" href="#basic_questions" onClick={(e)=>{nextSection(e, '#basic_questions')}}>BACK</button>
                 </div>
             </div>
         )

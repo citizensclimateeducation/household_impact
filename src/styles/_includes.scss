@@ -1,0 +1,23 @@
+// $screen-sm-min: 768px;
+$screen-sm-min: 830px;
+$screen-md: 1080px;
+$light-gray: #fafafa;
+$green: #cbe470;
+$blue: #0098da;
+$dark-gray: #606062;
+$ccl-blue: #4fb8e6;
+$green-from: #D3E97B;
+$green-to: #A8CF45;
+$blue-from: #C6EBFC;
+$blue-to: #73CCF2;
+$dark-blue: #017ab0;
+
+@mixin linear-gradient($from, $to, $from_percent: 20%, $to_percent: 100%) {
+  background: $to;
+	background: -moz-linear-gradient(top, $from $from_percent, $to $to_percent);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop($from_percent,$from), color-stop($to_percent,$to));
+	background: -webkit-linear-gradient(top, $from $from_percent,$to $to_percent);
+	background: -o-linear-gradient(top, $from $from_percent, $to $to_percent);
+	background: linear-gradient(to bottom, $from $from_percent,$to $to_percent);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#{$from}, endColorstr=#{$to})
+}

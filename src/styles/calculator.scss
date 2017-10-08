@@ -1,4 +1,4 @@
-@import 'variables';
+@import 'includes';
 
 body {
   font-size: 1.9em;
@@ -11,7 +11,14 @@ div.section {
   justify-content: space-around;
 }
 
-div.card.input { background-color: $green; }
+div#basic_questions {
+  //background-color: $green;
+  @include linear-gradient($green-from, $green-to);
+}
+
+div#spending {
+  @include linear-gradient($blue-from, $blue-to);
+}
 
 #impact_calculator .navbar { margin-bottom: 0px; }
 
@@ -43,9 +50,14 @@ div.card#results {
 div.section.intro_basic, div.section.intro_basic div.card { height: 95vh; }
 div.footer a { visibility: hidden;}
 
+@media(max-width: $screen-md) {
+  body { font-size: 1.4em; }
+}
+
 /* wrap */
 @media(max-width: $screen-sm-min) {
   div.footer a { visibility: visible;}
+  body { font-size: 1.9em; }
 
   div.section, div.section.intro_basic {
     display: block;
@@ -57,7 +69,6 @@ div.footer a { visibility: hidden;}
   div.section.intro_basic div.card#intro { height: 95vh; }
   div.section.intro_basic div.card { height: 100vh; }
   div#basic_questions div.footer { border-bottom: 1px solid #eee; width: 100%; }
-
   div.card {
     // max-width: 600px;
     width: 100%;
@@ -70,6 +81,8 @@ div.footer a { visibility: hidden;}
     justify-content: space-between;
     align-items: center;
   }
+
+  .footer .btn_results { display: inline-block; }
 }
 
 form {
@@ -117,7 +130,7 @@ div.card.intro_container {
 
 .footer {
   width: 100%;
-  text-align: center;
+  text-align: left;
   font-size: 2.0em;
   @media(max-width: $screen-sm-min) { font-size :1.2em; }
   a, a:hover, i, button {
@@ -181,6 +194,8 @@ div.card.intro_container {
   }
 }
 
+div#intro .footer { text-align: center; }
+
 .spending_panel {
   display:none;
 
@@ -196,13 +211,20 @@ div.pre_calculate, div.print_spending {
   display: none;
 }
 
+.footer button:not(:first-child) { margin-left: 20px; }
+
 .impact_panel { background-color: $light-gray; border-top: 1px solid #eee; }
 
-div.header { width: 100%; }
-.print_only { display: none; }
+div.header, div.basic_info_data { width: 100%; }
+.print_only, .btn_results { display: none; }
 div.no_print { display: block; }
 div.card > div div {
   //padding: 0px 15px;
+}
+
+div.basic_info_data {
+  padding-bottom: 25px;
+  a {margin-left: 10px;}
 }
 
 @media(max-width: $screen-sm-min) {

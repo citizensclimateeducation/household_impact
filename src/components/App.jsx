@@ -48,8 +48,7 @@ class App extends React.Component {
           <BasicInfo setResults={this.setResults} gas={this.state.gas} elec={this.state.elec}/>
         </div>
         <div className="section pre_calculate">
-          <Spending setResults={this.setResults} gas={this.state.gas} elec={this.state.elec} handleSlide={this.handleSlide} initial_gas={this.state.initial_gas}
-              initial_elec={this.state.initial_elec} />
+          <Spending {...this.state} handleSlide={this.handleSlide} setResults={this.setResults} />
           <Results results={this.state}/>
         </div>
       </div>

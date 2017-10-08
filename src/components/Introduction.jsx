@@ -19,7 +19,7 @@ class Introduction extends React.Component {
                         Tell us a little bit about your lifestyle and we'll give you a personal estimate of the impact our solution will have on your budget.
                     </div>
                 </div>
-                <div className="footer">
+                <div className="footer text-center">
                     <a href="#basic_questions" className="scroll-down" onClick={(e)=>{nextSection(e, '#basic_questions')}}>
                         <div className="get_started">Get Started</div>
                         <i className="fa fa-chevron-down"></i>
