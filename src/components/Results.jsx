@@ -32,7 +32,7 @@ class Results extends React.Component {
                     </div>
                     <div className="impact_panel">
                       <div className="row top_buffer">
-                          <div className="col-xs-8 form_title">Estimated {this.net_profit() ? 'profit' : 'cost'} per year*</div>
+                          <div className="col-xs-8 form_title">Estimated {this.net_profit() ? 'gain' : 'cost'} per month*</div>
                           <div className="col-xs-4 form_title net_impact">{this.props.results.net_impact}</div>
                       </div>
                       <div className="row top_buffer">
