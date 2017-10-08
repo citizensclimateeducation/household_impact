@@ -1,8 +1,6 @@
 @import 'includes';
 
-body {
-  font-size: 1.9em;
-}
+body { font-size: 1.9em; }
 
 div.section {
   display: flex;
@@ -11,19 +9,11 @@ div.section {
   justify-content: space-around;
 }
 
-div#basic_questions {
-  //background-color: $green;
-  @include linear-gradient($green-from, $green-to);
-}
-
-div#spending {
-  @include linear-gradient($blue-from, $blue-to);
-}
-
+div#basic_questions { @include linear-gradient($green-from, $green-to); }
+div#spending { @include linear-gradient($blue-from, $blue-to); }
 #impact_calculator .navbar { margin-bottom: 0px; }
 
 div.card {
-  // max-width: 600px;
   width: 50%;
   margin-right: auto;
   margin-left: auto;
@@ -49,55 +39,8 @@ div.card#results {
 
 div.section.intro_basic, div.section.intro_basic div.card { height: 95vh; }
 div.footer a { visibility: hidden;}
-
-@media(max-width: $screen-md) {
-  body { font-size: 1.4em; }
-}
-
-/* wrap */
-@media(max-width: $screen-sm-min) {
-  div.footer a { visibility: visible;}
-  body { font-size: 1.9em; }
-
-  div.section, div.section.intro_basic {
-    display: block;
-    height: auto;
-    flex-direction: column;
-    justify-content: space-around;
-  }
-
-  div.section.intro_basic div.card#intro { height: 95vh; }
-  div.section.intro_basic div.card { height: 100vh; }
-  div#basic_questions div.footer { border-bottom: 1px solid #eee; width: 100%; }
-  div.card {
-    // max-width: 600px;
-    width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-    height: 100vh;
-    display:flex;
-    height: 100vh;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .footer .btn_results { display: inline-block; }
-}
-
-@media(max-width: $screen-phone) {
-  div.basic_info_data, div.tips { display: none; }
-  body { font-size: 1.4em; }
-  div.household-income-select, label.household-income-label { width: 100%; }
-}
-
-form {
-  margin-top: 50px;
-}
-
-.navbar-brand {
-  padding: 0px;
-}
+form { margin-top: 50px; }
+.navbar-brand { padding: 0px; }
 
 .print_banner img, .navbar-brand>img {
   height: 50px;
@@ -126,13 +69,8 @@ div.card.intro_container {
   line-height: 1.2em;
 }
 
-.explanation {
-  font-size: 1.2em;
-}
-
-.form_title {
-  font-size: 2.0em;
-}
+.explanation { font-size: 1.2em; }
+.form_title { font-size: 2.0em; }
 
 .footer {
   width: 100%;
@@ -155,27 +93,13 @@ div.card.intro_container {
     font-size: 2.5em;
   }
   padding-bottom:20px;
+  button.btn_back { color: $dark-gray; background-color: transparent; border-color: $dark-gray }
 }
 
-.footer button.btn_back { color: $dark-gray; background-color: transparent; border-color: $dark-gray }
-
-.share_row a { font-size: 1.6em; }
-
-.number_select {
-  max-width: 60px;
-}
-
-#electricity, #gasoline {
-  width: 90%;
-}
-
-.top_buffer {
-  margin-top: 20px;
-}
-
-.bottom_buffer {
-  margin-bottom: 20px;
-}
+.number_select { max-width: 60px; }
+#electricity, #gasoline { width: 90%; }
+.top_buffer { margin-top: 20px; }
+.bottom_buffer { margin-bottom: 20px; }
 
 .share_row {
   width: 100%;
@@ -185,6 +109,7 @@ div.card.intro_container {
     text-decoration: none;
     margin-left: 10px;
   }
+  a { font-size: 1.6em; }
   padding-bottom: 20px;
   label { margin-left: 25px; }
 }
@@ -210,33 +135,60 @@ div#intro .footer { text-align: center; }
   label { font-size: 1.2em; }
 }
 
-div.pre_calculate, div.print_spending {
-  display:none;
-}
-
 .search_failed {
   margin: 20px 0px;
   display: none;
 }
 
 .footer button:not(:first-child) { margin-left: 20px; }
-
 .impact_panel { background-color: $light-gray; border-top: 1px solid #eee; }
-
 div.header, div.basic_info_data { width: 100%; }
-.print_only, .btn_results { display: none; }
 div.no_print { display: block; }
-div.card > div div {
-  //padding: 0px 15px;
-}
 
 div.basic_info_data {
   padding-bottom: 25px;
   a {margin-left: 10px;}
 }
 
+@media(max-width: $screen-md) { body { font-size: 1.4em; } }
+
+/* wrap */
 @media(max-width: $screen-sm-min) {
+  div.footer a { visibility: visible;}
+  body { font-size: 1.9em; }
+
+  div.section, div.section.intro_basic {
+    display: block;
+    height: auto;
+    flex-direction: column;
+    justify-content: space-around;
+  }
   div.card > div { margin-left: 5px; }
   div.form-group.row { margin: 0px; }
   .form_title {font-size: 1.5em;}
+
+  div.section.intro_basic div.card#intro { height: 95vh; }
+  div.section.intro_basic div.card { height: 100vh; }
+  div.card {
+    // max-width: 600px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    height: 100vh;
+    display:flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer .btn_results { display: inline-block; }
 }
+
+@media(max-width: $screen-phone) {
+  div.basic_info_data, div.tips { display: none; }
+  body { font-size: 1.4em; }
+  div.household-income-select, label.household-income-label { width: 100%; }
+}
+
+.print_only, .btn_results, div.pre_calculate, div.print_spending { display: none; }

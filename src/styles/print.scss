@@ -3,7 +3,7 @@
   div#intro, div#spending, nav{ display: none; }
   div.print_banner { width: 100%; }
   div.footer, .share_row { visibility: hidden; }
-
+  body { font-size: 1.4em; }
   div#impact_calculator {
     display: flex;
     height: 100vh;
@@ -12,9 +12,6 @@
   }
   div#basic_questions, div#results {
     margin: 0px;
-  }
-  div#basic_questions {
-    width: 50%;
   }
   div.basic_info_panel {
     width: 90%;
@@ -28,4 +25,7 @@
   }
   .print_only { display: block; }
   div.no_print { display: none; }
+
+  div.section.intro_basic, div.section.pre_calculate, div.section.post_calculate { width: 50%; }
+  div#basic_questions, div#results { width: 100%; }
 }

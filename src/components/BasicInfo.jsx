@@ -160,7 +160,7 @@ class BasicInfo extends React.Component {
                             </div>
                         </div>
                     </form>
-                  <div className="print_spending">
+                  <div className="print_spending print_only">
                     <hr/>
                     <div className="row top_buffer">
                         <div className="col-xs-8">Typical Monthly Electricity Bill</div>
