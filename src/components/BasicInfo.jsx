@@ -128,21 +128,21 @@ class BasicInfo extends React.Component {
                         <div className="form-group">&nbsp;</div>
                         <div className="form-group row">
                             <label htmlFor="age" className="col-form-label col-sm-4 col-xs-6">Age of Head of Household</label>
-                            <div className="col-md-3 col-sm-3 col-xs-4">
+                            <div className="col-md-3 col-sm-3 col-xs-5">
                                 <NumericInput size={3} className="form-control" id="age" name="age" min={18} max={120}
                                     value={this.state.age} onChange={(val) => this.numberChange('age', val)} />
                             </div>
                         </div>
                         <div className="form-group row">
                             <label htmlFor="zip" className="col-form-label col-sm-4 col-xs-6">Zip Code</label>
-                            <div className="col-sm-4 col-xs-4">
+                            <div className="col-sm-4 col-xs-5">
                                 <input size="8" className="form-control" id="zip" name="zip" placeholder="Zip Code" ref="zip"
                                        value={this.state.zip} onChange={this.handleChange} onKeyPress={(e) => this.validZip(e)} />
                             </div>
                         </div>
                         <div className="form-group row">
-                            <label htmlFor="income" className="col-form-label col-sm-4 col-xs-6">Household Income</label>
-                            <div className="col-sm-6 col-xs-6">
+                            <label htmlFor="income" className="col-form-label col-sm-4 col-xs-6 household-income-label">Household Income</label>
+                            <div className="col-sm-6 col-xs-6 household-income-select">
                                 <select className="form-control" id="income" name="income" value={this.state.income} onChange={this.handleChange}>
                                     <option value="10000">&lt; $10,000</option>
                                     <option value="15000">$10,000 - $20,000</option>

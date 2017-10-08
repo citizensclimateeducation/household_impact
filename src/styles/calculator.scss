@@ -85,6 +85,12 @@ div.footer a { visibility: hidden;}
   .footer .btn_results { display: inline-block; }
 }
 
+@media(max-width: $screen-phone) {
+  div.basic_info_data, div.tips { display: none; }
+  body { font-size: 1.4em; }
+  div.household-income-select, label.household-income-label { width: 100%; }
+}
+
 form {
   margin-top: 50px;
 }
@@ -150,6 +156,8 @@ div.card.intro_container {
   }
   padding-bottom:20px;
 }
+
+.footer button.btn_back { color: $dark-gray; background-color: transparent; border-color: $dark-gray }
 
 .share_row a { font-size: 1.6em; }
 

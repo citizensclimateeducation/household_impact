@@ -9,6 +9,6 @@ export const nextSection = (e, next_section_id) => {
     $('html, body').animate({scrollTop: $($(next_section_id)).offset().top}, 500, 'linear');
 }
 
-export const toCurrency = (val) => {
-  return numeral(val).format('$0,0.00')
+export const toCurrency = (val, format = '$0,0.00') => {
+  return numeral(val).format(format)
 }

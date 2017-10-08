@@ -11,7 +11,8 @@ require('../images/favicon.ico')
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { div_pre: 0, mrate: 0.15, elec: 100, gas: 100, cost: '', net_impact: 0, carbon_cost: 0, div_post: 0, initial_gas: 0, initial_elec: 0 }
+    this.state = { div_pre: 0, mrate: 0.15, elec: 100, gas: 100, cost: '', net_impact: 0,
+                  carbon_cost: 0, div_post: 0, initial_gas: 0, initial_elec: 0, div_month: 0, cost_month: 0, impact_month: 0 }
     this.setResults = this.setResults.bind(this)
   }
 
@@ -25,10 +26,11 @@ class App extends React.Component {
     var gas = this.state.gas
     var cost = eval(this.state.cost)
     var div_post = numeral(this.state.div_pre).value() * (1.0 - numeral(this.state.mrate).value())
+
     this.setState({
-      net_impact: toCurrency(div_post - cost),
-      carbon_cost: toCurrency(cost),
-      div_post: toCurrency(div_post)
+      net_impact: toCurrency((div_post - cost) / 12),
+      carbon_cost: toCurrency(cost / 12),
+      div_post: toCurrency(div_post / 12)
     })
   }
 

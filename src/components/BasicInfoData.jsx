@@ -34,7 +34,7 @@ class BasicInfoData extends React.Component {
             </div>
             <div className="row">
               <div className="col-xs-8 col-md-6"><h4>Household Income</h4></div>
-              <div className="col-xs-4 col-md-6"><h4>{toCurrency(this.props.income)}</h4></div>
+              <div className="col-xs-4 col-md-6"><h4>{toCurrency(this.props.income, '$0,0')}</h4></div>
             </div>
           </div>
         )
