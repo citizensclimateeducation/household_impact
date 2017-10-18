@@ -20,7 +20,7 @@ class Spending extends React.Component {
 
                     <div className="spending_panel">
                       <div className="basic_info_data">
-                        <BasicInfoData adults={this.props.adults} children={this.props.children} zip={this.props.zip} income={this.props.income} age={this.props.age} />
+                        <BasicInfoData adults={this.props.adults} children={this.props.children} zip={this.props.zip} income={this.props.income} />
                       </div>
 
                       <div className="basic_info_data">
@@ -29,8 +29,6 @@ class Spending extends React.Component {
                       <div className="form_title">Next, a couple of questions about your spending.</div>
 
                       <div className="spending explanation">
-                        Households similar to yours spend approximately ${this.props.initial_elec}/mo on electricity and ${this.props.initial_gas}/week on gasoline.
-                        If this doesn't align with your spending, make adjustments here.
                       </div>
 
                       <form>

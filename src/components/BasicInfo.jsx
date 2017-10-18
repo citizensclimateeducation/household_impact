@@ -8,7 +8,7 @@ const impact_study_url = 'https://ummel.ocpu.io/exampleR/R/predictModel/json'
 class BasicInfo extends React.Component {
     constructor() {
         super();
-        this.state = {age: 18, adults: 1, children: 0, income: 15000, zip: ''}
+        this.state = {heating_type: 'Natural gas', vehicles: 2, adults: 1, children: 0, income: 15000, zip: '', rooms: 3}
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -17,7 +17,7 @@ class BasicInfo extends React.Component {
 
     handleChange = (event) => { this.setState({ [event.target.name]: event.target.value }); }
     numberChange = (name, val) => { this.setState({[name]: val}) }
-    valid = () => { return (this.state.age && this.state.income && this.state.zip) }
+    valid = () => { return (this.state.income && this.state.zip) }
 
     validZip = (e) => {
       const re = /^[0-9]{0,5}$/
@@ -39,10 +39,12 @@ class BasicInfo extends React.Component {
 
         var data = {input: [{
             zip: this.state.zip,
-            hhsize: Number(this.state.adults) + Number(this.state.children),
-            minors: Number(this.state.children),
-            age: this.state.age,
-            income: this.state.income
+            na: Number(this.state.adults) + Number(this.state.children),
+            nc: Number(this.state.children),
+            hinc: this.state.income,
+            hfuel: this.state.heating_type,
+            veh: String(this.state.vehicles),
+            rms: String(this.state.rooms)
         }]};
 
         const respond = this.props.setResults;
@@ -127,10 +129,41 @@ class BasicInfo extends React.Component {
                         </div>
                         <div className="form-group">&nbsp;</div>
                         <div className="form-group row">
-                            <label htmlFor="age" className="col-form-label col-sm-4 col-xs-6">Age of Head of Household</label>
-                            <div className="col-md-3 col-sm-3 col-xs-5">
-                                <NumericInput size={3} className="form-control" id="age" name="age" min={18} max={120}
-                                    value={this.state.age} onChange={(val) => this.numberChange('age', val)} />
+                            <label htmlFor="heating_type" className="col-form-label col-sm-4 col-xs-6">Heating Fuel</label>
+                            <div className="col-md-4 col-sm-6 col-xs-6">
+                                <select className="form-control" id="heating_type" name="heating_type" value={this.state.heating_type} onChange={this.handleChange}>>
+                                    <option>Natural gas</option>
+                                    <option>Electricity</option>
+                                    <option>LPG/Propane</option>
+                                    <option>Heating oil</option>
+                                    <option>Other or none</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div className="form-group row">
+                            <label htmlFor="vehicles" className="col-form-label col-sm-4 col-xs-6">Number of Vehicles</label>
+                            <div className="col-md-4 col-sm-6 col-xs-6">
+                                <select className="form-control number_select" id="vehicles" name="vehicles" value={this.state.vehicles} onChange={this.handleChange}>>
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5+</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div className="form-group row">
+                            <label htmlFor="rooms" className="col-form-label col-sm-4 col-xs-6">Rooms in Dwelling</label>
+                            <div className="col-md-4 col-sm-6 col-xs-6">
+                                <select className="form-control number_select" id="rooms" name="rooms" value={this.state.rooms} onChange={this.handleChange}>>
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5+</option>
+                                </select>
                             </div>
                         </div>
                         <div className="form-group row">

@@ -25,8 +25,6 @@ class BasicInfoData extends React.Component {
               <div className="col-xs-4  col-md-6"><h4>{this.props.children}</h4></div>
             </div>
             <div className="row">
-              <div className="col-xs-8 col-md-6"><h4>Age of Head of Household</h4></div>
-              <div className="col-xs-4 col-md-6"><h4>{this.props.age}</h4></div>
             </div>
             <div className="row">
               <div className="col-xs-8 col-md-6"><h4>Zip Code</h4></div>
