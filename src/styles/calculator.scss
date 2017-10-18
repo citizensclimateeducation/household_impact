@@ -188,7 +188,7 @@ div.basic_info_data {
 @media(max-width: $screen-phone) {
   div.basic_info_data, div.tips { display: none; }
   body { font-size: 1.4em; }
-  div.household-income-select, label.household-income-label { width: 100%; }
+  // div.household-income-select, label.household-income-label { width: 100%; }
 }
 
 .print_only, .btn_results, div.pre_calculate, div.print_spending { display: none; }
