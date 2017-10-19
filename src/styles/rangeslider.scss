@@ -29,30 +29,33 @@
   opacity: 1;
 }
 .rangeslider .rangeslider__handle-tooltip {
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.8);
-  font-weight: normal;
-  font-size: 14px;
-  transition: all 100ms ease-in;
-  border-radius: 4px;
-  display: inline-block;
-  color: white;
-  left: 50%;
-  transform: translate3d(-50%, 0, 0);
+  // width: 40px;
+  // height: 40px;
+  // text-align: center;
+  // position: absolute;
+  // background-color: rgba(0, 0, 0, 0.8);
+  // font-weight: normal;
+  // font-size: 14px;
+  // transition: all 100ms ease-in;
+  // border-radius: 4px;
+  // display: inline-block;
+  // color: white;
+  // left: 50%;
+  // transform: translate3d(-50%, 0, 0);
+  display: none;
 }
 .rangeslider .rangeslider__handle-tooltip span {
-  margin-top: 12px;
-  display: inline-block;
-  line-height: 100%;
+  // margin-top: 12px;
+  // display: inline-block;
+  // line-height: 100%;
+  display:none;
 }
 .rangeslider .rangeslider__handle-tooltip:after {
-  content: ' ';
-  position: absolute;
-  width: 0;
-  height: 0;
+  // content: ' ';
+  // position: absolute;
+  // width: 0;
+  // height: 0;
+  display:none;
 }
 /**
 * Rangeslider - Horizontal slider

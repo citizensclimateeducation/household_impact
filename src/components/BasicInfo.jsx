@@ -10,7 +10,7 @@ const impact_study_url = 'https://ummel.ocpu.io/exampleR/R/predictModel/json'
 class BasicInfo extends React.Component {
     constructor() {
         super();
-        this.state = {heating_type: 'Natural gas', vehicles: 2, adults: 1, children: 0, income: 15000, zip: '', rooms: 3}
+        this.state = {heating_type: 'Natural gas', vehicles: 2, adults: 1, children: 0, income: this.position_to_income(800), income_pos: 800, zip: '', rooms: 3}
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -76,33 +76,16 @@ class BasicInfo extends React.Component {
       }
     }
 
-    valueMapping = (min, max) => ({
-  		'0': {
-  			toValue: (percentage, range) => Math.round(
-  				(percentage < range ? percentage : range) * 100 * 2
-  			),
-  			toPos: value => value / 2 / 100,
-  		},
-  		'.25': {
-  			toValue: (percentage, range) => Math.round(
-  				(percentage < range ? percentage : range) * 100
-  			),
-  			toPos: value => value / 100,
-  		},
-  		'.5': {
-  			toValue: (percentage, range, value) => Math.round(
-  				percentage / range * (max - value)
-  			),
-  			toPos: (value, range, span) => (
-  				value / span * range
-  			),
-  		}
-  	});
-
-    handleSlide = (val) => {
-      console.log("Income: " + val)
-      this.setState({income: val})
+    // based on https://stackoverflow.com/questions/846221/logarithmic-slider
+    position_to_income = (val) => {
+      const minlval = 0
+      const maxlval = 12.89921982609012; // Math.log(400000)
+      const scale = 0.01289921982609012; //maxlval / 1000
+      return Math.exp(val * scale)
     }
+
+    // TODO: extract // 0 to 1000 maps to 0 to 400,000 logarithmically
+    handleSlide = (val) => { this.setState({income: this.position_to_income(val), income_pos: val}) }
 
     render() {
         return (
@@ -211,7 +194,7 @@ class BasicInfo extends React.Component {
                         <div className="form-group">
                             <label htmlFor="income">Household Income: {toCurrency(this.state.income, '$0,0')}</label>
                             <div className="no_print">
-                                <Slider min={0} max={400000} step={100} value={this.state.income} onChange={this.handleSlide}/>
+                                <Slider min={0} max={1000} step={1} value={this.state.income_pos} onChange={this.handleSlide}/>
                             </div>
                         </div>
                     </form>
