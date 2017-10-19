@@ -10,7 +10,7 @@ const impact_study_url = 'https://ummel.ocpu.io/exampleR/R/predictModel/json'
 class BasicInfo extends React.Component {
     constructor() {
         super();
-        this.state = {heating_type: 'Natural gas', vehicles: 2, adults: 1, children: 0, income: this.position_to_income(800), income_pos: 800, zip: '', rooms: 3}
+        this.state = {heating_type: 'Natural gas', vehicles: 2, adults: 1, children: 0, income: this.position_to_income(500), income_pos: 500, zip: '', rooms: 3}
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -78,10 +78,13 @@ class BasicInfo extends React.Component {
 
     // based on https://stackoverflow.com/questions/846221/logarithmic-slider
     position_to_income = (val) => {
-      const minlval = 0
-      const maxlval = 12.89921982609012; // Math.log(400000)
-      const scale = 0.01289921982609012; //maxlval / 1000
-      return Math.exp(val * scale)
+      const minp = 0;
+      const maxp = 1000;
+      const minv = 8.517193191416238; //Math.log(5000);
+      const maxv = 12.89921982609012; //Math.log(400000);
+      // calculate adjustment factor
+      var scale = 0.004382026634673881; // (maxv-minv) / (maxp-minp);
+      return Math.exp(minv + scale*(val-minp));
     }
 
     // TODO: extract // 0 to 1000 maps to 0 to 400,000 logarithmically
