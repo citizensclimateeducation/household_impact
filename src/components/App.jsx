@@ -12,7 +12,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = { div_pre: 0, mrate: 0.15, elec: 100, gas: 75, heat: 50, cost: '', net_impact: 0, moe: 0, gas_upr: 200, elec_upr: 200,
-                  heat_upr: 0, carbon_cost: 0, div_post: 0, initial_gas: 0, initial_elec: 0, div_month: 0, cost_month: 0, impact_month: 0 }
+                  heat_upr: 0, carbon_cost: 0, div_post: 0, initial_heat: 0, initial_gas: 0, initial_elec: 0, div_month: 0, cost_month: 0, impact_month: 0 }
     this.setResults = this.setResults.bind(this)
   }
 
@@ -38,7 +38,7 @@ class App extends React.Component {
   setResults(e) {
     console.log(e)
     this.setState(e)
-    this.setState({initial_gas: e.gas, initial_elec: e.elec})
+    this.setState({initial_gas: e.gas, initial_elec: e.elec, initial_heat: e.heat})
     this.calculateCost()
   }
 

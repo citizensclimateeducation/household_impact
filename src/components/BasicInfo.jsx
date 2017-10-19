@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+import Slider from 'react-rangeslider';
 import NumericInput from 'react-numeric-input';
-import {nextSection} from '../lib/Utility.jsx';
+import {nextSection, toCurrency} from '../lib/Utility.jsx';
+// import {toCurrency} from '../lib/Utility.jsx';
 
 const impact_study_url = 'https://ummel.ocpu.io/exampleR/R/predictModel/json'
 
@@ -74,6 +76,34 @@ class BasicInfo extends React.Component {
       }
     }
 
+    valueMapping = (min, max) => ({
+  		'0': {
+  			toValue: (percentage, range) => Math.round(
+  				(percentage < range ? percentage : range) * 100 * 2
+  			),
+  			toPos: value => value / 2 / 100,
+  		},
+  		'.25': {
+  			toValue: (percentage, range) => Math.round(
+  				(percentage < range ? percentage : range) * 100
+  			),
+  			toPos: value => value / 100,
+  		},
+  		'.5': {
+  			toValue: (percentage, range, value) => Math.round(
+  				percentage / range * (max - value)
+  			),
+  			toPos: (value, range, span) => (
+  				value / span * range
+  			),
+  		}
+  	});
+
+    handleSlide = (val) => {
+      console.log("Income: " + val)
+      this.setState({income: val})
+    }
+
     render() {
         return (
             <div id="basic_questions" className="card input">
@@ -97,9 +127,10 @@ class BasicInfo extends React.Component {
                         <div className="form-group row">
                           <label className="col-form-label col-sm-8 col-xs-12">HOUSEHOLD SIZE</label>
                         </div>
-                        <div className="form-group row">
-                            <label htmlFor="adults" className="col-form-label col-sm-4 col-xs-6">Adults</label>
-                            <div className="col-sm-8 col-xs-6">
+                        <div className="row">
+                          <div className="form-group col-md-6 row">
+                            <label htmlFor="adults" className="col-form-label col-md-8 col-sm-4 col-xs-6">Adults</label>
+                            <div className="col-md-4 col-sm-8 col-xs-6">
                                 <select className="form-control number_select" id="adults" name="adults" value={this.state.adults} onChange={this.handleChange}>
                                     <option>1</option>
                                     <option>2</option>
@@ -109,25 +140,54 @@ class BasicInfo extends React.Component {
                                     <option>6</option>
                                 </select>
                             </div>
+                            </div>
+                            <div className="form-group col-md-6 row">
+                                <label htmlFor="adults" className="col-form-label col-md-8 col-sm-4 col-xs-6">Children</label>
+                                <div className="col-md-4 col-sm-8 col-xs-6">
+                                    <select className="form-control number_select" id="children" name="children" value={this.state.children} onChange={this.handleChange}>>
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                        <div className="form-group row">
-                            <label htmlFor="adults" className="col-form-label col-sm-4 col-xs-6">Children</label>
-                            <div className="col-sm-8 col-xs-6">
-                                <select className="form-control number_select" id="children" name="children" value={this.state.children} onChange={this.handleChange}>>
+                        <div className="form-group">&nbsp;</div>
+                        <div className="row">
+                          <div className="form-group col-md-6 row">
+                              <label htmlFor="vehicles" className="col-form-label col-md-8 col-sm-4 col-xs-6">Vehicles</label>
+                              <div className="col-sm-4 col-xs-6">
+                                <select className="form-control number_select" id="vehicles" name="vehicles" value={this.state.vehicles} onChange={this.handleChange}>>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
                                     <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
+                                    <option>5+</option>
                                 </select>
+                              </div>
+                          </div>
+                          <div className="form-group col-md-6 row">
+                            <label htmlFor="rooms" className="col-form-label col-md-8 col-sm-4 col-xs-6">Rooms</label>
+                            <div className="col-md-4 col-sm-4 col-xs-4">
+                              <select className="form-control number_select" id="rooms" name="rooms" value={this.state.rooms} onChange={this.handleChange}>>
+                                  <option>0</option>
+                                  <option>1</option>
+                                  <option>2</option>
+                                  <option>3</option>
+                                  <option>4</option>
+                                  <option>5+</option>
+                              </select>
                             </div>
+                          </div>
                         </div>
-                        <div className="form-group">&nbsp;</div>
                         <div className="form-group row">
                             <label htmlFor="heating_type" className="col-form-label col-sm-4 col-xs-6">Heating Fuel</label>
                             <div className="col-md-4 col-sm-6 col-xs-6">
@@ -141,55 +201,17 @@ class BasicInfo extends React.Component {
                             </div>
                         </div>
                         <div className="form-group row">
-                            <label htmlFor="vehicles" className="col-form-label col-sm-4 col-xs-6">Number of Vehicles</label>
-                            <div className="col-md-4 col-sm-6 col-xs-6">
-                                <select className="form-control number_select" id="vehicles" name="vehicles" value={this.state.vehicles} onChange={this.handleChange}>>
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5+</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div className="form-group row">
-                            <label htmlFor="rooms" className="col-form-label col-sm-4 col-xs-6">Rooms in Dwelling</label>
-                            <div className="col-md-4 col-sm-6 col-xs-6">
-                                <select className="form-control number_select" id="rooms" name="rooms" value={this.state.rooms} onChange={this.handleChange}>>
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5+</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div className="form-group row">
                             <label htmlFor="zip" className="col-form-label col-sm-4 col-xs-6">Zip Code</label>
                             <div className="col-sm-4 col-xs-5">
                                 <input size="8" className="form-control" id="zip" name="zip" placeholder="Zip Code" ref="zip"
                                        value={this.state.zip} onChange={this.handleChange} onKeyPress={(e) => this.validZip(e)} />
                             </div>
                         </div>
-                        <div className="form-group row">
-                            <label htmlFor="income" className="col-form-label col-sm-4 col-xs-6 household-income-label">Household Income</label>
-                            <div className="col-sm-6 col-xs-6 household-income-select">
-                                <select className="form-control" id="income" name="income" value={this.state.income} onChange={this.handleChange}>
-                                    <option value="10000">&lt; $10,000</option>
-                                    <option value="15000">$10,000 - $20,000</option>
-                                    <option value="30000">$20,000 - $40,000</option>
-                                    <option value="50000">$40,000 - $60,000</option>
-                                    <option value="60000">$50,000 - $70,000</option>
-                                    <option value="80000">$70,000 - $90,000</option>
-                                    <option value="100000">$90,000 - $110,000</option>
-                                    <option value="120000">$110,000 - $130,000</option>
-                                    <option value="140000">$130,000 - $150,000</option>
-                                    <option value="175000">$150,000 - $200,000</option>
-                                    <option value="225000">$200,000 - $250,000</option>
-                                    <option value="300000">&gt; $250,000</option>
-                                </select>
+                        <div className="form-group">&nbsp;</div>
+                        <div className="form-group">
+                            <label htmlFor="income">Household Income: {toCurrency(this.state.income, '$0,0')}</label>
+                            <div>
+                                <Slider min={0} max={400000} step={100} value={this.state.income} onChange={this.handleSlide}/>
                             </div>
                         </div>
                     </form>

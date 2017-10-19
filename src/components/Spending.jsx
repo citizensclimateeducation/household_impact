@@ -20,15 +20,15 @@ class Spending extends React.Component {
 
                     <div className="spending_panel">
                       <div className="basic_info_data">
-                        <BasicInfoData adults={this.props.adults} children={this.props.children} zip={this.props.zip} income={this.props.income} />
-                      </div>
-
-                      <div className="basic_info_data">
+                        <BasicInfoData adults={this.props.adults} children={this.props.children} zip={this.props.zip}
+                                        income={this.props.income} vehicles={this.props.vehicles} rooms={this.props.rooms} />
                       </div>
 
                       <div className="form_title">Next, a couple of questions about your spending.</div>
 
-                      <div className="spending explanation">
+                      <div className="spending">
+                      Households similar to yours spend approximately ${this.props.initial_elec}/mo on electricity, ${this.props.initial_gas}/week on gasoline,
+                      and ${this.props.initial_heat}/mo on heating. If this doesn't align with your spending, make adjustments here.
                       </div>
 
                       <form>
@@ -47,6 +47,16 @@ class Spending extends React.Component {
                                           onChange={(val) => {this.props.handleSlide('gas', val)}}/>
                               </div>
                           </div>
+
+                          {this.props.heat > 0 && (
+                            <div className="form-group">
+                                <label htmlFor="electricity">Typical Monthly Heating Expediture: ${this.props.heat}</label>
+                                <div>
+                                    <Slider min={0} max={300} step={1} value={this.props.heat}
+                                            onChange={(val) => {this.props.handleSlide('heat', val)}}/>
+                                </div>
+                            </div>
+                          )}
                       </form>
                     </div>
                 </div>
