@@ -50,7 +50,7 @@ class Spending extends React.Component {
 
                           {this.props.heat > 0 && (
                             <div className="form-group">
-                                <label htmlFor="electricity">Typical Monthly Heating Expediture: ${this.props.heat}</label>
+                                <label htmlFor="electricity">Typical Monthly {this.props.heating_type} Expediture: ${this.props.heat}</label>
                                 <div>
                                     <Slider min={0} max={300} step={1} value={this.props.heat}
                                             onChange={(val) => {this.props.handleSlide('heat', val)}}/>

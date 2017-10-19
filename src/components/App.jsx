@@ -48,7 +48,7 @@ class App extends React.Component {
         <Menu/>
         <div className="section intro_basic">
           <Introduction/>
-          <BasicInfo setResults={this.setResults} gas={this.state.gas} elec={this.state.elec}/>
+          <BasicInfo setResults={this.setResults} gas={this.state.gas} elec={this.state.elec} heat={this.state.heat} />
         </div>
         <div className="section pre_calculate">
           <Spending {...this.state} handleSlide={this.handleSlide} setResults={this.setResults} />

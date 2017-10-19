@@ -210,7 +210,7 @@ class BasicInfo extends React.Component {
                         <div className="form-group">&nbsp;</div>
                         <div className="form-group">
                             <label htmlFor="income">Household Income: {toCurrency(this.state.income, '$0,0')}</label>
-                            <div>
+                            <div className="no_print">
                                 <Slider min={0} max={400000} step={100} value={this.state.income} onChange={this.handleSlide}/>
                             </div>
                         </div>
@@ -225,6 +225,12 @@ class BasicInfo extends React.Component {
                         <div className="col-xs-8">Typical Weekly Gasoline Expenditure</div>
                         <div className="col-xs-4">${this.props.gas}</div>
                     </div>
+                    {this.props.heat > 0 &&
+                      <div className="row top_buffer">
+                          <div className="col-xs-8">Typical Monthly {this.state.heating_type} Expenditure</div>
+                          <div className="col-xs-4">{toCurrency(this.props.heat)}</div>
+                      </div>
+                    }
                   </div>
                 </div>
                 <div className="footer">
