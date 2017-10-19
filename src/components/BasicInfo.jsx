@@ -129,8 +129,8 @@ class BasicInfo extends React.Component {
                         </div>
                         <div className="row">
                           <div className="form-group col-md-6 row">
-                            <label htmlFor="adults" className="col-form-label col-md-8 col-sm-4 col-xs-6">Adults</label>
-                            <div className="col-md-4 col-sm-8 col-xs-6">
+                            <label htmlFor="adults" className="col-form-label col-lg-4 col-md-7 col-sm-4 col-xs-6">Adults</label>
+                            <div className="col-md-5 col-sm-8 col-xs-6">
                                 <select className="form-control number_select" id="adults" name="adults" value={this.state.adults} onChange={this.handleChange}>
                                     <option>1</option>
                                     <option>2</option>
@@ -142,8 +142,8 @@ class BasicInfo extends React.Component {
                             </div>
                             </div>
                             <div className="form-group col-md-6 row">
-                                <label htmlFor="adults" className="col-form-label col-md-8 col-sm-4 col-xs-6">Children</label>
-                                <div className="col-md-4 col-sm-8 col-xs-6">
+                                <label htmlFor="adults" className="col-form-label col-lg-4 col-md-7 col-sm-4 col-xs-6">Children</label>
+                                <div className="col-md-5 col-sm-8 col-xs-6">
                                     <select className="form-control number_select" id="children" name="children" value={this.state.children} onChange={this.handleChange}>>
                                         <option>0</option>
                                         <option>1</option>
@@ -159,11 +159,10 @@ class BasicInfo extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="form-group">&nbsp;</div>
                         <div className="row">
                           <div className="form-group col-md-6 row">
-                              <label htmlFor="vehicles" className="col-form-label col-md-8 col-sm-4 col-xs-6">Vehicles</label>
-                              <div className="col-sm-4 col-xs-6">
+                              <label htmlFor="vehicles" className="col-form-label col-lg-4 col-md-7 col-sm-4 col-xs-6">Vehicles</label>
+                              <div className="col-md-5 col-sm-4 col-xs-6">
                                 <select className="form-control number_select" id="vehicles" name="vehicles" value={this.state.vehicles} onChange={this.handleChange}>>
                                     <option>0</option>
                                     <option>1</option>
@@ -175,8 +174,8 @@ class BasicInfo extends React.Component {
                               </div>
                           </div>
                           <div className="form-group col-md-6 row">
-                            <label htmlFor="rooms" className="col-form-label col-md-8 col-sm-4 col-xs-6">Rooms</label>
-                            <div className="col-md-4 col-sm-4 col-xs-4">
+                            <label htmlFor="rooms" className="col-form-label col-lg-4 col-md-7 col-sm-4 col-xs-6">Rooms</label>
+                            <div className="col-md-5 col-sm-4 col-xs-4">
                               <select className="form-control number_select" id="rooms" name="rooms" value={this.state.rooms} onChange={this.handleChange}>>
                                   <option>0</option>
                                   <option>1</option>
@@ -188,6 +187,7 @@ class BasicInfo extends React.Component {
                             </div>
                           </div>
                         </div>
+                        <div className="form-group">&nbsp;</div>
                         <div className="form-group row">
                             <label htmlFor="heating_type" className="col-form-label col-sm-4 col-xs-6">Heating Fuel</label>
                             <div className="col-md-4 col-sm-6 col-xs-6">
