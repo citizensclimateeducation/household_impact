@@ -1,12 +1,14 @@
 import React from 'react'
 import numeral from 'numeral/min/numeral.min.js'
+import {toCurrency} from '../lib/Utility.jsx'
 
 class Results extends React.Component {
     constructor(props) {
         super(props);
     }
 
-    net_profit = () => { return numeral(this.props.results.net_impact).value() >= 0 }
+    net_profit = () => { return this.props.results.net_impact >= 0 }
+    displayImpact = () => { return toCurrency(Math.abs(this.props.results.net_impact))}
 
     render() {
         return (
@@ -32,8 +34,8 @@ class Results extends React.Component {
                     </div>
                     <div className="impact_panel">
                       <div className="row top_buffer">
-                          <div className="col-xs-8 form_title">Estimated {this.net_profit() ? 'gain' : 'cost'} per month*</div>
-                          <div className="col-xs-4 form_title net_impact">{this.props.results.net_impact}</div>
+                          <div className="col-xs-8 form_title">Estimated {this.net_profit() ? 'gain' : 'loss'} per month*</div>
+                          <div className="col-xs-4 form_title net_impact">{this.displayImpact()}</div>
                       </div>
                       <div className="row top_buffer">
                           <div className="col-sm-12 text-muted summary">
@@ -45,7 +47,10 @@ class Results extends React.Component {
                           </div>
                       </div>
                       <div className="row top_buffer">
-                          <div className="col-sm-12 text-muted tips">Want more money in your pocket? <a href="#">Learn how to reduce your footprint</a> and keep more of your dividend check</div>
+                          <div className="col-sm-12 text-muted tips">
+                            Learn more about <a href="https://citizensclimatelobby.org/basics-carbon-fee-dividend/" target="_blank">Carbon Fee and Dividend</a> and then
+                            join <a href="https://citizensclimatelobby.org/join-citizens-climate-lobby/" target="_blank">Citizens Climage Lobby</a> to help us get CF&D passed.
+                          </div>
                       </div>
                       <div className="share_row row">
                         <div className="col-sm-12 text-muted"><label>Print: </label><a href="javascript:window.print()"><i className="fa fa-print"></i></a>

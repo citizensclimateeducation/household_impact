@@ -10,7 +10,7 @@ const impact_study_url = 'https://ummel.ocpu.io/exampleR/R/predictModel/json'
 class BasicInfo extends React.Component {
     constructor() {
         super();
-        this.state = {heating_type: 'Natural gas', vehicles: 2, adults: 1, children: 0, income: this.position_to_income(500), income_pos: 500, zip: '', rooms: 3}
+        this.state = {heating_type: 'Natural gas', vehicles: 2, adults: 1, children: 0, income: this.position_to_income(272), income_pos: 272, zip: '', rooms: 3}
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -76,15 +76,18 @@ class BasicInfo extends React.Component {
       }
     }
 
+    toNearestThousand = (val) => { return Math.ceil(((val + 1) / 1000)) * 1000 }
+
     // based on https://stackoverflow.com/questions/846221/logarithmic-slider
     position_to_income = (val) => {
+      console.log(val)
       const minp = 0;
-      const maxp = 1000;
+      const maxp = 500;
       const minv = 8.517193191416238; //Math.log(5000);
       const maxv = 12.89921982609012; //Math.log(400000);
       // calculate adjustment factor
-      var scale = 0.004382026634673881; // (maxv-minv) / (maxp-minp);
-      return Math.exp(minv + scale*(val-minp));
+      var scale = 0.008764053269347762; // (maxv-minv) / (maxp-minp);
+      return this.toNearestThousand(Math.exp(minv + scale*(val-minp)))
     }
 
     // TODO: extract // 0 to 1000 maps to 0 to 400,000 logarithmically
@@ -154,8 +157,7 @@ class BasicInfo extends React.Component {
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
-                                    <option>4</option>
-                                    <option>5+</option>
+                                    <option value='4'>4+</option>
                                 </select>
                               </div>
                           </div>
@@ -168,7 +170,7 @@ class BasicInfo extends React.Component {
                                   <option>2</option>
                                   <option>3</option>
                                   <option>4</option>
-                                  <option>5+</option>
+                                  <option value='5'>5+</option>
                               </select>
                             </div>
                           </div>
@@ -197,7 +199,7 @@ class BasicInfo extends React.Component {
                         <div className="form-group">
                             <label htmlFor="income">Household Income: {toCurrency(this.state.income, '$0,0')}</label>
                             <div className="no_print">
-                                <Slider min={0} max={1000} step={1} value={this.state.income_pos} onChange={this.handleSlide}/>
+                                <Slider min={0} max={500} step={1} value={this.state.income_pos} onChange={this.handleSlide}/>
                             </div>
                         </div>
                     </form>

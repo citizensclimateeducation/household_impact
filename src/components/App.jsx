@@ -29,7 +29,7 @@ class App extends React.Component {
     var div_post = numeral(this.state.div_pre).value() * (1.0 - numeral(this.state.mrate).value())
 
     this.setState({
-      net_impact: toCurrency((div_post - cost) / 12),
+      net_impact: (div_post - cost) / 12,
       carbon_cost: toCurrency(cost / 12),
       div_post: toCurrency(div_post / 12)
     })
