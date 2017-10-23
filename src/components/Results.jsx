@@ -57,7 +57,12 @@ class Results extends React.Component {
                         <label>Share: </label> <a href="#"><i className="fa fa-twitter"></i></a><a href="#"><i className="fa fa-facebook"></i></a></div>
                       </div>
                       <div className="row">
-                        <div className="col-sm-12 text-muted">* In real life there are many other factors to consider. However, this estimate is expected to be accurate within a range of 75%</div>
+                        <div className="col-sm-12 text-muted disclaimer">
+                          <i className="fa fa-asterisk" aria-hidden="true"></i> This calculation is based on
+                          the <a href="https://citizensclimatelobby.org/household-impact-study/">Household Impact Study</a> done by
+                          Kevin Ummel to estimate the impact of Citizens' Climate Lobby's proposed carbon fee and dividend policy.
+                          Click <a data-toggle="modal" data-target="#calculationDetails">here</a> for methods and assumptions used in the calculation.
+                        </div>
                       </div>
                     </div>
                 </div>

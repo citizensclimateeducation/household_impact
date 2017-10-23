@@ -183,11 +183,19 @@ div.basic_info_data {
   }
 
   .footer .btn_results { display: inline-block; }
+  .disclaimer{ font-size: .9em; }
 }
+
+a:hover { cursor: pointer; }
+#calculationDetails h4 { text-decoration: underline; }
+
+.disclaimer { font-size: .7em; }
+
 
 @media(max-width: $screen-phone) {
   div.basic_info_data, div.tips { display: none; }
   body { font-size: 1.4em; }
+  .disclaimer{ font-size: .9em; }
   // div.household-income-select, label.household-income-label { width: 100%; }
 }
 

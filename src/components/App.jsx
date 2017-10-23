@@ -1,4 +1,5 @@
 import React from 'react'
+import CalculationDetails from './CalculationDetails.jsx'
 import Introduction from './Introduction.jsx'
 import BasicInfo from './BasicInfo.jsx'
 import Spending from './Spending.jsx'
@@ -54,6 +55,7 @@ class App extends React.Component {
           <Spending {...this.state} handleSlide={this.handleSlide} setResults={this.setResults} />
           <Results results={this.state}/>
         </div>
+        <CalculationDetails />
       </div>
     )
   }
