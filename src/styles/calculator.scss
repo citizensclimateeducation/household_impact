@@ -1,4 +1,5 @@
 @import 'includes';
+@import 'wordpress_overrides';
 
 body { font-size: 1.9em; }
 
@@ -37,7 +38,7 @@ div.card#results {
   div.impact_panel { padding: 0; }
 }
 
-div.section.intro_basic, div.section.intro_basic div.card { height: 95vh; }
+// div.section.intro_basic, div.section.intro_basic div.card { height: 95vh; }
 div.footer a { visibility: hidden;}
 form { margin-top: 50px; }
 .navbar-brand { padding: 0px; }
@@ -54,7 +55,7 @@ form { margin-top: 50px; }
 }
 
 div.card.intro_container {
-  height: 90vh;
+  height: 100vh;
   align-items: center;
   text-align: center;
   div {
@@ -81,7 +82,7 @@ div.card.intro_container {
     color: $dark-gray;
     text-decoration: none;
   }
-  button {
+  button.btn, button.btn.disabled {
     font-weight:bold;
     font-size: .7em;
     margin: 20px 0px;
@@ -146,7 +147,7 @@ div.header, div.basic_info_data { width: 100%; }
 div.no_print { display: block; }
 
 div.basic_info_data {
-  padding-bottom: 25px;
+  padding-bottom: 20px;
   a {margin-left: 10px;}
 }
 
@@ -167,7 +168,7 @@ div.basic_info_data {
   div.form-group.row { margin: 0px; }
   .form_title {font-size: 1.5em;}
 
-  div.section.intro_basic div.card#intro { height: 95vh; }
+  // div.section.intro_basic div.card#intro { height: 95vh; }
   div.section.intro_basic div.card { height: 100vh; }
   div.card {
     // max-width: 600px;
@@ -176,7 +177,6 @@ div.basic_info_data {
     margin-left: auto;
     height: 100vh;
     display:flex;
-    height: 100vh;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;

@@ -9,7 +9,7 @@ class BasicInfoData extends React.Component {
 
     render() {
         return (
-          <div className="pre_calculate">
+          <div className="pre_calculate basic_info_data">
             <div className="row">
               <div className="col-xs-12 bottom_buffer">
                 <span className="form_title">Household Summary</span>
@@ -17,26 +17,22 @@ class BasicInfoData extends React.Component {
               </div>
             </div>
             <div className="row">
-              <div className="col-xs-4"><h4>Adults</h4></div>
-              <div className="col-xs-2"><h4>{this.props.adults}</h4></div>
-              <div className="col-xs-4"><h4>Children</h4></div>
-              <div className="col-xs-2"><h4>{this.props.children}</h4></div>
+              <div className="col-xs-4">Adults</div>
+              <div className="col-xs-2">{this.props.adults}</div>
+              <div className="col-xs-4">Children</div>
+              <div className="col-xs-2">{this.props.children}</div>
             </div>
             <div className="row">
-              <div className="col-xs-4"><h4># Rooms</h4></div>
-              <div className="col-xs-2"><h4>{this.props.rooms}</h4></div>
-              <div className="col-xs-4"><h4># Vehicles</h4></div>
-              <div className="col-xs-2"><h4>{this.props.vehicles}</h4></div>
+              <div className="col-xs-4"># Rooms</div>
+              <div className="col-xs-2">{this.props.rooms}</div>
+              <div className="col-xs-4"># Vehicles</div>
+              <div className="col-xs-2">{this.props.vehicles}</div>
             </div>
             <div className="row">
             </div>
             <div className="row">
-              <div className="col-xs-8 col-md-6"><h4>Zip Code</h4></div>
-              <div className="col-xs-4 col-md-6"><h4>{this.props.zip}</h4></div>
-            </div>
-            <div className="row">
-              <div className="col-xs-8 col-md-6"><h4>Household Income</h4></div>
-              <div className="col-xs-4 col-md-6"><h4>{toCurrency(this.props.income, '$0,0')}</h4></div>
+              <div className="col-md-6">Zip Code: {this.props.zip}</div>
+              <div className="col-md-6">Income: {toCurrency(this.props.income, '$0,0')}</div>
             </div>
           </div>
         )

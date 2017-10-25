@@ -46,7 +46,9 @@ class App extends React.Component {
   render() {
     return (
       <div id="impact_calculator">
-        <Menu/>
+        {process.env['SHOW_MENU'] &&
+          <Menu/>
+        }
         <div className="section intro_basic">
           <Introduction/>
           <BasicInfo setResults={this.setResults} gas={this.state.gas} elec={this.state.elec} heat={this.state.heat} />

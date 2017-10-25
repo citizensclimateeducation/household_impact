@@ -1,0 +1,21 @@
+$card_height: 90vh;
+
+div.inner-page-wrap.has-no-sidebar {
+  margin-top: 0px;
+}
+
+body.wordpress_calculator div#calculator {
+  font-size: 0.9em;
+
+  div.section, div.card, div.card.intro_container { height: $card_height; }
+
+  @media(max-width: $screen-sm-min) {
+    div.section.intro_basic div.card{ height: $card_height; }
+    div.section, div.section.intro_basic {
+      display: block;
+      height: auto;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+  }
+}
