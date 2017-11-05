@@ -1324,7 +1324,7 @@ chokidar@^1.6.0, chokidar@^1.7.0:
     path-is-absolute "^1.0.0"
     readdirp "^2.0.0"
   optionalDependencies:
-    fsevents "^1.0.0"
+    fk "^1.0.0"
 
 cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
   version "1.0.4"

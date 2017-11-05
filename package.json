@@ -11,7 +11,7 @@
     "build": "webpack -p --config webpack.prod.js",
     "start": "webpack-dev-server --config webpack.dev.js",
     "prod": "NODE_ENV=production node server.js",
-    "postinstall": "webpack"
+    "postinstall": "webpack -p --config webpack.prod.js"
   },
   "repository": "https://github.com/bhermse/household_impact.git",
   "author": "Bryan Hermsen",
