@@ -1,7 +1,10 @@
 @import 'includes';
 @import 'wordpress_overrides';
 
-body { font-size: 1.9em; }
+body {
+  font-size: 1.6em;
+  font-family: 'Source Sans Pro', 'Helvetica', sans-serif;
+}
 
 div.section {
   display: flex;

@@ -93,6 +93,14 @@ class BasicInfo extends React.Component {
     // TODO: extract // 0 to 1000 maps to 0 to 400,000 logarithmically
     handleSlide = (val) => { this.setState({income: this.position_to_income(val), income_pos: val}) }
 
+    range = (start, end) => { return [...Array(1+end-start).keys()].map(v => start+v) }
+
+    numberOptionList = (begin, end) => {
+      return this.range(begin, end).map((val) =>
+        <option key={val}>{val}</option>
+      )
+    }
+
     render() {
         return (
             <div id="basic_questions" className="card input">
@@ -118,59 +126,38 @@ class BasicInfo extends React.Component {
                         </div>
                         <div className="row">
                           <div className="form-group col-md-6 row">
-                            <label htmlFor="adults" className="col-form-label col-lg-4 col-md-7 col-sm-4 col-xs-6">Adults</label>
+                            <label htmlFor="adults" className="col-form-label col-lg-5 col-md-7 col-sm-4 col-xs-6"># of Adults</label>
                             <div className="col-md-5 col-sm-8 col-xs-6">
                                 <select className="form-control number_select" id="adults" name="adults" value={this.state.adults} onChange={this.handleChange}>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
+                                  {this.numberOptionList(1, 6)}
                                 </select>
                             </div>
                             </div>
                             <div className="form-group col-md-6 row">
-                                <label htmlFor="adults" className="col-form-label col-lg-4 col-md-7 col-sm-4 col-xs-6">Children</label>
+                                <label htmlFor="adults" className="col-form-label col-lg-5 col-md-7 col-sm-4 col-xs-6"># of Children</label>
                                 <div className="col-md-5 col-sm-8 col-xs-6">
-                                    <select className="form-control number_select" id="children" name="children" value={this.state.children} onChange={this.handleChange}>>
-                                        <option>0</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option>8</option>
-                                        <option>9</option>
+                                    <select className="form-control number_select" id="children" name="children" value={this.state.children} onChange={this.handleChange}>
+                                      {this.numberOptionList(0, 9)}
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div className="row">
                           <div className="form-group col-md-6 row">
-                              <label htmlFor="vehicles" className="col-form-label col-lg-4 col-md-7 col-sm-4 col-xs-6">Vehicles</label>
+                              <label htmlFor="vehicles" className="col-form-label col-lg-5 col-md-7 col-sm-4 col-xs-6"># of Vehicles</label>
                               <div className="col-md-5 col-sm-4 col-xs-6">
-                                <select className="form-control number_select" id="vehicles" name="vehicles" value={this.state.vehicles} onChange={this.handleChange}>>
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option value='4'>4+</option>
+                                <select className="form-control number_select" id="vehicles" name="vehicles" value={this.state.vehicles} onChange={this.handleChange}>
+                                  {this.numberOptionList(0, 3)}
+                                  <option value='4'>4+</option>
                                 </select>
                               </div>
                           </div>
                           <div className="form-group col-md-6 row">
-                            <label htmlFor="rooms" className="col-form-label col-lg-4 col-md-7 col-sm-4 col-xs-6">Rooms</label>
+                            <label htmlFor="rooms" className="col-form-label col-lg-5 col-md-7 col-sm-4 col-xs-6"># of Rooms</label>
                             <div className="col-md-5 col-sm-4 col-xs-4">
-                              <select className="form-control number_select" id="rooms" name="rooms" value={this.state.rooms} onChange={this.handleChange}>>
-                                  <option>0</option>
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option value='5'>5+</option>
+                              <select className="form-control number_select" id="rooms" name="rooms" value={this.state.rooms} onChange={this.handleChange}>
+                                {this.numberOptionList(0, 4)}
+                                <option value='5'>5+</option>
                               </select>
                             </div>
                           </div>
