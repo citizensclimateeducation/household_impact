@@ -1,6 +1,33 @@
 import React from 'react'
 import numeral from 'numeral/min/numeral.min.js'
 import {toCurrency} from '../lib/Utility.jsx'
+import { ShareButtons,  ShareCounts,  generateShareIcon } from 'react-share'
+
+const {
+  FacebookShareButton,
+  GooglePlusShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+  TelegramShareButton,
+  WhatsappShareButton,
+  PinterestShareButton,
+  VKShareButton,
+  OKShareButton,
+  RedditShareButton,
+  EmailShareButton,
+} = ShareButtons;
+
+const FacebookIcon = generateShareIcon('facebook');
+const TwitterIcon = generateShareIcon('twitter');
+const TelegramIcon = generateShareIcon('telegram');
+const WhatsappIcon = generateShareIcon('whatsapp');
+const GooglePlusIcon = generateShareIcon('google');
+const LinkedinIcon = generateShareIcon('linkedin');
+const PinterestIcon = generateShareIcon('pinterest');
+const VKIcon = generateShareIcon('vk');
+const OKIcon = generateShareIcon('ok');
+const RedditIcon = generateShareIcon('reddit');
+const EmailIcon = generateShareIcon('email');
 
 class Results extends React.Component {
     constructor(props) {
@@ -11,6 +38,10 @@ class Results extends React.Component {
     displayImpact = () => { return toCurrency(Math.abs(this.props.results.net_impact))}
 
     render() {
+      const share_url = "http://cclobby.staging.wpengine.com/calculator/";
+      const share_message = "See how much money you can save while fighting climate change!"
+      const share_media = "https://11bup83sxdss1xze1i3lpol4-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/Household-Impact-Study-percent-benefited-by-zip-code.png"
+
         return (
             <div id="results" className="card pre_calculate">
                 <div></div>
@@ -53,8 +84,25 @@ class Results extends React.Component {
                           </div>
                       </div>
                       <div className="share_row row">
-                        <div className="col-sm-12 text-muted"><label>Print: </label><a href="javascript:window.print()"><i className="fa fa-print"></i></a>
-                        <label>Share: </label> <a href="#"><i className="fa fa-twitter"></i></a><a href="#"><i className="fa fa-facebook"></i></a></div>
+                        <div className="col-sm-12 text-muted">
+                          <label>Print: </label><a href="javascript:window.print()"><i className="fa fa-print"></i></a>
+                          <label>Share: </label>
+                          <FacebookShareButton url={share_url} quote={share_message} hashtag="climate">
+                            <i className="fa fa-facebook"></i>
+                          </FacebookShareButton>
+                          <TwitterShareButton url={share_url} title={share_message} via="citizensclimate" hashtags={['climate', 'PutAPriceOnIt']}>
+                            <i className="fa fa-twitter"></i>
+                          </TwitterShareButton>
+                          <GooglePlusShareButton url={share_url}>
+                            <i className="fa fa-google-plus-official"></i>
+                          </GooglePlusShareButton>
+                          <PinterestShareButton url={share_url} description={share_message} media={share_media}>
+                            <i className="fa fa-pinterest"></i>
+                          </PinterestShareButton>
+                          <EmailShareButton url={share_url} subject={share_message}>
+                            <i className="fa fa-email"></i>
+                          </EmailShareButton>
+                        </div>
                       </div>
                       <div className="row">
                         <div className="col-sm-12 text-muted disclaimer">
