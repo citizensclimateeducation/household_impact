@@ -49,14 +49,14 @@ class Results extends React.Component {
                     <div className="row"><div className="col-xs-12 form_title">Your Results</div></div>
                     <div className="explanation">
                     </div>
-                    <div className="row top_buffer">
+                    <div className="row result_row top_buffer">
                         <div className="col-xs-8">Monthly Dividend</div>
                         <div className="col-xs-4 dividend">{this.props.results.div_post}</div>
                     </div>
                     <div className="row top_buffer">
                         <div className="col-sm-12 text-muted">Dividend checks are based on the number of people in a household, not on income or spending.</div>
                     </div>
-                    <div className="row top_buffer">
+                    <div className="row result_row top_buffer">
                         <div className="col-xs-8">Monthly Cost</div>
                         <div className="col-xs-4 cost">{this.props.results.carbon_cost}</div>
                     </div>

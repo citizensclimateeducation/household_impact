@@ -110,7 +110,7 @@ class BasicInfo extends React.Component {
                   </a>
                 </div>
                 <div className="basic_info_panel">
-                    <div className="form_title no_print">Let's start with some basic questions</div>
+                    <div className="form_title no_print">Tell us a little about your family and lifestyle</div>
                     <div className="form_title print_only">Household and Spending</div>
                     <div className="explanation no_print">
                         This will help us figure out your dividend check and take some first guesses at your spending.

@@ -3,7 +3,7 @@
 @import 'wordpress_overrides';
 
 body {
-  font-size: 1.6em;
+  font-size: 2.0em;
   font-family: 'Source Sans Pro', 'Helvetica', sans-serif;
 }
 
@@ -22,7 +22,6 @@ div.card {
   width: 50%;
   margin-right: auto;
   margin-left: auto;
-
   display:flex;
   height: 100vh;
   flex-direction: column;
@@ -43,7 +42,8 @@ div.card#results {
 }
 
 // div.section.intro_basic, div.section.intro_basic div.card { height: 95vh; }
-div.footer a { visibility: hidden;}
+// div.footer a { visibility: hidden;}
+div.footer a { display:none; }
 form { margin-top: 50px; }
 .navbar-brand { padding: 0px; }
 
@@ -68,14 +68,15 @@ div.card.intro_container {
 }
 
 .calculator_title {
-  font-size: 2.2em;
+  font-size: 2.5em;
   font-weight: bold;
   margin-bottom: 20px;
   line-height: 1.2em;
 }
 
-.explanation { font-size: 1.2em; }
-.form_title { font-size: 2.0em; }
+.explanation { font-size: 1.4em; }
+#intro .explanation { font-size: 1.3em; }
+.form_title { font-size: 2.0em; margin-bottom: 20px; }
 
 .footer {
   width: 100%;
@@ -99,6 +100,10 @@ div.card.intro_container {
   }
   padding-bottom:20px;
   button.btn_back { color: $dark-gray; background-color: transparent; border-color: $dark-gray }
+  .cf_and_d_explanation {
+    font-size: .5em;
+    a { display: inline; color: $ccl-blue; text-decoration: underline; }
+  }
 }
 
 .number_select { max-width: 60px; }
@@ -159,7 +164,9 @@ div.basic_info_data {
 
 /* wrap */
 @media(max-width: $screen-sm-min) {
-  div.footer a { visibility: visible;}
+  // div.footer a { visibility: visible;}
+  div.footer a { display: initial; }
+  #intro .footer .cf_and_d_explanation { display: none; }
   body { font-size: 1.9em; }
 
   div.section, div.section.intro_basic {
@@ -193,8 +200,11 @@ div.basic_info_data {
 a:hover { cursor: pointer; }
 #calculationDetails h4 { text-decoration: underline; }
 
-.disclaimer { font-size: .7em; }
-
+.disclaimer { font-size: .8em; }
+#results {
+  font-size: 1.1em;
+  .result_row { font-size: 1.4em; }
+}
 
 @media(max-width: $screen-phone) {
   div.basic_info_data, div.tips { display: none; }
