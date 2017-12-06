@@ -10,7 +10,8 @@ const impact_study_url = 'https://ummel.ocpu.io/exampleR/R/predictModel/json'
 class BasicInfo extends React.Component {
     constructor() {
         super();
-        this.state = {heating_type: 'Natural gas', vehicles: 2, adults: 1, children: 0, income: this.position_to_income(272), income_pos: 272, zip: '', rooms: 3}
+        this.state = {heating_type: 'Natural gas', vehicles: 2, adults: 1, children: 0, income: this.position_to_income(272),
+                      income_pos: 272, zip: '', dwelling_type: 'Stand-alone house'}
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -45,8 +46,8 @@ class BasicInfo extends React.Component {
                 nc: Number(this.state.children),
                 hinc: this.state.income,
                 hfuel: this.state.heating_type,
-                veh: String(this.state.vehicles),
-                rms: String(this.state.rooms)
+                veh: Number(this.state.vehicles),
+                htype: String(this.state.dwelling_type)
             }]};
 
             const respond = this.props.setResults;
@@ -124,14 +125,14 @@ class BasicInfo extends React.Component {
                         <div className="row">
                             <div className="form-group col-lg-4 col-xs-6">
                                 <label htmlFor="adults"># of Adults</label>
-                                <select className="form-control number_select" id="adults" name="adults" value={this.state.adults} 
+                                <select className="form-control number_select" id="adults" name="adults" value={this.state.adults}
                                     onChange={this.handleChange}>
                                     {this.numberOptionList(1, 6)}
                                 </select>
                             </div>
                             <div className="form-group col-xs-6">
                                 <label htmlFor="adults"># of Children</label>
-                                <select className="form-control number_select" id="children" name="children" value={this.state.children} 
+                                <select className="form-control number_select" id="children" name="children" value={this.state.children}
                                     onChange={this.handleChange}>
                                     {this.numberOptionList(0, 9)}
                                 </select>
@@ -158,31 +159,34 @@ class BasicInfo extends React.Component {
                         <div className="row">
                             <div className="form-group col-lg-4 col-xs-6">
                                 <label htmlFor="vehicles"># of Vehicles</label>
-                                <select className="form-control number_select" id="vehicles" name="vehicles" value={this.state.vehicles} 
-                                    onChange={this.handleChange}>
-                                    {this.numberOptionList(0, 3)}
-                                    <option value='4'>4+</option>
-                                </select>
-                            </div>
-                            <div className="form-group col-xs-6">
-                                <label htmlFor="rooms"># of Rooms</label>
-                                <select className="form-control number_select" id="rooms" name="rooms" value={this.state.rooms} 
+                                <select className="form-control number_select" id="vehicles" name="vehicles" value={this.state.vehicles}
                                     onChange={this.handleChange}>
                                     {this.numberOptionList(0, 4)}
                                     <option value='5'>5+</option>
+                                </select>
+                            </div>
+                            <div className="form-group col-xs-6">
+                                <label htmlFor="dwelling_type">Dwelling Type</label>
+                                <select className="form-control" id="rooms" name="rooms" value={this.state.dwelling_type}
+                                    onChange={this.handleChange}>
+                                    <option>Stand-alone house</option>
+                                    <option>Apartment building</option>
+                                    <option value='Townhouse or other attached housing'>Townhouse</option>
+                                    <option>Other</option>
                                 </select>
                             </div>
                         </div>
                         <div className="row">
                             <div className="form-group col-lg-4 col-md-6 col-sm-8">
                                 <label htmlFor="heating_type">Heating Fuel</label>
-                                <select className="form-control" id="heating_type" name="heating_type" value={this.state.heating_type} 
+                                <select className="form-control" id="heating_type" name="heating_type" value={this.state.heating_type}
                                     onChange={this.handleChange}>>
                                     <option>Natural gas</option>
                                     <option>Electricity</option>
                                     <option>LPG/Propane</option>
                                     <option>Heating oil</option>
                                     <option>Other or none</option>
+                                    <option>Do not know</option>
                                 </select>
                             </div>
                         </div>
