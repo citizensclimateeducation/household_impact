@@ -131,7 +131,7 @@ class BasicInfo extends React.Component {
                                 </select>
                             </div>
                             <div className="form-group col-xs-6">
-                                <label htmlFor="adults"># of Children</label>
+                                <label htmlFor="adults"># of Minors</label>
                                 <select className="form-control number_select" id="children" name="children" value={this.state.children}
                                     onChange={this.handleChange}>
                                     {this.numberOptionList(0, 9)}
