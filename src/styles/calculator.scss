@@ -110,6 +110,11 @@ div.card.intro_container {
 #electricity, #gasoline { width: 90%; }
 .top_buffer { margin-top: 20px; }
 .bottom_buffer { margin-bottom: 20px; }
+.expense_text { 
+  display: inline-block;
+  max-width: 50px;
+  margin-left: 5px;
+}
 
 .share_row {
   width: 100%;

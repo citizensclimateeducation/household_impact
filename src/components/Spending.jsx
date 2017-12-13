@@ -8,6 +8,11 @@ class Spending extends React.Component {
         super(props);
     }
 
+  handleChange = (event) => { 
+    // pass to slide event
+    this.setState({ [event.target.name]: event.target.value }); 
+  }
+
     render() {
         return (
             <div id="spending" className="card pre_calculate input">
@@ -33,16 +38,20 @@ class Spending extends React.Component {
 
                       <form>
                           <div className="form-group">
-                              <label htmlFor="electricity">Typical Monthly Electricity Bill: ${this.props.elec}</label>
-                              <div>
+                              <label htmlFor="elec">Typical Monthly Electricity Bill: $ </label>
+                              <input size="3" className="form-control expense_text" id="elec" name="elec" 
+                                value={this.props.elec} onChange={(event)=>{this.props.handleSlide('elec', event.target.value)}} />
+                              <div className="slider_wrapper">
                                   <Slider min={0} max={300} step={1} value={this.props.elec}
                                           onChange={(val) => {this.props.handleSlide('elec', val)}}/>
                               </div>
                           </div>
 
                           <div className="form-group">
-                              <label htmlFor="gasoline">Typical Weekly Gasoline Expenditure: ${this.props.gas}</label>
-                              <div>
+                              <label htmlFor="gas">Typical Weekly Gasoline Expenditure: $ </label>
+                              <input size="3" className="form-control expense_text" id="gas" name="gas" 
+                                  value={this.props.gas} onChange={(event)=>{this.props.handleSlide('gas', event.target.value)}}/>
+                              <div className="slider_wrapper">
                                   <Slider min={0} max={300} step={1} value={this.props.gas}
                                           onChange={(val) => {this.props.handleSlide('gas', val)}}/>
                               </div>
@@ -50,8 +59,10 @@ class Spending extends React.Component {
 
                           {this.props.heat > 0 && (
                             <div className="form-group">
-                                <label htmlFor="electricity">Typical Monthly {this.props.heating_type} Expediture: ${this.props.heat}</label>
-                                <div>
+                                <label htmlFor="heat">Typical Monthly {this.props.heating_type} Expediture: $ </label>
+                                <input size="3" className="form-control expense_text" id="heat" name="heat"
+                                    value={this.props.heat} onChange={(event)=>{this.props.handleSlide('heat', event.target.value)}} />
+                                <div className="slider_wrapper">
                                     <Slider min={0} max={300} step={1} value={this.props.heat}
                                             onChange={(val) => {this.props.handleSlide('heat', val)}}/>
                                 </div>

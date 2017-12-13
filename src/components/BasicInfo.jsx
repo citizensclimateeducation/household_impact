@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Slider from 'react-rangeslider';
+import NumberFormat from 'react-number-format';
 import NumericInput from 'react-numeric-input';
 import {nextSection, toCurrency} from '../lib/Utility.jsx';
 // import {toCurrency} from '../lib/Utility.jsx';
@@ -157,14 +158,6 @@ class BasicInfo extends React.Component {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="form-group col-lg-4 col-xs-6">
-                                <label htmlFor="vehicles"># of Vehicles</label>
-                                <select className="form-control number_select" id="vehicles" name="vehicles" value={this.state.vehicles}
-                                    onChange={this.handleChange}>
-                                    {this.numberOptionList(0, 4)}
-                                    <option value='5'>5+</option>
-                                </select>
-                            </div>
                             <div className="form-group col-xs-6">
                                 <label htmlFor="dwelling_type">Dwelling Type</label>
                                 <select className="form-control" id="rooms" name="rooms" value={this.state.dwelling_type}
@@ -173,6 +166,14 @@ class BasicInfo extends React.Component {
                                     <option>Apartment building</option>
                                     <option value='Townhouse or other attached housing'>Townhouse</option>
                                     <option>Other</option>
+                                </select>
+                            </div>
+                            <div className="form-group col-lg-4 col-xs-6">
+                                <label htmlFor="vehicles"># of Vehicles</label>
+                                <select className="form-control number_select" id="vehicles" name="vehicles" value={this.state.vehicles}
+                                    onChange={this.handleChange}>
+                                    {this.numberOptionList(0, 4)}
+                                    <option value='5'>5+</option>
                                 </select>
                             </div>
                         </div>
