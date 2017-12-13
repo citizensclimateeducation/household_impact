@@ -160,7 +160,7 @@ class BasicInfo extends React.Component {
                         <div className="row">
                             <div className="form-group col-xs-6">
                                 <label htmlFor="dwelling_type">Dwelling Type</label>
-                                <select className="form-control" id="rooms" name="rooms" value={this.state.dwelling_type}
+                                <select className="form-control" id="dwelling_type" name="dwelling_type" value={this.state.dwelling_type}
                                     onChange={this.handleChange}>
                                     <option>Stand-alone house</option>
                                     <option>Apartment building</option>
