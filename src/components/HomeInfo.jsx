@@ -102,7 +102,7 @@ class HomeInfo extends React.Component {
                 onChange={this.handleChange}>
                 <option>Stand-alone house</option>
                 <option>Apartment building</option>
-                <option value='Townhouse or other attached housing'>Townhouse</option>
+                <option value='Townhouse or other attached housing'>Townhouse/Condo</option>
                 <option>Other</option>
               </select>
             </div>
