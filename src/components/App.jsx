@@ -1,7 +1,8 @@
 import React from 'react'
 import CalculationDetails from './CalculationDetails.jsx'
 import Introduction from './Introduction.jsx'
-import BasicInfo from './BasicInfo.jsx'
+import FamilyInfo from './FamilyInfo.jsx'
+import HomeInfo from './HomeInfo.jsx'
 import Spending from './Spending.jsx'
 import Results from './Results.jsx'
 import Menu from './Menu.jsx'
@@ -49,14 +50,11 @@ class App extends React.Component {
         {process.env['SHOW_MENU'] &&
           <Menu/>
         }
-        <div className="section intro_basic">
-          <Introduction/>
-          <BasicInfo setResults={this.setResults} gas={this.state.gas} elec={this.state.elec} heat={this.state.heat} />
-        </div>
-        <div className="section pre_calculate">
-          <Spending {...this.state} handleSlide={this.handleSlide} setResults={this.setResults} />
-          <Results results={this.state}/>
-        </div>
+        <Introduction/>
+        <FamilyInfo setResults={this.setResults} gas={this.state.gas} elec={this.state.elec} heat={this.state.heat} />
+        <HomeInfo setResults={this.setResults} gas={this.state.gas} elec={this.state.elec} heat={this.state.heat} />
+        <Spending {...this.state} handleSlide={this.handleSlide} setResults={this.setResults} />
+        <Results results={this.state}/>
         <CalculationDetails />
       </div>
     )

@@ -20,16 +20,7 @@ class Introduction extends React.Component {
                     </div>
                 </div>
                 <div className="footer text-center">
-                  <div className="cf_and_d_explanation text-muted">
-                    Carbon Fee and Dividend is the policy that climate scientists and economists alike say is the best first step to reduce the likelyhood
-                    of catastrophic climate change from global warming. <a href="https://citizensclimatelobby.org/basics-carbon-fee-dividend/">Learn
-                    more about the policy.</a>
-                  </div>
-
-                  <a href="#basic_questions" className="scroll-down" onClick={(e)=>{nextSection(e, '#basic_questions')}}>
-                      <div className="get_started">Get Started</div>
-                      <i className="fa fa-chevron-down"></i>
-                  </a>
+                  <button href="#basic_questions" className="btn btn-default btn-intro" onClick={(e)=>{nextSection(e, '#basic_questions')}}>Get Started</button>
                 </div>
             </div>
         )
