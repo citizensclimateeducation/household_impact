@@ -54,7 +54,7 @@ class FamilyInfo extends React.Component {
               This will help us figure out your dividend check and take some first guesses at your spending.
             </div>
             <div className="form-group">
-              <label htmlFor="adults">How many adults live in your home?</label>
+              <label htmlFor="adults">How many adults (age 18+) live in your home?</label>
               <a data-toggle="modal" data-target="#houseSizeDetails" className="explanation_prompt">Why am I being asked this?</a>
               <select className="form-control input-lg number_select" id="adults" name="adults" value={this.state.adults}
                 onChange={this.props.handleChange}>
