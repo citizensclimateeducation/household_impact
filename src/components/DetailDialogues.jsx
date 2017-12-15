@@ -4,24 +4,23 @@ import InfoDialog from './InfoDialog.jsx'
 export const CalcDetails = (props) => {
   return (
     <InfoDialog dialogId="calcDetails" title="Calculation Explanation">
-      <h4>Methods2</h4>
       <p>
-        This calculation is based on the <a href="https://citizensclimatelobby.org/household-impact-study/">Household Impact Study</a> done by Kevin Ummel.
-        The <a href="https://11bup83sxdss1xze1i3lpol4-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/Ummel-Impact-of-CCL-CFD-Policy-v1_4.pdf">working paper</a> estimates
-        the policy impact for a representative sample of about 6 million households and should be the primary
-        reference for anyone interested in underlying methods.</p>
-      <p>The model behind this calculator provides a way to derive
-        a reasonable estimate of how households "similar" to the user (based on the 6 million sample) typically do under the policy --
-        but intelligently selecting a small set of household attributes for defining "similar", in order to make the tool tractable.</p>
-      <p>The actual modeling technique is a machine learning algorithm that falls under the heading
-        of <a href="https://en.wikipedia.org/wiki/Gradient_boosting">"gradient boosting"</a>, and is
-        implemented in R packages
-        like <a href="https://cran.r-project.org/web/packages/gbm/index.html">gbm</a> and <a href="https://cran.r-project.org/web/packages/h2o/index.html">h2o</a>, the
-        latter provides bindings to the open-source <a href="https://www.h2o.ai/">H2O.ai</a> platform.
+        <a href="https://citizensclimatelobby.org/household-impact-study/">CCL's Household Impact Study</a> estimates the direct financial effect of a 
+        <a href="https://citizensclimatelobby.org/carbon-fee-and-dividend/">carbon tax and dividend</a> policy for a large, representative sample of U.S. households. Techniques, 
+        data, and assumptions are described in detail in the associated <a href="https://11bup83sxdss1xze1i3lpol4-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/Ummel-Impact-of-CCL-CFD-Policy-v1_4.pdf">working paper</a>.
       </p>
-      <h4>Assumptions</h4>
-      <p>For the purposes of this calculator we assume a federal marginal tax bracket of 15%. We also assume the starting carbon
-        fee of $15/ton of CO<sub>2</sub> equivalent emissions of fossil fuels.</p>
+
+      <p>
+        The calculator uses the study’s results to estimate a household’s additional costs under the policy (due to higher prices for goods and services), depending on a limited set of household characteristics 
+        (income, number of vehicles, etc.). It also calculates the expected dividend, which is a function of the household’s number of adults, number of minors, and expected federal marginal tax rate. 
+        The difference between the dividend and additional cost is the “net financial benefit” – positive if a household is likely to “come out ahead” under CF&D.
+      </p>
+
+      <p>
+        For ease of use, a small and generally easy-to-recall set of user inputs are solicited. The calculator reports the expected average outcome for a household. The actual outcome 
+        for any specific household could vary from the average. For example, if your household is a below-average consumer of carbon-intensive goods like air travel and meat, the calculator 
+        will understate the net benefit (and vice-versa). Developing a precise estimate for every household would require many more questions and accurate recall. We have opted for simplicity over precision.
+      </p>
     </InfoDialog>
   )
 

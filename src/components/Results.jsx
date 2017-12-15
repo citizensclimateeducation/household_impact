@@ -97,10 +97,8 @@ class Results extends React.Component {
             </div>
             <div className="row">
               <div className="col-sm-12 text-muted disclaimer">
-                <i className="fa fa-asterisk" aria-hidden="true"></i> This calculation is based on
-                the <a href="https://citizensclimatelobby.org/household-impact-study/">Household Impact Study</a> done by
-                Kevin Ummel to estimate the impact of Citizens' Climate Lobby's proposed carbon fee and dividend policy.
-                Click <a data-toggle="modal" data-target="#calcDetails">here</a> for methods and assumptions used in the calculation.
+                <i className="fa fa-asterisk" aria-hidden="true"></i> Calculator results are based on 
+                <a href="https://citizensclimatelobby.org/household-impact-study/">CCL's Household Impact Study</a>. <a data-toggle="modal" data-target="#calcDetails">Learn more</a> about the methods and assumptions used in the calculation.
               </div>
             </div>
           </div>

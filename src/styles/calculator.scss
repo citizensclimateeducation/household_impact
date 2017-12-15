@@ -90,6 +90,7 @@ div.card.intro_container {
   line-height: .3em;
   font-size: .7em;
   margin-bottom: 12px;
+  color: $ccl-blue;
 }
 
 .footer {
@@ -120,6 +121,10 @@ div.card.intro_container {
   }
   padding-bottom:20px;
   button.btn_back { color: $dark-gray; background-color: transparent; border-color: $dark-gray }
+  .cf_and_d_explanation {
+    font-size: .45em;
+    a { display: inline; color: $ccl-blue; text-decoration: underline; }
+  }
 }
 .form-control { width: initial; }
 .number_select { width: 113px; }
@@ -232,6 +237,7 @@ a:hover { cursor: pointer; }
       min-width: 100%;
       border-radius: 4px;
     }
+    .cf_and_d_explanation { display: none; }
   }
   .form-control { width: 100%; }
   .number_select { width: 100%; }

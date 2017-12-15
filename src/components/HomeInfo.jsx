@@ -87,13 +87,13 @@ class HomeInfo extends React.Component {
               <select className="form-control input-lg" id="dwelling_type" name="dwelling_type" value={this.state.dwelling_type}
                 onChange={this.handleChange}>
                 <option>Stand-alone house</option>
-                <option>Apartment building</option>
-                <option value='Townhouse or other attached housing'>Townhouse/Condo</option>
+                <option value='Apartment building'>Apartment or condo</option>
+                <option value='Townhouse or other attached housing'>Townhouse, duplex, other attached housing</option>
                 <option>Other</option>
               </select>
             </div>
             <div className="form-group">
-              <label htmlFor="vehicles">How many vehicles does your household use regularly?</label>
+              <label htmlFor="vehicles">How many vehicles does your household own?</label>
               <select className="form-control input-lg number_select" id="vehicles" name="vehicles" value={this.state.vehicles}
                 onChange={this.handleChange}>
                 {numberOptionList(0, 4)}
