@@ -100,7 +100,7 @@ class Results extends React.Component {
                 <i className="fa fa-asterisk" aria-hidden="true"></i> This calculation is based on
                 the <a href="https://citizensclimatelobby.org/household-impact-study/">Household Impact Study</a> done by
                 Kevin Ummel to estimate the impact of Citizens' Climate Lobby's proposed carbon fee and dividend policy.
-                Click <a data-toggle="modal" data-target="#calculationDetails">here</a> for methods and assumptions used in the calculation.
+                Click <a data-toggle="modal" data-target="#calcDetails">here</a> for methods and assumptions used in the calculation.
               </div>
             </div>
           </div>

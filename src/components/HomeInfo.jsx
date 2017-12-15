@@ -65,7 +65,6 @@ class HomeInfo extends React.Component {
     }
   }
 
-
   render() {
     return (
       <div id="home_questions" className="card input initially_hidden">
@@ -78,11 +77,13 @@ class HomeInfo extends React.Component {
             </div>
             <div className="form-group">
               <label htmlFor="zip">What's your zip code?</label>
+              <a data-toggle="modal" data-target="#zipCodeDetails" className="explanation_prompt">Why am I being asked this?</a>
               <input size="8" className="form-control input-lg number_select" id="zip" name="zip" placeholder="Zip Code" ref="zip"
                 value={this.state.zip} onChange={this.handleChange} onKeyPress={(e) => this.validZip(e)} />
             </div>
             <div className="form-group">
               <label htmlFor="dwelling_type">What type of home do you live in?</label>
+              <a data-toggle="modal" data-target="#homeTypeDetails" className="explanation_prompt">Why am I being asked this?</a>
               <select className="form-control input-lg" id="dwelling_type" name="dwelling_type" value={this.state.dwelling_type}
                 onChange={this.handleChange}>
                 <option>Stand-alone house</option>
@@ -101,6 +102,7 @@ class HomeInfo extends React.Component {
             </div>
             <div className="form-group">
               <label htmlFor="heating_type">What kind of fuel heats your home?</label>
+              <a data-toggle="modal" data-target="#heatingFuelDetails" className="explanation_prompt">Why am I being asked this?</a>
               <select className="form-control input-lg" id="heating_type" name="heating_type" value={this.state.heating_type}
                 onChange={this.handleChange}>
                 <option>Natural gas</option>

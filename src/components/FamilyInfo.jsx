@@ -55,6 +55,7 @@ class FamilyInfo extends React.Component {
             </div>
             <div className="form-group">
               <label htmlFor="adults">How many adults live in your home?</label>
+              <a data-toggle="modal" data-target="#houseSizeDetails" className="explanation_prompt">Why am I being asked this?</a>
               <select className="form-control input-lg number_select" id="adults" name="adults" value={this.state.adults}
                 onChange={this.props.handleChange}>
                 {numberOptionList(1, 6)}
@@ -70,6 +71,7 @@ class FamilyInfo extends React.Component {
             <div className="form-group">
               <div>
                 <label htmlFor="income">Household Income: {toCurrency(this.props.income, '$0,0')}</label>
+                <a data-toggle="modal" data-target="#incomeDetails" className="explanation_prompt">Why am I being asked this?</a>
                 <div className="no_print">
                   <Slider min={0} max={500} step={1} value={this.state.income_pos} onChange={this.handleSlide}/>
                 </div>

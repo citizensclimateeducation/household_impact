@@ -84,6 +84,14 @@ div.card.intro_container {
   margin-top: 40px;
 }
 
+.explanation_prompt {
+  width: 100%;
+  display: block;
+  line-height: .3em;
+  font-size: .7em;
+  margin-bottom: 12px;
+}
+
 .footer {
   width: 100%;
   text-align: left;
@@ -197,7 +205,10 @@ label.label_sm{ display: none; }
 }
 
 a:hover { cursor: pointer; }
-#calculationDetails h4 { text-decoration: underline; }
+.modal-body {
+  h4 { text-decoration: underline; }
+  font-size: .9em;
+}
 
 .disclaimer { font-size: .8em; }
 #results {
@@ -224,6 +235,7 @@ a:hover { cursor: pointer; }
   }
   .form-control { width: 100%; }
   .number_select { width: 100%; }
+  .explanation_prompt { font-size: .93em; }
 }
 
 .print_only, div.pre_calculate, div.print_spending, div.initially_hidden { display: none; }

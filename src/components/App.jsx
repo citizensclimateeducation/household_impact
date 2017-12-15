@@ -1,5 +1,5 @@
 import React from 'react'
-import CalculationDetails from './CalculationDetails.jsx'
+import {DetailDialogues} from './DetailDialogues.jsx'
 import Introduction from './Introduction.jsx'
 import FamilyInfo from './FamilyInfo.jsx'
 import HomeInfo from './HomeInfo.jsx'
@@ -60,7 +60,7 @@ class App extends React.Component {
           heat={this.state.heat} children={this.state.children} adults={this.state.adults} income={this.state.income} />
         <Spending {...this.state} handleSlide={this.handleSlide} setResults={this.setResults} />
         <Results results={this.state}/>
-        <CalculationDetails />
+        <DetailDialogues />
       </div>
     )
   }
