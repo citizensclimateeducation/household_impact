@@ -22,10 +22,8 @@ div.card {
   margin-right: auto;
   margin-left: auto;
   display:flex;
-  //height: 100vh;
   flex-direction: column;
   justify-content: space-between;
-  //align-items: center;
   padding: 0 3.67037%;
 }
 
@@ -49,9 +47,6 @@ div.card#spending {
   height: 100vh;
 }
 
-// div.footer a { visibility: hidden;}
-// TODO
-//div.footer a { display:none; }
 .navbar-brand { padding: 0px; }
 
 .print_banner img, .navbar-brand>img {
@@ -85,7 +80,6 @@ div.card.intro_container {
 #intro .explanation { font-size: 1.25em; }
 .form_title { font-size: 1.8em; margin-bottom: 20px; }
 
-//.basic_info_panel .form-group {
 .form-group {
   margin-top: 40px;
 }
@@ -100,7 +94,6 @@ div.card.intro_container {
     text-decoration: none;
   }
   button.btn, button.btn.disabled {
-    //font-weight:bold;
     font-size: .7em;
     margin: 20px 0px;
     min-width: 32%;
@@ -119,10 +112,6 @@ div.card.intro_container {
   }
   padding-bottom:20px;
   button.btn_back { color: $dark-gray; background-color: transparent; border-color: $dark-gray }
-  //.cf_and_d_explanation {
-    //font-size: .5em;
-    //a { display: inline; color: $ccl-blue; text-decoration: underline; }
-  //}
 }
 .form-control { width: initial; }
 .number_select { width: 113px; }
@@ -158,7 +147,6 @@ div.card#results div.share_row {
   color: $blue;
   i {
     font-size: 3.5em;
-    //opacity: .6;
   }
 }
 
@@ -185,33 +173,28 @@ div.basic_info_data {
   a {margin-left: 10px;}
 }
 
-@media(max-width: $screen-md) { body { font-size: 1.4em; } }
+label.label_sm{ display: none; }
+.label_lg{ display: inline-block; }
 
 /* wrap */
 @media(max-width: $screen-sm-min) {
   // div.footer a { visibility: visible;}
   //div.footer a { display: initial; }
-  //#intro .footer .cf_and_d_explanation { display: none; }
-  body { font-size: 1.9em; }
   div.card > div { margin-left: 5px; }
   div.form-group.row { margin: 0px; }
   .form_title {font-size: 1.8em;}
 
-  // div.section.intro_basic div.card#intro { height: 95vh; }
-  //div.section.intro_basic div.card { height: 100vh; }
   div.card {
-    // max-width: 600px;
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    height: 100vh;
     display:flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
   }
 
-  .footer .btn_results { display: inline-block; }
+  //.footer .btn_results { display: inline-block; }
   .disclaimer{ font-size: .9em; }
 }
 
@@ -225,9 +208,22 @@ a:hover { cursor: pointer; }
 
 @media(max-width: $screen-phone) {
   div.basic_info_data, div.tips { display: none; }
-  body { font-size: 1.4em; }
+  body { font-size: 15px; }
+  label.label_sm{ display: inline-block; }
+  .label_lg{ display: none; }
+  div#intro { font-size: 20px;}
   .disclaimer{ font-size: .9em; }
-  // div.household-income-select, label.household-income-label { width: 100%; }
+  div.card#spending, div.card#results {
+    height: 100vh;
+  }
+  .form-group { margin-top: 15px; }
+  .footer {
+    padding-bottom: 0px;
+    button.btn, button.btn.btn-intro, button.btn.disabled{
+      min-width: 100%;
+      border-radius: 4px;
+    }
+  }
 }
 
 .print_only, div.pre_calculate, div.print_spending, div.initially_hidden { display: none; }

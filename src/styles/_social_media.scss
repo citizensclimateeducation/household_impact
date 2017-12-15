@@ -1,5 +1,13 @@
+@import 'includes';
 
-.SocialMediaShareButton {
+.SocialMediaShareButton, .print_button {
   display: inline-block;
   font-size: 1.6em;
 }
+
+@media(max-width: $screen-phone) {
+  div.card#results div.share_row div.SocialMediaShareButton {
+    padding: 0 2.67037%;
+  }
+}
+

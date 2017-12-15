@@ -38,7 +38,8 @@ class Spending extends React.Component {
 
             <form>
               <div className="form-group">
-                <label htmlFor="elec">How much is your average monthly electricity bill? $ </label>
+                <label htmlFor="elec" className="label_lg">How much is your average monthly electricity bill? $ </label>
+                <label htmlFor="elec" className="label_sm">Average monthly electricity bill? $ </label>
                 <input size="3" className="form-control expense_text" id="elec" name="elec" 
                   value={this.props.elec} onChange={(event)=>{this.props.handleSlide('elec', event.target.value)}} />
                 <div className="slider_wrapper">
@@ -48,7 +49,8 @@ class Spending extends React.Component {
               </div>
 
               <div className="form-group">
-                <label htmlFor="gas">How much is your average monthly gasoline expenditure? $ </label>
+                <label htmlFor="gas" className="label_lg">How much is your average monthly gasoline expenditure? $ </label>
+                <label htmlFor="gas" className="label_sm">Average monthly gas expenditure? $ </label>
                 <input size="3" className="form-control expense_text" id="gas" name="gas" 
                   value={this.props.gas} onChange={(event)=>{this.props.handleSlide('gas', event.target.value)}}/>
                 <div className="slider_wrapper">
@@ -58,7 +60,8 @@ class Spending extends React.Component {
               </div>
               {this.props.initial_heat > 0 && (
                 <div className="form-group">
-                  <label htmlFor="heat">What is your average monthly {this.props.heating_type} expediture? $ </label>
+                  <label htmlFor="heat" className="label_lg">What is your average monthly {this.props.heating_type} expediture? $ </label>
+                  <label htmlFor="heat" className="label_sm">Average monthly {this.props.heating_type} expediture? $ </label>
                   <input size="3" className="form-control expense_text" id="heat" name="heat"
                     value={this.props.heat} onChange={(event)=>{this.props.handleSlide('heat', event.target.value)}} />
                   <div className="slider_wrapper">

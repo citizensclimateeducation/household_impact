@@ -57,7 +57,7 @@ class Results extends React.Component {
           <div className="impact_panel">
             <div className="row">
               <div className="col-xs-8 form_title">Estimated {this.net_profit() ? 'gain' : 'loss'} per month*</div>
-              <div className="col-xs-4 form_title net_impact text-right">{this.displayImpact()}/mo</div>
+              <div className="col-xs-4 form_title net_impact text-right">{this.displayImpact()}<span className="label_lg">/mo</span></div>
             </div>
             <div className="row top_buffer">
               <div className="col-sm-12 text-muted summary">
@@ -76,7 +76,7 @@ class Results extends React.Component {
             </div>
             <div className="share_row row">
               <div className="col-sm-12 text-muted">
-                <label>Print: </label><a href="javascript:window.print()"><i className="fa fa-print"></i></a>
+                <label>Print: </label><a className="print_button" href="javascript:window.print()"><i className="fa fa-print"></i></a>
                 <label>Share: </label>
                 <FacebookShareButton url={share_url} quote={share_message} hashtag="climate">
                   <i className="fa fa-facebook"></i>
