@@ -52,7 +52,7 @@ class HomeInfo extends React.Component {
             });
           });
         }).catch(function(error) {
-          nextSection(e, '#basic_questions')
+          nextSection(e, '#home_questions')
           $('.search_failed').fadeIn('slow');
 
           $('.calculating').fadeOut('slow', function() {
@@ -71,6 +71,11 @@ class HomeInfo extends React.Component {
       <div id="home_questions" className="card input initially_hidden">
         <div className="basic_info_panel">
           <div className="home_info_panel section">
+            <div className="search_failed">
+              <div className="alert alert-info" role="alert">
+                Sorry, we couldn't find information for this search. Please double-check your zip code
+              </div>
+            </div>
             <div className="form-group">
               <label htmlFor="zip">What's your zip code?</label>
               <input size="8" className="form-control input-lg number_select" id="zip" name="zip" placeholder="Zip Code" ref="zip"

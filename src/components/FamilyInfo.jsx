@@ -53,11 +53,6 @@ class FamilyInfo extends React.Component {
             <div className="explanation no_print">
               This will help us figure out your dividend check and take some first guesses at your spending.
             </div>
-            <div className="search_failed">
-              <div className="alert alert-info" role="alert">
-                Sorry, we couldn't find information for this search. Please double-check your zip code
-              </div>
-            </div>
             <div className="form-group">
               <label htmlFor="adults">How many adults live in your home?</label>
               <select className="form-control input-lg number_select" id="adults" name="adults" value={this.state.adults}

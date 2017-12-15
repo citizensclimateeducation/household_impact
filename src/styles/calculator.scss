@@ -44,7 +44,7 @@ div.card#results {
 }
 
 div.card#spending {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .navbar-brand { padding: 0px; }
@@ -61,7 +61,7 @@ div.card#spending {
 }
 
 div.card.intro_container {
-  height: 100vh;
+  min-height: 100vh;
   align-items: center;
   text-align: center;
   div {
@@ -178,8 +178,6 @@ label.label_sm{ display: none; }
 
 /* wrap */
 @media(max-width: $screen-sm-min) {
-  // div.footer a { visibility: visible;}
-  //div.footer a { display: initial; }
   div.card > div { margin-left: 5px; }
   div.form-group.row { margin: 0px; }
   .form_title {font-size: 1.8em;}
@@ -194,7 +192,7 @@ label.label_sm{ display: none; }
     align-items: center;
   }
 
-  //.footer .btn_results { display: inline-block; }
+  div.basic_info_panel { width: 100%; }
   .disclaimer{ font-size: .9em; }
 }
 
@@ -214,7 +212,7 @@ a:hover { cursor: pointer; }
   div#intro { font-size: 20px;}
   .disclaimer{ font-size: .9em; }
   div.card#spending, div.card#results {
-    height: 100vh;
+    min-height: 100vh;
   }
   .form-group { margin-top: 15px; }
   .footer {
@@ -224,6 +222,8 @@ a:hover { cursor: pointer; }
       border-radius: 4px;
     }
   }
+  .form-control { width: 100%; }
+  .number_select { width: 100%; }
 }
 
 .print_only, div.pre_calculate, div.print_spending, div.initially_hidden { display: none; }
