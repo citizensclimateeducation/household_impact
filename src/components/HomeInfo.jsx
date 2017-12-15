@@ -3,21 +3,17 @@ import axios from 'axios';
 import NumberFormat from 'react-number-format';
 import NumericInput from 'react-numeric-input';
 import {nextSection, toCurrency, numberOptionList} from '../lib/Utility.jsx';
-// import {toCurrency} from '../lib/Utility.jsx';
 
 const impact_study_url = 'https://ummel.ocpu.io/exampleR/R/predictModel/json'
 
 class HomeInfo extends React.Component {
-  constructor() {
-    super();
-    this.state = {heating_type: 'Natural gas', vehicles: 2, adults: 1, children: 0, income: this.position_to_income(272),
-      income_pos: 272, zip: '', dwelling_type: 'Stand-alone house'}
-    this.handleChange = this.handleChange.bind(this);
+  constructor(props) {
+    super(props);
+    this.state = {heating_type: 'Natural gas', vehicles: 2, zip: '', dwelling_type: 'Stand-alone house'}
   }
 
+  valid = () => { return (this.props.income && this.state.zip) }
   handleChange = (event) => { this.setState({ [event.target.name]: event.target.value }); }
-  numberChange = (name, val) => { this.setState({[name]: val}) }
-  valid = () => { return (this.state.income && this.state.zip) }
 
   validZip = (e) => {
     const re = /^[0-9]{0,5}$/
@@ -34,9 +30,9 @@ class HomeInfo extends React.Component {
 
       var data = {input: [{
         zip: this.state.zip,
-        na: Number(this.state.adults) + Number(this.state.children),
-        nc: Number(this.state.children),
-        hinc: this.state.income,
+        na: Number(this.props.adults),
+        nc: Number(this.props.children),
+        hinc: this.props.income,
         hfuel: this.state.heating_type,
         veh: Number(this.state.vehicles),
         htype: String(this.state.dwelling_type)
@@ -69,22 +65,6 @@ class HomeInfo extends React.Component {
     }
   }
 
-  toNearestThousand = (val) => { return Math.ceil(((val + 1) / 1000)) * 1000 }
-
-  // based on https://stackoverflow.com/questions/846221/logarithmic-slider
-  position_to_income = (val) => {
-    console.log(val)
-    const minp = 0;
-    const maxp = 500;
-    const minv = 8.517193191416238; //Math.log(5000);
-    const maxv = 12.89921982609012; //Math.log(400000);
-    // calculate adjustment factor
-    var scale = 0.008764053269347762; // (maxv-minv) / (maxp-minp);
-    return this.toNearestThousand(Math.exp(minv + scale*(val-minp)))
-  }
-
-  // TODO: extract // 0 to 1000 maps to 0 to 400,000 logarithmically
-  handleSlide = (val) => { this.setState({income: this.position_to_income(val), income_pos: val}) }
 
   render() {
     return (
@@ -117,7 +97,7 @@ class HomeInfo extends React.Component {
             <div className="form-group">
               <label htmlFor="heating_type">What kind of fuel heats your home?</label>
               <select className="form-control input-lg" id="heating_type" name="heating_type" value={this.state.heating_type}
-                onChange={this.handleChange}>>
+                onChange={this.handleChange}>
                 <option>Natural gas</option>
                 <option>Electricity</option>
                 <option>LPG/Propane</option>
