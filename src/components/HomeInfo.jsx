@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import NumberFormat from 'react-number-format';
 import NumericInput from 'react-numeric-input';
-import {nextSection, toCurrency, numberOptionList} from '../lib/Utility.jsx';
+import {nextSection, nextAndHide, toCurrency, numberOptionList} from '../lib/Utility.jsx';
 
 const impact_study_url = 'https://ummel.ocpu.io/exampleR/R/predictModel/json'
 
@@ -26,7 +26,7 @@ class HomeInfo extends React.Component {
     if (this.valid()) {
       $('.pre_calculate').removeClass('pre_calculate').addClass('post_calculate')
       $('.spending_panel, .search_failed').hide();
-      nextSection(e, '#spending');
+      this.nextAndRename(e, '#spending');
 
       var data = {input: [{
         zip: this.state.zip,
@@ -63,6 +63,13 @@ class HomeInfo extends React.Component {
           console.log(error);
         })
     }
+  }
+
+  nextAndRename = (e) => {
+    e.persist();
+    nextSection(e, '#spending', function() {
+      $(e.target).html('RECALCULATE');
+    })
   }
 
   render() {

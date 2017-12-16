@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from 'react-rangeslider'
-import {nextSection} from '../lib/Utility.jsx'
+import {nextSection, nextAndHide} from '../lib/Utility.jsx'
 import BasicInfoData from './BasicInfoData.jsx'
 
 class Spending extends React.Component {
@@ -76,7 +76,7 @@ class Spending extends React.Component {
           </div>
         </div>
         <div className="footer">
-          <button href="#results" className="btn btn-default btn_results" onClick={(e)=>{nextSection(e, '#results')}}>CALCULATE</button>
+          <button href="#results" className="btn btn-default btn_results" onClick={(e)=>{nextAndHide(e, '#results')}}>CALCULATE</button>
         </div>
       </div>
     )
