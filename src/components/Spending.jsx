@@ -20,7 +20,7 @@ class Spending extends React.Component {
         <div>
           <div className="calculating text-center">
             <i className="fa fa-circle-o-notch fa-spin"></i>
-            <h2>Calculating spending defaults...</h2>
+            <h2>Crunching the numbers...</h2>
           </div>
 
           <div className="spending_panel">
@@ -32,8 +32,9 @@ class Spending extends React.Component {
             <div className="form_title">Almost done. Just a couple more questions about your spending.</div>
 
             <div className="spending">
-              We've taken a guess, approximately ${this.props.initial_elec}/mo on electricity, ${this.props.initial_gas}/mo on gasoline,
-              and ${this.props.initial_heat}/mo on heating. If this doesn't align with your spending, you can make adjustments here.
+              Use the sliders below to tell us how much your household spends on gasoline and utilities. 
+              For utilities, estimate the average over the past year. If you aren't sure, just leave the 
+              sliders at their initial values, which are reasonable guesses based on your information.
             </div>
 
             <form>
