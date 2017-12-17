@@ -1,9 +1,9 @@
 @media print {
   @page { size: landscape; }
-  div#intro, div#spending, nav{ display: none; }
-  div.print_banner { width: 100%; }
+  div#basic_questions, div.family_info_panel, div#intro, div#home_questions, div#spending, nav{ display: none; }
+  div.print_banner { width: 100%; margin-bottom: 40px; }
   div.footer, .share_row { visibility: hidden; }
-  body { font-size: 1.4em; }
+  body { font-size: 1.7em; }
   div#impact_calculator {
     display: flex;
     height: 100vh;
@@ -15,6 +15,9 @@
   }
   div.basic_info_panel {
     width: 90%;
+  }
+  div.basic_info_data {
+    display: block;
   }
   div.print_spending {
     display: block;
@@ -28,4 +31,5 @@
 
   div.section.intro_basic, div.section.pre_calculate, div.section.post_calculate { width: 50%; }
   div#basic_questions, div#results { width: 100%; }
+  div.top_buffer { margin-top: 20px; }
 }

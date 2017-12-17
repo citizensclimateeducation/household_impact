@@ -5,6 +5,7 @@ import FamilyInfo from './FamilyInfo.jsx'
 import HomeInfo from './HomeInfo.jsx'
 import Spending from './Spending.jsx'
 import Results from './Results.jsx'
+import BasicInfoData from './BasicInfoData.jsx'
 import Menu from './Menu.jsx'
 import numeral from 'numeral/min/numeral.min.js';
 import {toCurrency} from '../lib/Utility.jsx'
@@ -59,6 +60,7 @@ class App extends React.Component {
         <HomeInfo setResults={this.setResults} gas={this.state.gas} elec={this.state.elec} 
           heat={this.state.heat} children={this.state.children} adults={this.state.adults} income={this.state.income} />
         <Spending {...this.state} handleSlide={this.handleSlide} setResults={this.setResults} />
+        <BasicInfoData {...this.state}/>
         <Results results={this.state}/>
         <DetailDialogues />
       </div>

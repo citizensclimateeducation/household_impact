@@ -1,7 +1,6 @@
 import React from 'react';
 import Slider from 'react-rangeslider'
 import {nextSection, nextAndHide} from '../lib/Utility.jsx'
-import BasicInfoData from './BasicInfoData.jsx'
 
 class Spending extends React.Component {
   constructor(props) {
@@ -24,11 +23,6 @@ class Spending extends React.Component {
           </div>
 
           <div className="spending_panel">
-            <div className="basic_info_data print_only">
-              <BasicInfoData adults={this.props.adults} children={this.props.children} zip={this.props.zip}
-                income={this.props.income} vehicles={this.props.vehicles} rooms={this.props.rooms} />
-            </div>
-
             <div className="form_title">Almost done. Just a couple more questions about your spending.</div>
 
             <div className="spending">

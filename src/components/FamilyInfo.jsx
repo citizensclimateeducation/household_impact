@@ -41,11 +41,6 @@ class FamilyInfo extends React.Component {
   render() {
     return (
       <div id="basic_questions" className="card input initially_hidden">
-        <div className="print_banner">
-          <a className="print_only" href="#">
-            <img src={require('../images/ccl-logo-alpha.png')} className="menu-logo" />
-          </a>
-        </div>
         <div className="basic_info_panel">
           <div className="family_info_panel section">
             <div className="form_title no_print">Tell us a little bit about your household</div>
@@ -77,23 +72,6 @@ class FamilyInfo extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="print_spending print_only">
-            <hr/>
-            <div className="row top_buffer">
-              <div className="col-xs-8">Typical Monthly Electricity Bill</div>
-              <div className="col-xs-4">${this.props.elec}</div>
-            </div>
-            <div className="row top_buffer">
-              <div className="col-xs-8">Typical Weekly Gasoline Expenditure</div>
-              <div className="col-xs-4">${this.props.gas}</div>
-            </div>
-            {this.props.heat > 0 &&
-                <div className="row top_buffer">
-                  <div className="col-xs-8">Typical Monthly {this.state.heating_type} Expenditure</div>
-                  <div className="col-xs-4">{toCurrency(this.props.heat)}</div>
-                </div>
-            }
           </div>
         </div>
         <div className="footer">
