@@ -1,7 +1,7 @@
 import React from 'react'
 import numeral from 'numeral/min/numeral.min.js'
-import {toCurrency} from '../lib/Utility.jsx'
 import { ShareButtons,  ShareCounts,  generateShareIcon } from 'react-share'
+import {toCurrency, nextSection} from '../lib/Utility.jsx';
 
 const {
   FacebookShareButton, GooglePlusShareButton, LinkedinShareButton, TwitterShareButton, TelegramShareButton, WhatsappShareButton, PinterestShareButton,
@@ -67,6 +67,11 @@ class Results extends React.Component {
                   }
                 </span>
               </div>
+            </div>
+            <div className='footer'>
+              <button className="btn btn-default" href="#basic_questions" onClick={(e)=>{nextSection(e, '#basic_questions')}}>
+                START OVER
+              </button>
             </div>
             <div className="row top_buffer">
               <div className="col-sm-12 text-muted tips">

@@ -6,6 +6,12 @@ class Introduction extends React.Component {
         super();
     }
 
+  nextAndInvisible = (e) => {
+    e.persist();
+    $(e.target).animate({ opacity: 0 })
+    nextSection(e, '#basic_questions')
+  }
+
     render() {
         return (
             <div id="intro" className="card intro_container">
@@ -26,7 +32,7 @@ class Introduction extends React.Component {
                     both the carbon fee and dividend for the first years' fee of $15/ton.
                   </div>
 
-                  <button href="#basic_questions" className="btn btn-default btn-intro" onClick={(e)=>{nextSection(e, '#basic_questions')}}>Get Started</button>
+                  <button href="#basic_questions" className="btn btn-default btn-intro" onClick={this.nextAndInvisible}>Get Started</button>
                 </div>
             </div>
         )
