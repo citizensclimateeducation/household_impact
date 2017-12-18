@@ -1,5 +1,7 @@
 import React from 'react';
 import Slider from 'react-rangeslider'
+import Lottie from 'react-lottie';
+import * as animationData from '../images/loader-w200-h200.json'
 import {nextSection, nextAndHide} from '../lib/Utility.jsx'
 
 class Spending extends React.Component {
@@ -13,12 +15,15 @@ class Spending extends React.Component {
   }
 
   render() {
+    const defaultOptions = { loop: true, autoplay: true, animationData: animationData }
     return (
       <div id="spending" className="card pre_calculate input">
         <div></div>
         <div>
           <div className="calculating text-center">
-            <i className="fa fa-circle-o-notch fa-spin"></i>
+            <div className="spinner">
+              <Lottie options={defaultOptions} isStopped={! this.props.loading} isPaused={false}/>
+            </div>
             <h2>Crunching the numbers...</h2>
           </div>
 

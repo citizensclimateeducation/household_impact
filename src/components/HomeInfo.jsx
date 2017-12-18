@@ -39,7 +39,9 @@ class HomeInfo extends React.Component {
       }]};
 
       const respond = this.props.setResults;
+      const setLoading = this.props.setLoading;
 
+      setLoading(true);
       $('.calculating').fadeIn('slow');
       const zip = this.refs.zip
       const basic_questions = this.state;
@@ -57,6 +59,7 @@ class HomeInfo extends React.Component {
 
           $('.calculating').fadeOut('slow', function() {
             $('.post_calculate').addClass('pre_calculate').removeClass('post_calculate');
+            setLoading(false);
           });
 
           zip.select();
