@@ -1,15 +1,9 @@
 import React from 'react';
-import {nextSection} from '../lib/Utility.jsx';
+import {nextAndInvisible} from '../lib/Utility.jsx';
 
 class Introduction extends React.Component {
   constructor() {
     super();
-  }
-
-  nextAndInvisible = (e) => {
-    e.persist();
-    $(e.target).animate({ opacity: 0 })
-    nextSection(e, '#basic_questions')
   }
 
   render() {
@@ -32,7 +26,7 @@ class Introduction extends React.Component {
             both the carbon fee and dividend for the first years' fee of $15/ton.
           </div>
 
-          <button href="#basic_questions" className="btn btn-default btn-intro" onClick={this.nextAndInvisible}>Get Started</button>
+          <button href="#basic_questions" className="btn btn-default btn-intro" onClick={(e) =>{nextAndInvisible(e, '#basic_questions')}}>Get Started</button>
         </div>
       </div>
     )

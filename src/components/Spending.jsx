@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from 'react-rangeslider'
 import Lottie from 'react-lottie';
 import * as animationData from '../images/loader-w200-h200.json'
-import {nextSection, nextAndHide} from '../lib/Utility.jsx'
+import {nextAndInvisible} from '../lib/Utility.jsx'
 
 class Spending extends React.Component {
   constructor(props) {
@@ -75,7 +75,7 @@ class Spending extends React.Component {
           </div>
         </div>
         <div className="footer">
-          <button href="#results" className="btn btn-default btn_results" onClick={(e)=>{nextAndHide(e, '#results')}}>CALCULATE</button>
+          <button href="#results" className="btn btn-default btn_results" onClick={(e)=>{nextAndInvisible(e, '#results')}}>CALCULATE</button>
         </div>
       </div>
     )

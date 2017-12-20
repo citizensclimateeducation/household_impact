@@ -3,7 +3,7 @@ import axios from 'axios';
 import Slider from 'react-rangeslider';
 import NumberFormat from 'react-number-format';
 import NumericInput from 'react-numeric-input';
-import {nextAndHide, toCurrency, numberOptionList} from '../lib/Utility.jsx';
+import {nextAndInvisible, toCurrency, numberOptionList} from '../lib/Utility.jsx';
 
 class FamilyInfo extends React.Component {
   constructor(props) {
@@ -75,7 +75,7 @@ class FamilyInfo extends React.Component {
           </div>
         </div>
         <div className="footer">
-          <button className="btn btn-default" href="#home_questions" onClick={(e)=>{nextAndHide(e, '#home_questions')}}>
+          <button className="btn btn-default" href="#home_questions" onClick={(e)=>{nextAndInvisible(e, '#home_questions')}}>
             NEXT
           </button>
         </div>

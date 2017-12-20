@@ -5,21 +5,21 @@ div.inner-page-wrap.has-no-sidebar {
 }
 
 body.wordpress_calculator div#calculator {
-  // font-size: 0.9em;
-  font-size: 16px;
+  font-size: 20px;
+  font-family: 'Source Sans Pro', 'Helvetica', sans-serif;
 
-  div.section, div.card, div.card.intro_container { height: $card_height; }
+  //div.section, div.card, div.card.intro_container { height: $card_height; }
   div#results.card > div div { padding: 0 3.67037% !important; }
 
   @media(max-width: $screen-sm-min) {
-    div.section.intro_basic div.card{ height: $card_height; }
-    div.section, div.section.intro_basic {
-      display: block;
-      height: auto;
-      flex-direction: column;
-      justify-content: space-around;
-    }
-    form#basic_questions_form div.form-group.row { margin: 0px; margin-bottom: 5px; }
+    //div.section.intro_basic div.card{ height: $card_height; }
+    //div.section, div.section.intro_basic {
+      //display: block;
+      //height: auto;
+      //flex-direction: column;
+      //justify-content: space-around;
+    //}
+    //form#basic_questions_form div.form-group.row { margin: 0px; margin-bottom: 5px; }
     form-group {margin-bottom: 0px;}
   }
 

@@ -16,6 +16,12 @@ export const nextAndHide = (e, next_section_id) => {
   nextSection(e, next_section_id);
 }
 
+export const nextAndInvisible = (e, next_section_id) => {
+  e.persist();
+  $(e.target).animate({ opacity: 0 });
+  nextSection(e, next_section_id);
+}
+
 export const toCurrency = (val, format = '$0,0.00') => {
   return numeral(val).format(format)
 }
