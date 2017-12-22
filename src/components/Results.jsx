@@ -34,7 +34,7 @@ class Results extends React.Component {
           <div className="explanation">
           </div>
           <div className="row result_row top_buffer">
-            <div className="col-xs-8">Monthly Dividend</div>
+            <div className="col-xs-8">Estimated after-tax household dividend</div>
             <div className="col-xs-4 dividend text-right">{this.props.results.div_post}</div>
           </div>
           <div className="row top_buffer">
