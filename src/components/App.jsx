@@ -29,16 +29,20 @@ class App extends React.Component {
   }
 
   calculateCost = () => {
-    var elec = this.state.elec
-    var gas = this.state.gas
-    var heat = this.state.heat
-    var cost = eval(this.state.cost)
-    var div_post = numeral(this.state.div_pre).value() * (1.0 - numeral(this.state.mrate).value())
+    const elec = this.state.elec
+    const gas = this.state.gas
+    const heat = this.state.heat
+    const cost = eval(this.state.cost)
+    const div_post = numeral(this.state.div_pre).value() * (1.0 - numeral(this.state.mrate).value())
+
+    const carbon_cost = Math.round(cost / 12)
+    const div = Math.round(div_post / 12)
+    const net_impact = div - carbon_cost
 
     this.setState({
-      net_impact: (div_post - cost) / 12,
-      carbon_cost: toCurrency(cost / 12),
-      div_post: toCurrency(div_post / 12)
+      net_impact: net_impact,
+      carbon_cost: toCurrency(carbon_cost),
+      div_post: toCurrency(div)
     })
   }
 
@@ -59,7 +63,7 @@ class App extends React.Component {
         }
         <Introduction/>
         <FamilyInfo handleChange={this.setAttribute} income={this.state.income} setIncome={this.setIncome} />
-        <HomeInfo setResults={this.setResults} gas={this.state.gas} elec={this.state.elec} 
+        <HomeInfo setResults={this.setResults} gas={this.state.gas} elec={this.state.elec}
           heat={this.state.heat} children={this.state.children} adults={this.state.adults} income={this.state.income} setLoading={this.setLoading} />
         <Spending {...this.state} handleSlide={this.handleSlide} setResults={this.setResults} />
         <BasicInfoData {...this.state}/>
