@@ -96,7 +96,7 @@ class Results extends React.Component {
             <div className="row">
               <div className="col-sm-12 text-muted disclaimer no_print">
                 <i className="fa fa-asterisk" aria-hidden="true"></i> Calculator results are based on
-                <a href="https://citizensclimatelobby.org/household-impact-study/">CCL's Household Impact Study</a>. <a data-toggle="modal" data-target="#calcDetails">Learn more</a> about the methods and assumptions used in the calculation.
+                <a href="https://citizensclimatelobby.org/household-impact-study/"> CCL's Household Impact Study</a>. <a data-toggle="modal" data-target="#calcDetails">Learn more</a> about the methods and assumptions used in the calculation.
               </div>
             </div>
           </div>
