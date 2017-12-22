@@ -10,14 +10,7 @@ const {
 
 const FacebookIcon = generateShareIcon('facebook');
 const TwitterIcon = generateShareIcon('twitter');
-const TelegramIcon = generateShareIcon('telegram');
-const WhatsappIcon = generateShareIcon('whatsapp');
 const GooglePlusIcon = generateShareIcon('google');
-const LinkedinIcon = generateShareIcon('linkedin');
-const PinterestIcon = generateShareIcon('pinterest');
-const VKIcon = generateShareIcon('vk');
-const OKIcon = generateShareIcon('ok');
-const RedditIcon = generateShareIcon('reddit');
 const EmailIcon = generateShareIcon('email');
 
 class Results extends React.Component {
@@ -76,7 +69,7 @@ class Results extends React.Component {
             <div className="row top_buffer">
               <div className="col-sm-12 text-muted tips">
                 Learn more about <a href="https://citizensclimatelobby.org/basics-carbon-fee-dividend/" target="_blank">Carbon Fee and Dividend</a> and then
-                join <a href="https://citizensclimatelobby.org/join-citizens-climate-lobby/" target="_blank">Citizens Climate Lobby</a> to help us get CF&D passed.
+                join <a href="https://citizensclimatelobby.org/join-citizens-climate-lobby/" target="_blank">Citizens' Climate Lobby</a> to help us get CF&D passed.
               </div>
             </div>
             <div className="share_row row">
@@ -102,7 +95,7 @@ class Results extends React.Component {
             </div>
             <div className="row">
               <div className="col-sm-12 text-muted disclaimer no_print">
-                <i className="fa fa-asterisk" aria-hidden="true"></i> Calculator results are based on 
+                <i className="fa fa-asterisk" aria-hidden="true"></i> Calculator results are based on
                 <a href="https://citizensclimatelobby.org/household-impact-study/">CCL's Household Impact Study</a>. <a data-toggle="modal" data-target="#calcDetails">Learn more</a> about the methods and assumptions used in the calculation.
               </div>
             </div>
