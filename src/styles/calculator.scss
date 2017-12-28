@@ -206,7 +206,7 @@ label.label_sm{ display: none; }
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    display:flex;
+    //display:flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -228,7 +228,7 @@ a:hover { cursor: pointer; }
 }
 
 @media(max-width: $screen-phone) {
-  div.basic_info_data, div.tips { display: none; }
+  div.card.basic_info_data, div.tips { display: none; }
   body { font-size: 15px; }
   label.label_sm{ display: inline-block; }
   .label_lg{ display: none; }
