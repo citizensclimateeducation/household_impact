@@ -7,7 +7,7 @@ export const CalcDetails = (props) => {
       <h4>How does the calculator work?</h4>
       <p>
         <a href="https://citizensclimatelobby.org/household-impact-study/" target="_blank">CCL's Household Impact Study</a> estimates the direct financial effect of a
-        <a href="https://citizensclimatelobby.org/carbon-fee-and-dividend/">carbon tax and dividend</a> policy for a large, representative sample of U.S. households. Techniques,
+        <a href="https://citizensclimatelobby.org/carbon-fee-and-dividend/"> carbon tax and dividend</a> policy for a large, representative sample of U.S. households. Techniques,
         data, and assumptions are described in detail in the associated <a href="https://11bup83sxdss1xze1i3lpol4-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/Ummel-Impact-of-CCL-CFD-Policy-v1_4.pdf" target="_blank">working paper</a>.
       </p>
 
