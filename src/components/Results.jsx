@@ -38,20 +38,28 @@ class Results extends React.Component {
             <div className="col-xs-4 dividend text-right">{this.props.results.div_post}</div>
           </div>
           <div className="row top_buffer">
-            <div className="col-sm-12 text-muted">Dividend checks are based on the number of people in a household, not on income or spending.</div>
+            <div className="col-sm-12 text-muted">
+              Dividend checks are based on the number of people in a household, not on income or spending. 
+              <a href="https://citizensclimatelobby.org/carbon-fee-and-dividend/" target="_blank"> Learn more about the dividend</a>.
+            </div>
           </div>
           <div className="row result_row top_buffer">
             <div className="col-xs-8">Monthly Cost</div>
             <div className="col-xs-4 cost text-right">{this.props.results.carbon_cost}</div>
           </div>
           <div className="row top_buffer bottom_buffer">
-            <div className="col-sm-12 text-muted">Calculated by looking at your location and energy usage.</div>
+            <div className="col-sm-12 text-muted">Calculated by looking at your location and energy usage. 
+              <a href="https://citizensclimatelobby.org/carbon-fee-and-dividend/" target="_blank"> Learn more about the carbon fee</a>.
+            </div>
           </div>
           <div className="impact_panel">
             <div className="row">
               <div className="col-xs-8 form_title">Estimated {this.net_profit() ? 'gain' : 'loss'} per month*</div>
-              <div className="col-xs-4 form_title net_impact text-right">{this.displayImpact()}<span className="label_lg">/mo</span></div>
+              <div className="col-xs-4 form_title net_impact text-right">
+                {this.displayImpact()}<span className="label_lg">/mo</span>
+              </div>
             </div>
+            <div className="row pull-right"><a data-toggle="modal" data-target="#calcDetails" className="explanation_prompt">How accurate is this estimation?</a></div>
             <div className="row top_buffer">
               <div className="col-sm-12 text-muted summary">
                 <span className="summary_profit">

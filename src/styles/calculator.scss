@@ -7,6 +7,8 @@ body {
   font-family: 'Source Sans Pro', 'Helvetica', sans-serif;
 }
 
+a { display: inline; color: $ccl-blue;}
+
 // bootstrap color overrides
 #calculator {
   .form-control:focus{border-color: $green;  box-shadow: none; -webkit-box-shadow: none;}
@@ -39,7 +41,7 @@ div.card#results {
     padding: 40px 0px 0px 0px;
     margin-top: 40px;
     div.form_title { font-size: 1.4em; }
-    div.form_title.net_impact { font-size: 1.8em; }
+    div.form_title.net_impact { font-size: 1.8em; margin-bottom: 0px; }
   }
 }
 
