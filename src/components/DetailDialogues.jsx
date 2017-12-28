@@ -4,6 +4,7 @@ import InfoDialog from './InfoDialog.jsx'
 export const CalcDetails = (props) => {
   return (
     <InfoDialog dialogId="calcDetails" title="Calculation Explanation">
+      <h4>How does the calculator work?</h4>
       <p>
         <a href="https://citizensclimatelobby.org/household-impact-study/">CCL's Household Impact Study</a> estimates the direct financial effect of a
         <a href="https://citizensclimatelobby.org/carbon-fee-and-dividend/">carbon tax and dividend</a> policy for a large, representative sample of U.S. households. Techniques,
@@ -11,15 +12,26 @@ export const CalcDetails = (props) => {
       </p>
 
       <p>
-        The calculator uses the study’s results to estimate a household’s additional costs under the policy (due to higher prices for goods and services), depending on a limited set of household characteristics
-        (income, number of vehicles, etc.). It also calculates the expected dividend, which is a function of the household’s number of adults, number of minors, and expected federal marginal tax rate.
-        The difference between the dividend and additional cost is the “net financial benefit” – positive if a household is likely to “come out ahead” under CF&D.
+        The calculator uses the study’s results to calculate: 
       </p>
+      <ul>
+        <li><span className="font-weight-bold">an estimate of a household's additional costs</span> under the policy (due to higher prices for goods and services), depending 
+          on a limited set of household characteristics (income, number of vehicles etc.).
+        </li>
+        <li><span className="font-weight-bold">the expected dividend</span>, which is a function of the household's number of adults, number of minors, and
+          expected federal marginal tax rate.
+        </li>
+        <li><span className="font-weight-bold">the "net financial impact"</span> -- the difference between the dividend and additional cost - positive if a household 
+          is likely to "come out ahead" under CF&D.
+        </li>
+      </ul>
 
+      <h4>How accurate is the calculator?</h4>
       <p>
-        For ease of use, a small and generally easy-to-recall set of user inputs are solicited. The calculator reports the expected average outcome for a household. The actual outcome
-        for any specific household could vary from the average. For example, if your household is a below-average consumer of carbon-intensive goods like air travel and meat, the calculator
-        will understate the net benefit (and vice-versa). Developing a precise estimate for every household would require many more questions and accurate recall. We have opted for simplicity over precision.
+        For ease of use, a small and generally easy-to-recall set of user inputs are solicited. The calculator reports the expected average outcome for a household. 
+        The actual outcome for any specific household could vary from the average. For example, if your household is a below-average consumer of carbon-intensive goods 
+        like air travel and meat, the calculator will understate the net benefit (and vice-versa). Developing a precise estimate for every household would require many 
+        more questions and accurate recall. We have opted for simplicity over precision.
       </p>
     </InfoDialog>
   )

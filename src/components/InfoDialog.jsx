@@ -18,7 +18,7 @@ class InfoDialog extends React.Component {
             </div>
             <div className="modal-body">{this.props.children}</div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button btn btn-default" className="btn btn-secondary btn-default" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
