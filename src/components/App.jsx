@@ -25,8 +25,10 @@ class App extends React.Component {
     //this.calculate = callAPI.bind(this);
   }
 
-  //calculate = callAPI.bind(this);
-  setAttribute = (event) => { this.setState({ [event.target.name]: event.target.value }); }
+  costAvailable = () => { return this.state.cost; }
+
+  calculateIfValid = () => { if(this.costAvailable() && this.valid()) { this.calculate(); }}
+  setAttribute = (event) => { this.setState({ [event.target.name]: event.target.value }, this.calculateIfValid); }
   setLoading = (loading) => { this.setState({ loading: loading }) }
 
   handleSlide = (prop, value) => {
@@ -46,7 +48,7 @@ class App extends React.Component {
     if (this.state.zip) {
       $('.pre_calculate').removeClass('pre_calculate').addClass('post_calculate')
       $('.spending_panel, .search_failed').hide();
-      this.nextAndRename(e, '#spending');
+      if (!this.costAvailable()) { nextAndHide(e, '#spending'); }
 
       var data = {input: [{
         zip: this.state.zip,
@@ -89,6 +91,7 @@ class App extends React.Component {
   }
 
   basicInfoUpdated = (e) => {
+    console.log("basic info updated " + e);
     // if we already have a cost formula and we have a valid zip
     // call API, swap out cost presets
     // TODO: global indicator for API call?
@@ -110,21 +113,13 @@ class App extends React.Component {
     })
   }
 
-  valid = () => { this.state.zip }
+  valid = () => { return /^\d{5}$/.test(this.state.zip) }
   validZip = (e) => {
     e.persist();
     const re = /^[0-9]{0,5}$/
     const newval = e.target.value + e.key
     const highlighted = window.getSelection().toString()
     if (!re.test(newval) && !highlighted) { e.preventDefault(); }
-  }
-
-  
-  nextAndRename = (e) => {
-    e.persist();
-    nextSection(e, '#spending', function() {
-      $(e.target).html('RECALCULATE');
-    })
   }
 
   setIncome = (income) => { this.setState({income: income}) }
@@ -136,9 +131,10 @@ class App extends React.Component {
           <Menu/>
         }
         <Introduction/>
-        <FamilyInfo handleChange={this.setAttribute} income={this.state.income} setIncome={this.setIncome} />
+        <FamilyInfo handleChange={this.setAttribute} income={this.state.income} setIncome={this.setIncome} infoUpdated={this.basicInfoUpdated} 
+          calculateIfValid={this.calculateIfValid}/>
         <HomeInfo setResults={this.setResults} validZip={this.validZip} setLoading={this.setLoading} 
-          calculate={this.calculate} valid={this.valid} zip={this.state.zip} setAttribute={this.setAttribute} />
+          calculate={this.calculate} valid={this.valid} zip={this.state.zip} setAttribute={this.setAttribute} infoUpdated={this.basicInfoUpdated}/>
         <Spending {...this.state} handleSlide={this.handleSlide} setResults={this.setResults} />
         <BasicInfoData {...this.state}/>
         <Results results={this.state}/>
