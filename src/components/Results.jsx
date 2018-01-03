@@ -1,4 +1,5 @@
 import React from 'react'
+import VisibilitySensor from 'react-visibility-sensor'
 import numeral from 'numeral/min/numeral.min.js'
 import { ShareButtons,  ShareCounts,  generateShareIcon } from 'react-share'
 import {toCurrency, nextSection} from '../lib/Utility.jsx';
@@ -30,6 +31,7 @@ class Results extends React.Component {
       <div id="results" className="card initially_hidden">
         <div></div>
         <div>
+          <VisibilitySensor onChange={this.props.resultsVisible} />
           <div className="row"><div className="col-xs-12 form_title">Your Results</div></div>
           <div className="explanation">
           </div>

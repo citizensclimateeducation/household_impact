@@ -90,13 +90,6 @@ class App extends React.Component {
     }
   }
 
-  basicInfoUpdated = (e) => {
-    console.log("basic info updated " + e);
-    // if we already have a cost formula and we have a valid zip
-    // call API, swap out cost presets
-    // TODO: global indicator for API call?
-  }
-
   calculateCost = () => {
     const elec = this.state.elec
     const gas = this.state.gas
@@ -124,6 +117,11 @@ class App extends React.Component {
 
   setIncome = (income) => { this.setState({income: income}) }
 
+  resultsVisible = (isVisible) => {
+    console.log("Results are %s", isVisible ? 'visible' : 'not visible')
+
+  }
+
   render() {
     return (
       <div id="impact_calculator">
@@ -131,13 +129,12 @@ class App extends React.Component {
           <Menu/>
         }
         <Introduction/>
-        <FamilyInfo handleChange={this.setAttribute} income={this.state.income} setIncome={this.setIncome} infoUpdated={this.basicInfoUpdated} 
-          calculateIfValid={this.calculateIfValid}/>
+        <FamilyInfo handleChange={this.setAttribute} income={this.state.income} setIncome={this.setIncome} calculateIfValid={this.calculateIfValid}/>
         <HomeInfo setResults={this.setResults} validZip={this.validZip} setLoading={this.setLoading} 
-          calculate={this.calculate} valid={this.valid} zip={this.state.zip} setAttribute={this.setAttribute} infoUpdated={this.basicInfoUpdated}/>
+          calculate={this.calculate} valid={this.valid} zip={this.state.zip} setAttribute={this.setAttribute}/>
         <Spending {...this.state} handleSlide={this.handleSlide} setResults={this.setResults} />
         <BasicInfoData {...this.state}/>
-        <Results results={this.state}/>
+        <Results results={this.state} resultsVisible={this.resultsVisible} />
         <DetailDialogues />
       </div>
     )
