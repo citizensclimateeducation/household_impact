@@ -31,7 +31,6 @@ class Results extends React.Component {
       <div id="results" className="card initially_hidden">
         <div></div>
         <div>
-          <VisibilitySensor onChange={this.props.resultsVisible} />
           <div className="row"><div className="col-xs-12 form_title">Your Results</div></div>
           <div className="explanation">
           </div>
@@ -55,6 +54,7 @@ class Results extends React.Component {
             </div>
           </div>
           <div className="impact_panel">
+            <VisibilitySensor onChange={this.props.resultsVisible} />
             <div className="row">
               <div className="col-xs-8 form_title">Estimated {this.net_profit() ? 'gain' : 'loss'} per month*</div>
               <div className="col-xs-4 form_title net_impact text-right">

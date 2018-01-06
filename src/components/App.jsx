@@ -6,6 +6,7 @@ import FamilyInfo from './FamilyInfo.jsx'
 import HomeInfo from './HomeInfo.jsx'
 import Spending from './Spending.jsx'
 import Results from './Results.jsx'
+import ResultsIndicator from './ResultsIndicator.jsx'
 import BasicInfoData from './BasicInfoData.jsx'
 import Menu from './Menu.jsx'
 import numeral from 'numeral/min/numeral.min.js';
@@ -19,13 +20,13 @@ const impact_study_url = 'https://ummel.ocpu.io/exampleR/R/predictModel/json'
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { div_pre: 0, mrate: 0.15, elec: 100, gas: 75, heat: 50, cost: '', net_impact: 0, moe: 0, gas_upr: 200, elec_upr: 200,
+    this.state = { div_pre: 0, mrate: 0.15, elec: 100, gas: 75, heat: 50, cost: '', net_impact: 0, moe: 0, gas_upr: 200, elec_upr: 200, show_footer_impact: false,
                   heat_upr: 300, carbon_cost: 0, div_post: 0, initial_heat: 0, initial_gas: 0, initial_elec: 0, div_month: 0, cost_month: 0, impact_month: 0,
                   adults: 1, children: 0, loading: false, heating_type: 'Natural gas', vehicles: 2, zip: '', dwelling_type: 'Stand-alone house'}
     //this.calculate = callAPI.bind(this);
   }
 
-  costAvailable = () => { return this.state.cost; }
+  costAvailable = () => { return !!this.state.cost; }
 
   calculateIfValid = () => { if(this.costAvailable() && this.valid()) { this.calculate(); }}
   setAttribute = (event) => { this.setState({ [event.target.name]: event.target.value }, this.calculateIfValid); }
@@ -47,7 +48,7 @@ class App extends React.Component {
   calculate = (e) => {
     if (this.state.zip) {
       $('.pre_calculate').removeClass('pre_calculate').addClass('post_calculate')
-      $('.spending_panel, .search_failed').hide();
+      $('.spending_panel, .search_failed, .calculate_success').hide();
       if (!this.costAvailable()) { nextAndHide(e, '#spending'); }
 
       var data = {input: [{
@@ -71,7 +72,7 @@ class App extends React.Component {
       axios.post(impact_study_url, JSON.stringify(data), {responseType: 'json', headers: {'Content-Type': 'application/json'}}).
         then(function(response) {
           $('.calculating').fadeOut('slow', function() {
-            $('.spending_panel, .btn_results').fadeIn('slow', function() {
+            $('.spending_panel, .btn_results, .calculate_success').fadeIn('slow', function() {
               setResults({...response.data[0]})
             });
           });
@@ -118,8 +119,8 @@ class App extends React.Component {
   setIncome = (income) => { this.setState({income: income}) }
 
   resultsVisible = (isVisible) => {
-    console.log("Results are %s", isVisible ? 'visible' : 'not visible')
-
+    var show_footer_impact = !isVisible && this.costAvailable();
+    this.setState({show_footer_impact: show_footer_impact});
   }
 
   render() {
@@ -135,6 +136,7 @@ class App extends React.Component {
         <Spending {...this.state} handleSlide={this.handleSlide} setResults={this.setResults} />
         <BasicInfoData {...this.state}/>
         <Results results={this.state} resultsVisible={this.resultsVisible} />
+        <ResultsIndicator net_impact={this.state.net_impact} show_footer_impact={this.state.show_footer_impact} loading={this.state.loading} />
         <DetailDialogues />
       </div>
     )

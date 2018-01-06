@@ -196,6 +196,32 @@ div.basic_info_data {
 label.label_sm{ display: none; }
 .label_lg{ display: inline-block; }
 
+
+div.impact_indicator {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 45px;
+  width: 100%;
+  overflow:hidden;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffffff;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
+  font-size: 1.2em;
+  display: none;
+  .spinner {
+    margin: 0px auto;
+    max-width: 35px;
+  }
+  .calculating {
+    font-size: 1em;
+    margin: 0px 0px;
+  }
+}
+
 /* wrap */
 @media(max-width: $screen-sm-min) {
   div.card > div { margin-left: 5px; }
