@@ -101,8 +101,11 @@ div.card.intro_container {
   font-size: 2.0em;
   @media(max-width: $screen-sm-min) { font-size :1.2em; }
   a, a:hover, i, button {
-    color: $dark-gray;
+    //color: $dark-gray;
     text-decoration: none;
+  }
+  a.btn_start_over {
+    font-size: .6em;
   }
   button.btn, button.btn.disabled {
     font-size: .7em;
@@ -117,9 +120,6 @@ div.card.intro_container {
     min-width: 40%;
     font-size: 0.9em;
     line-height: 1.83;
-  }
-  i {
-    font-size: 2.5em;
   }
   padding-bottom:20px;
   button.btn_back { color: $dark-gray; background-color: transparent; border-color: $dark-gray }
@@ -183,7 +183,10 @@ div#intro .footer { text-align: center; }
 }
 
 //.footer button:not(:first-child) { margin-left: 20px; }
-.impact_panel { border-top: 1px solid #eee; }
+.impact_panel { 
+  border-top: 1px solid #eee; 
+  .summary_profit { display: block; }
+}
 div.header, div.basic_info_data { width: 100%; }
 div.no_print { display: block; }
 

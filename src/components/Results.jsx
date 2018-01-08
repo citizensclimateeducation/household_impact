@@ -40,7 +40,7 @@ class Results extends React.Component {
           </div>
           <div className="row top_buffer">
             <div className="col-sm-12 text-muted">
-              Dividend checks are based on the number of people in a household, not on income or spending. 
+              Calculation based on household's number of adults, number of minors, and expected federal marginal tax rate. 
               <a href="https://citizensclimatelobby.org/carbon-fee-and-dividend/" target="_blank"> Learn more about the dividend</a>.
             </div>
           </div>
@@ -49,7 +49,8 @@ class Results extends React.Component {
             <div className="col-xs-4 cost text-right">{this.props.results.carbon_cost}</div>
           </div>
           <div className="row top_buffer bottom_buffer">
-            <div className="col-sm-12 text-muted">Calculated by looking at your location and energy usage. 
+            <div className="col-sm-12 text-muted">Estimated additional costs due to higher prices for goods and services, depending on the household charactersitics 
+              entered above (income, number of vehicles, etc.). 
               <a href="https://citizensclimatelobby.org/carbon-fee-and-dividend/" target="_blank"> Learn more about the carbon fee</a>.
             </div>
           </div>
@@ -61,20 +62,20 @@ class Results extends React.Component {
                 {this.displayImpact()}<span className="label_lg">/mo</span>
               </div>
             </div>
-            <div className="row pull-right"><a data-toggle="modal" data-target="#calcDetails" className="explanation_prompt">How accurate is this estimation?</a></div>
+            <div className="row pull-right"><a data-toggle="modal" data-target="#calcDetails" className="explanation_prompt">How is this number calculated?</a></div>
             <div className="row top_buffer">
               <div className="col-sm-12 text-muted summary">
-                <span className="summary_profit">
-                  {this.net_profit() &&
-                      "Awesome! You should end up with some extra money each year."
-                  }
-                </span>
+                {this.net_profit() &&
+                  <span className="summary_profit">
+                    "Awesome! You should end up with some extra money each year."
+                  </span>
+                }
+                <a className="btn_start_over" href="#basic_questions" onClick={(e)=>{nextSection(e, '#basic_questions')}}>
+                  <i className="fa fa-undo" /> Start Over
+                </a>
               </div>
             </div>
             <div className='footer'>
-              <button className="btn btn-default" href="#basic_questions" onClick={(e)=>{nextSection(e, '#basic_questions')}}>
-                START OVER
-              </button>
             </div>
             <div className="row top_buffer">
               <div className="col-sm-12 text-muted tips">
