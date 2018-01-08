@@ -46,7 +46,7 @@ class FamilyInfo extends React.Component {
             <div className="form_title no_print">Tell us a little bit about your household</div>
             <div className="form_title print_only">Household and Spending</div>
             <div className="explanation no_print">
-              This will help us figure out your dividend check and take some first guesses at your spending.
+              We don't collect this data, we will only use it to figure out your dividend check and take a first guess at your spending.
             </div>
             <div className="form-group">
               <label htmlFor="adults">How many adults (age 18+) live in your home?</label>
