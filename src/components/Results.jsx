@@ -39,7 +39,7 @@ class Results extends React.Component {
             <div className="col-xs-4 dividend text-right">{this.props.results.div_post}</div>
           </div>
           <div className="row top_buffer">
-            <div className="col-sm-12 text-muted">
+            <div className="col-sm-12 text-muted disclaimer">
               Calculation based on household's number of adults, number of minors, and expected federal marginal tax rate. 
               <a href="https://citizensclimatelobby.org/carbon-fee-and-dividend/" target="_blank"> Learn more about the dividend</a>.
             </div>
@@ -49,7 +49,7 @@ class Results extends React.Component {
             <div className="col-xs-4 cost text-right">{this.props.results.carbon_cost}</div>
           </div>
           <div className="row top_buffer bottom_buffer">
-            <div className="col-sm-12 text-muted">Estimated additional costs due to higher prices for goods and services, depending on the household charactersitics 
+            <div className="col-sm-12 text-muted disclaimer">Estimated additional costs due to higher prices for goods and services, depending on the household charactersitics 
               entered above (income, number of vehicles, etc.). 
               <a href="https://citizensclimatelobby.org/carbon-fee-and-dividend/" target="_blank"> Learn more about the carbon fee</a>.
             </div>
@@ -107,7 +107,8 @@ class Results extends React.Component {
             <div className="row">
               <div className="col-sm-12 text-muted disclaimer no_print">
                 <i className="fa fa-asterisk" aria-hidden="true"></i> Calculator results are based on
-                <a href="https://citizensclimatelobby.org/household-impact-study/" target="_blank"> CCL's Household Impact Study</a>. <a data-toggle="modal" data-target="#calcDetails">Learn more</a> about the methods and assumptions used in the calculation.
+                <a href="https://citizensclimatelobby.org/household-impact-study/" target="_blank"> CCL's Household Impact Study</a>. <a data-toggle="modal" data-target="#calcDetails">Learn more</a> about the 
+                methods and assumptions used in the calculation.
               </div>
             </div>
           </div>

@@ -16,10 +16,13 @@ a { display: inline; color: $ccl-blue;}
   .caret { color: $green; }
 }
 
-#impact_calculator .navbar { margin-bottom: 0px; }
+#impact_calculator {
+  position: relative;
+  .navbar { margin-bottom: 0px; }
+}
 
 div.card {
-  width: 57%;
+  //width: 57%;
   max-width: 800px;
   margin-right: auto;
   margin-left: auto;
@@ -173,7 +176,6 @@ div#intro .footer { text-align: center; }
 
 .spending_panel, .btn_results{
   display:none;
-
   label { font-size: 1.0em; }
 }
 
@@ -199,6 +201,8 @@ div.basic_info_data {
 label.label_sm{ display: none; }
 .label_lg{ display: inline-block; }
 
+div.row { margin-left: 0px; margin-right: 0px}
+
 
 div.impact_indicator {
   position: fixed;
@@ -206,15 +210,14 @@ div.impact_indicator {
   bottom: 0;
   height: 45px;
   width: 100%;
-  overflow:hidden;
   align-items: center;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: #ffffff;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
   font-size: 1.2em;
   display: none;
+  line-height: 45px;
   .spinner {
     margin: 0px auto;
     max-width: 35px;
@@ -232,13 +235,12 @@ div.impact_indicator {
   .form_title {font-size: 1.8em;}
 
   div.card {
-    width: 100%;
+    width: 99%;
     margin-right: auto;
     margin-left: auto;
-    //display:flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    //align-items: center;
   }
 
   div.basic_info_panel { width: 100%; }
@@ -252,6 +254,7 @@ a:hover { cursor: pointer; }
 }
 
 .disclaimer { font-size: .8em; }
+.text-muted { color: $muted-gray; }
 #results {
   .result_row { font-size: 1.2em; }
 }
@@ -270,7 +273,7 @@ a:hover { cursor: pointer; }
   .footer {
     padding-bottom: 0px;
     button.btn, button.btn.btn-intro, button.btn.disabled{
-      min-width: 100%;
+      width: 100%;
       border-radius: 4px;
     }
     .cf_and_d_explanation { display: none; }

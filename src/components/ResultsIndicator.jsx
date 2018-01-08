@@ -8,6 +8,7 @@ class ResultsIndicator extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {initially_viewed: false};
   }
 
   componentWillReceiveProps(nextProps) {
@@ -17,7 +18,13 @@ class ResultsIndicator extends React.Component {
   }
 
   fadeFooter = (show_footer) => {
-    show_footer ? $('.impact_indicator').css("display", "flex").hide().fadeIn() : $('.impact_indicator').fadeOut();
+    console.log('show: ' + show_footer);
+    if(show_footer && this.state.initially_viewed) {
+      $('.impact_indicator').css("display", "block").hide().fadeIn();
+    } else {
+      this.setState({initially_viewed: true});
+      $('.impact_indicator').fadeOut();
+    }
   }
 
   net_profit = () => { return this.props.net_impact >= 0 }

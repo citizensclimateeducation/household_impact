@@ -15,6 +15,7 @@ $green-to: #A8CF45;
 $blue-from: #C6EBFC;
 $blue-to: #73CCF2;
 $dark-blue: #017ab0;
+$muted-gray: #757575;
 
 @mixin linear-gradient($from, $to, $from_percent: 20%, $to_percent: 100%) {
   background: $to;
