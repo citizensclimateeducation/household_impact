@@ -41,8 +41,8 @@ class ResultsIndicator extends React.Component {
               </div>
           </div>
           <div className="row calculate_success">
-            <div className="col-xs-8">Estimated {this.net_profit() ? 'gain' : 'loss'} per month*</div>
-            <div className="col-xs-4 net_impact text-right">
+            <div className="col-md-8 col-xs-9">Estimated {this.net_profit() ? 'gain' : 'loss'} per month*</div>
+            <div className="col-md-4 col-xs-3 net_impact text-right">
               {this.displayImpact()}<span className="label_lg">/mo</span>
             </div>
           </div>
