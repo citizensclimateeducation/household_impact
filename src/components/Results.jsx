@@ -1,18 +1,7 @@
 import React from 'react'
 import VisibilitySensor from 'react-visibility-sensor'
 import numeral from 'numeral/min/numeral.min.js'
-import { ShareButtons,  ShareCounts,  generateShareIcon } from 'react-share'
 import {toCurrency, nextSection} from '../lib/Utility.jsx';
-
-const {
-  FacebookShareButton, GooglePlusShareButton, LinkedinShareButton, TwitterShareButton, TelegramShareButton, WhatsappShareButton, PinterestShareButton,
-  VKShareButton, OKShareButton, RedditShareButton, EmailShareButton,
-} = ShareButtons;
-
-const FacebookIcon = generateShareIcon('facebook');
-const TwitterIcon = generateShareIcon('twitter');
-const GooglePlusIcon = generateShareIcon('google');
-const EmailIcon = generateShareIcon('email');
 
 class Results extends React.Component {
   constructor(props) {
@@ -84,31 +73,12 @@ class Results extends React.Component {
               </div>
             </div>
             <div className="share_row row">
-              <div className="col-sm-12 text-muted">
-                <label>Print: </label><a className="print_button" href="javascript:window.print()"><i className="fa fa-print"></i></a>
-                <label>Share: </label>
-                <FacebookShareButton url={share_url} quote={share_message} hashtag="climate">
-                  <i className="fa fa-facebook"></i>
-                </FacebookShareButton>
-                <TwitterShareButton url={share_url} title={share_message} via="citizensclimate" hashtags={['climate', 'PutAPriceOnIt']}>
-                  <i className="fa fa-twitter"></i>
-                </TwitterShareButton>
-                <GooglePlusShareButton url={share_url}>
-                  <i className="fa fa-google-plus-official"></i>
-                </GooglePlusShareButton>
-                <PinterestShareButton url={share_url} description={share_message} media={share_media}>
-                  <i className="fa fa-pinterest"></i>
-                </PinterestShareButton>
-                <EmailShareButton url={share_url} subject={share_message}>
-                  <i className="fa fa-email"></i>
-                </EmailShareButton>
-              </div>
             </div>
             <div className="row">
               <div className="col-sm-12 text-muted disclaimer no_print">
                 <i className="fa fa-asterisk" aria-hidden="true"></i> Calculator results are based on
-                <a href="https://citizensclimatelobby.org/household-impact-study/" target="_blank"> CCL's Household Impact Study</a>. <a data-toggle="modal" data-target="#calcDetails">Learn more</a> about the 
-                methods and assumptions used in the calculation.
+                <a href="https://citizensclimatelobby.org/household-impact-study/" target="_blank"> CCL's Household Impact Study</a>. <a data-toggle="modal" data-target="#calcDetails">Learn more</a> about 
+                the methods and assumptions used in the calculation.
               </div>
             </div>
           </div>
