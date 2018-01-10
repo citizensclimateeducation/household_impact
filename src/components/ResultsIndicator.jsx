@@ -18,7 +18,6 @@ class ResultsIndicator extends React.Component {
   }
 
   fadeFooter = (show_footer) => {
-    console.log('show: ' + show_footer);
     if(show_footer && this.state.initially_viewed) {
       $('.impact_indicator').css("display", "block").hide().fadeIn();
     } else {
@@ -37,7 +36,7 @@ class ResultsIndicator extends React.Component {
         <div className="card">
           <div className="row calculating">
             <div className="spinner">
-              <svg class="wait_spinner" xmlns="http//www.w3.org/2000/svg" viewBox="0 0 100 100">
+              <svg className="wait_spinner" xmlns="http//www.w3.org/2000/svg" viewBox="0 0 100 100">
                 <circle className='green_circle' cx='50' cy='50' r='45' strokeDasharray='141.37' />
                 <circle className='blue_circle' cx='50' cy='50' r='30' strokeDasharray='94.248'/>
                 <polyline className='letter' points='41,31 41,59 69,59' />
