@@ -29,16 +29,20 @@ class ResultsIndicator extends React.Component {
 
   net_profit = () => { return this.props.net_impact >= 0 }
   displayImpact = () => { return toCurrency(Math.abs(this.props.net_impact))}
-
+                //<Lottie options={defaultOptions} isStopped={! this.props.loading} isPaused={false}/>
   render() {
     const defaultOptions = { loop: true, autoplay: true, animationData: animationData }
     return (
       <div className="impact_indicator no_print">
         <div className="card">
           <div className="row calculating">
-              <div className="spinner">
-                <Lottie options={defaultOptions} isStopped={! this.props.loading} isPaused={false}/>
-              </div>
+            <div className="spinner">
+              <svg class="wait_spinner" xmlns="http//www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <circle className='green_circle' cx='50' cy='50' r='45' strokeDasharray='141.37' />
+                <circle className='blue_circle' cx='50' cy='50' r='30' strokeDasharray='94.248'/>
+                <polyline className='letter' points='41,31 41,59 69,59' />
+              </svg>
+            </div>
           </div>
           <div className="row calculate_success">
             <div className="col-md-8 col-xs-9">Estimated {this.net_profit() ? 'gain' : 'loss'} per month*</div>

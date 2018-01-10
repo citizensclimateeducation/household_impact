@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios';
 import {DetailDialogues} from './DetailDialogues.jsx'
+import {LogoSpinner} from './LogoSpinner.jsx'
 import Introduction from './Introduction.jsx'
 import FamilyInfo from './FamilyInfo.jsx'
 import HomeInfo from './HomeInfo.jsx'

@@ -1,0 +1,5 @@
+<svg id="logo_wait" xmlns="http//www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle class='green_circle' cx='50' cy='50' r='45' stroke-dasharray='141.37' />
+  <circle class='blue_circle' cx='50' cy='50' r='30' stroke-dasharray='94.248'/>
+  <polyline class='letter' points='41,31 41,59 69,59' />
+</svg>

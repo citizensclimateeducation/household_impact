@@ -1,0 +1,38 @@
+@keyframes green_dash {
+  from {
+    stroke-dashoffset: -35.34;
+  }
+  to {
+    stroke-dashoffset: -318.0834;
+  }
+}
+@keyframes blue_dash {
+  from {
+    stroke-dashoffset: -23.562;
+  }
+  to {
+    stroke-dashoffset: 164.934;
+  }
+}
+svg#logo_image { display: none; }
+.wait_spinner {
+  width: 100%;
+  fill: none;
+
+}
+  .green_circle {
+    stroke: #a8cf45;
+    stroke-width: 10;
+    stroke-dashoffset: -35.34;
+    animation: green_dash 4s linear infinite;
+  }
+  .blue_circle {
+    stroke: #0098da;
+    stroke-width: 10;
+    stroke-dashoffset: -23.562;
+    animation: blue_dash 4s linear infinite;
+  }
+  .letter {
+    stroke: #606062;
+    stroke-width: 10;
+  }
