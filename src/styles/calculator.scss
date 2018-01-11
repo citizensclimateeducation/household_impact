@@ -217,12 +217,14 @@ div.impact_indicator {
   background-color: #ffffff;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
   font-size: 1.2em;
-  display: none;
+  //display: none;
   line-height: 45px;
+  .estimate_message, .net_impact {padding-left: 0px; padding-right: 0px; }
   .spinner {
     margin: 0px auto;
     max-width: 45px;
     height: 45px;
+    padding: 6px;
   }
   .calculating {
     font-size: 1em;
