@@ -1,9 +1,7 @@
 import React from 'react'
 import {toCurrency, nextSection} from '../lib/Utility.jsx';
 
-
 class ResultsIndicator extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {initially_viewed: false};

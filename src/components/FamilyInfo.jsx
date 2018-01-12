@@ -12,13 +12,6 @@ class FamilyInfo extends React.Component {
     this.props.setIncome(this.position_to_income(272))
   }
 
-  validZip = (e) => {
-    const re = /^[0-9]{0,5}$/
-    const newval = e.target.value + e.key
-    const highlighted = window.getSelection().toString()
-    if (!re.test(newval) && !highlighted) { e.preventDefault(); }
-  }
-
   toNearestThousand = (val) => { return Math.ceil(((val + 1) / 1000)) * 1000 }
 
   // based on https://stackoverflow.com/questions/846221/logarithmic-slider

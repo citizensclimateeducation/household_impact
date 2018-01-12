@@ -1,6 +1,5 @@
 import React from 'react';
-import {nextSection} from '../lib/Utility.jsx';
-import {toCurrency} from '../lib/Utility.jsx'
+import {nextSection, toCurrency} from '../lib/Utility.jsx';
 
 class BasicInfoData extends React.Component {
     constructor(props) {
