@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios';
 import {DetailDialogues} from './DetailDialogues.jsx'
-import {LogoSpinner} from './LogoSpinner.jsx'
 import Introduction from './Introduction.jsx'
 import FamilyInfo from './FamilyInfo.jsx'
 import HomeInfo from './HomeInfo.jsx'
@@ -9,11 +8,8 @@ import Spending from './Spending.jsx'
 import Results from './Results.jsx'
 import ResultsIndicator from './ResultsIndicator.jsx'
 import BasicInfoData from './BasicInfoData.jsx'
-import Menu from './Menu.jsx'
 import numeral from 'numeral/min/numeral.min.js';
-import {nextSection, nextAndHide, toCurrency, numberOptionList} from '../lib/Utility.jsx'
-import {} from '../lib/Utility.jsx';
-//import {callAPI} from '../lib/ImpactStudyAPI.js'
+import {nextSection, nextAndHide, toCurrency} from '../lib/Utility.jsx'
 require('../images/favicon.ico')
 
 const impact_study_url = 'https://ummel.ocpu.io/exampleR/R/predictModel/json'
@@ -24,7 +20,6 @@ class App extends React.Component {
     this.state = { div_pre: 0, mrate: 0.15, elec: 100, gas: 75, heat: 50, cost: '', net_impact: 0, moe: 0, gas_upr: 200, elec_upr: 200, show_footer_impact: false,
                   heat_upr: 300, carbon_cost: 0, div_post: 0, initial_heat: 0, initial_gas: 0, initial_elec: 0, div_month: 0, cost_month: 0, impact_month: 0,
                   adults: 1, children: 0, loading: false, heating_type: 'Natural gas', vehicles: 2, zip: '', dwelling_type: 'Stand-alone house'}
-    //this.calculate = callAPI.bind(this);
   }
 
   costAvailable = () => { return !!this.state.cost; }

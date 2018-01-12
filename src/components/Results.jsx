@@ -1,6 +1,5 @@
 import React from 'react'
 import VisibilitySensor from 'react-visibility-sensor'
-import numeral from 'numeral/min/numeral.min.js'
 import {toCurrency, nextSection} from '../lib/Utility.jsx';
 
 class Results extends React.Component {
@@ -12,10 +11,6 @@ class Results extends React.Component {
   displayImpact = () => { return toCurrency(Math.abs(this.props.results.net_impact))}
 
   render() {
-    const share_url = "http://cclobby.staging.wpengine.com/calculator/";
-    const share_message = "See how much money you can save while fighting climate change!"
-    const share_media = "https://11bup83sxdss1xze1i3lpol4-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/Household-Impact-Study-percent-benefited-by-zip-code.png"
-
     return (
       <div id="results" className="card initially_hidden">
         <div></div>

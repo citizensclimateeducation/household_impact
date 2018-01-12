@@ -1,7 +1,5 @@
 import React from 'react';
 import Slider from 'react-rangeslider'
-import Lottie from 'react-lottie';
-import * as animationData from '../images/loader-w200-h200.json'
 import {nextAndInvisible} from '../lib/Utility.jsx'
 
 class Spending extends React.Component {
@@ -15,7 +13,6 @@ class Spending extends React.Component {
   }
 
   render() {
-    const defaultOptions = { loop: true, autoplay: true, animationData: animationData }
     return (
       <div id="spending" className="card pre_calculate input">
         <div></div>

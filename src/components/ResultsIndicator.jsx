@@ -1,6 +1,4 @@
 import React from 'react'
-import Lottie from 'react-lottie';
-import * as animationData from '../images/loader-w200-h200.json'
 import {toCurrency, nextSection} from '../lib/Utility.jsx';
 
 
@@ -28,9 +26,8 @@ class ResultsIndicator extends React.Component {
 
   net_profit = () => { return this.props.net_impact >= 0 }
   displayImpact = () => { return toCurrency(Math.abs(this.props.net_impact))}
-                //<Lottie options={defaultOptions} isStopped={! this.props.loading} isPaused={false}/>
+
   render() {
-    const defaultOptions = { loop: true, autoplay: true, animationData: animationData }
     return (
       <div className="impact_indicator no_print">
         <div className="card">

@@ -1,16 +1,10 @@
 import React from 'react';
-import NumberFormat from 'react-number-format';
-import NumericInput from 'react-numeric-input';
-import {nextSection, nextAndHide, toCurrency, numberOptionList} from '../lib/Utility.jsx';
+import {numberOptionList} from '../lib/Utility.jsx';
 
 class HomeInfo extends React.Component {
   constructor(props) {
     super(props);
-    //this.state = {heating_type: 'Natural gas', vehicles: 2, zip: '', dwelling_type: 'Stand-alone house'}
   }
-
-  //handleChange = (event) => { this.setState({ [event.target.name]: event.target.value }); }
-
 
   render() {
     return (
