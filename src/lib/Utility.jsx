@@ -5,21 +5,20 @@
 import React from 'react';
 import numeral from 'numeral/min/numeral.min.js';
 
-export const nextSection = (e, next_section_id, callback) => {
-  e.preventDefault();
+export const nextSection = (next_section_id, callback) => {
   $(next_section_id).removeClass('initially_hidden');
   $('html, body').animate({scrollTop: $($(next_section_id)).offset().top}, 500, 'linear', callback);
 }
 
 export const nextAndHide = (e, next_section_id) => {
-  $(e.target).hide('fast');
-  nextSection(e, next_section_id);
+  $(e.target).fadeOut('fast');
+  nextSection(next_section_id);
 }
 
 export const nextAndInvisible = (e, next_section_id) => {
   e.persist();
   $(e.target).animate({ opacity: 0 });
-  nextSection(e, next_section_id);
+  nextSection(next_section_id);
 }
 
 export const toCurrency = (val, format = '$0,0.00') => {

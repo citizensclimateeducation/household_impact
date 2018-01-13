@@ -105,7 +105,6 @@ div.card.intro_container {
   font-size: 2.0em;
   @media(max-width: $screen-sm-min) { font-size :1.2em; }
   a, a:hover, i, button {
-    //color: $dark-gray;
     text-decoration: none;
   }
   a.btn_start_over {
@@ -168,7 +167,7 @@ div.card#results div.share_row {
     svg {
       display: block;
       margin: auto;
-      max-width: 200px;
+      max-width: 280px;
     }
   }
 }
@@ -185,7 +184,6 @@ div#intro .footer { text-align: center; }
   display: none;
 }
 
-//.footer button:not(:first-child) { margin-left: 20px; }
 .impact_panel { 
   border-top: 1px solid #eee; 
   .summary_profit { display: block; }

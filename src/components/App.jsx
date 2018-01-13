@@ -44,7 +44,11 @@ class App extends React.Component {
     if (this.state.zip) {
       $('.pre_calculate').removeClass('pre_calculate').addClass('post_calculate')
       $('.spending_panel, .search_failed, .calculate_success').hide();
-      if (!this.costAvailable()) { nextAndHide(e, '#spending'); }
+      const costAvailable = this.costAvailable;
+      const setLoading = this.setLoading;
+      const setResults = this.setResults
+
+      if (!costAvailable()) { nextAndHide(e, '#spending'); }
 
       var data = {input: [{
         zip: this.state.zip,
@@ -56,8 +60,6 @@ class App extends React.Component {
         htype: String(this.state.dwelling_type)
       }]};
 
-      const setLoading = this.state.setLoading;
-      const setResults = this.setResults
 
       this.setLoading(true);
       $('.calculating').fadeIn('slow');
@@ -72,15 +74,15 @@ class App extends React.Component {
             });
           });
         }).catch(function(error) {
-          nextSection(e, '#home_questions')
-          $('.search_failed').fadeIn('slow');
+          nextSection('#home_questions'); $('.search_failed').fadeIn('slow');
+          if(!costAvailable()) { $('#calculate_button').fadeIn('slow'); }
 
           $('.calculating').fadeOut('slow', function() {
             $('.post_calculate').addClass('pre_calculate').removeClass('post_calculate');
             setLoading(false);
           });
 
-          zip.select();
+          $('#zip').select();
           console.log(error);
         })
     }
