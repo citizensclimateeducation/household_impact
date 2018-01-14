@@ -29,8 +29,7 @@ class App extends React.Component {
   setLoading = (loading) => { this.setState({ loading: loading }) }
 
   handleSlide = (prop, value) => {
-    this.setState({[prop]: value})
-    this.calculateCost()
+    this.setState({[prop]: value}, this.calculateCost);
   }
 
   setResults = (e) => {
