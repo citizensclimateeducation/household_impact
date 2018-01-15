@@ -1,8 +1,20 @@
 @import 'includes';
 
+div.card#results div.share_row {
+  width: 100%;
+  min-height: 80px;
+  i {
+    color: $blue;
+    text-decoration: none;
+    margin-left: 10px;
+  }
+  i { font-size: 1.7em; }
+  padding: 25px 0px;
+  label { margin-left: 25px; }
+}
+
 .SocialMediaShareButton, .print_button {
   display: inline-block;
-  font-size: 1.6em;
 }
 
 @media(max-width: $screen-phone) {

@@ -1,6 +1,18 @@
 import React from 'react'
 import VisibilitySensor from 'react-visibility-sensor'
+import { ShareButtons,  ShareCounts,  generateShareIcon } from 'react-share'
 import {toCurrency, nextSection} from '../lib/Utility.jsx';
+
+const {
+  FacebookShareButton, GooglePlusShareButton, LinkedinShareButton, TwitterShareButton, TelegramShareButton, 
+  WhatsappShareButton, PinterestShareButton,
+  VKShareButton, OKShareButton, RedditShareButton, EmailShareButton,
+} = ShareButtons;
+
+const FacebookIcon = generateShareIcon('facebook');
+const TwitterIcon = generateShareIcon('twitter');
+const GooglePlusIcon = generateShareIcon('google');
+const EmailIcon = generateShareIcon('email');
 
 class Results extends React.Component {
   constructor(props) {
@@ -11,6 +23,9 @@ class Results extends React.Component {
   displayImpact = () => { return toCurrency(Math.abs(this.props.results.net_impact))}
 
   render() {
+    const share_url = "https://citizensclimatelobby.org/calculator";
+    const share_message = "See how much money you can save while fighting climate change!"
+    const share_media = "https://11bup83sxdss1xze1i3lpol4-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/Household-Impact-Study-percent-benefited-by-zip-code.png"
     return (
       <div id="results" className="card initially_hidden">
         <div></div>
@@ -68,6 +83,28 @@ class Results extends React.Component {
               </div>
             </div>
             <div className="share_row row">
+               <div className="col-sm-12 text-muted">
+                 <label>Print: </label><a className="print_button" href="javascript:window.print()"><i className="fa fa-print"></i></a>
+                 <label>Share: </label>
+                 <div className="SocialMediaShareButton">
+                 <a href="https://www.facebook.com/sharer/sharer.php?u=https://citizensclimatelobby.org/calculator/&amp;t=Calculator&amp;redirect_uri=https://citizensclimatelobby.org?sharing-thankyou=yes" title={share_message} 
+              target="_blank" rel="nofollow">
+                   <i className="fa fa-facebook"></i>
+      </a>
+    </div>
+                 <TwitterShareButton url={share_url} title={share_message} via="citizensclimate" hashtags={['climate', 'PutAPriceOnIt']}>
+                   <i className="fa fa-twitter"></i>
+                 </TwitterShareButton>
+                 <GooglePlusShareButton url={share_url}>
+                   <i className="fa fa-google-plus-official"></i>
+                 </GooglePlusShareButton>
+                 <PinterestShareButton url={share_url} description={share_message} media={share_media}>
+                   <i className="fa fa-pinterest"></i>
+                 </PinterestShareButton>
+                 <EmailShareButton url={share_url} subject={share_message}>
+                   <i className="fa fa-email"></i>
+                 </EmailShareButton>
+               </div>
             </div>
             <div className="row">
               <div className="col-sm-12 text-muted disclaimer no_print">
