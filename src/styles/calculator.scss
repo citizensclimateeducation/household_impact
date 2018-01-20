@@ -26,6 +26,7 @@ a { display: inline; color: $ccl-blue;}
   margin: 5px;
   margin-left: -38px;
   padding: 6px 25px 6px 38px;
+  white-space: nowrap;
 }
 
 .ribbon::before {
@@ -128,7 +129,7 @@ div.card.intro_container {
 .footer {
   width: 100%;
   text-align: left;
-  @media(max-width: $screen-sm-min) { font-size :1.2em; }
+  //@media(max-width: $screen-sm-min) { font-size :1.2em; }
   a, a:hover, i, button {
     text-decoration: none;
   }
@@ -172,7 +173,7 @@ div.card.intro_container {
   height: 100%;
   margin: 30px 0px;
   font-size: 1.7em;
-  color: $blue;
+  color: $ccl-blue;
   .spinner {
     svg {
       display: block;
@@ -274,7 +275,10 @@ a:hover { cursor: pointer; }
   body { font-size: 15px; }
   label.label_sm{ display: inline-block; }
   .label_lg{ display: none; }
-  div#intro { font-size: 20px;}
+  div#intro { 
+    font-size: 20px;
+    .calculator_title { font-size: 2.0em; }
+  }
   .disclaimer{ font-size: .9em; }
   div.card#spending, div.card#results {
     min-height: 100vh;
@@ -297,6 +301,7 @@ a:hover { cursor: pointer; }
     position: relative;
     margin-left: 0px;
     padding: 0px;
+    white-space: normal;
   }
 
   .ribbon::before {
