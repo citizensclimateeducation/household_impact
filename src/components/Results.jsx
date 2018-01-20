@@ -30,7 +30,7 @@ class Results extends React.Component {
       <div id="results" className="card initially_hidden">
         <div></div>
         <div>
-          <div className="row"><div className="col-xs-12 form_title">Your Results</div></div>
+          <div className="row"><div className="col-xs-12 form_title"><span className="ribbon">Your Results</span></div></div>
           <div className="explanation">
           </div>
           <div className="row result_row top_buffer">

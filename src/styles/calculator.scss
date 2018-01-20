@@ -6,6 +6,7 @@
 body {
   font-size: 20px;
   font-family: 'Source Sans Pro', 'Helvetica', sans-serif;
+  color: $default-font-color;
 }
 
 a { display: inline; color: $ccl-blue;}
@@ -15,6 +16,28 @@ a { display: inline; color: $ccl-blue;}
   .form-control:focus{border-color: $green;  box-shadow: none; -webkit-box-shadow: none;}
   .has-error .form-control:focus{box-shadow: none; -webkit-box-shadow: none;}
   .caret { color: $green; }
+  .input-lg, .btn { border-radius: 0px; }
+  label { font-weight: normal; }
+}
+
+.ribbon {
+  background-color: $ribbon-green;
+  position: relative;
+  margin: 5px;
+  margin-left: -38px;
+  padding: 6px 25px 6px 38px;
+}
+
+.ribbon::before {
+  content: '\A0';
+  width: 38px;
+  height: 5px;
+  position: absolute;
+  left: 0px;
+  top: 100%;
+  border-left: 38px solid transparent;
+  border-right: 0px solid transparent;
+  border-top: 16px solid $ribbon-dark-green;
 }
 
 #impact_calculator {
@@ -76,15 +99,18 @@ div.card.intro_container {
 }
 
 .calculator_title {
-  font-size: 2.45em;
+  font-size: 2.35em;
   font-weight: 900;
   margin-bottom: 20px;
   line-height: 1.2em;
+  color: $ccl-blue;
+  font-family: 'Ubuntu', 'Source Sans Pro', 'Helvetica', sans-serif;
+  font-weight: bold;
 }
 
 .explanation { font-size: 1.20em; }
-#intro .explanation { font-size: 1.25em; }
-.form_title { font-size: 1.8em; margin-bottom: 20px; }
+#intro .explanation { font-size: 1.24em; color: $muddy-green; }
+.form_title { font-size: 1.2em; margin-bottom: 20px; font-weight: bold; }
 
 .form-group {
   margin-top: 40px;
@@ -102,7 +128,6 @@ div.card.intro_container {
 .footer {
   width: 100%;
   text-align: left;
-  font-size: 2.0em;
   @media(max-width: $screen-sm-min) { font-size :1.2em; }
   a, a:hover, i, button {
     text-decoration: none;
@@ -111,23 +136,20 @@ div.card.intro_container {
     font-size: .6em;
   }
   button.btn, button.btn.disabled {
-    font-size: .7em;
+    font-size: 1.2em;
     margin: 20px 0px;
-    min-width: 32%;
-    background-color: $dark-gray;
+    min-width: 25%;
+    background-color: $ccl-blue;
     color: white;
-    border-radius: 8px;
-    line-height: 1.7em;
+    line-height: 1.83;
   }
   button.btn.btn-intro {
     min-width: 40%;
-    font-size: 0.9em;
-    line-height: 1.83;
   }
   padding-bottom:20px;
   button.btn_back { color: $dark-gray; background-color: transparent; border-color: $dark-gray }
   .cf_and_d_explanation {
-    font-size: .45em;
+    font-size: .8em;
     a { display: inline; color: $ccl-blue; text-decoration: underline; }
   }
 }
@@ -222,7 +244,6 @@ div.impact_indicator {
 @media(max-width: $screen-sm-min) {
   div.card > div { margin-left: 5px; }
   div.form-group.row { margin: 0px; }
-  .form_title {font-size: 1.8em;}
 
   div.card {
     width: 99%;
@@ -230,7 +251,6 @@ div.impact_indicator {
     margin-left: auto;
     flex-direction: column;
     justify-content: space-between;
-    //align-items: center;
   }
 
   div.basic_info_panel { width: 100%; }
@@ -271,6 +291,17 @@ a:hover { cursor: pointer; }
   .form-control { width: 100%; }
   .number_select { width: 100%; }
   .explanation_prompt { font-size: .93em; }
+
+  .ribbon {
+    background-color: transparent;
+    position: relative;
+    margin-left: 0px;
+    padding: 0px;
+  }
+
+  .ribbon::before {
+    display: none;
+  }
 }
 
 .print_only, div.pre_calculate, div.print_spending, div.initially_hidden { display: none; }

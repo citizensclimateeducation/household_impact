@@ -29,7 +29,7 @@ class Spending extends React.Component {
           </div>
 
           <div className="spending_panel">
-            <div className="form_title">Almost done. Just a couple more questions about your spending.</div>
+            <div className="form_title"><span className="ribbon">Almost done. Just a couple more questions about your spending.</span></div>
 
             <div className="spending">
               Use the sliders below to tell us how much your household spends on gasoline and utilities. 

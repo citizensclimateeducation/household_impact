@@ -36,7 +36,7 @@ class FamilyInfo extends React.Component {
       <div id="basic_questions" className="card input initially_hidden">
         <div className="basic_info_panel">
           <div className="family_info_panel section">
-            <div className="form_title no_print">Tell us a little bit about your household</div>
+            <div className="form_title no_print"><span className="ribbon">Tell us a little bit about your household</span></div>
             <div className="form_title print_only">Household and Spending</div>
             <div className="explanation no_print">
               We don't collect this data, we will only use it to figure out your dividend check and take a first guess at your spending.

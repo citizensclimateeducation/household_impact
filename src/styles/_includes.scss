@@ -4,18 +4,25 @@ $screen-md: 1100px;
 $screen-phone: 700px;
 
 
+//$default-font-color: #414141;
+$default-font-color: #333333;
 $light-gray: #fafafa;
 $green: #cbe470;
+$muddy-green: #587931;
 $blue: #0098da;
 $dark-gray: #606062;
 //$ccl-blue: #4fb8e6;
-$ccl-blue: #0097da;
+//$ccl-blue: #0097da;
+$ccl-blue: #0083c7;
+$ccl-brown: #544640;
 $green-from: #D3E97B;
 $green-to: #A8CF45;
 $blue-from: #C6EBFC;
 $blue-to: #73CCF2;
 $dark-blue: #017ab0;
 $muted-gray: #757575;
+$ribbon-green: #97c33b;
+$ribbon-dark-green: #587931;
 
 @mixin linear-gradient($from, $to, $from_percent: 20%, $to_percent: 100%) {
   background: $to;
