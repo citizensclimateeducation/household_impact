@@ -12,7 +12,7 @@ class Introduction extends React.Component {
         <div></div>
         <div>
           <div className="calculator_title">
-            CARBON FEE AND DIVIDEND CALCULATOR
+            Carbon Fee and Dividend Calculator
           </div>
 
           <div className="explanation text-muted">
