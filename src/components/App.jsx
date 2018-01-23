@@ -126,8 +126,10 @@ class App extends React.Component {
           <Menu/>
         }
         <Introduction/>
-        <FamilyInfo handleChange={this.setAttribute} income={this.state.income} setIncome={this.setIncome} calculateIfValid={this.calculateIfValid}/>
+        <FamilyInfo handleChange={this.setAttribute} income={this.state.income} setIncome={this.setIncome} 
+          calculateIfValid={this.calculateIfValid} adults={this.state.adults} children={this.state.children} />
         <HomeInfo setResults={this.setResults} validZip={this.validZip} setLoading={this.setLoading} 
+          vehicles={this.state.vehicles} dwelling_type={this.state.dwelling_type} heating_type={this.state.heating_type}
           calculate={this.calculate} valid={this.valid} zip={this.state.zip} setAttribute={this.setAttribute}/>
         <Spending {...this.state} handleSlide={this.handleSlide} setResults={this.setResults} />
         <BasicInfoData {...this.state}/>
