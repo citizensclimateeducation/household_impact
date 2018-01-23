@@ -283,6 +283,7 @@ a:hover { cursor: pointer; }
   div.card#spending, div.card#results {
     min-height: 100vh;
   }
+  div.card.intro_container { min-height: 95vh; }
   .form-group { margin-top: 15px; }
   .footer {
     padding-bottom: 0px;
