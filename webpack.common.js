@@ -11,9 +11,9 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 const provide = new webpack.ProvidePlugin({
-    $: 'jquery',
-    jQuery: 'jquery',
-    jquery: 'jquery'
+    $: 'jquery-easing',
+    jQuery: 'jquery-easing',
+    jquery: 'jquery-easing',
 });
 
 module.exports = {

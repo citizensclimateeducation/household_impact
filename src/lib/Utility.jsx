@@ -7,7 +7,8 @@ import numeral from 'numeral/min/numeral.min.js';
 
 export const nextSection = (next_section_id, callback) => {
   $(next_section_id).removeClass('initially_hidden');
-  $('html, body').animate({scrollTop: $($(next_section_id)).offset().top}, 500, 'linear', callback);
+  $('html, body').animate({scrollTop: $($(next_section_id)).offset().top}, 
+    {duration: 1800, easing: 'easeOutQuart', complete: callback});
 }
 
 export const nextAndHide = (e, next_section_id) => {
