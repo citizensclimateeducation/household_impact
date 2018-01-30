@@ -43,7 +43,7 @@ class HomeInfo extends React.Component {
             </div>
             <div className="form-group">
               <label htmlFor="heating_type">What kind of fuel is used most to heat your home?</label>
-              <a data-toggle="modal" data-target="#heatingFuelDetails" className="explanation_prompt">Why am I being asked this?</a>
+              <a data-toggle="modal" data-target="#heatingFuelDetails" className="explanation_prompt">Why am I being asked this? | This is confusing</a>
               <select className="form-control input-lg" id="heating_type" name="heating_type" value={this.props.heating_type}
                 onChange={this.props.setAttribute}>
                 <option>Natural gas</option>

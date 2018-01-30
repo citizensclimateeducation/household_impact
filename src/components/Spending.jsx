@@ -43,6 +43,7 @@ class Spending extends React.Component {
                 <label htmlFor="gas" className="label_sm">Average monthly gas expenditure? $ </label>
                 <input size="3" className="form-control expense_text" id="gas" name="gas" 
                   value={this.props.gas} onChange={(event)=>{this.props.handleSlide('gas', event.target.value)}}/>
+                <a data-toggle="modal" data-target="#multipleProperties" className="explanation_prompt">This is confusing</a>
                 <div className="slider_wrapper">
                   <Slider min={0} max={this.props.gas_upr} step={1} value={this.props.gas}
                     onChange={(val) => {this.props.handleSlide('gas', val)}}/>

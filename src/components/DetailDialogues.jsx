@@ -74,7 +74,19 @@ const HomeTypeDetails = (props)=> {
 const HeatingFuelDetails = (props)=> {
   return (
     <InfoDialog dialogId="heatingFuelDetails" title="Heating Fuel">
-      How you heat your home can have a significant impact on your household's carbon footprint and exposure to a carbon fee.
+      How you heat your home can have a significant impact on your household's carbon footprint 
+      and exposure to a carbon fee.<br /><br />
+      If you own or rent more than one property with multiple fuel sources, choose your primary fuel source. 
+      In situations where you have solar power or other renewable sources, you will have an opportunity on the 
+      next page to account for your lower utility costs.
+    </InfoDialog>
+  );
+}
+
+const MultipleProperties = (props)=> {
+  return (
+    <InfoDialog dialogId="multipleProperties" title="Multiple Properties">
+      Combine average monthly bills for all properties that you rent or own.
     </InfoDialog>
   );
 }
@@ -88,6 +100,7 @@ export const DetailDialogues = (props) => {
       <CalcDetails />
       <HomeTypeDetails />
       <HeatingFuelDetails />
+      <MultipleProperties />
     </div>
   )
 }
