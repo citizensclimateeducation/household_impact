@@ -27,7 +27,7 @@ class Results extends React.Component {
     const share_message = "See how much money you can save while fighting climate change!"
     const share_media = "https://11bup83sxdss1xze1i3lpol4-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/Household-Impact-Study-percent-benefited-by-zip-code.png"
     return (
-      <div id="results" className="card initially_hidden">
+      <div id="results" className="card">
         <div></div>
         <div>
           <div className="row"><div className="col-xs-12 form_title"><span className="ribbon">Your Results</span></div></div>
@@ -95,14 +95,8 @@ class Results extends React.Component {
                  <TwitterShareButton url={share_url} title={share_message} via="citizensclimate" hashtags={['climate', 'PutAPriceOnIt']}>
                    <i className="fa fa-twitter"></i>
                  </TwitterShareButton>
-                 <GooglePlusShareButton url={share_url}>
-                   <i className="fa fa-google-plus-official"></i>
-                 </GooglePlusShareButton>
-                 <PinterestShareButton url={share_url} description={share_message} media={share_media}>
-                   <i className="fa fa-pinterest"></i>
-                 </PinterestShareButton>
                  <EmailShareButton url={share_url} subject={share_message}>
-                   <i className="fa fa-email"></i>
+                   <i className="fa fa-envelope"></i>
                  </EmailShareButton>
                </div>
             </div>
