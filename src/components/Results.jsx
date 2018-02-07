@@ -95,7 +95,8 @@ class Results extends React.Component {
                  <TwitterShareButton url={share_url} title={share_message} via="citizensclimate" hashtags={['climate', 'PutAPriceOnIt']}>
                    <i className="fa fa-twitter"></i>
                  </TwitterShareButton>
-                 <EmailShareButton url={share_url} subject={share_message}>
+                 <EmailShareButton url={share_url} subject={share_message} 
+                   body={share_message + ": https://citizensclimatelobby.org/calculator/"}>
                    <i className="fa fa-envelope"></i>
                  </EmailShareButton>
                </div>
