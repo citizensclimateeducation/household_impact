@@ -27,7 +27,7 @@ class Results extends React.Component {
     const share_message = "See how much money you can save while fighting climate change!"
     const share_media = "https://11bup83sxdss1xze1i3lpol4-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/Household-Impact-Study-percent-benefited-by-zip-code.png"
     return (
-      <div id="results" className="card">
+      <div id="results" className="card initially_hidden">
         <div></div>
         <div>
           <div className="row"><div className="col-xs-12 form_title"><span className="ribbon">Your Results</span></div></div>
