@@ -10,9 +10,12 @@ body.wordpress_calculator div#calculator {
   overflow-y: scroll;
 
   div#results.card > div div { padding: 0 3.67037% !important; }
-  div#results.card > div div.impact_panel {
-    padding: 40px 0px 0px 0px !important;
-    margin-top: 40px;
+  div#results.card > div {
+    div.impact_panel {
+      padding: 40px 0px 0px 0px !important;
+      margin-top: 40px;
+    }
+    div.share_row { padding: 25px 0 !important; }
   }
 
   @media(max-width: $screen-sm-min) {
