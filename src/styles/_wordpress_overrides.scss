@@ -7,6 +7,7 @@ div.inner-page-wrap.has-no-sidebar {
 body.wordpress_calculator div#calculator {
   font-size: 20px;
   font-family: 'Source Sans Pro', 'Helvetica', sans-serif;
+  overflow-y: scroll;
 
   div#results.card > div div { padding: 0 3.67037% !important; }
   div#results.card > div div.impact_panel {
