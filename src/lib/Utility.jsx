@@ -23,7 +23,7 @@ export const nextAndInvisible = (e, next_section_id) => {
 }
 
 export const startOver = (e) => {
-  $('#calculator').fadeOut('fast', function() {
+  $('#calculator').fadeOut('slow', function() {
     window.location.reload();
   });
 }

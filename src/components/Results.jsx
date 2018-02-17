@@ -69,7 +69,7 @@ class Results extends React.Component {
                     "Awesome! You should end up with some extra money each year."
                   </span>
                 }
-                <a className="btn_start_over" href="#basic_questions" 
+                <a className="btn_start_over" 
                       onClick={(e)=>{startOver(e)}}>
                   <i className="fa fa-undo" /> Start Over
                 </a>
