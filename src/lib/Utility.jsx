@@ -8,7 +8,7 @@ import numeral from 'numeral/min/numeral.min.js';
 export const nextSection = (next_section_id, callback) => {
   $(next_section_id).removeClass('initially_hidden');
   $('html, body').animate({scrollTop: $($(next_section_id)).offset().top}, 
-    {duration: 1800, easing: 'easeOutQuart', complete: callback});
+    {duration: 1700, easing: 'easeOutQuart', complete: callback});
 }
 
 export const nextAndHide = (e, next_section_id) => {
@@ -20,6 +20,12 @@ export const nextAndInvisible = (e, next_section_id) => {
   e.persist();
   $(e.target).animate({ opacity: 0 });
   nextSection(next_section_id);
+}
+
+export const startOver = (e) => {
+  $('#calculator').fadeOut('fast', function() {
+    window.location.reload();
+  });
 }
 
 export const toCurrency = (val, format = '$0,0') => {
