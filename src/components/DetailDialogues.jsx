@@ -12,25 +12,25 @@ export const CalcDetails = (props) => {
       </p>
 
       <p>
-        The calculator uses the study’s results to calculate: 
+        The calculator uses the study’s results to calculate:
       </p>
       <ul>
-        <li><span className="font-weight-bold">an estimate of a household's additional costs</span> under the policy (due to higher prices for goods and services), depending 
+        <li><span className="font-weight-bold">an estimate of a household's additional costs</span> under the policy (due to higher prices for goods and services), depending
           on a limited set of household characteristics (income, number of vehicles etc.).
         </li>
         <li><span className="font-weight-bold">the expected dividend</span>, which is a function of the household's number of adults, number of minors, and
           expected federal marginal tax rate.
         </li>
-        <li><span className="font-weight-bold">the "net financial impact"</span> -- the difference between the dividend and additional cost - positive if a household 
+        <li><span className="font-weight-bold">the "net financial impact"</span> -- the difference between the dividend and additional cost - positive if a household
           is likely to "come out ahead" under CF&D.
         </li>
       </ul>
 
       <h4>How accurate is the calculator?</h4>
       <p>
-        For ease of use, a small and generally easy-to-recall set of user inputs are solicited. The calculator reports the expected average outcome for a household. 
-        The actual outcome for any specific household could vary from the average. For example, if your household is a below-average consumer of carbon-intensive goods 
-        like air travel and meat, the calculator will understate the net benefit (and vice-versa). Developing a precise estimate for every household would require many 
+        For ease of use, a small and generally easy-to-recall set of user inputs are solicited. The calculator reports the expected average outcome for a household.
+        The actual outcome for any specific household could vary from the average. For example, if your household is a below-average consumer of carbon-intensive goods
+        like air travel and meat, the calculator will understate the net benefit (and vice-versa). Developing a precise estimate for every household would require many
         more questions and accurate recall. We have opted for simplicity over precision.
       </p>
     </InfoDialog>
@@ -58,7 +58,7 @@ const IncomeDetails = (props)=> {
 const ZipCodeDetails = (props)=> {
   return (
     <InfoDialog dialogId="zipCodeDetails" title="Zip Code">
-      Location-specific factors like carbon-intensity of the electricity grid, climate, fuel prices, and population density affect how much a carbon fee will impact your household.
+      Location-specific factors like carbon-intensity of the electricity grid, heating & cooling needs, fuel prices, and population density affect how much a carbon fee will impact your household.
     </InfoDialog>
   );
 }
@@ -74,11 +74,9 @@ const HomeTypeDetails = (props)=> {
 const HeatingFuelDetails = (props)=> {
   return (
     <InfoDialog dialogId="heatingFuelDetails" title="Heating Fuel">
-      How you heat your home can have a significant impact on your household's carbon footprint 
-      and exposure to a carbon fee.<br /><br />
-      If you own or rent more than one property with multiple fuel sources, choose your primary fuel source. 
-      In situations where you have solar power or other renewable sources, you will have an opportunity on the 
-      next page to account for your lower utility costs.
+      How you heat your home can have a significant impact on your household's carbon
+      footprint and exposure to a carbon fee.<br /><br />
+      If you own or rent more than one property with different heating fuels, choose your primary fuel source.
     </InfoDialog>
   );
 }
@@ -87,6 +85,14 @@ const MultipleProperties = (props)=> {
   return (
     <InfoDialog dialogId="multipleProperties" title="Multiple Properties">
       Combine average monthly bills for all properties that you rent or own.
+    </InfoDialog>
+  );
+}
+
+const GasExpense = (props)=> {
+  return (
+    <InfoDialog dialogId="gasExpense" title="Gas Expense">
+      Compile or estimate how much you spend in a month for all your vehicles.
     </InfoDialog>
   );
 }
@@ -101,6 +107,7 @@ export const DetailDialogues = (props) => {
       <HomeTypeDetails />
       <HeatingFuelDetails />
       <MultipleProperties />
+      <GasExpense />
     </div>
   )
 }

@@ -7,9 +7,9 @@ class Spending extends React.Component {
     super(props);
   }
 
-  handleChange = (event) => { 
+  handleChange = (event) => {
     // pass to slide event
-    this.setState({ [event.target.name]: event.target.value }); 
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   render() {
@@ -32,18 +32,17 @@ class Spending extends React.Component {
             <div className="form_title"><span className="ribbon">Almost done. Just a couple more questions about your spending.</span></div>
 
             <div className="spending">
-              Use the sliders below to tell us how much your household spends on gasoline and utilities each month. 
-              For utilities, estimate the average over the past year. If you aren't sure, just leave the 
-              sliders at their initial values, which are reasonable guesses based on your information.
+              Use the sliders below to tell us how much your household spends on gasoline and utilities each month.
+              If you aren't sure, just leave the sliders at their initial values, which are reasonable guesses based on your information.
             </div>
 
             <form>
               <div className="form-group">
                 <label htmlFor="gas" className="label_lg">How much is your average monthly gasoline expenditure? $ </label>
                 <label htmlFor="gas" className="label_sm">Average monthly gas expenditure? $ </label>
-                <input size="3" className="form-control expense_text" id="gas" name="gas" 
+                <input size="3" className="form-control expense_text" id="gas" name="gas"
                   value={this.props.gas} onChange={(event)=>{this.props.handleSlide('gas', event.target.value)}}/>
-                <a data-toggle="modal" data-target="#multipleProperties" className="explanation_prompt">This is confusing</a>
+                <a data-toggle="modal" data-target="#gasExpense" className="explanation_prompt">Explain this</a>
                 <div className="slider_wrapper">
                   <Slider min={0} max={this.props.gas_upr} step={1} value={this.props.gas}
                     onChange={(val) => {this.props.handleSlide('gas', val)}}/>
@@ -53,8 +52,9 @@ class Spending extends React.Component {
               <div className="form-group">
                 <label htmlFor="elec" className="label_lg">How much is your average monthly electricity bill? $ </label>
                 <label htmlFor="elec" className="label_sm">Average monthly electricity bill? $ </label>
-                <input size="3" className="form-control expense_text" id="elec" name="elec" 
+                <input size="3" className="form-control expense_text" id="elec" name="elec"
                   value={this.props.elec} onChange={(event)=>{this.props.handleSlide('elec', event.target.value)}} />
+                <a data-toggle="modal" data-target="#multipleProperties" className="explanation_prompt">Explain this</a>
                 <div className="slider_wrapper">
                   <Slider min={0} max={this.props.elec_upr} step={1} value={this.props.elec}
                     onChange={(val) => {this.props.handleSlide('elec', val)}}/>
@@ -67,6 +67,7 @@ class Spending extends React.Component {
                   <label htmlFor="heat" className="label_sm">Average monthly {this.props.heating_type.toLowerCase()} expediture? $ </label>
                   <input size="3" className="form-control expense_text" id="heat" name="heat"
                     value={this.props.heat} onChange={(event)=>{this.props.handleSlide('heat', event.target.value)}} />
+                  <a data-toggle="modal" data-target="#multipleProperties" className="explanation_prompt">Explain this</a>
                   <div className="slider_wrapper">
                     <Slider min={0} max={this.props.heat_upr} step={1} value={this.props.heat}
                       onChange={(val) => {this.props.handleSlide('heat', val)}}/>

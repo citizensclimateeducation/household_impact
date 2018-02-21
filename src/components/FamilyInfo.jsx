@@ -26,8 +26,8 @@ class FamilyInfo extends React.Component {
     return this.toNearestThousand(Math.exp(minv + scale*(val-minp)))
   }
 
-  handleSlide = (val) => { 
-    this.setState({income_pos: val}) 
+  handleSlide = (val) => {
+    this.setState({income_pos: val})
     this.props.setIncome(this.position_to_income(val))
   }
 
@@ -39,11 +39,11 @@ class FamilyInfo extends React.Component {
             <div className="form_title no_print"><span className="ribbon">Tell us a little bit about your household</span></div>
             <div className="form_title print_only">Household and Spending</div>
             <div className="explanation no_print">
-              We don't keep a record of this data, we will only use it to figure out your dividend check and take a first guess at your spending.
+              CCL does not collect this data, it is only input to perform the calculations for the user and not retained in any form by CCL.
             </div>
             <div className="form-group">
               <label htmlFor="adults">How many adults (age 18+) live in your home?</label>
-              <a data-toggle="modal" data-target="#houseSizeDetails" className="explanation_prompt">Why am I being asked this?</a>
+              <a data-toggle="modal" data-target="#houseSizeDetails" className="explanation_prompt">Explain this</a>
               <select className="form-control input-lg number_select" id="adults" name="adults" value={this.state.adults}
                 onChange={this.props.handleChange}>
                 {numberOptionList(1, 6)}
@@ -59,7 +59,7 @@ class FamilyInfo extends React.Component {
             <div className="form-group">
               <div>
                 <label htmlFor="income">Household Income: {toCurrency(this.props.income, '$0,0')}</label>
-                <a data-toggle="modal" data-target="#incomeDetails" className="explanation_prompt">Why am I being asked this?</a>
+                <a data-toggle="modal" data-target="#incomeDetails" className="explanation_prompt">Explain this</a>
                 <div className="no_print">
                   <Slider min={0} max={500} step={1} value={this.state.income_pos} onChange={this.handleSlide} onChangeComplete={this.props.calculateIfValid} />
                 </div>

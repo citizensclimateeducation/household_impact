@@ -18,13 +18,13 @@ class HomeInfo extends React.Component {
             </div>
             <div className="form-group">
               <label htmlFor="zip">What's your zip code?</label>
-              <a data-toggle="modal" data-target="#zipCodeDetails" className="explanation_prompt">Why am I being asked this?</a>
+              <a data-toggle="modal" data-target="#zipCodeDetails" className="explanation_prompt">Explain this</a>
               <input size="8" className="form-control input-lg number_select" id="zip" name="zip" placeholder="Zip Code" ref="zip"
                 value={this.props.zip} onChange={this.props.setAttribute} onKeyPress={this.props.validZip} />
             </div>
             <div className="form-group">
               <label htmlFor="dwelling_type">What type of home do you live in?</label>
-              <a data-toggle="modal" data-target="#homeTypeDetails" className="explanation_prompt">Why am I being asked this?</a>
+              <a data-toggle="modal" data-target="#homeTypeDetails" className="explanation_prompt">Explain this</a>
               <select className="form-control input-lg" id="dwelling_type" name="dwelling_type" value={this.props.dwelling_type}
                 onChange={this.props.setAttribute}>
                 <option>Stand-alone house</option>
@@ -43,7 +43,7 @@ class HomeInfo extends React.Component {
             </div>
             <div className="form-group">
               <label htmlFor="heating_type">What kind of fuel is used most to heat your home?</label>
-              <a data-toggle="modal" data-target="#heatingFuelDetails" className="explanation_prompt">Why am I being asked this? | This is confusing</a>
+              <a data-toggle="modal" data-target="#heatingFuelDetails" className="explanation_prompt">Explain this</a>
               <select className="form-control input-lg" id="heating_type" name="heating_type" value={this.props.heating_type}
                 onChange={this.props.setAttribute}>
                 <option>Natural gas</option>

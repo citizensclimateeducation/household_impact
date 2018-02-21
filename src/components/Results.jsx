@@ -4,7 +4,7 @@ import { ShareButtons,  ShareCounts,  generateShareIcon } from 'react-share'
 import {toCurrency, nextSection, startOver} from '../lib/Utility.jsx';
 
 const {
-  FacebookShareButton, GooglePlusShareButton, LinkedinShareButton, TwitterShareButton, TelegramShareButton, 
+  FacebookShareButton, GooglePlusShareButton, LinkedinShareButton, TwitterShareButton, TelegramShareButton,
   WhatsappShareButton, PinterestShareButton,
   VKShareButton, OKShareButton, RedditShareButton, EmailShareButton,
 } = ShareButtons;
@@ -20,7 +20,7 @@ class Results extends React.Component {
   }
 
   net_profit = () => { return this.props.results.net_impact >= 0 }
-  displayImpact = () => { return toCurrency(Math.abs(this.props.results.net_impact))}
+  displayImpact = () => { return toCurrency(this.props.results.net_impact)}
 
   render() {
     const share_url = "https://citizensclimatelobby.org/calculator";
@@ -39,24 +39,24 @@ class Results extends React.Component {
           </div>
           <div className="row top_buffer">
             <div className="col-sm-12 text-muted disclaimer">
-              Calculation based on household's number of adults, number of minors, and expected federal marginal tax rate. 
+              Calculation based on household's number of adults, number of minors, and expected federal marginal tax rate.
               <a href="https://citizensclimatelobby.org/carbon-fee-and-dividend/" target="_blank"> Learn more about the dividend</a>.
             </div>
           </div>
           <div className="row result_row top_buffer">
-            <div className="col-xs-8">Monthly Cost</div>
+            <div className="col-xs-8">Monthly cost due to carbon fee</div>
             <div className="col-xs-4 cost text-right">{this.props.results.carbon_cost}</div>
           </div>
           <div className="row top_buffer bottom_buffer">
-            <div className="col-sm-12 text-muted disclaimer">Estimated additional costs due to higher prices for goods and services, depending on the household charactersitics 
-              entered above (income, number of vehicles, etc.). 
+            <div className="col-sm-12 text-muted disclaimer">Estimated additional
+            costs due to higher prices for goods and services, depending on the household characteristics entered above (income, number of vehicles, etc.).
               <a href="https://citizensclimatelobby.org/carbon-fee-and-dividend/" target="_blank"> Learn more about the carbon fee</a>.
             </div>
           </div>
           <div className="impact_panel">
             <VisibilitySensor onChange={this.props.resultsVisible} />
             <div className="row">
-              <div className="col-xs-8 form_title">Estimated {this.net_profit() ? 'gain' : 'loss'} per month*</div>
+              <div className="col-xs-8 form_title">Net benefit per month*</div>
               <div className="col-xs-4 form_title net_impact text-right">
                 {this.displayImpact()}<span className="label_lg">/mo</span>
               </div>
@@ -69,7 +69,7 @@ class Results extends React.Component {
                     "Awesome! You should end up with some extra money each year."
                   </span>
                 }
-                <a className="btn_start_over" 
+                <a className="btn_start_over"
                       onClick={(e)=>{startOver(e)}}>
                   <i className="fa fa-undo" /> Start Over
                 </a>
@@ -88,7 +88,7 @@ class Results extends React.Component {
                  <label>Print: </label><a className="print_button" href="javascript:window.print()"><i className="fa fa-print"></i></a>
                  <label>Share: </label>
                  <div className="SocialMediaShareButton">
-                 <a href="https://www.facebook.com/sharer/sharer.php?u=https://citizensclimatelobby.org/calculator/&amp;t=Calculator&amp;redirect_uri=https://citizensclimatelobby.org?sharing-thankyou=yes" title={share_message} 
+                 <a href="https://www.facebook.com/sharer/sharer.php?u=https://citizensclimatelobby.org/calculator/&amp;t=Calculator&amp;redirect_uri=https://citizensclimatelobby.org?sharing-thankyou=yes" title={share_message}
               target="_blank" rel="nofollow">
                    <i className="fa fa-facebook"></i>
       </a>
@@ -96,7 +96,7 @@ class Results extends React.Component {
                  <TwitterShareButton url={share_url} title={share_message} via="citizensclimate" hashtags={['climate', 'PutAPriceOnIt']}>
                    <i className="fa fa-twitter"></i>
                  </TwitterShareButton>
-                 <EmailShareButton url={share_url} subject={share_message} 
+                 <EmailShareButton url={share_url} subject={share_message}
                    body={share_message + ": https://citizensclimatelobby.org/calculator/"}>
                    <i className="fa fa-envelope"></i>
                  </EmailShareButton>
@@ -105,7 +105,7 @@ class Results extends React.Component {
             <div className="row">
               <div className="col-sm-12 text-muted disclaimer no_print">
                 <i className="fa fa-asterisk" aria-hidden="true"></i> Calculator results are based on
-                <a href="https://citizensclimatelobby.org/household-impact-study/" target="_blank"> CCL's Household Impact Study</a>. <a data-toggle="modal" data-target="#calcDetails">Learn more</a> about 
+                <a href="https://citizensclimatelobby.org/household-impact-study/" target="_blank"> CCL's Household Impact Study</a>. <a data-toggle="modal" data-target="#calcDetails">Learn more</a> about
                 the methods and assumptions used in the calculation.
               </div>
             </div>
