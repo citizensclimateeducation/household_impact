@@ -30,11 +30,9 @@ class Results extends React.Component {
       <div id="results" className="card initially_hidden">
         <div></div>
         <div>
-          <div className="row"><div className="col-xs-12 form_title"><span className="ribbon">Your Results</span></div></div>
-          <div className="explanation">
-          </div>
+          <div className="row"><div className="col-xs-12 form_title">Your Results</div></div>
           <div className="row result_row top_buffer">
-            <div className="col-xs-8">Estimated after-tax household dividend</div>
+            <div className="col-xs-8 sub_heading">Estimated after-tax household dividend</div>
             <div className="col-xs-4 dividend text-right">{this.props.results.div_post}</div>
           </div>
           <div className="row top_buffer">
@@ -44,7 +42,7 @@ class Results extends React.Component {
             </div>
           </div>
           <div className="row result_row top_buffer">
-            <div className="col-xs-8">Monthly cost due to carbon fee</div>
+            <div className="col-xs-8 sub_heading">Monthly cost due to carbon fee</div>
             <div className="col-xs-4 cost text-right">{this.props.results.carbon_cost}</div>
           </div>
           <div className="row top_buffer bottom_buffer">

@@ -29,9 +29,9 @@ class Spending extends React.Component {
           </div>
 
           <div className="spending_panel">
-            <div className="form_title"><span className="ribbon">Almost done. Just a couple more questions about your spending.</span></div>
+            <div className="form_title">Almost done. Just a couple more questions about your spending.</div>
 
-            <div className="spending">
+            <div className="spending sub_heading">
               Use the sliders below to tell us how much your household spends on gasoline and utilities each month.
               If you aren't sure, just leave the sliders at their initial values, which are reasonable guesses based on your information.
             </div>

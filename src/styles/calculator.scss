@@ -70,7 +70,7 @@ div.card#results {
     padding: 40px 0px 0px 0px;
     margin-top: 40px;
     div.form_title { font-size: 1.4em; }
-    div.form_title.net_impact { font-size: 1.8em; margin-bottom: 0px; }
+    div.form_title.net_impact { font-size: 1.8em; margin-bottom: 0px; color: inherit;}
   }
 }
 
@@ -110,9 +110,15 @@ div.card.intro_container {
   font-weight: bold;
 }
 
-.explanation { font-size: 1.20em; }
+.explanation { font-size: 1.10em; }
 #intro .explanation { font-size: 1.24em; color: $muddy-green; }
-.form_title { font-size: 1.2em; margin-bottom: 20px; font-weight: bold; }
+.form_title { 
+  font-size: 1.4em; margin-bottom: 20px; font-weight: bold; 
+  color: $ccl-blue;
+}
+.sub_heading {
+  color: $muddy-green;
+}
 
 .form-group {
   margin-top: 40px;
