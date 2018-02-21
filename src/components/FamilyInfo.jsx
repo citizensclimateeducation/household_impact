@@ -61,7 +61,8 @@ class FamilyInfo extends React.Component {
                 <label htmlFor="income">Household Income: {toCurrency(this.props.income, '$0,0')}</label>
                 <a data-toggle="modal" data-target="#incomeDetails" className="explanation_prompt">Explain this</a>
                 <div className="no_print">
-                  <Slider min={0} max={500} step={1} value={this.state.income_pos} onChange={this.handleSlide} onChangeComplete={this.props.calculateIfValid} />
+                  <Slider min={0} max={500} step={1} value={this.state.income_pos} onChange={this.handleSlide} 
+                    onChangeComplete={this.props.calculateIfValid} labels={{0: '-', 500: '+'}} />
                 </div>
               </div>
             </div>
