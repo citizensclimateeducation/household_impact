@@ -54,7 +54,7 @@ class Results extends React.Component {
             <div className="row">
               <div className="col-xs-8 form_title">Net benefit per month*</div>
               <div className="col-xs-4 form_title net_impact text-right">
-                {this.displayImpact()}<span className="label_lg month_label">/mo</span>
+                {this.displayImpact()}<span className="label_lg month_label">/month</span>
               </div>
             </div>
             <div className="row pull-right"><a data-toggle="modal" data-target="#calcDetails" className="explanation_prompt">How is this number calculated?</a></div>

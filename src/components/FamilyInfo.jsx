@@ -31,6 +31,11 @@ class FamilyInfo extends React.Component {
     this.props.setIncome(this.position_to_income(val))
   }
 
+  display_income = ()  => {
+    let currency = toCurrency(this.props.income, '$0,0')
+    return this.state.income_pos == 500 ? currency + '+' : currency;
+  }
+
   render() {
     return (
       <div id="basic_questions" className="card input initially_hidden">
@@ -58,11 +63,11 @@ class FamilyInfo extends React.Component {
             </div>
             <div className="form-group">
               <div>
-                <label htmlFor="income">Household Income: {toCurrency(this.props.income, '$0,0')}</label>
+                <label htmlFor="income">Household Income: {this.display_income()}</label>
                 <a data-toggle="modal" data-target="#incomeDetails" className="explanation_prompt">Explain this</a>
                 <div className="no_print">
                   <Slider min={0} max={500} step={1} value={this.state.income_pos} onChange={this.handleSlide} 
-                    onChangeComplete={this.props.calculateIfValid} labels={{0: '-', 500: '+'}} />
+                    onChangeComplete={this.props.calculateIfValid} />
                 </div>
               </div>
             </div>

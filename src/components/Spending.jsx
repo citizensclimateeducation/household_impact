@@ -45,7 +45,7 @@ class Spending extends React.Component {
                 <a data-toggle="modal" data-target="#gasExpense" className="explanation_prompt">Explain this</a>
                 <div className="slider_wrapper">
                   <Slider min={0} max={this.props.gas_upr} step={1} value={this.props.gas}
-                    onChange={(val) => {this.props.handleSlide('gas', val)}} labels={{0: '-', [this.props.gas_upr]: '+'}}/>
+                    onChange={(val) => {this.props.handleSlide('gas', val)}} />
                 </div>
               </div>
 
@@ -57,7 +57,7 @@ class Spending extends React.Component {
                 <a data-toggle="modal" data-target="#multipleProperties" className="explanation_prompt">Explain this</a>
                 <div className="slider_wrapper">
                   <Slider min={0} max={this.props.elec_upr} step={1} value={this.props.elec}
-                    onChange={(val) => {this.props.handleSlide('elec', val)}} labels={{0: '-', [this.props.elec_upr]: '+'}} />
+                    onChange={(val) => {this.props.handleSlide('elec', val)}} />
                 </div>
               </div>
 
@@ -70,7 +70,7 @@ class Spending extends React.Component {
                   <a data-toggle="modal" data-target="#multipleProperties" className="explanation_prompt">Explain this</a>
                   <div className="slider_wrapper">
                     <Slider min={0} max={this.props.heat_upr} step={1} value={this.props.heat}
-                      onChange={(val) => {this.props.handleSlide('heat', val)}} labels={{0: '-', [this.props.heat_upr]: '+'}} />
+                      onChange={(val) => {this.props.handleSlide('heat', val)}} />
                   </div>
                 </div>
               )}
