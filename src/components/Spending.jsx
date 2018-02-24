@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from 'react-rangeslider'
-import {nextAndInvisible} from '../lib/Utility.jsx'
+import {nextAndInvisible, tagEvent} from '../lib/Utility.jsx'
 
 class Spending extends React.Component {
   constructor(props) {
@@ -11,6 +11,8 @@ class Spending extends React.Component {
     // pass to slide event
     this.setState({ [event.target.name]: event.target.value });
   }
+
+  slideComplete = (prop) => tagEvent('slide', prop)
 
   render() {
     return (
@@ -45,7 +47,7 @@ class Spending extends React.Component {
                 <a data-toggle="modal" data-target="#gasExpense" className="explanation_prompt">Explain this</a>
                 <div className="slider_wrapper">
                   <Slider min={0} max={this.props.gas_upr} step={1} value={this.props.gas}
-                    onChange={(val) => {this.props.handleSlide('gas', val)}} />
+                    onChange={(val) => {this.props.handleSlide('gas', val)}} onChangeComplete={e => this.slideComplete('gas')} />
                 </div>
               </div>
 
@@ -57,7 +59,7 @@ class Spending extends React.Component {
                 <a data-toggle="modal" data-target="#multipleProperties" className="explanation_prompt">Explain this</a>
                 <div className="slider_wrapper">
                   <Slider min={0} max={this.props.elec_upr} step={1} value={this.props.elec}
-                    onChange={(val) => {this.props.handleSlide('elec', val)}} />
+                    onChange={(val) => {this.props.handleSlide('elec', val)}} onChangeComplete={e => this.slideComplete('elec')}/>
                 </div>
               </div>
 
@@ -70,7 +72,7 @@ class Spending extends React.Component {
                   <a data-toggle="modal" data-target="#multipleProperties" className="explanation_prompt">Explain this</a>
                   <div className="slider_wrapper">
                     <Slider min={0} max={this.props.heat_upr} step={1} value={this.props.heat}
-                      onChange={(val) => {this.props.handleSlide('heat', val)}} />
+                      onChange={(val) => {this.props.handleSlide('heat', val)}} onChangeComplete={e => this.slideComplete('heat')}/>
                   </div>
                 </div>
               )}
@@ -78,7 +80,8 @@ class Spending extends React.Component {
           </div>
         </div>
         <div className="footer">
-          <button href="#results" className="btn btn-default btn_results" onClick={(e)=>{nextAndInvisible(e, '#results')}}>CALCULATE</button>
+          <button href="#results" className="btn btn-default btn_results" id="btn_spending_next"
+            onClick={(e)=>{nextAndInvisible(e, '#results')}}>SHOW RESULTS</button>
         </div>
       </div>
     )

@@ -26,7 +26,8 @@ class Introduction extends React.Component {
             This calculator estimates the impact of both the carbon fee and dividend for your specific household for the first year's fee of $15/ton.
           </div>
 
-          <button href="#basic_questions" className="btn btn-default btn-intro" onClick={(e) =>{nextAndInvisible(e, '#basic_questions')}}>Get Started</button>
+          <button href="#basic_questions" className="btn btn-default btn-intro" 
+            id="btn_intro_next" onClick={(e) =>{nextAndInvisible(e, '#basic_questions')}}>Get Started</button>
         </div>
       </div>
     )

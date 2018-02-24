@@ -9,7 +9,7 @@ import Results from './Results.jsx'
 import ResultsIndicator from './ResultsIndicator.jsx'
 import BasicInfoData from './BasicInfoData.jsx'
 import numeral from 'numeral/min/numeral.min.js';
-import {nextSection, nextAndHide, toCurrency} from '../lib/Utility.jsx'
+import {nextSection, nextAndHide, toCurrency, tagEvent} from '../lib/Utility.jsx'
 require('../images/favicon.ico')
 
 const impact_study_url = 'https://ummel.ocpu.io/exampleR/R/predictModel/json'

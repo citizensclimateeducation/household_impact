@@ -1,7 +1,7 @@
 import React from 'react'
 import VisibilitySensor from 'react-visibility-sensor'
 import { ShareButtons,  ShareCounts,  generateShareIcon } from 'react-share'
-import {toCurrency, nextSection, startOver} from '../lib/Utility.jsx';
+import {toCurrency, nextSection, startOver, tagEvent} from '../lib/Utility.jsx';
 
 const {
   FacebookShareButton, GooglePlusShareButton, LinkedinShareButton, TwitterShareButton, TelegramShareButton,
@@ -65,7 +65,7 @@ class Results extends React.Component {
                     "Awesome! You should end up with some extra money each year."
                   </span>
                 }
-                <a className="btn_start_over"
+                <a className="btn_start_over" id="btn_start_over"
                       onClick={(e)=>{startOver(e)}}>
                   <i className="fa fa-undo" /> Start Over
                 </a>

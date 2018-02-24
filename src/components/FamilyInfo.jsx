@@ -3,7 +3,7 @@ import axios from 'axios';
 import Slider from 'react-rangeslider';
 import NumberFormat from 'react-number-format';
 import NumericInput from 'react-numeric-input';
-import {nextAndInvisible, toCurrency, numberOptionList} from '../lib/Utility.jsx';
+import {nextAndInvisible, toCurrency, numberOptionList, tagEvent} from '../lib/Utility.jsx';
 
 class FamilyInfo extends React.Component {
   constructor(props) {
@@ -56,8 +56,8 @@ class FamilyInfo extends React.Component {
             </div>
             <div className="form-group">
               <label htmlFor="adults">How many minors live in your home?</label>
-              <select className="form-control input-lg number_select" id="children" name="children" value={this.state.children}
-                onChange={this.props.handleChange}>
+              <select className="form-control input-lg number_select" id="children" name="children" 
+                value={this.state.children} onChange={this.props.handleChange}>
                 {numberOptionList(0, 9)}
               </select>
             </div>
@@ -66,15 +66,16 @@ class FamilyInfo extends React.Component {
                 <label htmlFor="income">Household Income: {this.display_income()}</label>
                 <a data-toggle="modal" data-target="#incomeDetails" className="explanation_prompt">Explain this</a>
                 <div className="no_print">
-                  <Slider min={0} max={500} step={1} value={this.state.income_pos} onChange={this.handleSlide} 
-                    onChangeComplete={this.props.calculateIfValid} />
+                  <Slider id={'income'} min={0} max={500} step={1} value={this.state.income_pos} onChange={this.handleSlide} 
+                    onChangeComplete={e => {this.props.calculateIfValid(); tagEvent('slide', 'income')}} />
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div className="footer">
-          <button className="btn btn-default" href="#home_questions" onClick={(e)=>{nextAndInvisible(e, '#home_questions')}}>
+          <button className="btn btn-default" href="#home_questions" id="btn_family_next"
+            onClick={(e)=>{nextAndInvisible(e, '#home_questions')}}>
             NEXT
           </button>
         </div>
