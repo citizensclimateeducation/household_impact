@@ -32,13 +32,12 @@ class Results extends React.Component {
         <div>
           <div className="row"><div className="col-xs-12 form_title">Your Results</div></div>
           <div className="row result_row top_buffer">
-            <div className="col-xs-8 sub_heading">Estimated after-tax household dividend</div>
+            <div className="col-xs-8 sub_heading">Monthly after-tax household dividend</div>
             <div className="col-xs-4 dividend text-right">{this.props.results.div_post}</div>
           </div>
           <div className="row top_buffer">
             <div className="col-sm-12 text-muted disclaimer">
               Calculation based on household's number of adults, number of minors, and expected federal marginal tax rate.
-              <a href="https://citizensclimatelobby.org/carbon-fee-and-dividend/" target="_blank"> Learn more about the dividend</a>.
             </div>
           </div>
           <div className="row result_row top_buffer">
@@ -48,7 +47,6 @@ class Results extends React.Component {
           <div className="row top_buffer bottom_buffer">
             <div className="col-sm-12 text-muted disclaimer">Estimated additional
             costs due to higher prices for goods and services, depending on the household characteristics entered above (income, number of vehicles, etc.).
-              <a href="https://citizensclimatelobby.org/carbon-fee-and-dividend/" target="_blank"> Learn more about the carbon fee</a>.
             </div>
           </div>
           <div className="impact_panel">
@@ -56,7 +54,7 @@ class Results extends React.Component {
             <div className="row">
               <div className="col-xs-8 form_title">Net benefit per month*</div>
               <div className="col-xs-4 form_title net_impact text-right">
-                {this.displayImpact()}<span className="label_lg">/mo</span>
+                {this.displayImpact()}<span className="label_lg month_label">/mo</span>
               </div>
             </div>
             <div className="row pull-right"><a data-toggle="modal" data-target="#calcDetails" className="explanation_prompt">How is this number calculated?</a></div>
