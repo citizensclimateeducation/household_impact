@@ -21,7 +21,7 @@ export const CalcDetails = (props) => {
         <li><span className="font-weight-bold">the expected dividend</span>, which is a function of the household's number of adults, number of minors, and
           expected federal marginal tax rate.
         </li>
-        <li><span className="font-weight-bold">the "net financial impact"</span> -- the difference between the dividend and additional cost - positive if a household
+        <li><span className="font-weight-bold">the "net benefit per month"</span> -- the difference between the dividend and additional cost - positive if a household
           is likely to "come out ahead" under CF&D.
         </li>
       </ul>
@@ -41,8 +41,9 @@ export const CalcDetails = (props) => {
 const HouseholdSizeDetails = (props)=> {
   return (
     <InfoDialog dialogId="houseSizeDetails" title="Household Size">
-      The number of adults (18+) and minors (less than 18) affects the size of the dividend your household would receive
-      under <a href="https://citizensclimatelobby.org/basics-carbon-fee-dividend/" target="_blank">CCL's proposal</a>.
+      The number of adults (18+) and minors (under 18) affects the size of the dividend your household would receive
+      under <a href="https://citizensclimatelobby.org/basics-carbon-fee-dividend/" target="_blank">CCL's proposal</a>. 
+      It also affects household energy efficiency.
     </InfoDialog>
   );
 }
