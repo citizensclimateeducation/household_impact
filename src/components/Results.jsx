@@ -65,7 +65,7 @@ class Results extends React.Component {
                     "Awesome! You should end up with some extra money each year."
                   </span>
                 }
-                <a className="btn_start_over" id="btn_start_over"
+                <a className="btn_start_over no_print" id="btn_start_over"
                       onClick={(e)=>{startOver(e)}}>
                   <i className="fa fa-undo" /> Start Over
                 </a>
@@ -79,7 +79,7 @@ class Results extends React.Component {
                 join <a href="https://citizensclimatelobby.org/join-citizens-climate-lobby/" target="_blank">Citizens' Climate Lobby</a> to help us get CF&D passed.
               </div>
             </div>
-            <div className="share_row row">
+            <div className="share_row row no_print">
                <div className="col-sm-12 text-muted">
                  <label>Print: </label><a className="print_button" href="javascript:window.print()"><i className="fa fa-print"></i></a>
                  <label>Share: </label>
@@ -98,8 +98,8 @@ class Results extends React.Component {
                  </EmailShareButton>
                </div>
             </div>
-            <div className="row">
-              <div className="col-sm-12 text-muted disclaimer no_print">
+            <div className="row no_print">
+              <div className="col-sm-12 text-muted disclaimer">
                 <i className="fa fa-asterisk" aria-hidden="true"></i> Calculator results are based on
                 <a href="https://citizensclimatelobby.org/household-impact-study/" target="_blank"> CCL's Household Impact Study</a>. <a data-toggle="modal" data-target="#calcDetails">Learn more</a> about
                 the methods and assumptions used in the calculation.
