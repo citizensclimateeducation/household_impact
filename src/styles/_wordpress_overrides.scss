@@ -4,10 +4,18 @@ div.inner-page-wrap.has-no-sidebar {
   margin-top: 0px;
 }
 
+body.wordpress_calculator {
+  overflow-y: scroll;
+}
+
+body.wordpress_calculator.modal-open-noscroll, body.wordpress_calculator.modal-open {
+  padding-right: 0px !important;
+  overflow: auto;
+}
+
 body.wordpress_calculator div#calculator {
   font-size: 20px;
   font-family: 'Source Sans Pro', 'Helvetica', sans-serif;
-  overflow-y: scroll;
 
   div#results.card > div div { padding: 0 3.67037% !important; }
   div#results.card > div {

@@ -10,6 +10,10 @@ body {
   overflow-y: scroll;
 }
 
+body.modal-open body.modal {
+  overflow-y: auto;
+}
+
 a { display: inline; color: $ccl-blue;}
 
 // bootstrap color overrides
@@ -20,6 +24,8 @@ a { display: inline; color: $ccl-blue;}
   .input-lg, .btn { border-radius: 0px; }
   label { font-weight: normal; }
 }
+
+
 
 .ribbon {
   background-color: $ribbon-green;
