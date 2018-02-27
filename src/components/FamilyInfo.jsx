@@ -56,6 +56,7 @@ class FamilyInfo extends React.Component {
             </div>
             <div className="form-group">
               <label htmlFor="adults">How many minors live in your home?</label>
+              <a data-toggle="modal" data-target="#minorDetails" className="explanation_prompt">Explain this</a>
               <select className="form-control input-lg number_select" id="children" name="children" 
                 value={this.state.children} onChange={this.props.handleChange}>
                 {numberOptionList(0, 9)}

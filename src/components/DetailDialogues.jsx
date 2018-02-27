@@ -98,6 +98,22 @@ const GasExpense = (props)=> {
   );
 }
 
+const MinorDetails = (props) => {
+  return (
+    <InfoDialog dialogId="minorDetails" title="Minors">
+      The first two minors in a household each get half of an adult dividend.
+    </InfoDialog>
+  )
+}
+
+const VehicleDetails = (props) => {
+  return (
+    <InfoDialog dialogId="vehicleDetails" title="Vehicles Owned">
+      This allows us to estimate your transportation carbon cost.
+    </InfoDialog>
+  )
+}
+
 export const DetailDialogues = (props) => {
   return (
     <div>
@@ -109,6 +125,8 @@ export const DetailDialogues = (props) => {
       <HeatingFuelDetails />
       <MultipleProperties />
       <GasExpense />
+      <VehicleDetails />
+      <MinorDetails />
     </div>
   )
 }

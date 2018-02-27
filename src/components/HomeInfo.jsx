@@ -41,6 +41,7 @@ class HomeInfo extends React.Component {
             </div>
             <div className="form-group">
               <label htmlFor="vehicles">How many vehicles does your household own?</label>
+              <a data-toggle="modal" data-target="#vehicleDetails" className="explanation_prompt">Explain this</a>
               <select className="form-control input-lg number_select" id="vehicles" name="vehicles" value={this.props.vehicles}
                 onChange={this.props.setAttribute}>
                 {numberOptionList(0, 4)}
