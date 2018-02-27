@@ -6,12 +6,6 @@ class HomeInfo extends React.Component {
     super(props);
   }
 
-  zip_keyup = (e) => {
-    if(this.props.valid() && e.keyCode === 13) {
-      this.nextButton.click();
-    }
-  }
-
   render() {
     return (
       <div id="home_questions" className="card input initially_hidden">
@@ -26,7 +20,7 @@ class HomeInfo extends React.Component {
               <label htmlFor="zip">What's your zip code?</label>
               <a data-toggle="modal" data-target="#zipCodeDetails" className="explanation_prompt">Explain this</a>
               <input size="8" className="form-control input-lg number_select" id="zip" name="zip" placeholder="Zip Code" ref="zip"
-                value={this.props.zip} onChange={this.props.setAttribute} onKeyPress={this.props.validZip} onKeyUp={this.zip_keyup} />
+                value={this.props.zip} onChange={this.props.setAttribute} onKeyPress={this.props.validZip} />
             </div>
             <div className="form-group">
               <label htmlFor="dwelling_type">What type of home do you live in?</label>
