@@ -242,7 +242,8 @@ div.impact_indicator {
   font-size: 1.2em;
   display: none;
   line-height: 45px;
-  .estimate_message, .net_impact {padding-left: 0px; padding-right: 0px; }
+  .estimate_message { font-weight: bold; color: $ccl-blue; }
+  .estimate_message, .net_impact { padding-left: 0px; padding-right: 0px; }
   .spinner {
     margin: 0px auto;
     max-width: 45px;
