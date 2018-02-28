@@ -22,6 +22,20 @@ class Results extends React.Component {
   net_profit = () => { return this.props.results.net_impact >= 0 }
   displayImpact = () => { return toCurrency(this.props.results.net_impact)}
 
+  impact_message = () => {
+    const impact = this.props.results.net_impact
+
+    if(impact < -3.0) {
+      return 'We estimate your carbon costs might exceed your dividends.'
+    } else if(impact < 4.0) {
+      return 'Good news! We estimate you are right around the break even point.'
+    } else if(impact > 3.0) {
+      return 'Great! We estimate you should end up with some extra money each year.'
+    }
+
+    return ''
+  }
+
   render() {
     const share_url = "https://citizensclimatelobby.org/calculator";
     const share_message = "See how much money you can save while fighting climate change!"
@@ -60,11 +74,9 @@ class Results extends React.Component {
             <div className="row pull-right"><a data-toggle="modal" data-target="#calcDetails" className="explanation_prompt">How is this number calculated?</a></div>
             <div className="row top_buffer">
               <div className="col-sm-12 text-muted summary">
-                {this.net_profit() &&
-                  <span className="summary_profit">
-                    "Awesome! You should end up with some extra money each year."
-                  </span>
-                }
+                <span className="summary_profit">
+                  {this.impact_message()}
+                </span>
                 <a className="btn_start_over no_print" id="btn_start_over"
                       onClick={(e)=>{startOver(e)}}>
                   <i className="fa fa-undo" /> Start Over
