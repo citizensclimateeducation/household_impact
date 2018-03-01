@@ -5,13 +5,21 @@
   div#basic_questions, div.family_info_panel, div#intro, div#home_questions, div#spending, nav, .explanation_prompt { display: none; }
   div.print_banner { width: 100%; margin: 20px 0px; }
   div.footer, .share_row { visibility: hidden; }
-  body, body.wordpress_calculator div#calculator { font-size: 18px; margin: 1mm 1mm 1mm 1mm; }
+  body, body.wordpress_calculator div#calculator { font-size: 17px; margin: 1mm 1mm 1mm 1mm; }
   div#impact_calculator {
     display: flex;
     //display: block;
-    height: 100vh;
+    height: 90vh;
     //flex-direction: column;
     justify-content: space-around;
+  }
+  body.wordpress_calculator {
+    div#impact_calculator {
+      display: flex;
+      height: 90vh;
+      justify-content: space-around;
+    }
+    div#calculator { font-size: 15px; }
   }
   div#basic_questions, div#results {
     margin: 0px;
@@ -19,14 +27,14 @@
   div.basic_info_data {
     display: flex;
     width: 49%;
-    height: 90vh;
+    height: 85vh;
     margin-top: 20px;
     justify-content: flex-start;
   }
   div#results {
     display: flex;
     width: 49%;
-    height: 90vh;
+    height: 85vh;
     justify-content: flex-start;
     margin-top: 40px;
   }
@@ -44,6 +52,6 @@
   div.section.intro_basic, div.section.pre_calculate, div.section.post_calculate { width: 50%; }
   div.top_buffer { margin-top: 20px; }
   @media(max-width: $screen-portrait) {
-    body, body.wordpress_calculator div#calculator { font-size: 15px; margin: 1mm 1mm 1mm 1mm; }
+    body, body.wordpress_calculator div#calculator { font-size: 14px; margin: 1mm 1mm 1mm 1mm; }
   }
 }
