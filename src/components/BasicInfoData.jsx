@@ -9,12 +9,12 @@ class BasicInfoData extends React.Component {
     render() {
         return (
           <div className="pre_calculate basic_info_data print_only card pre_calculate input">
-            <div className="print_banner">
-              <a className="print_only" href="#">
-                <img src={require('../images/ccl-logo-alpha.png')} className="menu-logo" />
-              </a>
-            </div>
             <div>
+              <div className="print_banner">
+                <a className="print_only" href="#">
+                  <img src={require('../images/ccl-logo-alpha.png')} className="menu-logo" />
+                </a>
+              </div>
               <div className="row">
                 <div className="col-xs-12 bottom_buffer">
                   <span className="form_title">Household Summary</span>
@@ -43,7 +43,7 @@ class BasicInfoData extends React.Component {
                 <div className="col-xs-7">{this.props.dwelling_type}</div>
               </div>
             </div>
-            <div>
+            <div className="spending_summary">
               <div className="row">
                 <div className="col-xs-12 bottom_buffer top_buffer">
                   <span className="form_title">Spending Summary</span>
