@@ -85,7 +85,7 @@ class Results extends React.Component {
             </div>
             <div className='footer'>
             </div>
-            <div className="row top_buffer">
+            <div className="row top_buffer no_print">
               <div className="col-sm-12 text-muted tips">
                 Learn more about <a href="https://citizensclimatelobby.org/basics-carbon-fee-dividend/" target="_blank">Carbon Fee and Dividend</a> and then
                 join <a href="https://citizensclimatelobby.org/join-citizens-climate-lobby/" target="_blank">Citizens' Climate Lobby</a> to help us get CF&D passed.

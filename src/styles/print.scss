@@ -1,15 +1,15 @@
 @media print {
   @page { size: landscape; }
   div#basic_questions, div.family_info_panel, div#intro, div#home_questions, div#spending, nav, .explanation_prompt { display: none; }
-  div.print_banner { width: 100%; margin-bottom: 40px; }
+  div.print_banner { width: 100%; margin: 20px 0px; }
   div.footer, .share_row { visibility: hidden; }
-  body { font-size: 1.7em; }
+  body { font-size: 1.6em; }
   div#impact_calculator {
-    //display: flex;
-    display: block;
-    height: 100vh;
-    //flex-direction: row;
-    //justify-content: space-around;
+    display: flex;
+    //display: block;
+    height: 85vh;
+    //flex-direction: column;
+    justify-content: space-around;
   }
   div#basic_questions, div#results {
     margin: 0px;
@@ -19,13 +19,14 @@
     float: left;
     width: 49%;
     height: 100vh;
+    margin-top: 20px;
     justify-content: space-evenly;
   }
   div#results {
     display: flex;
     width: 49%;
     float: right;
-    height: 100vh;
+    height: 98vh;
     justify-content: space-evenly;
   }
   div.print_spending {
