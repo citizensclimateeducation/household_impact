@@ -5,21 +5,23 @@
   div#basic_questions, div.family_info_panel, div#intro, div#home_questions, div#spending, nav, .explanation_prompt { display: none; }
   div.print_banner { width: 100%; margin: 20px 0px; }
   div.footer, .share_row { visibility: hidden; }
-  body, body.wordpress_calculator div#calculator { font-size: 17px; margin: 1mm 1mm 1mm 1mm; }
+  body, body.wordpress_calculator div#calculator { font-size: 17px; margin: 0; }
   div#impact_calculator {
+    width: 100%;
     display: flex;
     //display: block;
-    height: 90vh;
+    height: 80vh;
     //flex-direction: column;
     justify-content: space-around;
   }
   body.wordpress_calculator {
-    div#impact_calculator {
-      display: flex;
-      height: 90vh;
-      justify-content: space-around;
-    }
-    div#calculator { font-size: 15px; }
+    //div#impact_calculator {
+      //display: flex;
+      //height: 90vh;
+      //justify-content: space-around;
+    //}
+    //div#calculator { font-size: 15px; }
+    .inner-page-wrap { margin: 0px; min-height: auto; }
   }
   div#basic_questions, div#results {
     margin: 0px;
