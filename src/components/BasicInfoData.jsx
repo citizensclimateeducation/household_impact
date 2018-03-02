@@ -31,19 +31,19 @@ class BasicInfoData extends React.Component {
                 <div className="col-xs-7">{this.props.vehicles}</div>
               </div>
               <div className="row">
-                <div className="col-xs-4">Zip Code</div>
+                <div className="col-xs-5">Zip Code</div>
                 <div className="col-xs-7">{this.props.zip}</div>
               </div>
               <div className="row">
-                <div className="col-xs-4">Income</div>
+                <div className="col-xs-5">Income</div>
                 <div className="col-xs-7">{toCurrency(this.props.income, '$0,0')}</div>
               </div>
               <div className="row">
-                <div className="col-xs-4">Dwelling Type: </div>
+                <div className="col-xs-5">Dwelling Type: </div>
                 <div className="col-xs-7">{this.props.dwelling_type}</div>
               </div>
               <div className="row">
-                <div className="col-xs-4">Heating Fuel: </div>
+                <div className="col-xs-5">Heating Fuel: </div>
                 <div className="col-xs-7">{this.props.heating_type}</div>
               </div>
             </div>
