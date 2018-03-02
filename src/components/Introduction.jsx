@@ -16,7 +16,7 @@ class Introduction extends React.Component {
           </div>
 
           <div className="explanation text-muted">
-            Tell us a little bit about your household and get a personalized estimate of the impact on your budget.
+            Tell us a little bit about your U.S. household and get a personalized estimate of the impact on your budget.
           </div>
         </div>
         <div className="footer text-center">
