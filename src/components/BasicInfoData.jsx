@@ -42,6 +42,10 @@ class BasicInfoData extends React.Component {
                 <div className="col-xs-4">Dwelling Type: </div>
                 <div className="col-xs-7">{this.props.dwelling_type}</div>
               </div>
+              <div className="row">
+                <div className="col-xs-4">Heating Fuel: </div>
+                <div className="col-xs-7">{this.props.heating_type}</div>
+              </div>
             </div>
             <div className="spending_summary">
               <div className="row">
@@ -54,7 +58,7 @@ class BasicInfoData extends React.Component {
                 <div className="col-xs-4">{toCurrency(this.props.elec, '$0,0')}</div>
               </div>
               <div className="row bottom_buffer">
-                <div className="col-xs-8">Average Monthly Gas</div>
+                <div className="col-xs-8">Average Monthly Gasoline</div>
                 <div className="col-xs-4">{toCurrency(this.props.gas, '$0,0')}</div>
               </div>
               <div className="row bottom_buffer">
