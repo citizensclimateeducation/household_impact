@@ -9,7 +9,7 @@ import Results from './Results.jsx'
 import ResultsIndicator from './ResultsIndicator.jsx'
 import BasicInfoData from './BasicInfoData.jsx'
 import numeral from 'numeral/min/numeral.min.js';
-import {nextSection, nextAndHide, toCurrency, tagEvent} from '../lib/Utility.jsx'
+import {nextSection, nextAndHideFooter, toCurrency, tagEvent} from '../lib/Utility.jsx'
 require('../images/favicon.ico')
 
 const impact_study_url = 'https://ummel.ocpu.io/exampleR/R/predictModel/json'
@@ -54,7 +54,7 @@ class App extends React.Component {
       const setLoading = this.setLoading;
       const setResults = this.setResults
 
-      if (!costAvailable()) { nextAndHide(e, '#spending'); }
+      if (!costAvailable()) { nextAndHideFooter(e, '#spending'); }
 
       var data = {input: [{
         zip: this.state.zip,
@@ -76,11 +76,15 @@ class App extends React.Component {
         then(function(response) {
           setResults({...response.data[0]})
           $('.calculating').fadeOut('slow', function() {
-            $('.spending_panel, .btn_results, .calculate_success').fadeIn('slow')
+            $('.spending_panel, #spending .calculate_success').fadeIn('slow')
+            $('.spending_footer').animate({ opacity: 1 });
           });
         }).catch(function(error) {
-          nextSection('#home_questions'); $('.search_failed').fadeIn('slow');
-          if(!costAvailable()) { $('#calculate_button').fadeIn('slow'); }
+          nextSection('#home_questions'); 
+          
+          $('.search_failed').fadeIn('slow', function() {
+            if(!costAvailable()) { $('.calculate_footer').animate({ opacity: 1}); }
+          });
 
           $('.calculating').fadeOut('slow', function() {
             $('.post_calculate').addClass('pre_calculate').removeClass('post_calculate');

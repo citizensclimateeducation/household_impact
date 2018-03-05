@@ -3,7 +3,7 @@ import axios from 'axios';
 import Slider from 'react-rangeslider';
 import NumberFormat from 'react-number-format';
 import NumericInput from 'react-numeric-input';
-import {nextAndInvisible, toCurrency, numberOptionList, tagEvent} from '../lib/Utility.jsx';
+import {nextAndHideFooter, toCurrency, numberOptionList, tagEvent} from '../lib/Utility.jsx';
 
 class FamilyInfo extends React.Component {
   constructor(props) {
@@ -76,9 +76,11 @@ class FamilyInfo extends React.Component {
         </div>
         <div className="footer">
           <button className="btn btn-default" href="#home_questions" id="btn_family_next"
-            onClick={(e)=>{nextAndInvisible(e, '#home_questions')}}>
+            onClick={(e)=>{nextAndHideFooter(e, '#home_questions')}}>
             NEXT
           </button>
+
+          <a href="/calculator/cfd-calculator-faq/" className="faq_link">Frequently asked questions</a>
         </div>
       </div>
     )

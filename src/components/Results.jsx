@@ -81,6 +81,8 @@ class Results extends React.Component {
                       onClick={(e)=>{startOver(e)}}>
                   <i className="fa fa-undo" /> Start Over
                 </a>
+
+                <a href="/calculator/cfd-calculator-faq/" className="faq_link">Frequently asked questions</a>
               </div>
             </div>
             <div className='footer'>

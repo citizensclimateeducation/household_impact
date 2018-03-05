@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from 'react-rangeslider'
-import {nextAndInvisible, tagEvent} from '../lib/Utility.jsx'
+import {nextAndHideFooter, tagEvent} from '../lib/Utility.jsx'
 
 class Spending extends React.Component {
   constructor(props) {
@@ -79,9 +79,11 @@ class Spending extends React.Component {
             </form>
           </div>
         </div>
-        <div className="footer">
-          <button href="#results" className="btn btn-default btn_results" id="btn_spending_next"
-            onClick={(e)=>{nextAndInvisible(e, '#results')}}>SHOW RESULTS</button>
+        <div className="footer spending_footer">
+          <button href="#results" className="btn btn-default" id="btn_spending_next"
+            onClick={(e)=>{nextAndHideFooter(e, '#results')}}>SHOW RESULTS</button>
+
+          <a href="/calculator/cfd-calculator-faq/" className="faq_link">Frequently asked questions</a>
         </div>
       </div>
     )

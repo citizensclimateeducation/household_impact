@@ -168,6 +168,7 @@ div.card.intro_container {
     a { display: inline; color: $ccl-blue; text-decoration: underline; }
   }
 }
+.faq_link { margin-left: 20px; }
 .form-control { width: initial; }
 .number_select { width: 113px; }
 .top_buffer { margin-top: 20px; }
@@ -199,10 +200,12 @@ div.card.intro_container {
 
 div#intro .footer { text-align: center; }
 
-.spending_panel, .btn_results{
+.spending_panel {
   display:none;
   label { font-size: 1.0em; }
 }
+
+.spending_footer { opacity: 0; }
 
 .search_failed {
   margin: 20px 0px;

@@ -57,11 +57,13 @@ class HomeInfo extends React.Component {
             </div>
           </div>
         </div>
-        <div className="footer">
+        <div className="footer calculate_footer">
           <button className={"btn btn-default " + (this.props.zip ? '' : 'disabled')} href="#spending" id="calculate_button"
-            onClick={(e)=>{this.props.calculate(e)}} id="btn_home_next" ref={btn => this.nextButton = btn}>
+            onClick={(e)=>{this.props.calculate(e)}} ref={btn => this.nextButton = btn}>
             NEXT
           </button>
+
+          <a href="/calculator/cfd-calculator-faq/" className="faq_link">Frequently asked questions</a>
         </div>
       </div>
     )

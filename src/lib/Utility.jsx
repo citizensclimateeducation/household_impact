@@ -15,7 +15,7 @@ export const nextSection = (next_section_id, callback) => {
   $(next_section_id).removeClass('initially_hidden');
   tagEvent('calculator.advance', next_section_id)
   $('html, body').animate({scrollTop: $($(next_section_id)).offset().top}, 
-    {duration: 1700, easing: 'easeOutQuart', complete: callback});
+    {duration: 1600, easing: 'easeOutQuart', complete: callback});
 }
 
 export const nextAndHide = (e, next_section_id) => {
@@ -26,6 +26,12 @@ export const nextAndHide = (e, next_section_id) => {
 export const nextAndInvisible = (e, next_section_id) => {
   e.persist();
   $(e.target).animate({ opacity: 0 });
+  nextSection(next_section_id);
+}
+
+export const nextAndHideFooter = (e, next_section_id) => {
+  e.persist();
+  $(e.target).closest('.footer').animate({ opacity: 0 });
   nextSection(next_section_id);
 }
 
