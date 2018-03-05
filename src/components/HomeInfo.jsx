@@ -63,7 +63,7 @@ class HomeInfo extends React.Component {
             NEXT
           </button>
 
-          <a href="/calculator/cfd-calculator-faq/" className="faq_link">Frequently asked questions</a>
+          <a href="/calculator/cfd-calculator-faq/" className="faq_link">Got questions about the calculator?</a>
         </div>
       </div>
     )

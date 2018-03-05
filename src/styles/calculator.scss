@@ -25,8 +25,6 @@ a { display: inline; color: $ccl-blue;}
   label { font-weight: normal; }
 }
 
-
-
 .ribbon {
   background-color: $ribbon-green;
   position: relative;
@@ -149,7 +147,7 @@ div.card.intro_container {
   }
   button.btn, button.btn.disabled {
     font-size: 1.2em;
-    margin: 20px 20px 10px 0px;
+    margin: 20px 40px 20px 0px;
     min-width: 25%;
     background-color: $ccl-blue;
     color: white;
@@ -169,6 +167,7 @@ div.card.intro_container {
 .number_select { width: 113px; }
 .top_buffer { margin-top: 20px; }
 .bottom_buffer { margin-bottom: 20px; }
+.faq_link { font-size: .9em; }
 .expense_text { 
   display: inline-block;
   max-width: 50px;
@@ -282,7 +281,7 @@ a:hover { cursor: pointer; }
 .text-muted { color: $muted-gray; }
 #results {
   .result_row { font-size: 1.2em; }
-  .btn_start_over { margin-right: 20px; }
+  .btn_start_over { margin-right: 40px; }
 }
 
 @media(max-width: $screen-phone) {
@@ -305,10 +304,11 @@ a:hover { cursor: pointer; }
     button.btn, button.btn.btn-intro, button.btn.disabled{
       width: 100%;
       border-radius: 4px;
-      margin-right: 0px;
+      margin: 20px 0px 10px 0px;
     }
     .cf_and_d_explanation { display: none; }
   }
+  .faq_link { padding-bottom: 10px; }
   .form-control { width: 100%; }
   .number_select { width: 100%; }
   .explanation_prompt { font-size: .93em; }

@@ -83,7 +83,7 @@ class Spending extends React.Component {
           <button href="#results" className="btn btn-default" id="btn_spending_next"
             onClick={(e)=>{nextAndHideFooter(e, '#results')}}>SHOW RESULTS</button>
 
-          <a href="/calculator/cfd-calculator-faq/" className="faq_link">Frequently asked questions</a>
+          <a href="/calculator/cfd-calculator-faq/" className="faq_link">Got questions about the calculator?</a>
         </div>
       </div>
     )

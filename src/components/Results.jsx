@@ -82,7 +82,7 @@ class Results extends React.Component {
                   <i className="fa fa-undo" /> Start Over
                 </a>
 
-                <a href="/calculator/cfd-calculator-faq/" className="faq_link">Frequently asked questions</a>
+                <a href="/calculator/cfd-calculator-faq/" className="faq_link">Got questions about the calculator?</a>
               </div>
             </div>
             <div className='footer'>
