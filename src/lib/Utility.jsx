@@ -15,7 +15,7 @@ export const nextSection = (next_section_id, callback) => {
   $(next_section_id).removeClass('initially_hidden');
   tagEvent('calculator.advance', next_section_id)
   $('html, body').animate({scrollTop: $($(next_section_id)).offset().top}, 
-    {duration: 1600, easing: 'easeOutQuart', complete: callback});
+    {duration: 1400, easing: 'easeOutQuart', complete: callback});
 }
 
 export const nextAndHide = (e, next_section_id) => {
