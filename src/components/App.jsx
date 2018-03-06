@@ -76,7 +76,7 @@ class App extends React.Component {
         then(function(response) {
           setResults({...response.data[0]})
           $('.calculating').fadeOut('slow', function() {
-            $('.spending_panel, #spending .calculate_success').fadeIn('slow')
+            $('.spending_panel, #spending, .calculate_success').fadeIn('slow')
             $('.spending_footer').animate({ opacity: 1 });
           });
         }).catch(function(error) {
