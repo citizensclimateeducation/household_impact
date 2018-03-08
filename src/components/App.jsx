@@ -50,11 +50,11 @@ class App extends React.Component {
     if (this.state.zip) {
       $('.pre_calculate').removeClass('pre_calculate').addClass('post_calculate')
       $('.spending_panel, .search_failed, .calculate_success').hide();
-      const costAvailable = this.costAvailable;
+      const costAvailable = this.costAvailable();
       const setLoading = this.setLoading;
       const setResults = this.setResults
 
-      if (!costAvailable()) { nextAndHideFooter(e, '#spending'); }
+      if (!costAvailable) { nextAndHideFooter(e, '#spending'); }
 
       var data = {input: [{
         zip: this.state.zip,
@@ -77,13 +77,13 @@ class App extends React.Component {
           setResults({...response.data[0]})
           $('.calculating').fadeOut('slow', function() {
             $('.spending_panel, #spending, .calculate_success').fadeIn('slow')
-            $('.spending_footer').animate({ opacity: 1 });
+            if(!costAvailable) { $('.spending_footer').animate({ opacity: 1 }); }
           });
         }).catch(function(error) {
           nextSection('#home_questions'); 
           
           $('.search_failed').fadeIn('slow', function() {
-            if(!costAvailable()) { $('.calculate_footer').animate({ opacity: 1}); }
+            if(!costAvailable) { $('.calculate_footer').animate({ opacity: 1}); }
           });
 
           $('.calculating').fadeOut('slow', function() {
