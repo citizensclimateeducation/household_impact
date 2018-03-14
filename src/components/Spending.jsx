@@ -41,7 +41,7 @@ class Spending extends React.Component {
             <form>
               <div className="form-group">
                 <label htmlFor="gas" className="label_lg">How much is your average monthly gasoline expenditure? $ </label>
-                <label htmlFor="gas" className="label_sm">Average monthly gas expenditure? $ </label>
+                <label htmlFor="gas" className="label_sm">Average monthly gasoline expenditure? $ </label>
                 <input size="3" className="form-control expense_text" id="gas" name="gas"
                   value={this.props.gas} onChange={(event)=>{this.props.handleSlide('gas', event.target.value)}}/>
                 <a data-toggle="modal" data-target="#gasExpense" className="explanation_prompt">Explain this</a>
