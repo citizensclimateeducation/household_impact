@@ -4,6 +4,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
+ entry: ["babel-polyfill", "./src/main.js"],
  plugins: [
    new UglifyJSPlugin(),
    new webpack.DefinePlugin({
