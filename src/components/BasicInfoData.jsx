@@ -1,6 +1,9 @@
 import React from 'react';
 import {nextSection, toCurrency} from '../lib/Utility.jsx';
 
+/** 
+ * Print-only component that lists out inputs without controls
+*/
 class BasicInfoData extends React.Component {
     constructor(props) {
         super(props);

@@ -17,29 +17,29 @@ const impact_study_url = 'https://ummel.ocpu.io/exampleR/R/predictModel/json'
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { div_pre: 0, mrate: 0.15, elec: 0, gas: 0, heat: 0, cost: '', net_impact: 0, moe: 0, gas_upr: 200, 
-      elec_upr: 200, show_footer_impact: false, heat_upr: 300, carbon_cost: 0, div_post: 0, initial_heat: 0, 
-      initial_gas: 0, initial_elec: 0, div_month: 0, cost_month: 0, impact_month: 0, adults: 1, children: 0, loading: false, 
+    this.state = { div_pre: 0, mrate: 0.15, elec: 0, gas: 0, heat: 0, cost: '', net_impact: 0, moe: 0, gas_upr: 200,
+      elec_upr: 200, show_footer_impact: false, heat_upr: 300, carbon_cost: 0, div_post: 0, initial_heat: 0,
+      initial_gas: 0, initial_elec: 0, div_month: 0, cost_month: 0, impact_month: 0, adults: 1, children: 0, loading: false,
       heating_type: 'Natural gas', vehicles: 2, zip: '', dwelling_type: 'Stand-alone house'}
   }
 
   costAvailable = () => { return !!this.state.cost; }
-  calculateIfValid = () => { if(this.costAvailable() && this.valid()) { this.calculate(); }}
-  setAttribute = (event) => { this.setState({ [event.target.name]: event.target.value }, this.calculateIfValid); }
+  calculateIfValid = () => { if(this.costAvailable() && this.valid()) { this.calculate() }}
+  setAttribute = (event) => { this.setState({ [event.target.name]: event.target.value }, this.calculateIfValid) }
   setLoading = (loading) => { this.setState({ loading: loading }) }
+  handleSlide = (prop, value) => { this.setState({[prop]: value}, this.calculateCost) }
 
-  handleSlide = (prop, value) => {
-    this.setState({[prop]: value}, this.calculateCost);
-  }
-
+  // set results after API call
   setResults = (e) => {
     const utilities = ['gas', 'heat', 'elec'];
+    // if utilities costs have already been selected by user don't overwrite those
     Object.keys(e).forEach((key) => { utilities.includes(key) ? this.updateUtility(key, e[key]) : this.setState({ [key]: e[key] }) })
     this.setState({initial_gas: e.gas, initial_elec: e.elec, initial_heat: e.heat})
     this.calculateCost()
-    this.setLoading(false);
+    this.setLoading(false)
   }
 
+  // update a utility with the API value if it's not already set or if it's outside of the upper bounds
   updateUtility = (key, updatedValue) => {
     if (updatedValue === 0 || this.state[key] === 0 || this.state[key] > this.state[key + '_upr']) {
       this.setState({ [key]: updatedValue })
@@ -48,6 +48,7 @@ class App extends React.Component {
 
   calculate = (e) => {
     if (this.state.zip) {
+      // hide elements during update
       $('.pre_calculate').removeClass('pre_calculate').addClass('post_calculate')
       $('.spending_panel, .search_failed, .calculate_success').hide();
       const costAvailable = this.costAvailable();
@@ -66,22 +67,23 @@ class App extends React.Component {
         htype: String(this.state.dwelling_type)
       }]};
 
-
       this.setLoading(true);
       $('.calculating').fadeIn('slow');
       const zip = this.state.zip
-      const basic_questions = this.state;
+      console.log(data)
 
       axios.post(impact_study_url, JSON.stringify(data), {responseType: 'json', headers: {'Content-Type': 'application/json'}}).
         then(function(response) {
+          // success, set results and fade them in
           setResults({...response.data[0]})
           $('.calculating').fadeOut('slow', function() {
             $('.spending_panel, #spending, .calculate_success').fadeIn('slow')
             if(!costAvailable) { $('.spending_footer').animate({ opacity: 1 }); }
           });
         }).catch(function(error) {
-          nextSection('#home_questions'); 
-          
+          // on error log results and focus on zip code
+          nextSection('#home_questions');
+
           $('.search_failed').fadeIn('slow', function() {
             if(!costAvailable) { $('.calculate_footer').animate({ opacity: 1}); }
           });
@@ -98,9 +100,9 @@ class App extends React.Component {
   }
 
   calculateCost = () => {
-    const elec = this.state.elec
-    const gas = this.state.gas
-    const heat = this.state.heat
+    let {elec, gas, heat} = this.state
+    // cost variable is a string formula (e.g. "428.8 + gas * 0.7924 + elec * 1.12 + heat * 0.7826") returned from 
+    // the API call and evaled to determine determine cost in real-time
     const cost = eval(this.state.cost)
     const div_post = numeral(this.state.div_pre).value() * (1.0 - numeral(this.state.mrate).value())
     const carbon_cost = Math.round(cost / 12)
@@ -124,6 +126,7 @@ class App extends React.Component {
 
   setIncome = (income) => { this.setState({income: income}) }
 
+  // trigger visibility of floating footer
   resultsVisible = (isVisible) => {
     var show_footer_impact = !isVisible && this.costAvailable();
     this.setState({show_footer_impact: show_footer_impact});
@@ -136,9 +139,9 @@ class App extends React.Component {
           <Menu/>
         }
         <Introduction/>
-        <FamilyInfo handleChange={this.setAttribute} income={this.state.income} setIncome={this.setIncome} 
+        <FamilyInfo handleChange={this.setAttribute} income={this.state.income} setIncome={this.setIncome}
           calculateIfValid={this.calculateIfValid} adults={this.state.adults} children={this.state.children} />
-        <HomeInfo setResults={this.setResults} validZip={this.validZip} setLoading={this.setLoading} 
+        <HomeInfo setResults={this.setResults} validZip={this.validZip} setLoading={this.setLoading}
           vehicles={this.state.vehicles} dwelling_type={this.state.dwelling_type} heating_type={this.state.heating_type}
           calculate={this.calculate} valid={this.valid} zip={this.state.zip} setAttribute={this.setAttribute}/>
         <Spending {...this.state} handleSlide={this.handleSlide} setResults={this.setResults} />

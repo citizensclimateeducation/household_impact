@@ -2,6 +2,10 @@ import React from 'react';
 import Slider from 'react-rangeslider'
 import {nextAndHideFooter, tagEvent} from '../lib/Utility.jsx'
 
+/**
+ * Panel displaying spending sliders. These will dynamically update the net impact without re-querying
+ * the API
+ */
 class Spending extends React.Component {
   constructor(props) {
     super(props);

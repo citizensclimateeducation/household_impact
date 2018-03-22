@@ -14,9 +14,11 @@ class FamilyInfo extends React.Component {
 
   toNearestThousand = (val) => { return Math.ceil(((val + 1) / 1000)) * 1000 }
 
-  // based on https://stackoverflow.com/questions/846221/logarithmic-slider
+  /**
+   * Given a position on the income slider figure out the income using logarithmic scale
+   * based on https://stackoverflow.com/questions/846221/logarithmic-slider
+   */
   position_to_income = (val) => {
-    //console.log(val)
     const minp = 0;
     const maxp = 500;
     const minv = 8.517193191416238; //Math.log(5000);

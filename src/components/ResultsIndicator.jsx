@@ -1,6 +1,9 @@
 import React from 'react'
 import {toCurrency, nextSection} from '../lib/Utility.jsx';
 
+/**
+ * Floating footer that shows the net impact once the results screen has already been viewed
+ */
 class ResultsIndicator extends React.Component {
   constructor(props) {
     super(props);
@@ -45,12 +48,9 @@ class ResultsIndicator extends React.Component {
             </div>
           </div>
         </div>
-
       </div>
-
     )
   }
 }
-
 
 export default ResultsIndicator

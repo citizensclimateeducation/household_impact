@@ -1,3 +1,8 @@
+/*
+  Styles specifically in place to override Wordpress styles that interfere with the App.
+  These are targeted at 'body.wordpress_calculator', which should be in place on any injected
+  wordpress page.
+*/
 $card_height: 100vh;
 
 div.inner-page-wrap.has-no-sidebar {

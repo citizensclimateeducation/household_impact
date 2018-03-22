@@ -1,6 +1,10 @@
 import React from 'react'
 import InfoDialog from './InfoDialog.jsx'
 
+/**
+ * Contains all dialogs used in the App
+ * Exports dialogs in Div for placement at footer
+ */
 export const CalcDetails = (props) => {
   return (
     <InfoDialog dialogId="calcDetails" title="Calculation Explanation">
