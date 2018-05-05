@@ -3,10 +3,9 @@ import VisibilitySensor from 'react-visibility-sensor'
 import { ShareButtons,  ShareCounts,  generateShareIcon } from 'react-share'
 import {toCurrency, nextSection, startOver, tagEvent} from '../lib/Utility.jsx';
 
+// load share buttons from react-share
 const {
-  FacebookShareButton, GooglePlusShareButton, LinkedinShareButton, TwitterShareButton, TelegramShareButton,
-  WhatsappShareButton, PinterestShareButton,
-  VKShareButton, OKShareButton, RedditShareButton, EmailShareButton,
+  FacebookShareButton, GooglePlusShareButton, TwitterShareButton, EmailShareButton
 } = ShareButtons;
 
 const FacebookIcon = generateShareIcon('facebook');
@@ -101,8 +100,8 @@ class Results extends React.Component {
                  <a href="https://www.facebook.com/sharer/sharer.php?u=https://citizensclimatelobby.org/calculator/&amp;t=Calculator&amp;redirect_uri=https://citizensclimatelobby.org?sharing-thankyou=yes" title={share_message}
               target="_blank" rel="nofollow">
                    <i className="fa fa-facebook"></i>
-      </a>
-    </div>
+                  </a>
+                </div>
                  <TwitterShareButton url={share_url} title={share_message} via="citizensclimate" hashtags={['climate', 'PutAPriceOnIt']}>
                    <i className="fa fa-twitter"></i>
                  </TwitterShareButton>

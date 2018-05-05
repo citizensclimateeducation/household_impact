@@ -1,5 +1,8 @@
 import React from 'react';
 
+/**
+ * Wrap dialog text in bootstrap dialog
+ */
 class InfoDialog extends React.Component {
   constructor(props) {
     super(props);

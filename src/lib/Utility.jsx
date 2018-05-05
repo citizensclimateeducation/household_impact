@@ -5,6 +5,7 @@
 import React from 'react';
 import numeral from 'numeral/min/numeral.min.js';
 
+// Push Google tag events for analytics
 export const tagEvent = (action, id) => {
   if(typeof dataLayer === 'object') {
     dataLayer.push({'event': action, 'inputID': id});
