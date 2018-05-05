@@ -13,7 +13,7 @@ class HomeInfo extends React.Component {
           <div className="home_info_panel section">
             <div className="search_failed">
               <div className="alert alert-info" role="alert">
-                Sorry, we couldn't find information for this search. Please double-check your zip code
+                Sorry, we couldn't find information for this search. Please double-check your zip code or choose a nearby zip code.
               </div>
             </div>
             <div className="form-group">
