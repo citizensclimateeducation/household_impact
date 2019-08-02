@@ -8,6 +8,7 @@ import 'bootstrap-modal'
 require('./styles/calculator.scss');
 require('./styles/rangeslider.scss');
 require('./styles/print.scss');
+import $ from 'jquery';
 
 const calculator = document.querySelector('#calculator')
 ReactDOM.render(<App />, calculator)

@@ -1,5 +1,5 @@
 import React from 'react'
-import {toCurrency, nextSection} from '../lib/Utility.jsx';
+import { toCurrency, nextSection } from '../lib/Utility.jsx';
 
 /**
  * Floating footer that shows the net impact once the results screen has already been viewed
@@ -7,26 +7,28 @@ import {toCurrency, nextSection} from '../lib/Utility.jsx';
 class ResultsIndicator extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {initially_viewed: false};
+    this.state = { initially_viewed: false };
   }
 
   componentWillReceiveProps(nextProps) {
-    if(nextProps.show_footer_impact !== this.props.show_footer_impact) {
+    if (nextProps.show_footer_impact !== this.props.show_footer_impact) {
       this.fadeFooter(nextProps.show_footer_impact);
     }
   }
 
   fadeFooter = (show_footer) => {
-    if(show_footer && this.state.initially_viewed) {
+    if (show_footer) { // && this.state.initially_viewed) {
+      console.log('fading footer in...');
       $('.impact_indicator').css("display", "block").hide().fadeIn();
     } else {
-      this.setState({initially_viewed: true});
+      console.log('fading footer out...');
+      this.setState({ initially_viewed: true });
       $('.impact_indicator').fadeOut();
     }
   }
 
   net_profit = () => { return this.props.net_impact >= 0 }
-  displayImpact = () => { return toCurrency(this.props.net_impact)}
+  displayImpact = () => { return toCurrency(this.props.net_impact) }
 
   render() {
     return (
@@ -36,7 +38,7 @@ class ResultsIndicator extends React.Component {
             <div className="spinner">
               <svg className="wait_spinner" xmlns="http//www.w3.org/2000/svg" viewBox="0 0 100 100">
                 <circle className='green_circle' cx='50' cy='50' r='45' strokeDasharray='141.37' />
-                <circle className='blue_circle' cx='50' cy='50' r='30' strokeDasharray='94.248'/>
+                <circle className='blue_circle' cx='50' cy='50' r='30' strokeDasharray='94.248' />
                 <polyline className='letter' points='41,31 41,59 69,59' />
               </svg>
             </div>

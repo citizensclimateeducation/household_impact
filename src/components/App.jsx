@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios';
-import {DetailDialogues} from './DetailDialogues.jsx'
+import { DetailDialogues } from './DetailDialogues.jsx'
 import Introduction from './Introduction.jsx'
 import FamilyInfo from './FamilyInfo.jsx'
 import HomeInfo from './HomeInfo.jsx'
@@ -9,7 +9,7 @@ import Results from './Results.jsx'
 import ResultsIndicator from './ResultsIndicator.jsx'
 import BasicInfoData from './BasicInfoData.jsx'
 import numeral from 'numeral/min/numeral.min.js';
-import {nextSection, nextAndHideFooter, toCurrency, tagEvent} from '../lib/Utility.jsx'
+import { nextSection, nextAndHideFooter, toCurrency, tagEvent } from '../lib/Utility.jsx'
 require('../images/favicon.ico')
 
 const impact_study_url = 'https://ummel.ocpu.io/exampleR/R/predictModel/json'
@@ -17,24 +17,26 @@ const impact_study_url = 'https://ummel.ocpu.io/exampleR/R/predictModel/json'
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { div_pre: 0, mrate: 0.15, elec: 0, gas: 0, heat: 0, cost: '', net_impact: 0, moe: 0, gas_upr: 200,
+    this.state = {
+      div_pre: 0, mrate: 0.15, elec: 0, gas: 0, heat: 0, cost: '', net_impact: 0, moe: 0, gas_upr: 200,
       elec_upr: 200, show_footer_impact: false, heat_upr: 300, carbon_cost: 0, div_post: 0, initial_heat: 0,
       initial_gas: 0, initial_elec: 0, div_month: 0, cost_month: 0, impact_month: 0, adults: 1, children: 0, loading: false,
-      heating_type: 'Natural gas', vehicles: 2, zip: '', dwelling_type: 'Stand-alone house'}
+      heating_type: 'Natural gas', vehicles: 2, zip: '', dwelling_type: 'Stand-alone house'
+    }
   }
 
   costAvailable = () => { return !!this.state.cost; }
-  calculateIfValid = () => { if(this.costAvailable() && this.valid()) { this.calculate() }}
+  calculateIfValid = () => { if (this.costAvailable() && this.valid()) { this.calculate() } }
   setAttribute = (event) => { this.setState({ [event.target.name]: event.target.value }, this.calculateIfValid) }
   setLoading = (loading) => { this.setState({ loading: loading }) }
-  handleSlide = (prop, value) => { this.setState({[prop]: value}, this.calculateCost) }
+  handleSlide = (prop, value) => { this.setState({ [prop]: value }, this.calculateCost) }
 
   // set results after API call
   setResults = (e) => {
     const utilities = ['gas', 'heat', 'elec'];
     // if utilities costs have already been selected by user don't overwrite those
     Object.keys(e).forEach((key) => { utilities.includes(key) ? this.updateUtility(key, e[key]) : this.setState({ [key]: e[key] }) })
-    this.setState({initial_gas: e.gas, initial_elec: e.elec, initial_heat: e.heat})
+    this.setState({ initial_gas: e.gas, initial_elec: e.elec, initial_heat: e.heat })
     this.calculateCost()
     this.setLoading(false)
   }
@@ -57,38 +59,40 @@ class App extends React.Component {
 
       if (!costAvailable) { nextAndHideFooter(e, '#spending'); }
 
-      var data = {input: [{
-        zip: this.state.zip,
-        na: Number(this.state.adults),
-        nc: Number(this.state.children),
-        hinc: this.state.income,
-        hfuel: this.state.heating_type,
-        veh: Number(this.state.vehicles),
-        htype: String(this.state.dwelling_type)
-      }]};
+      var data = {
+        input: [{
+          zip: this.state.zip,
+          na: Number(this.state.adults),
+          nc: Number(this.state.children),
+          hinc: this.state.income,
+          hfuel: this.state.heating_type,
+          veh: Number(this.state.vehicles),
+          htype: String(this.state.dwelling_type)
+        }]
+      };
 
       this.setLoading(true);
       $('.calculating').fadeIn('slow');
       const zip = this.state.zip
       console.log(data)
 
-      axios.post(impact_study_url, JSON.stringify(data), {responseType: 'json', headers: {'Content-Type': 'application/json'}}).
-        then(function(response) {
+      axios.post(impact_study_url, JSON.stringify(data), { responseType: 'json', headers: { 'Content-Type': 'application/json' } }).
+        then(function (response) {
           // success, set results and fade them in
-          setResults({...response.data[0]})
-          $('.calculating').fadeOut('slow', function() {
+          setResults({ ...response.data[0] })
+          $('.calculating').fadeOut('slow', function () {
             $('.spending_panel, #spending, .calculate_success').fadeIn('slow')
-            if(!costAvailable) { $('.spending_footer').animate({ opacity: 1 }); }
+            if (!costAvailable) { $('.spending_footer').animate({ opacity: 1 }); }
           });
-        }).catch(function(error) {
+        }).catch(function (error) {
           // on error log results and focus on zip code
           nextSection('#home_questions');
 
-          $('.search_failed').fadeIn('slow', function() {
-            if(!costAvailable) { $('.calculate_footer').animate({ opacity: 1}); }
+          $('.search_failed').fadeIn('slow', function () {
+            if (!costAvailable) { $('.calculate_footer').animate({ opacity: 1 }); }
           });
 
-          $('.calculating').fadeOut('slow', function() {
+          $('.calculating').fadeOut('slow', function () {
             $('.post_calculate').addClass('pre_calculate').removeClass('post_calculate');
             setLoading(false);
           });
@@ -100,7 +104,7 @@ class App extends React.Component {
   }
 
   calculateCost = () => {
-    let {elec, gas, heat} = this.state
+    let { elec, gas, heat } = this.state
     // cost variable is a string formula (e.g. "428.8 + gas * 0.7924 + elec * 1.12 + heat * 0.7826") returned from 
     // the API call and evaled to determine determine cost in real-time
     const cost = eval(this.state.cost)
@@ -124,28 +128,29 @@ class App extends React.Component {
     if (!re.test(newval) && !highlighted) { e.preventDefault(); }
   }
 
-  setIncome = (income) => { this.setState({income: income}) }
+  setIncome = (income) => { this.setState({ income: income }) }
 
   // trigger visibility of floating footer
   resultsVisible = (isVisible) => {
     var show_footer_impact = !isVisible && this.costAvailable();
-    this.setState({show_footer_impact: show_footer_impact});
+    console.log(`show footer: ${show_footer_impact}, isvisible: ${isVisible}, cost? ${this.costAvailable()}`)
+    this.setState({ show_footer_impact: show_footer_impact });
   }
 
   render() {
     return (
       <div id="impact_calculator">
         {process.env['SHOW_MENU'] &&
-          <Menu/>
+          <Menu />
         }
-        <Introduction/>
+        <Introduction />
         <FamilyInfo handleChange={this.setAttribute} income={this.state.income} setIncome={this.setIncome}
           calculateIfValid={this.calculateIfValid} adults={this.state.adults} children={this.state.children} />
         <HomeInfo setResults={this.setResults} validZip={this.validZip} setLoading={this.setLoading}
           vehicles={this.state.vehicles} dwelling_type={this.state.dwelling_type} heating_type={this.state.heating_type}
-          calculate={this.calculate} valid={this.valid} zip={this.state.zip} setAttribute={this.setAttribute}/>
+          calculate={this.calculate} valid={this.valid} zip={this.state.zip} setAttribute={this.setAttribute} />
         <Spending {...this.state} handleSlide={this.handleSlide} setResults={this.setResults} />
-        <BasicInfoData {...this.state}/>
+        <BasicInfoData {...this.state} />
         <Results results={this.state} resultsVisible={this.resultsVisible} />
         <ResultsIndicator net_impact={this.state.net_impact} show_footer_impact={this.state.show_footer_impact} loading={this.state.loading} />
         <DetailDialogues />

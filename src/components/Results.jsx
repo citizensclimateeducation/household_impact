@@ -1,17 +1,19 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import VisibilitySensor from 'react-visibility-sensor'
-import { ShareButtons,  ShareCounts,  generateShareIcon } from 'react-share'
-import {toCurrency, nextSection, startOver, tagEvent} from '../lib/Utility.jsx';
+import { ShareButtons, ShareCounts, generateShareIcon } from 'react-share'
+import { toCurrency, nextSection, startOver, tagEvent } from '../lib/Utility.jsx';
 
-// load share buttons from react-share
+/* load share buttons from react-share
 const {
-  FacebookShareButton, GooglePlusShareButton, TwitterShareButton, EmailShareButton
+  TwitterShareButton, EmailShareButton
 } = ShareButtons;
+*/
 
-const FacebookIcon = generateShareIcon('facebook');
-const TwitterIcon = generateShareIcon('twitter');
-const GooglePlusIcon = generateShareIcon('google');
-const EmailIcon = generateShareIcon('email');
+// const FacebookIcon = generateShareIcon('facebook');
+// const TwitterIcon = generateShareIcon('twitter');
+// const GooglePlusIcon = generateShareIcon('google');
+// const EmailIcon = generateShareIcon('email');
 
 class Results extends React.Component {
   constructor(props) {
@@ -19,23 +21,29 @@ class Results extends React.Component {
   }
 
   net_profit = () => { return this.props.results.net_impact >= 0 }
-  displayImpact = () => { return toCurrency(this.props.results.net_impact)}
+  displayImpact = () => { return toCurrency(this.props.results.net_impact) }
 
   impact_message = () => {
     const impact = this.props.results.net_impact
 
-    if(impact < -3.0) {
+    if (impact < -3.0) {
       return 'We estimate your carbon costs might exceed your dividends.'
-    } else if(impact < 4.0) {
+    } else if (impact < 4.0) {
       return 'Good news! We estimate you are right around the break even point.'
-    } else if(impact > 3.0) {
+    } else if (impact > 3.0) {
       return 'Great! We estimate you should end up with some extra money each year.'
     }
 
     return ''
   }
 
+  resultsVisible = (visible) => {
+    console.log('visible change...' + visible);
+  }
+
   render() {
+    // var VisibilitySensor = require('react-visibility-sensor');
+
     const share_url = "https://citizensclimatelobby.org/calculator";
     const share_message = "See how much money you can save while fighting climate change!"
     const share_media = "https://11bup83sxdss1xze1i3lpol4-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/Household-Impact-Study-percent-benefited-by-zip-code.png"
@@ -63,9 +71,12 @@ class Results extends React.Component {
             </div>
           </div>
           <div className="impact_panel">
-            <VisibilitySensor onChange={this.props.resultsVisible} />
             <div className="row">
-              <div className="col-xs-8 form_title">Net benefit per month*</div>
+              <VisibilitySensor onChange={this.props.resultsVisible}>
+                <div className="col-xs-8 form_title">
+                  Net benefit per month*
+                </div>
+              </VisibilitySensor>
               <div className="col-xs-4 form_title net_impact text-right">
                 {this.displayImpact()}<span className="label_lg month_label">/month</span>
               </div>
@@ -77,7 +88,7 @@ class Results extends React.Component {
                   {this.impact_message()}
                 </span>
                 <a className="btn_start_over no_print" id="btn_start_over"
-                      onClick={(e)=>{startOver(e)}}>
+                  onClick={(e) => { startOver(e) }}>
                   <i className="fa fa-undo" /> Start Over
                 </a>
 
@@ -93,23 +104,23 @@ class Results extends React.Component {
               </div>
             </div>
             <div className="share_row row no_print">
-               <div className="col-sm-12 text-muted">
-                 <label>Print: </label><a className="print_button" href="javascript:window.print()"><i className="fa fa-print"></i></a>
-                 <label>Share: </label>
-                 <div className="SocialMediaShareButton">
-                 <a href="https://www.facebook.com/sharer/sharer.php?u=https://citizensclimatelobby.org/calculator/&amp;t=Calculator&amp;redirect_uri=https://citizensclimatelobby.org?sharing-thankyou=yes" title={share_message}
-              target="_blank" rel="nofollow">
-                   <i className="fa fa-facebook"></i>
+              <div className="col-sm-12 text-muted">
+                <label>Print: </label><a className="print_button" href="javascript:window.print()"><i className="fa fa-print"></i></a>
+                <label>Share: </label>
+                <div className="SocialMediaShareButton">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https://citizensclimatelobby.org/calculator/&amp;t=Calculator&amp;redirect_uri=https://citizensclimatelobby.org?sharing-thankyou=yes" title={share_message}
+                    target="_blank" rel="nofollow">
+                    <i className="fa fa-facebook"></i>
                   </a>
                 </div>
-                 <TwitterShareButton url={share_url} title={share_message} via="citizensclimate" hashtags={['climate', 'PutAPriceOnIt']}>
-                   <i className="fa fa-twitter"></i>
-                 </TwitterShareButton>
-                 <EmailShareButton url={share_url} subject={share_message}
-                   body={share_message + ": https://citizensclimatelobby.org/calculator/"}>
-                   <i className="fa fa-envelope"></i>
-                 </EmailShareButton>
-               </div>
+                {/* <TwitterShareButton url={share_url} title={share_message} via="citizensclimate" hashtags={['climate', 'PutAPriceOnIt']}>
+                  <i className="fa fa-twitter"></i>
+                </TwitterShareButton>
+                <EmailShareButton url={share_url} subject={share_message}
+                  body={share_message + ": https://citizensclimatelobby.org/calculator/"}>
+                  <i className="fa fa-envelope"></i>
+                </EmailShareButton> */}
+              </div>
             </div>
             <div className="row no_print">
               <div className="col-sm-12 text-muted disclaimer">
@@ -127,4 +138,4 @@ class Results extends React.Component {
   }
 }
 
-export default Results ;
+export default Results;
