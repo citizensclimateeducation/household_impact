@@ -3,12 +3,12 @@ import axios from 'axios';
 import Slider from 'react-rangeslider';
 import NumberFormat from 'react-number-format';
 import NumericInput from 'react-numeric-input';
-import {nextAndHideFooter, toCurrency, numberOptionList, tagEvent} from '../lib/Utility.jsx';
+import { nextAndHideFooter, toCurrency, numberOptionList, tagEvent } from '../lib/Utility.jsx';
 
 class FamilyInfo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {income_pos: 272}
+    this.state = { income_pos: 272 }
     this.props.setIncome(this.position_to_income(272))
   }
 
@@ -25,22 +25,22 @@ class FamilyInfo extends React.Component {
     const maxv = 12.89921982609012; //Math.log(400000);
     // calculate adjustment factor
     var scale = 0.008764053269347762; // (maxv-minv) / (maxp-minp);
-    return this.toNearestThousand(Math.exp(minv + scale*(val-minp)))
+    return this.toNearestThousand(Math.exp(minv + scale * (val - minp)))
   }
 
   handleSlide = (val) => {
-    this.setState({income_pos: val})
+    this.setState({ income_pos: val })
     this.props.setIncome(this.position_to_income(val))
   }
 
-  display_income = ()  => {
+  display_income = () => {
     let currency = toCurrency(this.props.income, '$0,0')
     return this.state.income_pos == 500 ? currency + '+' : currency;
   }
 
   render() {
     return (
-      <div id="basic_questions" className="card input initially_hidden">
+      <div id="basic_questions" className="ccl_card input initially_hidden">
         <div className="basic_info_panel">
           <div className="family_info_panel section">
             <div className="form_title no_print">Tell us a little bit about your household</div>
@@ -59,7 +59,7 @@ class FamilyInfo extends React.Component {
             <div className="form-group">
               <label htmlFor="adults">How many minors live in your home?</label>
               <a data-toggle="modal" data-target="#minorDetails" className="explanation_prompt">Explain this</a>
-              <select className="form-control input-lg number_select" id="children" name="children" 
+              <select className="form-control input-lg number_select" id="children" name="children"
                 value={this.state.children} onChange={this.props.handleChange}>
                 {numberOptionList(0, 9)}
               </select>
@@ -69,8 +69,8 @@ class FamilyInfo extends React.Component {
                 <label htmlFor="income">Household Income: {this.display_income()}</label>
                 <a data-toggle="modal" data-target="#incomeDetails" className="explanation_prompt">Explain this</a>
                 <div className="no_print">
-                  <Slider id={'income'} min={0} max={500} step={1} value={this.state.income_pos} onChange={this.handleSlide} 
-                    onChangeComplete={e => {this.props.calculateIfValid(); tagEvent('slide', 'income')}} />
+                  <Slider id={'income'} min={0} max={500} step={1} value={this.state.income_pos} onChange={this.handleSlide}
+                    onChangeComplete={e => { this.props.calculateIfValid(); tagEvent('slide', 'income') }} />
                 </div>
               </div>
             </div>
@@ -78,7 +78,7 @@ class FamilyInfo extends React.Component {
         </div>
         <div className="footer">
           <button className="btn btn-default" href="#home_questions" id="btn_family_next"
-            onClick={(e)=>{nextAndHideFooter(e, '#home_questions')}}>
+            onClick={(e) => { nextAndHideFooter(e, '#home_questions') }}>
             NEXT
           </button>
 

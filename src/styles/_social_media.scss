@@ -1,6 +1,6 @@
-@import 'includes';
+@import "includes";
 
-div.card#results div.share_row {
+div.ccl_card#results div.share_row {
   width: 100%;
   min-height: 80px;
   i {
@@ -8,18 +8,22 @@ div.card#results div.share_row {
     text-decoration: none;
     margin-left: 10px;
   }
-  i { font-size: 1.6em; }
+  i {
+    font-size: 1.6em;
+  }
   padding: 25px 0px;
-  label { margin-left: 25px; }
-}
-
-.SocialMediaShareButton, .print_button {
-  display: inline-block;
-}
-
-@media(max-width: $screen-phone) {
-  div.card#results div.share_row div.SocialMediaShareButton {
-    padding: 0 1.77037%;
+  label {
+    margin-left: 25px;
   }
 }
 
+.SocialMediaShareButton,
+.print_button {
+  display: inline-block;
+}
+
+@media (max-width: $screen-phone) {
+  div.ccl_card#results div.share_row div.SocialMediaShareButton {
+    padding: 0 1.77037%;
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import {numberOptionList} from '../lib/Utility.jsx';
+import { numberOptionList } from '../lib/Utility.jsx';
 
 class HomeInfo extends React.Component {
   constructor(props) {
@@ -8,7 +8,7 @@ class HomeInfo extends React.Component {
 
   render() {
     return (
-      <div id="home_questions" className="card input initially_hidden">
+      <div id="home_questions" className="ccl_card input initially_hidden">
         <div className="basic_info_panel">
           <div className="home_info_panel section">
             <div className="search_failed">
@@ -59,7 +59,7 @@ class HomeInfo extends React.Component {
         </div>
         <div className="footer calculate_footer">
           <button className={"btn btn-default " + (this.props.zip ? '' : 'disabled')} href="#spending" id="calculate_button"
-            onClick={(e)=>{this.props.calculate(e)}} ref={btn => this.nextButton = btn}>
+            onClick={(e) => { this.props.calculate(e) }} ref={btn => this.nextButton = btn}>
             NEXT
           </button>
 

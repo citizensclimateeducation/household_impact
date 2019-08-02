@@ -33,7 +33,7 @@ class ResultsIndicator extends React.Component {
   render() {
     return (
       <div className="impact_indicator no_print">
-        <div className="card">
+        <div className="ccl_card">
           <div className="row calculating">
             <div className="spinner">
               <svg className="wait_spinner" xmlns="http//www.w3.org/2000/svg" viewBox="0 0 100 100">
