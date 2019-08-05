@@ -8,7 +8,9 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel ./src/main.js",
-    "build": "parcel build ./src/main.js"
+    "build": "parcel build ./src/main.js",
+    "prod": "NODE_ENV=production node server.js",
+    "heroku-postbuild": "parcel build ./src/main.js"
   },
   "repository": "https://github.com/bhermse/household_impact.git",
   "author": "Bryan Hermsen",
@@ -17,6 +19,7 @@
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "bootstrap-modal": "^2.2.4",
+    "express": "^4.17.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
     "jquery-easing": "^0.0.1",
@@ -38,7 +41,6 @@
     "@babel/core": "^7.3.4",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.3.4",
-    "@babel/preset-react": "^7.0.0",
     "babel-core": "^6.26.3",
     "babel-minify-webpack-plugin": "^0.3.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -46,6 +48,6 @@
     "babel-preset-latest": "^6.24.1",
     "babel-preset-minify": "^0.5.0",
     "cssnano": "^4.1.10",
-    "sass": "^1.22.7"
+    "sass": "^1.22.9"
   }
 }
