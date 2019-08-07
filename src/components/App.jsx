@@ -106,6 +106,7 @@ class App extends React.Component {
   calculateCost = () => {
     let { elec, gas, heat } = this.state
     console.log(`gas: ${gas}, elec: ${elec}, heat: ${heat}`);
+    console.log(`cost formula: ${this.state.cost}`);
 
     if (this.state.other_residents > 0) {
       const total_family = this.state.adults + this.state.children;
