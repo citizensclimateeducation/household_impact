@@ -42,17 +42,25 @@ export const CalcDetails = (props) => {
 
 }
 
-const HouseholdSizeDetails = (props)=> {
+const HouseholdSizeDetails = (props) => {
   return (
     <InfoDialog dialogId="houseSizeDetails" title="Household Size">
       The number of adults (18+) and minors (under 18) affects the size of the dividend your household would receive
-      under <a href="https://citizensclimatelobby.org/basics-carbon-fee-dividend/" target="_blank">CCL's proposal</a>. 
+      under <a href="https://citizensclimatelobby.org/basics-carbon-fee-dividend/" target="_blank">CCL's proposal</a>.
       It also affects household energy efficiency.
     </InfoDialog>
   );
 }
 
-const IncomeDetails = (props)=> {
+const OtherResidentsDetails = (props) => {
+  return (
+    <InfoDialog dialogId="otherResidentsDetails" title="Other Residents">
+      The number of non-family residents affects the total amount that you pay for utilities.
+    </InfoDialog>
+  )
+}
+
+const IncomeDetails = (props) => {
   return (
     <InfoDialog dialogId="incomeDetails" title="Household Income">
       Households with higher income generally consume more, leading to a larger carbon footprint and greater exposure to a carbon fee.
@@ -60,7 +68,7 @@ const IncomeDetails = (props)=> {
   );
 }
 
-const ZipCodeDetails = (props)=> {
+const ZipCodeDetails = (props) => {
   return (
     <InfoDialog dialogId="zipCodeDetails" title="Zip Code">
       Location-specific factors like carbon-intensity of the electricity grid, heating & cooling needs, fuel prices, and population density affect how much a carbon fee will impact your household.
@@ -68,7 +76,7 @@ const ZipCodeDetails = (props)=> {
   );
 }
 
-const HomeTypeDetails = (props)=> {
+const HomeTypeDetails = (props) => {
   return (
     <InfoDialog dialogId="homeTypeDetails" title="Home/Dwelling Type">
       Dwelling type is correlated with energy efficiency and the size of a home. Stand-alone houses are usually larger and associated with higher carbon footprints and greater exposure to a carbon fee.
@@ -76,7 +84,7 @@ const HomeTypeDetails = (props)=> {
   );
 }
 
-const HeatingFuelDetails = (props)=> {
+const HeatingFuelDetails = (props) => {
   return (
     <InfoDialog dialogId="heatingFuelDetails" title="Heating Fuel">
       How you heat your home can have a significant impact on your household's carbon
@@ -86,7 +94,7 @@ const HeatingFuelDetails = (props)=> {
   );
 }
 
-const MultipleProperties = (props)=> {
+const MultipleProperties = (props) => {
   return (
     <InfoDialog dialogId="multipleProperties" title="Multiple Properties">
       Combine average monthly bills for all properties that you rent or own.
@@ -94,7 +102,7 @@ const MultipleProperties = (props)=> {
   );
 }
 
-const GasExpense = (props)=> {
+const GasExpense = (props) => {
   return (
     <InfoDialog dialogId="gasExpense" title="Gas Expense">
       Compile or estimate how much you spend in a month for all your vehicles.
@@ -124,6 +132,7 @@ export const DetailDialogues = (props) => {
       <ZipCodeDetails />
       <IncomeDetails />
       <HouseholdSizeDetails />
+      <OtherResidentsDetails />
       <CalcDetails />
       <HomeTypeDetails />
       <HeatingFuelDetails />

@@ -12,7 +12,7 @@ import numeral from 'numeral/min/numeral.min.js';
 import { nextSection, nextAndHideFooter, toCurrency, tagEvent } from '../lib/Utility.jsx'
 require('../images/favicon.ico')
 
-const impact_study_url = 'https://ummel.ocpu.io/exampleR/R/predictModel/json'
+const impact_study_url = 'https://ummel.ocpu.io/exampleR/R/predictModel2/json'
 
 class App extends React.Component {
   constructor(props) {
@@ -20,8 +20,8 @@ class App extends React.Component {
     this.state = {
       div_pre: 0, mrate: 0.15, elec: 0, gas: 0, heat: 0, cost: '', net_impact: 0, moe: 0, gas_upr: 200,
       elec_upr: 200, show_footer_impact: false, heat_upr: 300, carbon_cost: 0, div_post: 0, initial_heat: 0,
-      initial_gas: 0, initial_elec: 0, div_month: 0, cost_month: 0, impact_month: 0, adults: 1, children: 0, loading: false,
-      heating_type: 'Natural gas', vehicles: 2, zip: '', dwelling_type: 'Stand-alone house'
+      initial_gas: 0, initial_elec: 0, div_month: 0, cost_month: 0, impact_month: 0, adults: 1, children: 0, other_residents: 0,
+      loading: false, heating_type: 'Natural gas', vehicles: 2, zip: '', dwelling_type: 'Stand-alone house'
     }
   }
 
@@ -105,6 +105,18 @@ class App extends React.Component {
 
   calculateCost = () => {
     let { elec, gas, heat } = this.state
+    console.log(`gas: ${gas}, elec: ${elec}, heat: ${heat}`);
+
+    if (this.state.other_residents > 0) {
+      const total_family = this.state.adults + this.state.children;
+      const other_residents_factor = total_family / (total_family + this.state.other_residents);
+      console.log(`factor: ${other_residents_factor}`)
+      elec *= other_residents_factor;
+      gas *= other_residents_factor;
+      heat *= other_residents_factor;
+      console.log(`gas: ${gas}, elec: ${elec}, heat: ${heat}`);
+    }
+
     // cost variable is a string formula (e.g. "428.8 + gas * 0.7924 + elec * 1.12 + heat * 0.7826") returned from 
     // the API call and evaled to determine determine cost in real-time
     const cost = eval(this.state.cost)
@@ -133,7 +145,6 @@ class App extends React.Component {
   // trigger visibility of floating footer
   resultsVisible = (isVisible) => {
     var show_footer_impact = !isVisible && this.costAvailable();
-    console.log(`show footer: ${show_footer_impact}, isvisible: ${isVisible}, cost? ${this.costAvailable()}`)
     this.setState({ show_footer_impact: show_footer_impact });
   }
 
@@ -144,8 +155,8 @@ class App extends React.Component {
           <Menu />
         }
         <Introduction />
-        <FamilyInfo handleChange={this.setAttribute} income={this.state.income} setIncome={this.setIncome}
-          calculateIfValid={this.calculateIfValid} adults={this.state.adults} children={this.state.children} />
+        <FamilyInfo handleChange={this.setAttribute} setIncome={this.setIncome} calculateIfValid={this.calculateIfValid}
+          {...this.state} />
         <HomeInfo setResults={this.setResults} validZip={this.validZip} setLoading={this.setLoading}
           vehicles={this.state.vehicles} dwelling_type={this.state.dwelling_type} heating_type={this.state.heating_type}
           calculate={this.calculate} valid={this.valid} zip={this.state.zip} setAttribute={this.setAttribute} />
