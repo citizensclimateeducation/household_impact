@@ -34,17 +34,29 @@ class App extends React.Component {
   // set results after API call
   setResults = (e) => {
     const utilities = ['gas', 'heat', 'elec'];
+    let util_mult = 1.0;
+    console.log(`cost formula: ${e}`);
+    if (this.state.other_residents > 0) {
+      const total_family = this.state.adults + this.state.children;
+      const other_residents_factor = total_family / (total_family + this.state.other_residents);
+      console.log(`factor: ${other_residents_factor}`)
+      util_mult = other_residents_factor;
+    }
+
     // if utilities costs have already been selected by user don't overwrite those
-    Object.keys(e).forEach((key) => { utilities.includes(key) ? this.updateUtility(key, e[key]) : this.setState({ [key]: e[key] }) })
-    this.setState({ initial_gas: e.gas, initial_elec: e.elec, initial_heat: e.heat })
+    Object.keys(e).forEach((key) => { utilities.includes(key) ? this.updateUtility(key, e[key] * util_mult) : this.setState({ [key]: e[key] }) })
+
+    this.setState({ initial_gas: e.gas * util_mult, initial_elec: e.elec * util_mult, initial_heat: e.heat * util_mult })
     this.calculateCost()
     this.setLoading(false)
   }
 
   // update a utility with the API value if it's not already set or if it's outside of the upper bounds
   updateUtility = (key, updatedValue) => {
+    console.log(`${key} / ${updatedValue}`);
     if (updatedValue === 0 || this.state[key] === 0 || this.state[key] > this.state[key + '_upr']) {
-      this.setState({ [key]: updatedValue })
+      console.log(`setting ${key} to ${updatedValue}`);
+      this.setState({ [key]: Math.round(updatedValue) })
     }
   }
 
@@ -105,19 +117,6 @@ class App extends React.Component {
 
   calculateCost = () => {
     let { elec, gas, heat } = this.state
-    console.log(`gas: ${gas}, elec: ${elec}, heat: ${heat}`);
-    console.log(`cost formula: ${this.state.cost}`);
-
-    if (this.state.other_residents > 0) {
-      const total_family = this.state.adults + this.state.children;
-      const other_residents_factor = total_family / (total_family + this.state.other_residents);
-      console.log(`factor: ${other_residents_factor}`)
-      elec *= other_residents_factor;
-      gas *= other_residents_factor;
-      heat *= other_residents_factor;
-      console.log(`gas: ${gas}, elec: ${elec}, heat: ${heat}`);
-    }
-
     // cost variable is a string formula (e.g. "428.8 + gas * 0.7924 + elec * 1.12 + heat * 0.7826") returned from 
     // the API call and evaled to determine determine cost in real-time
     const cost = eval(this.state.cost)
