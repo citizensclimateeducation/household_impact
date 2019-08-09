@@ -37,8 +37,8 @@ class App extends React.Component {
     let util_mult = 1.0;
     console.log(`cost formula: ${e}`);
     if (this.state.other_residents > 0) {
-      const total_family = this.state.adults + this.state.children;
-      const other_residents_factor = total_family / (total_family + this.state.other_residents);
+      const total_family = Number(this.state.adults) + Number(this.state.children);
+      const other_residents_factor = total_family / (total_family + Number(this.state.other_residents));
       console.log(`factor: ${other_residents_factor}`)
       util_mult = other_residents_factor;
     }
