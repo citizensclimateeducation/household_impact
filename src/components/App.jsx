@@ -34,28 +34,17 @@ class App extends React.Component {
   // set results after API call
   setResults = (e) => {
     const utilities = ['gas', 'heat', 'elec'];
-    let util_mult = 1.0;
-    console.log(`cost formula: ${e}`);
-    if (this.state.other_residents > 0) {
-      const total_family = Number(this.state.adults) + Number(this.state.children);
-      const other_residents_factor = total_family / (total_family + Number(this.state.other_residents));
-      console.log(`factor: ${other_residents_factor}`)
-      util_mult = other_residents_factor;
-    }
-
     // if utilities costs have already been selected by user don't overwrite those
-    Object.keys(e).forEach((key) => { utilities.includes(key) ? this.updateUtility(key, e[key] * util_mult) : this.setState({ [key]: e[key] }) })
+    Object.keys(e).forEach((key) => { utilities.includes(key) ? this.updateUtility(key, e[key]) : this.setState({ [key]: e[key] }) })
 
-    this.setState({ initial_gas: e.gas * util_mult, initial_elec: e.elec * util_mult, initial_heat: e.heat * util_mult })
+    this.setState({ initial_gas: e.gas, initial_elec: e.elec, initial_heat: e.heat })
     this.calculateCost()
     this.setLoading(false)
   }
 
   // update a utility with the API value if it's not already set or if it's outside of the upper bounds
   updateUtility = (key, updatedValue) => {
-    console.log(`${key} / ${updatedValue}`);
     if (updatedValue === 0 || this.state[key] === 0 || this.state[key] > this.state[key + '_upr']) {
-      console.log(`setting ${key} to ${updatedValue}`);
       this.setState({ [key]: Math.round(updatedValue) })
     }
   }
@@ -83,35 +72,67 @@ class App extends React.Component {
         }]
       };
 
+      let data_other = null;
+      let other_residents_factor = 1.0;
+
+      if (this.state.other_residents > 0) {
+        // if there are other residents prepare a "dummy" call for more accurate utilities. Clone original data
+        let data_residents = Object.assign({}, data.input[0]);
+
+        const total_family = Number(this.state.adults) + Number(this.state.children);
+        other_residents_factor = (total_family + Number(this.state.other_residents)) / total_family;
+        data_residents.na = Number(this.state.adults + Number(this.state.other_residents));
+        data_residents.hinc = this.state.income * other_residents_factor;
+        console.log(`hinc: ${data_residents.hinc}, factor: ${other_residents_factor}`);
+        data_other = { input: [data_residents] };
+      }
+
       this.setLoading(true);
       $('.calculating').fadeIn('slow');
       const zip = this.state.zip
       console.log(data)
 
-      axios.post(impact_study_url, JSON.stringify(data), { responseType: 'json', headers: { 'Content-Type': 'application/json' } }).
-        then(function (response) {
-          // success, set results and fade them in
-          setResults({ ...response.data[0] })
-          $('.calculating').fadeOut('slow', function () {
-            $('.spending_panel, #spending, .calculate_success').fadeIn('slow')
-            if (!costAvailable) { $('.spending_footer').animate({ opacity: 1 }); }
-          });
-        }).catch(function (error) {
-          // on error log results and focus on zip code
-          nextSection('#home_questions');
+      Promise.all([
+        axios.post(impact_study_url, JSON.stringify(data), { responseType: 'json', headers: { 'Content-Type': 'application/json' } }),
+        data_other ? axios.post(impact_study_url, JSON.stringify(data_other), { responseType: 'json', headers: { 'Content-Type': 'application/json' } }) : Promise.resolve(),
+      ]).then(function ([original_call, other_residents_call]) {
+        console.log(`Main post response:`);
+        console.log(original_call.data[0]);
+        console.log(`Modified residents response:`);
+        console.log(other_residents_call ? other_residents_call.data[0] : '');
+        // success, set results and fade them in
+        const res = original_call.data[0];
 
-          $('.search_failed').fadeIn('slow', function () {
-            if (!costAvailable) { $('.calculate_footer').animate({ opacity: 1 }); }
-          });
+        if (other_residents_call) {
+          const other_res = other_residents_call.data[0];
+          res.elec = other_res.elec / other_residents_factor;
+          res.heat = other_res.heat / other_residents_factor;
+          console.log(`Utilities after applying other residents factor:`);
+          console.log(res);
+        }
 
-          $('.calculating').fadeOut('slow', function () {
-            $('.post_calculate').addClass('pre_calculate').removeClass('post_calculate');
-            setLoading(false);
-          });
+        setResults({ ...res })
+        $('.calculating').fadeOut('slow', function () {
+          $('.spending_panel, #spending, .calculate_success').fadeIn('slow')
+          if (!costAvailable) { $('.spending_footer').animate({ opacity: 1 }); }
+        });
+      }).catch(function (error) {
+        // on error log results and focus on zip code
+        nextSection('#home_questions');
 
-          $('#zip').select();
-          console.log(error);
-        })
+        $('.search_failed').fadeIn('slow', function () {
+          if (!costAvailable) { $('.calculate_footer').animate({ opacity: 1 }); }
+        });
+
+        $('.calculating').fadeOut('slow', function () {
+          $('.post_calculate').addClass('pre_calculate').removeClass('post_calculate');
+          setLoading(false);
+        });
+
+        $('#zip').select();
+        console.log(error);
+      });
+
     }
   }
 
