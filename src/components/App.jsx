@@ -81,10 +81,12 @@ class App extends React.Component {
 
         const total_family = Number(this.state.adults) + Number(this.state.children);
         other_residents_factor = (total_family + Number(this.state.other_residents)) / total_family;
-        data_residents.na = Number(this.state.adults + Number(this.state.other_residents));
+        data_residents.na = Number(this.state.adults) + Number(this.state.other_residents);
         data_residents.hinc = this.state.income * other_residents_factor;
         console.log(`hinc: ${data_residents.hinc}, factor: ${other_residents_factor}`);
         data_other = { input: [data_residents] };
+        console.log(`data_other:`);
+        console.log(data_other);
       }
 
       this.setLoading(true);
