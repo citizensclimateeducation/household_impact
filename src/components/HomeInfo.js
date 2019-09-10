@@ -1,5 +1,5 @@
 import React from 'react';
-import { numberOptionList } from '../lib/Utility.jsx';
+import { numberOptionList } from '../lib/Utility.js';
 
 class HomeInfo extends React.Component {
   constructor(props) {

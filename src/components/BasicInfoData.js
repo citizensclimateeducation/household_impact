@@ -1,5 +1,5 @@
 import React from 'react';
-import {nextSection, toCurrency} from '../lib/Utility.jsx';
+import {nextSection, toCurrency} from '../lib/Utility.js';
 
 /** 
  * Print-only component that lists out inputs without controls

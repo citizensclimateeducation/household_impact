@@ -1,5 +1,5 @@
 import React from 'react'
-import { toCurrency, nextSection } from '../lib/Utility.jsx';
+import { toCurrency, nextSection } from '../lib/Utility.js';
 
 /**
  * Floating footer that shows the net impact once the results screen has already been viewed

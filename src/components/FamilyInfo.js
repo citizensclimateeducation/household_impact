@@ -1,9 +1,9 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import Slider from 'react-rangeslider';
-import NumberFormat from 'react-number-format';
-import NumericInput from 'react-numeric-input';
-import { nextAndHideFooter, toCurrency, numberOptionList, tagEvent } from '../lib/Utility.jsx';
+// import NumberFormat from 'react-number-format';
+// import NumericInput from 'react-numeric-input';
+import { nextAndHideFooter, toCurrency, numberOptionList, tagEvent } from '../lib/Utility.js';
 
 class FamilyInfo extends React.Component {
   constructor(props) {

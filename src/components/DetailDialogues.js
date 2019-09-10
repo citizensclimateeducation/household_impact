@@ -1,5 +1,5 @@
 import React from 'react'
-import InfoDialog from './InfoDialog.jsx'
+import InfoDialog from './InfoDialog.js'
 
 /**
  * Contains all dialogs used in the App

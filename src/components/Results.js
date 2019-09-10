@@ -1,8 +1,7 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import VisibilitySensor from 'react-visibility-sensor'
-import { ShareButtons, ShareCounts, generateShareIcon } from 'react-share'
-import { toCurrency, nextSection, startOver, tagEvent } from '../lib/Utility.jsx';
+// import { ShareButtons, ShareCounts, generateShareIcon } from 'react-share'
+import { toCurrency, nextSection, startOver, tagEvent } from '../lib/Utility.js';
 
 /* load share buttons from react-share
 const {

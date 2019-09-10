@@ -1,15 +1,15 @@
 import React from 'react'
 import axios from 'axios';
-import { DetailDialogues } from './DetailDialogues.jsx'
-import Introduction from './Introduction.jsx'
-import FamilyInfo from './FamilyInfo.jsx'
-import HomeInfo from './HomeInfo.jsx'
-import Spending from './Spending.jsx'
-import Results from './Results.jsx'
-import ResultsIndicator from './ResultsIndicator.jsx'
-import BasicInfoData from './BasicInfoData.jsx'
+import { DetailDialogues } from './DetailDialogues'
+import Introduction from './Introduction'
+import FamilyInfo from './FamilyInfo'
+import HomeInfo from './HomeInfo'
+import Spending from './Spending'
+import Results from './Results'
+import ResultsIndicator from './ResultsIndicator'
+import BasicInfoData from './BasicInfoData'
 import numeral from 'numeral/min/numeral.min.js';
-import { nextSection, nextAndHideFooter, toCurrency, tagEvent } from '../lib/Utility.jsx'
+import { nextSection, nextAndHideFooter, toCurrency, tagEvent } from '../lib/Utility.js'
 require('../images/favicon.ico')
 
 const impact_study_url = 'https://ummel.ocpu.io/exampleR/R/predictModel2/json'
@@ -98,6 +98,7 @@ class App extends React.Component {
         axios.post(impact_study_url, JSON.stringify(data), { responseType: 'json', headers: { 'Content-Type': 'application/json' } }),
         data_other ? axios.post(impact_study_url, JSON.stringify(data_other), { responseType: 'json', headers: { 'Content-Type': 'application/json' } }) : Promise.resolve(),
       ]).then(function ([original_call, other_residents_call]) {
+        // TODO: For debug
         console.log(`Main post response:`);
         console.log(original_call.data[0]);
         console.log(`Modified residents response:`);

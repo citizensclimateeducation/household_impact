@@ -1,5 +1,5 @@
 import React from 'react';
-import { nextAndInvisible } from '../lib/Utility.jsx';
+import { nextAndInvisible } from '../lib/Utility.js';
 
 class Introduction extends React.Component {
   constructor() {
@@ -16,7 +16,7 @@ class Introduction extends React.Component {
           </div>
 
           <div className="explanation text-muted">
-            Tell us a little bit about your U.S. household and get a personalized estimate of the impact on your budget.
+            Tell us a little bit about your U.S. household and get a personalized estimate of the impact on your family's budget.
           </div>
         </div>
         <div className="footer text-center">

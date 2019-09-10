@@ -35,7 +35,8 @@
     "react-rangeslider": "^2.2.0",
     "react-rangeslider-extended": "^1.0.10",
     "react-share": "^3.0.0",
-    "react-visibility-sensor": "^5.1.1"
+    "react-visibility-sensor": "^5.1.1",
+    "webpack": "^4.39.3"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
