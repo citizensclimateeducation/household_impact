@@ -2,7 +2,9 @@
 
 div.ccl_card#results div.share_row {
   width: 100%;
-  min-height: 80px;
+  display: grid;
+  align-items: center;
+  min-height: 70px;
   i {
     color: $blue;
     text-decoration: none;
@@ -11,8 +13,12 @@ div.ccl_card#results div.share_row {
   i {
     font-size: 1.6em;
   }
-  padding: 25px 0px;
+
   label {
+    font-weight: bold;
+  }
+
+  label:not(:first-child) {
     margin-left: 25px;
   }
 }

@@ -41,6 +41,9 @@ class Spending extends React.Component {
               Use the sliders below to tell us how much your family spends on gasoline and utilities each month. If you
               aren't sure, just leave the sliders at their initial values, which are reasonable guesses based on your
               information.
+              <br />
+              <br />
+              The following values are for your family of {this.props.adults + this.props.children}
             </div>
 
             <form>

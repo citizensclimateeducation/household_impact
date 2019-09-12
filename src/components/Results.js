@@ -41,47 +41,63 @@ class Results extends React.Component {
       'https://11bup83sxdss1xze1i3lpol4-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/Household-Impact-Study-percent-benefited-by-zip-code.png';
     return (
       <div id="results" className="ccl_card initially_hidden">
-        <div></div>
         <div>
-          <div className="row">
-            <div className="col-xs-12 form_title">Your Results</div>
-          </div>
-          <div className="row result_row top_buffer">
-            <div className="col-xs-8 sub_heading">Monthly after-tax family dividend</div>
-            <div className="col-xs-4 dividend text-right">{this.props.results.div_post}</div>
-          </div>
-          <div className="row top_buffer">
-            <div className="col-sm-12 text-muted disclaimer">
-              Calculation based on family's number of adults, number of minors, and expected federal marginal tax rate.
+          <div className="form_title">Your Results</div>
+
+          <div className="dividend_highlight">
+            <div className="sub_heading">Your monthly carbon dividends will add up to</div>
+            <div className="dividend">{this.props.results.div_post}</div>
+            <div className="text-muted disclaimer">
+              after tax based on household's number of adults, number of minors, and expected federal marginal tax rate.{' '}
+              <a href="" target="_blank">
+                Learn more about the dividend
+              </a>
             </div>
           </div>
-          <div className="row result_row top_buffer">
-            <div className="col-xs-8 sub_heading">Monthly cost due to carbon fee</div>
-            <div className="col-xs-4 cost text-right">{this.props.results.carbon_cost}</div>
-          </div>
-          <div className="row top_buffer bottom_buffer">
-            <div className="col-sm-12 text-muted disclaimer">
-              Estimated additional costs due to higher prices for goods and services, depending on your family's
-              characteristics entered above (income, number of vehicles, etc.).
+
+          <div className="result_details">
+            <div className="sub_heading">Net outcome</div>
+
+            <div className="result_detail_row">
+              <div>
+                Your monthly <strong>carbon dividends</strong>
+              </div>
+              <div>{this.props.results.div_post}</div>
+            </div>
+            <div className="result_detail_row">
+              <div>
+                Your average monthly <strong>carbon fee costs</strong>
+              </div>
+              <div>{this.props.results.carbon_cost}</div>
+            </div>
+            <div className="carbon_fee_details">
+              <div className="text-muted disclaimer">
+                Ranging from something to something depending on your lifestyle.
+                <br />
+                <a href="" target="_blank">
+                  Learn more about the carbon fee
+                </a>
+              </div>
             </div>
           </div>
+
           <div className="impact_panel">
-            <div className="row">
+            <div className="result_detail_row">
               <VisibilitySensor onChange={this.props.resultsVisible}>
-                <div className="col-xs-8 form_title">Net benefit per month*</div>
+                <div className="form_title">Your estimated {this.net_profit() ? 'gain' : 'loss'} per month*</div>
               </VisibilitySensor>
-              <div className="col-xs-4 form_title net_impact text-right">
+              <div className="form_title net_impact text-right">
                 {this.displayImpact()}
                 <span className="label_lg month_label">/month</span>
               </div>
             </div>
-            <div className="row pull-right">
+            <div className="result_detail_row pull-right">
               <a data-toggle="modal" data-target="#calcDetails" className="explanation_prompt">
                 How is this number calculated?
               </a>
             </div>
             <div className="row top_buffer">
-              <div className="col-sm-12 text-muted summary">
+              <div className="text-muted summary">
                 <span className="summary_profit">{this.impact_message()}</span>
                 <a
                   className="btn_start_over no_print"
@@ -100,7 +116,7 @@ class Results extends React.Component {
             </div>
             <div className="footer"></div>
             <div className="row top_buffer no_print">
-              <div className="col-sm-12 text-muted tips">
+              <div className="text-muted tips">
                 Learn more about{' '}
                 <a href="https://citizensclimatelobby.org/basics-carbon-fee-dividend/" target="_blank">
                   Carbon Fee and Dividend
@@ -113,7 +129,7 @@ class Results extends React.Component {
               </div>
             </div>
             <div className="share_row row no_print">
-              <div className="col-sm-12 text-muted">
+              <div>
                 <label>Print: </label>
                 <a className="print_button" href="javascript:window.print()">
                   <i className="fa fa-print"></i>
@@ -131,8 +147,8 @@ class Results extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="row no_print">
-              <div className="col-sm-12 text-muted disclaimer">
+            <div className="no_print">
+              <div className="text-muted disclaimer">
                 <i className="fa fa-asterisk" aria-hidden="true"></i> Calculator results are based on
                 <a href="https://citizensclimatelobby.org/household-impact-study/" target="_blank">
                   {' '}

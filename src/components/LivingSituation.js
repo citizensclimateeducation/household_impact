@@ -5,7 +5,7 @@ import FamilyIcon from './images/icon-family.svg';
 import HousemateIcon from './images/icon-housemates.svg';
 
 function LivingSituation({ setAttribute }) {
-  const [selectedIcon, setIcon] = useState('family');
+  const [selectedIcon, setIcon] = useState('');
 
   // toggling living situations sets these defaults for the family panel
   const living_situation = {

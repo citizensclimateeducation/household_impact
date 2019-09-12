@@ -1,12 +1,12 @@
-@import "includes";
-@import "spinner";
-@import "living_situation";
-@import "social_media";
-@import "wordpress_overrides";
+@import 'includes';
+@import 'spinner';
+@import 'living_situation';
+@import 'social_media';
+@import 'wordpress_overrides';
 
 body {
   font-size: 20px;
-  font-family: "Source Sans Pro", "Helvetica", sans-serif;
+  font-family: 'Source Sans Pro', 'Helvetica', sans-serif;
   color: $default-font-color;
   overflow-y: scroll;
 }
@@ -53,7 +53,7 @@ a {
 }
 
 .ribbon::before {
-  content: "\A0";
+  content: '\A0';
   width: 38px;
   height: 5px;
   position: absolute;
@@ -83,23 +83,58 @@ div.ccl_card {
 }
 
 div.ccl_card#results {
-  padding: 0 0 40px 0;
-  > div {
-    width: 100%;
-    div {
-      padding: 0 3.67037%;
-    }
+  a { color: $blue; }
+  // padding: 0 0 40px 0;
+  // > div {
+  //   width: 100%;
+  //   div {
+  //     padding: 0 3.67037%;
+  //   }
+  // }
+
+  .form_title { color: $muddy-green; }
+  .sub_heading { color: $default-font-color; font-weight: bold; }
+
+  .dividend_highlight {
+    background-color: $medium-gray;
+    display: grid;
+    margin: 1em 0em;
+    padding: 1em;
+    text-align: center;
+    grid-template-columns: .8fr;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    .sub_heading { color: $default-font-color; font-weight: bold; }
+
+    .dividend { color: $muddy-green; font-weight: bold; font-size: 1.3em; margin: .3em 0em; }
   }
+
+  .result_detail_row {
+    margin-top: 1em;
+    display: grid;
+    grid-template-columns: 1fr auto;
+  }
+
+  .result_details {
+    margin-top: 1.8em;
+    font-size: 0.9em;
+  }
+  
   div.impact_panel {
-    padding: 40px 0px 0px 0px;
-    margin-top: 40px;
+    padding: 30px 0px 0px 0px;
+    margin-top: 30px;
+    font-size: 0.8em;
     div.form_title {
-      font-size: 1.4em;
+      color: $blue;
+      margin-bottom: 0em;
     }
     div.form_title.net_impact {
-      font-size: 1.8em;
       margin-bottom: 0px;
       color: inherit;
+    }
+    .result_detail_row {
+      margin-top: 0em;
     }
   }
   .month_label {
@@ -142,7 +177,7 @@ div.ccl_card.intro_container {
   margin-bottom: 20px;
   line-height: 1.2em;
   color: $ccl-blue;
-  font-family: "Ubuntu", "Source Sans Pro", "Helvetica", sans-serif;
+  font-family: 'Ubuntu', 'Source Sans Pro', 'Helvetica', sans-serif;
   font-weight: bold;
 }
 

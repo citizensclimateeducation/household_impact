@@ -79,21 +79,23 @@ class FamilyInfo extends React.Component {
                 {numberOptionList(0, 9)}
               </select>
             </div>
-            <div className="form-group">
-              <label htmlFor="other_residents">How many other residents live in your home?</label>
-              <a data-toggle="modal" data-target="#otherResidentsDetails" className="explanation_prompt">
-                Explain this
-              </a>
-              <select
-                className="form-control input-lg number_select"
-                id="other_residents"
-                name="other_residents"
-                value={this.props.other_residents}
-                onChange={this.props.handleChange}
-              >
-                {numberOptionList(0, 9)}
-              </select>
-            </div>
+            {this.props.other_residents > 0 && (
+              <div className="form-group">
+                <label htmlFor="other_residents">How many housemates live in your home?</label>
+                <a data-toggle="modal" data-target="#otherResidentsDetails" className="explanation_prompt">
+                  Explain this
+                </a>
+                <select
+                  className="form-control input-lg number_select"
+                  id="other_residents"
+                  name="other_residents"
+                  value={this.props.other_residents}
+                  onChange={this.props.handleChange}
+                >
+                  {numberOptionList(0, 9)}
+                </select>
+              </div>
+            )}
             <div className="form-group">
               <div>
                 <label htmlFor="income">Family Income: {this.display_income()}</label>
