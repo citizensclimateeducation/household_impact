@@ -9,11 +9,8 @@
   margin: 2em 0em;
 
   .living_situation_tile {
-
     text-align: center;
-    // border: 1px solid $dark-gray;
     border: 1px solid $indicator-gray;
-    // box-shadow: 2px 2px 4px $dark-gray;
     box-shadow: 2px 2px 4px $indicator-gray;
     border-radius: 4px;
     max-width: 800px;
@@ -26,7 +23,7 @@
     .living_situation_icon {
       max-width: 30%;
       svg {
-        fill: $muddy-green;
+        fill: $democrat-blue;
         width: 100%;
       }
     }
@@ -63,12 +60,11 @@
 
   .living_situation_tile:hover, .living_situation_tile.selected {
     // box-shadow: 3px 3px 4px $muddy-green;
-    border-color: $muddy-green;
-    // background: radial-gradient(circle at 50%, #fff, #fff 87%, $muddy-green 100%);
+    border-color: $democrat-blue;
   }
   
   .living_situation_tile.selected {
-    background-image: url('../components/images/check_mark_green.png');
+    background-image: url('../components/images/check_mark_blue.png');
     background-repeat: no-repeat;
     background-size: 4em;
     background-position-y: top;

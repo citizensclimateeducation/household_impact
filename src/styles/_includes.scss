@@ -27,6 +27,10 @@ $ribbon-green: #97c33b;
 $ribbon-dark-green: #587931;
 $indicator-gray: #DAD9D5;
 
+$republican-red: #90251b;
+$democrat-blue: #15527b;
+
+
 @mixin linear-gradient($from, $to, $from_percent: 20%, $to_percent: 100%) {
   background: $to;
 	background: -moz-linear-gradient(top, $from $from_percent, $to $to_percent);

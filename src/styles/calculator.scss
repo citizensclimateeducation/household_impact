@@ -23,7 +23,7 @@ a {
 // bootstrap color overrides
 #calculator {
   .form-control:focus {
-    border-color: $green;
+    border-color: $republican-red;
     box-shadow: none;
     -webkit-box-shadow: none;
   }
@@ -72,7 +72,6 @@ a {
 }
 
 div.ccl_card {
-  //width: 57%;
   max-width: 800px;
   margin-right: auto;
   margin-left: auto;
@@ -83,16 +82,9 @@ div.ccl_card {
 }
 
 div.ccl_card#results {
-  a { color: $blue; }
-  // padding: 0 0 40px 0;
-  // > div {
-  //   width: 100%;
-  //   div {
-  //     padding: 0 3.67037%;
-  //   }
-  // }
+  a { color: $democrat-blue; }
 
-  .form_title { color: $muddy-green; }
+  .form_title { color: $republican-red; }
   .sub_heading { color: $default-font-color; font-weight: bold; }
 
   .dividend_highlight {
@@ -107,7 +99,7 @@ div.ccl_card#results {
     align-items: center;
     .sub_heading { color: $default-font-color; font-weight: bold; }
 
-    .dividend { color: $muddy-green; font-weight: bold; font-size: 1.3em; margin: .3em 0em; }
+    .dividend { color: $democrat-blue; font-weight: bold; font-size: 1.3em; margin: .3em 0em; }
   }
 
   .result_detail_row {
@@ -126,7 +118,7 @@ div.ccl_card#results {
     margin-top: 30px;
     font-size: 0.8em;
     div.form_title {
-      color: $blue;
+      color: $democrat-blue;
       margin-bottom: 0em;
     }
     div.form_title.net_impact {
@@ -176,7 +168,7 @@ div.ccl_card.intro_container {
   font-weight: 900;
   margin-bottom: 20px;
   line-height: 1.2em;
-  color: $ccl-blue;
+  color: $democrat-blue;
   font-family: 'Ubuntu', 'Source Sans Pro', 'Helvetica', sans-serif;
   font-weight: bold;
 }
@@ -186,16 +178,16 @@ div.ccl_card.intro_container {
 }
 #intro .explanation.text-muted {
   font-size: 1.24em;
-  color: $muddy-green !important;
+  color: $republican-red !important;
 }
 .form_title {
   font-size: 1.4em;
   margin-bottom: 20px;
   font-weight: bold;
-  color: $ccl-blue;
+  color: $democrat-blue;
 }
 .sub_heading {
-  color: $muddy-green;
+  color: $republican-red;
 }
 
 .form-group {
@@ -208,7 +200,7 @@ a.explanation_prompt {
   line-height: 0.3em;
   font-size: 0.7em;
   margin-bottom: 12px;
-  color: $ccl-blue !important;
+  color: $democrat-blue !important;
 }
 
 a.explanation_prompt:hover {
@@ -218,7 +210,6 @@ a.explanation_prompt:hover {
 .footer {
   width: 100%;
   text-align: left;
-  //@media(max-width: $screen-sm-min) { font-size :1.2em; }
   a,
   a:hover,
   i,
@@ -230,7 +221,7 @@ a.explanation_prompt:hover {
     font-size: 1.2em;
     margin: 20px 40px 20px 0px;
     min-width: 25%;
-    background-color: $ccl-blue;
+    background-color: $democrat-blue;
     color: white;
     line-height: 1.83;
   }
@@ -249,7 +240,7 @@ a.explanation_prompt:hover {
     font-size: 0.8em;
     a {
       display: inline;
-      color: $ccl-blue;
+      color: $democrat-blue;
       text-decoration: underline;
     }
   }
@@ -368,7 +359,7 @@ div.impact_indicator {
   line-height: 45px;
   .estimate_message {
     font-weight: bold;
-    color: $ccl-blue;
+    color: $democrat-blue;
   }
   .estimate_message,
   .net_impact {
