@@ -209,9 +209,10 @@ class App extends React.Component {
     const carbon_cost = Math.round(cost / 12);
     const div = Math.round(div_post / 12);
 
+    // carbon_cost: toCurrency(carbon_cost),
     this.setState({
       net_impact: div - carbon_cost,
-      carbon_cost: toCurrency(carbon_cost),
+      carbon_cost: carbon_cost,
       div_post: toCurrency(div),
     });
   };

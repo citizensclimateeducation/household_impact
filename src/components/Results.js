@@ -68,11 +68,12 @@ class Results extends React.Component {
               <div>
                 Your average monthly <strong>carbon fee costs</strong>
               </div>
-              <div>{this.props.results.carbon_cost}</div>
+              <div>${this.props.results.carbon_cost}</div>
             </div>
             <div className="carbon_fee_details">
               <div className="text-muted disclaimer">
-                Ranging from something to something depending on your lifestyle.
+                Ranging from ${this.props.results.carbon_cost - 16} to ${this.props.results.carbon_cost + 16} depending
+                on your lifestyle.
                 <br />
                 <a href="" target="_blank">
                   Learn more about the carbon fee
