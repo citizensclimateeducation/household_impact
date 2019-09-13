@@ -49,7 +49,7 @@ class Results extends React.Component {
             <div className="dividend">{this.props.results.div_post}</div>
             <div className="text-muted disclaimer">
               after tax based on household's number of adults, number of minors, and expected federal marginal tax rate.{' '}
-              <a href="" target="_blank">
+              <a href="https://energyinnovationact.org/how-it-works/" target="_blank">
                 Learn more about the dividend
               </a>
             </div>
@@ -75,7 +75,7 @@ class Results extends React.Component {
                 Ranging from ${this.props.results.carbon_cost - 16} to ${this.props.results.carbon_cost + 16} depending
                 on your lifestyle.
                 <br />
-                <a href="" target="_blank">
+                <a href="https://energyinnovationact.org/how-it-works/" target="_blank">
                   Learn more about the carbon fee
                 </a>
               </div>
