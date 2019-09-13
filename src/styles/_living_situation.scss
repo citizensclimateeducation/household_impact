@@ -3,14 +3,18 @@
 .living_situation_tiles {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  // grid-template-rows: 1fr 1fr;
+  grid-auto-rows: 1fr;
   grid-gap: 20px;
   margin: 2em 0em;
 
   .living_situation_tile {
+
     text-align: center;
-    border: 1px solid $dark-gray;
-    box-shadow: 2px 2px 4px $dark-gray;
+    // border: 1px solid $dark-gray;
+    border: 1px solid $indicator-gray;
+    // box-shadow: 2px 2px 4px $dark-gray;
+    box-shadow: 2px 2px 4px $indicator-gray;
     border-radius: 4px;
     max-width: 800px;
     padding: 30px 20px;
@@ -58,8 +62,25 @@
   }
 
   .living_situation_tile:hover, .living_situation_tile.selected {
-    box-shadow: 3px 3px 4px $muddy-green;
+    // box-shadow: 3px 3px 4px $muddy-green;
     border-color: $muddy-green;
-    background: radial-gradient(circle at 50%, #fff, #fff 87%, $muddy-green 100%);
+    // background: radial-gradient(circle at 50%, #fff, #fff 87%, $muddy-green 100%);
   }
+  
+  .living_situation_tile.selected {
+    background-image: url('../components/images/check_mark_green.png');
+    background-repeat: no-repeat;
+    background-size: 4em;
+    background-position-y: top;
+    background-position-x: center;
+    background-origin: content-box;
+    svg {
+      opacity: 0;
+    }
+    .single_icon, .duel_icon, .living_situation_icon {
+      visibility: hidden;
+    }
+    box-shadow: none;
+  }
+
 }

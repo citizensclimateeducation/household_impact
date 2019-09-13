@@ -11,8 +11,8 @@ function LivingSituation({ setAttribute }) {
   const living_situation = {
     single: { adults: 1, children: 0, other_residents: 0 },
     housemates: { adults: 1, children: 0, other_residents: 2 },
-    family: { adults: 2, children: 2, other_residents: 0 },
-    shared_family: { adults: 2, children: 2, other_residents: 2 },
+    family: { adults: 2, children: 0, other_residents: 0 },
+    shared_family: { adults: 2, children: 0, other_residents: 2 },
   };
 
   const selectIcon = icon => {
