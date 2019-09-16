@@ -2,7 +2,8 @@
 
 @media print {
   @page { size: landscape; }
-  div#basic_questions, div.family_info_panel, div#intro, div#home_questions, div#spending, nav, .explanation_prompt { display: none; }
+  div#basic_questions, div.family_info_panel, div#intro, div#home_questions, div#spending, nav, .explanation_prompt,
+  div#living_situation { display: none; }
   div.print_banner { width: 100%; margin: 20px 0px; }
   div.footer, .share_row { visibility: hidden; }
   body, body.wordpress_calculator div#calculator { font-size: 17px; margin: 0; }
@@ -32,6 +33,24 @@
     justify-content: flex-start;
     margin-top: 40px;
   }
+
+  .print_result_row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+  }
+  
+  div.results_label {
+    padding-right: 1em;
+    font-weight: bold;
+    padding-right: 2em;
+  }
+
+  div.card { 
+    border: none;
+    border-right: 1px solid rgba(0,0,0,.125); 
+  }
+
   div.print_spending {
     display: flex;
     font-size: 1.2em;

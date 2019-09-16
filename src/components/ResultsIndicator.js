@@ -19,13 +19,11 @@ class ResultsIndicator extends React.Component {
   fadeFooter = show_footer => {
     if (show_footer) {
       // && this.state.initially_viewed) {
-      console.log('fading footer in...');
       $('.impact_indicator')
         .css('display', 'block')
         .hide()
         .fadeIn();
     } else {
-      console.log('fading footer out...');
       this.setState({ initially_viewed: true });
       $('.impact_indicator').fadeOut();
     }
