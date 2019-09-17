@@ -23,7 +23,7 @@
     .living_situation_icon {
       max-width: 30%;
       svg {
-        fill: $democrat-blue;
+        fill: $eicda-blue;
         width: 100%;
       }
     }
@@ -60,7 +60,7 @@
   .living_situation_tile:hover,
   .living_situation_tile.selected {
     // box-shadow: 3px 3px 4px $muddy-green;
-    border-color: $democrat-blue;
+    border-color: $eicda-blue;
   }
 
   .living_situation_tile.selected {

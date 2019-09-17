@@ -4,7 +4,29 @@
   @page { size: landscape; }
   div#basic_questions, div.family_info_panel, div#intro, div#home_questions, div#spending, nav, .explanation_prompt,
   div#living_situation { display: none; }
-  div.print_banner { width: 100%; margin: 20px 0px; }
+
+  div.print_banner {
+    background-color: #15527b;
+    color: white;
+    width: 100%;
+    margin: 20px 0px;
+    font-size: 21px;
+    font-weight: bold;
+    .fancy_and {
+      text-transform: uppercase;
+      padding: 0vw;
+      border-width: 1px 0px;
+      border-color: white;
+      border-style: solid;
+      font-weight: normal;
+      position: relative;
+      top: -0.10vw;
+      font-size: 12px;
+    }
+
+    padding: .5em;
+  }
+  
   div.footer, .share_row { visibility: hidden; }
   body, body.wordpress_calculator div#calculator { font-size: 17px; margin: 0; }
   div#impact_calculator {
@@ -34,10 +56,19 @@
     margin-top: 40px;
   }
 
+  body div#calculator div#results.ccl_card>div div.impact_panel {
+    padding: 20px 0 0!important;
+    margin-top: 20px;
+  }
+
+  div.ccl_card#results .result_details {
+    margin-top: 1.1em;
+    font-size: 0.9em;
+  }
+
   .print_result_row {
     display: grid;
     grid-template-columns: auto 1fr;
-
   }
   
   div.results_label {
