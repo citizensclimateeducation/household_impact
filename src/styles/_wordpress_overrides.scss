@@ -5,6 +5,14 @@
 */
 $card_height: 100vh;
 
+h1.entry-title.main_title {
+  display: none;
+}
+
+#et-main-area #main-content .container {
+  margin-top: -50px;
+}
+
 div.inner-page-wrap.has-no-sidebar {
   margin-top: 0px;
 }
@@ -21,7 +29,7 @@ body.wordpress_calculator.modal-open {
 
 body.wordpress_calculator div#calculator {
   font-size: 20px;
-  font-family: "Source Sans Pro", "Helvetica", sans-serif;
+  font-family: 'Source Sans Pro', 'Helvetica', sans-serif;
 
   div#results.ccl_card > div div {
     padding: 0 3.67037% !important;

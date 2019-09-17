@@ -42,9 +42,8 @@
 
       .situation_plus {
         display: inline-block;
-        padding: 0em .3em;
+        padding: 0em 0.3em;
       }
-
 
       .housemate_family_icon {
         svg {
@@ -58,13 +57,14 @@
     }
   }
 
-  .living_situation_tile:hover, .living_situation_tile.selected {
+  .living_situation_tile:hover,
+  .living_situation_tile.selected {
     // box-shadow: 3px 3px 4px $muddy-green;
     border-color: $democrat-blue;
   }
-  
+
   .living_situation_tile.selected {
-    background-image: url('../components/images/check_mark_blue.png');
+    background-image: url('https://energyinnovationact.org/wp-content/uploads/2019/09/check_mark_blue.png');
     background-repeat: no-repeat;
     background-size: 4em;
     background-position-y: top;
@@ -73,10 +73,11 @@
     svg {
       opacity: 0;
     }
-    .single_icon, .duel_icon, .living_situation_icon {
+    .single_icon,
+    .duel_icon,
+    .living_situation_icon {
       visibility: hidden;
     }
     box-shadow: none;
   }
-
 }
