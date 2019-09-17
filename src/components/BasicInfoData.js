@@ -14,9 +14,7 @@ class BasicInfoData extends React.Component {
       <div className="pre_calculate basic_info_data print_only card pre_calculate input">
         <div>
           <div className="print_banner">
-            <a className="print_only" href="#">
-              <img src={require('./images/ccl-logo-alpha.png')} className="menu-logo" />
-            </a>
+            Energy Innovation <span className="fancy_and">and</span> Carbon Dividend Act
           </div>
           <div className="row">
             <div className="col-xs-12 bottom_buffer">
