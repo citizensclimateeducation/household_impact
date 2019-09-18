@@ -21,10 +21,11 @@
     justify-items: center;
 
     .living_situation_icon {
-      max-width: 30%;
+      max-width: 88px;
       svg {
         fill: $eicda-blue;
         width: 100%;
+        height: 100%;
       }
     }
     .single_icon {
@@ -40,6 +41,7 @@
       justify-items: center;
       align-items: center;
 
+      
       .situation_plus {
         display: inline-block;
         padding: 0em 0.3em;
@@ -53,6 +55,15 @@
 
       .living_situation_icon {
         max-width: 100px;
+      }
+      
+      .single_icon { 
+        padding: 0em;
+        height: 90%;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        max-width: 50px;
       }
     }
   }
@@ -79,5 +90,9 @@
       visibility: hidden;
     }
     box-shadow: none;
+  }
+
+  @media (max-width: 300px) {
+    grid-template-columns: 1fr;
   }
 }
