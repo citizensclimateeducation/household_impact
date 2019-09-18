@@ -56,7 +56,7 @@
       .living_situation_icon {
         max-width: 100px;
       }
-      
+
       .single_icon { 
         padding: 0em;
         height: 90%;
@@ -92,7 +92,7 @@
     box-shadow: none;
   }
 
-  @media (max-width: 300px) {
+  @media (max-width: 370px) {
     grid-template-columns: 1fr;
   }
 }

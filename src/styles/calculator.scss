@@ -40,6 +40,7 @@ a {
   }
   label {
     font-weight: normal;
+    margin-bottom: 0px;
   }
 }
 
@@ -197,7 +198,6 @@ div.ccl_card.intro_container {
 a.explanation_prompt {
   width: 100%;
   display: block;
-  line-height: 0.3em;
   font-size: 0.7em;
   margin-bottom: 12px;
   color: $eicda-blue !important;
@@ -376,6 +376,10 @@ div.impact_indicator {
     font-size: 1em;
     margin: 0px 0px;
   }
+  .calculate_success {
+    display: grid;
+    grid-template-columns: 1fr auto;
+  }
 }
 
 /* wrap */
@@ -439,7 +443,8 @@ a:hover {
     font-size: 15px;
   }
   label.label_sm {
-    display: inline-block;
+    display: inline;
+    margin-left: 0px;
   }
   .label_lg {
     display: none;
@@ -487,6 +492,11 @@ a:hover {
   }
   .explanation_prompt {
     font-size: 0.93em;
+  }
+
+  input.expense_text {
+    margin-bottom: 3px;
+    margin-left: 0px;
   }
 
   .ribbon {

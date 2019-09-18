@@ -42,7 +42,7 @@ class Spending extends React.Component {
               information.
               <br />
               <br />
-              The following values are for your family of {this.props.adults + this.props.children}
+              The following values are for your family of {this.props.adults + this.props.children}:
             </div>
 
             <form>
@@ -51,7 +51,7 @@ class Spending extends React.Component {
                   How much is your family's average monthly gasoline expenditure? ${' '}
                 </label>
                 <label htmlFor="gas" className="label_sm">
-                  Average monthly gasoline expenditure? ${' '}
+                  Avg. monthly gasoline expenditure? ${' '}
                 </label>
                 <input
                   size="3"
@@ -120,7 +120,7 @@ class Spending extends React.Component {
                     What is your family's average monthly {this.props.heating_type.toLowerCase()} expenditure? ${' '}
                   </label>
                   <label htmlFor="heat" className="label_sm">
-                    Average monthly {this.props.heating_type.toLowerCase()} expenditure? ${' '}
+                    Avg. monthly {this.props.heating_type.toLowerCase()} expenditure? ${' '}
                   </label>
                   <input
                     size="3"

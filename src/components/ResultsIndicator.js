@@ -41,7 +41,7 @@ class ResultsIndicator extends React.Component {
     return (
       <div className="impact_indicator no_print">
         <div className="ccl_card">
-          <div className="row calculating">
+          <div className="calculating">
             <div className="spinner">
               <svg className="wait_spinner" xmlns="http//www.w3.org/2000/svg" viewBox="0 0 100 100">
                 <circle className="green_circle" cx="50" cy="50" r="45" strokeDasharray="141.37" />
@@ -49,9 +49,9 @@ class ResultsIndicator extends React.Component {
               </svg>
             </div>
           </div>
-          <div className="row calculate_success">
-            <div className="col-md-8 col-xs-9 estimate_message">Estimated gain per month*</div>
-            <div className="col-md-4 col-xs-3 net_impact text-right">
+          <div className="calculate_success">
+            <div className="estimate_message">Estimated gain per month*</div>
+            <div className="net_impact text-right">
               {this.displayImpact()}
               <span className="label_lg">/mo</span>
             </div>
