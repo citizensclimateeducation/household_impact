@@ -49,72 +49,74 @@ class FamilyInfo extends React.Component {
               in any form by CCL. Family is intended to mean any group of people sharing a home and sharing finances,
               generally filing taxes as a unit.
             </div>
-            <div className="form-group">
-              <label htmlFor="adults">How many adult family members (age 18+) live in your home?</label>
-              <a data-toggle="modal" data-target="#houseSizeDetails" className="explanation_prompt">
-                Explain this
-              </a>
-              <select
-                className="form-control input-lg number_select"
-                id="adults"
-                name="adults"
-                value={this.props.adults}
-                onChange={this.props.handleChange}
-              >
-                {numberOptionList(1, 6)}
-              </select>
-            </div>
-            <div className="form-group">
-              <label htmlFor="adults">How many minor family members live in your home?</label>
-              <a data-toggle="modal" data-target="#minorDetails" className="explanation_prompt">
-                Explain this
-              </a>
-              <select
-                className="form-control input-lg number_select"
-                id="children"
-                name="children"
-                value={this.props.children}
-                onChange={this.props.handleChange}
-              >
-                {numberOptionList(0, 9)}
-              </select>
-            </div>
-            {this.props.other_residents > 0 && (
+            <div>
               <div className="form-group">
-                <label htmlFor="other_residents">How many housemates live in your home?</label>
-                <a data-toggle="modal" data-target="#otherResidentsDetails" className="explanation_prompt">
+                <label htmlFor="adults">How many adult family members (age 18+) live in your home?</label>
+                <a data-toggle="modal" data-target="#houseSizeDetails" className="explanation_prompt">
                   Explain this
                 </a>
                 <select
                   className="form-control input-lg number_select"
-                  id="other_residents"
-                  name="other_residents"
-                  value={this.props.other_residents}
+                  id="adults"
+                  name="adults"
+                  value={this.props.adults}
+                  onChange={this.props.handleChange}
+                >
+                  {numberOptionList(1, 6)}
+                </select>
+              </div>
+              <div className="form-group">
+                <label htmlFor="adults">How many minor family members live in your home?</label>
+                <a data-toggle="modal" data-target="#minorDetails" className="explanation_prompt">
+                  Explain this
+                </a>
+                <select
+                  className="form-control input-lg number_select"
+                  id="children"
+                  name="children"
+                  value={this.props.children}
                   onChange={this.props.handleChange}
                 >
                   {numberOptionList(0, 9)}
                 </select>
               </div>
-            )}
-            <div className="form-group">
-              <div>
-                <label htmlFor="income">Family Income: {this.display_income()}</label>
-                <a data-toggle="modal" data-target="#incomeDetails" className="explanation_prompt">
-                  Explain this
-                </a>
-                <div className="no_print">
-                  <Slider
-                    id={'income'}
-                    min={0}
-                    max={500}
-                    step={1}
-                    value={this.state.income_pos}
-                    onChange={this.handleSlide}
-                    onChangeComplete={e => {
-                      this.props.calculateIfValid();
-                      tagEvent('slide', 'income');
-                    }}
-                  />
+              {this.props.other_residents > 0 && (
+                <div className="form-group">
+                  <label htmlFor="other_residents">How many housemates live in your home?</label>
+                  <a data-toggle="modal" data-target="#otherResidentsDetails" className="explanation_prompt">
+                    Explain this
+                  </a>
+                  <select
+                    className="form-control input-lg number_select"
+                    id="other_residents"
+                    name="other_residents"
+                    value={this.props.other_residents}
+                    onChange={this.props.handleChange}
+                  >
+                    {numberOptionList(0, 9)}
+                  </select>
+                </div>
+              )}
+              <div className="form-group">
+                <div>
+                  <label htmlFor="income">Family Income: {this.display_income()}</label>
+                  <a data-toggle="modal" data-target="#incomeDetails" className="explanation_prompt">
+                    Explain this
+                  </a>
+                  <div className="no_print">
+                    <Slider
+                      id={'income'}
+                      min={0}
+                      max={500}
+                      step={1}
+                      value={this.state.income_pos}
+                      onChange={this.handleSlide}
+                      onChangeComplete={e => {
+                        this.props.calculateIfValid();
+                        tagEvent('slide', 'income');
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>

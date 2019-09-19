@@ -94,13 +94,13 @@ div.ccl_card#results {
     margin: 1em 0em;
     padding: 1em;
     text-align: center;
-    grid-template-columns: .8fr;
+    grid-template-columns: .9fr;
     align-items: center;
     justify-content: center;
     align-items: center;
     .sub_heading { color: $default-font-color; font-weight: bold; }
 
-    .dividend { color: $eicda-blue; font-weight: bold; font-size: 1.3em; margin: .3em 0em; }
+    .dividend { color: $muddy-green; font-weight: bold; font-size: 1.5em; margin: .3em 0em; }
   }
 
   .result_detail_row {
@@ -125,6 +125,11 @@ div.ccl_card#results {
     div.form_title.net_impact {
       margin-bottom: 0px;
       color: inherit;
+      .explanation_prompt {
+        font-size: .6em;
+        font-weight: normal;
+        padding-left: 15px;
+      }
     }
     .result_detail_row {
       margin-top: 0em;
@@ -193,6 +198,10 @@ div.ccl_card.intro_container {
 
 .form-group {
   margin-top: 40px;
+}
+
+div.form-group:first-of-type {
+  margin-top: 20px;
 }
 
 a.explanation_prompt {

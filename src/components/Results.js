@@ -84,22 +84,26 @@ class Results extends React.Component {
 
           <div className="impact_panel">
             <div className="result_detail_row">
-              <VisibilitySensor onChange={this.props.resultsVisible}>
-                <div className="form_title">Your estimated {this.net_profit() ? 'gain' : 'loss'} per month*</div>
-              </VisibilitySensor>
+              <div>
+                <VisibilitySensor onChange={this.props.resultsVisible}>
+                  <div className="form_title">Your estimated {this.net_profit() ? 'gain' : 'loss'} per month*</div>
+                </VisibilitySensor>
+                <div className="text-muted summary">
+                  <span className="summary_profit">{this.impact_message()}</span>
+                </div>
+              </div>
               <div className="form_title net_impact text-right">
                 {this.displayImpact()}
                 <span className="label_lg month_label">/month</span>
+                <br />
+                <a data-toggle="modal" data-target="#calcDetails" className="explanation_prompt">
+                  How is this number calculated?
+                </a>
               </div>
             </div>
-            <div className="result_detail_row pull-right">
-              <a data-toggle="modal" data-target="#calcDetails" className="explanation_prompt">
-                How is this number calculated?
-              </a>
-            </div>
+            <div className="result_detail_row pull-right"></div>
             <div className="row top_buffer">
               <div className="text-muted summary">
-                <span className="summary_profit">{this.impact_message()}</span>
                 <a
                   className="btn_start_over no_print"
                   id="btn_start_over"
