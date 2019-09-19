@@ -519,6 +519,13 @@ a:hover {
   .ribbon::before {
     display: none;
   }
+
+  div#results.ccl_card > div {
+      div.impact_panel {
+        padding: 20px 0px 0px 0px !important;
+        margin-top: 20px;
+      }
+  }
 }
 
 .print_only,
