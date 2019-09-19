@@ -42,7 +42,10 @@ class Spending extends React.Component {
               information.
               <br />
               <br />
-              The following values are for your family of {this.props.adults + this.props.children}:
+              <strong>
+                The following values are for your family of{' '}
+                {parseInt(this.props.adults) + parseInt(this.props.children)}:
+              </strong>
             </div>
 
             <form>
