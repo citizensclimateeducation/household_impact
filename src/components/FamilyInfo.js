@@ -7,7 +7,10 @@ import { nextAndHideFooter, toCurrency, numberOptionList, tagEvent } from '../li
 class FamilyInfo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { income_pos: this.incomeScale.invert(this.props.income) };
+    this.state = {
+      income_pos: this.incomeScale.invert(this.props.income),
+      current_income: this.props.income,
+    };
   }
 
   incomeScale = scalePow()
@@ -24,17 +27,26 @@ class FamilyInfo extends React.Component {
     return this.toNearestThousand(value);
   };
 
-  handleIncomeInput = input => {
-    const val = input || 0;
-    this.props.setIncome(parseInt(val));
+  incomeInputUpdate = () => {
+    console.log('debounce');
+    const val = this.state.current_income;
+    this.props.setIncome(this.state.current_income);
     const position = this.incomeScale.invert(val);
     this.setState({ income_pos: position });
-    this.throttled_update();
+    this.reCalculate();
+  };
+
+  throttled_income_update = debounce(this.incomeInputUpdate, 700);
+
+  handleIncomeInput = input => {
+    const val = parseInt(input || 0);
+    this.setState({ current_income: val }, this.throttled_income_update);
   };
 
   handleSlide = val => {
-    this.setState({ income_pos: val });
-    this.props.setIncome(this.position_to_income(val));
+    const income = this.position_to_income(val);
+    this.props.setIncome(income);
+    this.setState({ income_pos: val, current_income: income });
   };
 
   display_income = () => {
@@ -47,8 +59,6 @@ class FamilyInfo extends React.Component {
     this.props.calculateIfValid();
     tagEvent('slide', 'income');
   };
-
-  throttled_update = debounce(this.reCalculate, 700);
 
   render() {
     return (
@@ -117,7 +127,7 @@ class FamilyInfo extends React.Component {
                   className="form-control income income_text"
                   id="income_input"
                   name="income_input"
-                  value={this.props.income}
+                  value={this.state.current_income}
                   onChange={event => {
                     this.handleIncomeInput(event.target.value);
                   }}
