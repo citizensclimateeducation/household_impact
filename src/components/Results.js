@@ -122,15 +122,10 @@ class Results extends React.Component {
             <div className="footer"></div>
             <div className="row top_buffer no_print">
               <div className="text-muted tips">
-                Learn more about{' '}
-                <a href="https://citizensclimatelobby.org/basics-carbon-fee-dividend/" target="_blank">
-                  Carbon Fee and Dividend
-                </a>{' '}
-                and then join{' '}
-                <a href="https://citizensclimatelobby.org/join-citizens-climate-lobby/" target="_blank">
-                  Citizens' Climate Lobby
-                </a>{' '}
-                to help us get CF&D passed.
+                Learn more about the{' '}
+                <a href="https://energyinnovationact.org/how-it-works/" target="_blank">
+                  Energy Innovation and Carbon Dividend Act
+                </a>
               </div>
             </div>
             <div className="share_row row no_print">
@@ -157,7 +152,7 @@ class Results extends React.Component {
                 <i className="fa fa-asterisk" aria-hidden="true"></i> Calculator results are based on
                 <a href="https://citizensclimatelobby.org/household-impact-study/" target="_blank">
                   {' '}
-                  CCL's Household Impact Study
+                  Citizens' Climate Lobby's Household Impact Study
                 </a>
                 .{' '}
                 <a data-toggle="modal" data-target="#calcDetails">

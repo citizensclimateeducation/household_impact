@@ -58,9 +58,9 @@ class FamilyInfo extends React.Component {
             <div className="form_title no_print">Tell us a little bit about your family</div>
             <div className="form_title print_only">Household and Spending</div>
             <div className="explanation no_print sub_heading">
-              CCL does not collect this data, it is only input to perform the calculations for the user and not retained
-              in any form by CCL. Family is intended to mean any group of people sharing a home and sharing finances,
-              generally filing taxes as a unit.
+              This data is not collected, it is only input to perform the calculations for the user and not retained in
+              any form. Family is intended to mean any group of people sharing a home and sharing finances, generally
+              filing taxes as a unit.
             </div>
             <form>
               <div className="form-group">
