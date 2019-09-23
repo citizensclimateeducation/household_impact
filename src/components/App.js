@@ -41,6 +41,7 @@ class App extends React.Component {
       impact_month: 0,
       adults: 1,
       children: 0,
+      income: 40000,
       other_residents: 0,
       loading: false,
       heating_type: 'Natural gas',

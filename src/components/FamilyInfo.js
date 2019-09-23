@@ -1,30 +1,35 @@
 import React from 'react';
 import Slider from 'react-rangeslider';
+import { scalePow } from 'd3-scale';
+import debounce from 'lodash.debounce';
 import { nextAndHideFooter, toCurrency, numberOptionList, tagEvent } from '../lib/Utility.js';
 
 class FamilyInfo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { income_pos: 272 };
-    this.props.setIncome(this.position_to_income(272));
+    this.state = { income_pos: this.incomeScale.invert(this.props.income) };
   }
+
+  incomeScale = scalePow()
+    .exponent(3)
+    .domain([0, 500])
+    .range([0, 400000]);
 
   toNearestThousand = val => {
     return Math.ceil((val + 1) / 1000) * 1000;
   };
 
-  /**
-   * Given a position on the income slider figure out the income using logarithmic scale
-   * based on https://stackoverflow.com/questions/846221/logarithmic-slider
-   */
   position_to_income = val => {
-    const minp = 0;
-    const maxp = 500;
-    const minv = 8.517193191416238; //Math.log(5000);
-    const maxv = 12.89921982609012; //Math.log(400000);
-    // calculate adjustment factor
-    var scale = 0.008764053269347762; // (maxv-minv) / (maxp-minp);
-    return this.toNearestThousand(Math.exp(minv + scale * (val - minp)));
+    const value = this.incomeScale(val);
+    return this.toNearestThousand(value);
+  };
+
+  handleIncomeInput = input => {
+    const val = input || 0;
+    this.props.setIncome(parseInt(val));
+    const position = this.incomeScale.invert(val);
+    this.setState({ income_pos: position });
+    this.throttled_update();
   };
 
   handleSlide = val => {
@@ -36,6 +41,14 @@ class FamilyInfo extends React.Component {
     let currency = toCurrency(this.props.income, '$0,0');
     return this.state.income_pos == 500 ? currency + '+' : currency;
   };
+
+  reCalculate = () => {
+    console.log('recalculating...');
+    this.props.calculateIfValid();
+    tagEvent('slide', 'income');
+  };
+
+  throttled_update = debounce(this.reCalculate, 700);
 
   render() {
     return (
@@ -49,7 +62,7 @@ class FamilyInfo extends React.Component {
               in any form by CCL. Family is intended to mean any group of people sharing a home and sharing finances,
               generally filing taxes as a unit.
             </div>
-            <div>
+            <form>
               <div className="form-group">
                 <label htmlFor="adults">How many adult family members (age 18+) live in your home?</label>
                 <a data-toggle="modal" data-target="#houseSizeDetails" className="explanation_prompt">
@@ -98,28 +111,35 @@ class FamilyInfo extends React.Component {
                 </div>
               )}
               <div className="form-group">
-                <div>
-                  <label htmlFor="income">Family Income: {this.display_income()}</label>
-                  <a data-toggle="modal" data-target="#incomeDetails" className="explanation_prompt">
-                    Explain this
-                  </a>
-                  <div className="no_print">
-                    <Slider
-                      id={'income'}
-                      min={0}
-                      max={500}
-                      step={1}
-                      value={this.state.income_pos}
-                      onChange={this.handleSlide}
-                      onChangeComplete={e => {
-                        this.props.calculateIfValid();
-                        tagEvent('slide', 'income');
-                      }}
-                    />
-                  </div>
+                <label htmlFor="income">Family Income $</label>
+                <input
+                  size="6"
+                  className="form-control income income_text"
+                  id="income_input"
+                  name="income_input"
+                  value={this.props.income}
+                  onChange={event => {
+                    this.handleIncomeInput(event.target.value);
+                  }}
+                />
+                <a data-toggle="modal" data-target="#incomeDetails" className="explanation_prompt">
+                  Explain this
+                </a>
+                <div className="slider_wrapper">
+                  <Slider
+                    id={'income'}
+                    min={0}
+                    max={500}
+                    step={1}
+                    value={this.state.income_pos}
+                    onChange={this.handleSlide}
+                    onChangeComplete={e => {
+                      this.reCalculate();
+                    }}
+                  />
                 </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
         <div className="footer">
