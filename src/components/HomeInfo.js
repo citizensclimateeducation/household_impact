@@ -53,7 +53,7 @@ class HomeInfo extends React.Component {
               </select>
             </div>
             <div className="form-group">
-              <label htmlFor="vehicles">How many vehicles does your family own?</label>
+              <label htmlFor="vehicles">How many vehicles does your family drive?</label>
               <a data-toggle="modal" data-target="#vehicleDetails" className="explanation_prompt">
                 Explain this
               </a>
@@ -104,7 +104,7 @@ class HomeInfo extends React.Component {
           </button>
 
           <a href="/calculator/cfd-calculator-faq/" className="faq_link" target="_blank">
-            Got questions about the calculator?
+            Calculator FAQ
           </a>
         </div>
       </div>

@@ -32,7 +32,7 @@ export const CalcDetails = props => {
       <p>The calculator uses the study’s results to calculate:</p>
       <ul>
         <li>
-          <span className="font-weight-bold">an estimate of a household's additional costs</span> under the policy (due
+          <span className="font-weight-bold">an estimate of a household's carbon fee costs</span> under the policy (due
           to higher prices for goods and services), depending on a limited set of household characteristics (income,
           number of vehicles etc.).
         </li>
@@ -41,9 +41,9 @@ export const CalcDetails = props => {
           of adults, number of minors, and expected federal marginal tax rate.
         </li>
         <li>
-          <span className="font-weight-bold">the "net benefit per month"</span> -- the difference between the dividend
-          and additional cost - positive if a household is likely to "come out ahead" under the Energy Innovation and
-          Carbon Dividend proposal.
+          <span className="font-weight-bold">the "estimated gain per month"</span> -- the difference between the
+          dividend and additional cost - positive if a household is likely to "come out ahead" under the Energy
+          Innovation and Carbon Dividend proposal.
         </li>
       </ul>
 
@@ -52,7 +52,7 @@ export const CalcDetails = props => {
         For ease of use, a small and generally easy-to-recall set of user inputs are solicited. The calculator reports
         the expected average outcome for a household. The actual outcome for any specific household could vary from the
         average. For example, if your household is a below-average consumer of carbon-intensive goods like air travel
-        and meat, the calculator will understate the net benefit (and vice-versa). Developing a precise estimate for
+        and meat, the calculator will understate the estimated gain (and vice-versa). Developing a precise estimate for
         every household would require many more questions and accurate recall. We have opted for simplicity over
         precision.
       </p>
@@ -63,7 +63,7 @@ export const CalcDetails = props => {
 const HouseholdSizeDetails = props => {
   return (
     <InfoDialog dialogId="houseSizeDetails" title="Household Size">
-      The number of adults (18+) and minors (under 18) affects the size of the dividend your household would receive
+      The number of adults (19+) and minors (under 19) affects the size of the dividend your household would receive
       under the Energy Innovation and Carbon Dividend proposal. It also affects household energy efficiency.
     </InfoDialog>
   );
@@ -118,15 +118,16 @@ const HeatingFuelDetails = props => {
 
 const MultipleProperties = props => {
   return (
-    <InfoDialog dialogId="multipleProperties" title="Multiple Properties">
-      Combine average monthly bills for all properties that you rent or own.
+    <InfoDialog dialogId="multipleProperties" title="Shared Expenses">
+      If you share utility costs with housemates outside your family, enter just the portion your family is responsible
+      for
     </InfoDialog>
   );
 };
 
 const GasExpense = props => {
   return (
-    <InfoDialog dialogId="gasExpense" title="Gas Expense">
+    <InfoDialog dialogId="gasExpense" title="Gasoline Expense">
       Compile or estimate how much you spend in a month for all your vehicles.
     </InfoDialog>
   );
@@ -135,7 +136,7 @@ const GasExpense = props => {
 const MinorDetails = props => {
   return (
     <InfoDialog dialogId="minorDetails" title="Minors">
-      The first two minors in a household each get half of an adult dividend.
+      Minors each get half of an adult dividend.
     </InfoDialog>
   );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from 'react-rangeslider';
 import { scalePow } from 'd3-scale';
 import debounce from 'lodash.debounce';
-import { nextAndHideFooter, toCurrency, numberOptionList, tagEvent } from '../lib/Utility.js';
+import { nextAndHideFooter, toCurrency, numberOptionList, tagEvent, fromCurrency } from '../lib/Utility.js';
 
 class FamilyInfo extends React.Component {
   constructor(props) {
@@ -39,7 +39,8 @@ class FamilyInfo extends React.Component {
   throttled_income_update = debounce(this.incomeInputUpdate, 700);
 
   handleIncomeInput = input => {
-    const val = parseInt(input || 0);
+    // const val = parseInt(input || 0);
+    const val = fromCurrency(input);
     this.setState({ current_income: val }, this.throttled_income_update);
   };
 
@@ -74,7 +75,7 @@ class FamilyInfo extends React.Component {
             </div>
             <form>
               <div className="form-group">
-                <label htmlFor="adults">How many adult family members (age 18+) live in your home?</label>
+                <label htmlFor="adults">How many adult family members (age 19+) live in your home?</label>
                 <a data-toggle="modal" data-target="#houseSizeDetails" className="explanation_prompt">
                   Explain this
                 </a>
@@ -121,13 +122,12 @@ class FamilyInfo extends React.Component {
                 </div>
               )}
               <div className="form-group">
-                <label htmlFor="income">Family Income $</label>
+                <label htmlFor="income">Family Income </label>
                 <input
-                  size="6"
                   className="form-control income income_text"
                   id="income_input"
                   name="income_input"
-                  value={this.state.current_income}
+                  value={toCurrency(this.state.current_income)}
                   onChange={event => {
                     this.handleIncomeInput(event.target.value);
                   }}
@@ -165,7 +165,7 @@ class FamilyInfo extends React.Component {
           </button>
 
           <a href="/calculator/cfd-calculator-faq/" className="faq_link" target="_blank">
-            Got questions about the calculator?
+            Calculator FAQ
           </a>
         </div>
       </div>

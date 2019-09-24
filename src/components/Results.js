@@ -72,8 +72,8 @@ class Results extends React.Component {
             </div>
             <div className="carbon_fee_details">
               <div className="text-muted disclaimer">
-                Ranging from ${this.props.results.carbon_cost - 18} to ${this.props.results.carbon_cost + 18} depending
-                on your lifestyle.
+                Ranging from ${Math.max(this.props.results.carbon_cost - 18, 0)} to $
+                {this.props.results.carbon_cost + 18} depending on your lifestyle.
                 <br />
                 <a href="https://energyinnovationact.org/how-it-works/" target="_blank">
                   Learn more about the carbon fee
@@ -115,7 +115,7 @@ class Results extends React.Component {
                 </a>
 
                 <a href="/calculator/cfd-calculator-faq/" className="faq_link no_print" target="_blank">
-                  Got questions about the calculator?
+                  Calculator FAQ
                 </a>
               </div>
             </div>

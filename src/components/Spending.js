@@ -168,7 +168,7 @@ class Spending extends React.Component {
           </button>
 
           <a href="/calculator/cfd-calculator-faq/" className="faq_link" target="_blank">
-            Got questions about the calculator?
+            Calculator FAQ
           </a>
         </div>
       </div>
