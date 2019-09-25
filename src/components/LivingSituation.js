@@ -78,6 +78,10 @@ function LivingSituation({ setAttribute }) {
               <div>My family lives with housemates</div>
             </div>
           </div>
+
+          <a data-toggle="modal" data-target="#livingSituation" className="explanation_prompt">
+            Explain this
+          </a>
         </div>
       </div>
       <div className="footer text-center">

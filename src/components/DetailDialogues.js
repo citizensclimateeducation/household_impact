@@ -60,6 +60,18 @@ export const CalcDetails = props => {
   );
 };
 
+const LivingSituation = props => {
+  return (
+    <InfoDialog dialogId="livingSituation" title="Living Situation">
+      This helps us calculate your dividends and carbon costs as accurately as possible. For this purpose, “family”
+      means a financial unit such as a couple living together or a person/couple living with children or other
+      dependents. “Housemates” would include people sharing your residence who are not part of your family (as a
+      financial unit), such as roommates sharing an apartment, boarders renting a room, children or parents with
+      separate finances, or another family sharing a house.
+    </InfoDialog>
+  );
+};
+
 const HouseholdSizeDetails = props => {
   return (
     <InfoDialog dialogId="houseSizeDetails" title="Household Size">
@@ -152,6 +164,7 @@ const VehicleDetails = props => {
 export const DetailDialogues = props => {
   return (
     <div>
+      <LivingSituation />
       <ZipCodeDetails />
       <IncomeDetails />
       <HouseholdSizeDetails />
