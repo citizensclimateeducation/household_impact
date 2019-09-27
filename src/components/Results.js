@@ -114,7 +114,7 @@ class Results extends React.Component {
                   <i className="fa fa-undo" /> Start Over
                 </a>
 
-                <a href="/calculator/cfd-calculator-faq/" className="faq_link no_print" target="_blank">
+                <a href="/personal-carbon-dividend-calculator-faq/" className="faq_link no_print" target="_blank">
                   Calculator FAQ
                 </a>
               </div>

@@ -164,7 +164,7 @@ class FamilyInfo extends React.Component {
             NEXT
           </button>
 
-          <a href="/calculator/cfd-calculator-faq/" className="faq_link" target="_blank">
+          <a href="/personal-carbon-dividend-calculator-faq/" className="faq_link" target="_blank">
             Calculator FAQ
           </a>
         </div>

@@ -1,4 +1,4 @@
-# Carbon Fee and Dividend Calculator
+# Personal Carbon Dividend Calculator
 
 This is an application built by [Citizen's Climate Lobby](https://citizensclimatelobby.org/) that uses data from the [Household Impact](https://citizensclimatelobby.org/household-impact-study/) study to estimate the net impact of [Carbon Fee and Dividend](https://citizensclimatelobby.org/carbon-fee-and-dividend/) on an individual household.
 

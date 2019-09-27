@@ -11,7 +11,7 @@ class Introduction extends React.Component {
       <div id="intro" className="ccl_card intro_container">
         <div></div>
         <div>
-          <div className="calculator_title">Carbon Dividend Calculator</div>
+          <div className="calculator_title">Personal Carbon Dividend Calculator</div>
 
           <div className="explanation text-muted">
             Tell us a little bit about your U.S. household and get a personalized estimate of the impact on your
