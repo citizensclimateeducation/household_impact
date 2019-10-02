@@ -1,3 +1,5 @@
+@import 'includes';
+
 @keyframes green_dash {
   from {
     stroke-dashoffset: -35.34;
@@ -21,13 +23,13 @@ svg#logo_image { display: none; }
 
 }
   .green_circle {
-    stroke: #a8cf45;
+    stroke: $eicda-red;
     stroke-width: 10;
     stroke-dashoffset: -35.34;
     animation: green_dash 4s linear infinite;
   }
   .blue_circle {
-    stroke: #0098da;
+    stroke: $eicda-blue;
     stroke-width: 10;
     stroke-dashoffset: -23.562;
     animation: blue_dash 4s linear infinite;

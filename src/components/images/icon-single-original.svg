@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="69px" height="76px" viewBox="0 0 69 76" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Most-Recent" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Family-Info-Copy-3" transform="translate(-460.000000, -369.000000)" fill="#5A7931" fill-rule="nonzero">
+            <g id="Group" transform="translate(460.000000, 369.000000)">
+                <path d="M34.5,41 C45.8299107,41 55,31.8299107 55,20.5 C55,9.17008929 45.8299107,0 34.5,0 C23.1700893,0 14,9.17008929 14,20.5 C14,31.8299107 23.1700893,41 34.5,41 Z" id="Icon-Path"></path>
+                <path d="M48.3,41 L46.8085938,41 C43.0710937,42.8229167 38.9203125,43.9166667 34.5,43.9166667 C30.0796875,43.9166667 25.946875,42.8229167 22.1914062,41 L20.7,41 C9.271875,41 0,50.40625 0,62 L0,67.25 C0,72.0807292 3.86328125,76 8.625,76 L60.375,76 C65.1367188,76 69,72.0807292 69,67.25 L69,62 C69,50.40625 59.728125,41 48.3,41 Z" id="Icon-Path"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,16 +1,3 @@
 {
-    "presets":[
-        "es2015", "react"
-    ],
-    "plugins": [
-    "syntax-dynamic-import",
-    "transform-object-rest-spread",
-    [
-      "transform-class-properties",
-      {"useBuiltIns": true},
-      {
-        "spec": true
-      }
-    ]
-  ]
+  "plugins": [["@babel/plugin-proposal-class-properties"]]
 }

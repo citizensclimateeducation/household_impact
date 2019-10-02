@@ -1,5 +1,6 @@
 @import 'includes';
 @import 'spinner';
+@import 'living_situation';
 @import 'social_media';
 @import 'wordpress_overrides';
 
@@ -14,15 +15,33 @@ body.modal-open body.modal {
   overflow-y: auto;
 }
 
-a { display: inline; color: $ccl-blue;}
+a {
+  display: inline;
+  color: $ccl-blue;
+}
 
 // bootstrap color overrides
 #calculator {
-  .form-control:focus{border-color: $green;  box-shadow: none; -webkit-box-shadow: none;}
-  .has-error .form-control:focus{box-shadow: none; -webkit-box-shadow: none;}
-  .caret { color: $green; }
-  .input-lg, .btn { border-radius: 0px; }
-  label { font-weight: normal; }
+  .form-control:focus {
+    border-color: $eicda-blue;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+  .has-error .form-control:focus {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+  .caret {
+    color: $green;
+  }
+  .input-lg,
+  .btn {
+    border-radius: 0px;
+  }
+  label {
+    font-weight: normal;
+    margin-bottom: 0px;
+  }
 }
 
 .ribbon {
@@ -48,44 +67,89 @@ a { display: inline; color: $ccl-blue;}
 
 #impact_calculator {
   position: relative;
-  .navbar { margin-bottom: 0px; }
+  .navbar {
+    margin-bottom: 0px;
+  }
 }
 
-div.card {
-  //width: 57%;
+div.ccl_card {
   max-width: 800px;
   margin-right: auto;
   margin-left: auto;
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 0 3.67037%;
 }
 
-div.card#results {
-  padding: 0 0 40px 0;
-  > div {
-    width: 100%;
-    div {
-      padding: 0 3.67037%;
+div.ccl_card#results {
+  a { color: $eicda-blue; }
+
+  .form_title { color: $eicda-red; }
+  .sub_heading { color: $default-font-color; font-weight: bold; }
+
+  .dividend_highlight {
+    background-color: $medium-gray;
+    display: grid;
+    margin: 1em 0em;
+    padding: 1em;
+    text-align: center;
+    grid-template-columns: .9fr;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    .sub_heading { color: $default-font-color; font-weight: bold; }
+
+    .dividend { color: $muddy-green; font-weight: bold; font-size: 1.5em; margin: .3em 0em; }
+  }
+
+  .result_detail_row {
+    margin-top: 1em;
+    display: grid;
+    grid-template-columns: 1fr auto;
+  }
+
+  .result_details {
+    margin-top: 1.8em;
+    font-size: 0.9em;
+  }
+  
+  div.impact_panel {
+    padding: 30px 0px 0px 0px;
+    margin-top: 30px;
+    font-size: 0.8em;
+    div.form_title {
+      color: $eicda-blue;
+      margin-bottom: 0em;
+    }
+    div.form_title.net_impact {
+      margin-bottom: 0px;
+      color: inherit;
+      .explanation_prompt {
+        font-size: .6em;
+        font-weight: normal;
+        padding-left: 15px;
+      }
+    }
+    .result_detail_row {
+      margin-top: 0em;
     }
   }
-  div.impact_panel { 
-    padding: 40px 0px 0px 0px;
-    margin-top: 40px;
-    div.form_title { font-size: 1.4em; }
-    div.form_title.net_impact { font-size: 1.8em; margin-bottom: 0px; color: inherit;}
+  .month_label {
+    font-size: 0.8em;
   }
-  .month_label { font-size: .8em; }
 }
 
-div.card#spending {
+div.ccl_card#spending {
   min-height: 100vh;
 }
 
-.navbar-brand { padding: 0px; }
+.navbar-brand {
+  padding: 0px;
+}
 
-.print_banner img, .navbar-brand>img {
+.print_banner img,
+.navbar-brand > img {
   height: 50px;
   padding: 0px;
   width: auto;
@@ -96,7 +160,7 @@ div.card#spending {
   padding: 10px 15px;
 }
 
-div.card.intro_container {
+div.ccl_card.intro_container {
   min-height: 100vh;
   align-items: center;
   text-align: center;
@@ -110,46 +174,63 @@ div.card.intro_container {
   font-weight: 900;
   margin-bottom: 20px;
   line-height: 1.2em;
-  color: $ccl-blue;
+  color: $eicda-red;
   font-family: 'Ubuntu', 'Source Sans Pro', 'Helvetica', sans-serif;
   font-weight: bold;
 }
 
-.explanation { font-size: 1.10em; }
-#intro .explanation { font-size: 1.24em; color: $muddy-green; }
-.form_title { 
-  font-size: 1.4em; margin-bottom: 20px; font-weight: bold; 
-  color: $ccl-blue;
+.explanation {
+  font-size: 1.1em;
+}
+#intro .explanation.text-muted {
+  font-size: 1.24em;
+  color: $eicda-blue !important;
+}
+.form_title {
+  font-size: 1.4em;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: $eicda-red;
 }
 .sub_heading {
-  color: $muddy-green;
+  color: $eicda-blue;
 }
 
 .form-group {
   margin-top: 40px;
 }
 
-.explanation_prompt {
+div.form-group:first-of-type {
+  margin-top: 20px;
+}
+
+a.explanation_prompt {
   width: 100%;
   display: block;
-  line-height: .3em;
-  font-size: .7em;
+  font-size: 0.7em;
   margin-bottom: 12px;
-  color: $ccl-blue;
+  color: $eicda-blue !important;
+}
+
+a.explanation_prompt:hover {
+  text-decoration: underline !important;
 }
 
 .footer {
   width: 100%;
   text-align: left;
-  //@media(max-width: $screen-sm-min) { font-size :1.2em; }
-  a, a:hover, i, button {
+  a,
+  a:hover,
+  i,
+  button {
     text-decoration: none;
   }
-  button.btn, button.btn.disabled {
+  button.btn,
+  button.btn.disabled {
     font-size: 1.2em;
     margin: 20px 40px 20px 0px;
     min-width: 25%;
-    background-color: $ccl-blue;
+    background-color: $eicda-blue;
     color: white;
     line-height: 1.83;
   }
@@ -158,26 +239,47 @@ div.card.intro_container {
     margin-right: 0px;
     margin-left: 0px;
   }
-  padding-bottom:20px;
-  button.btn_back { color: $dark-gray; background-color: transparent; border-color: $dark-gray }
+  padding-bottom: 20px;
+  button.btn_back {
+    color: $dark-gray;
+    background-color: transparent;
+    border-color: $dark-gray;
+  }
   .cf_and_d_explanation {
-    font-size: .8em;
-    a { display: inline; color: $ccl-blue; text-decoration: underline; }
+    font-size: 0.8em;
+    a {
+      display: inline;
+      color: $eicda-blue;
+      text-decoration: underline;
+    }
   }
 }
-.form-control { width: initial; }
-.number_select { width: 113px; }
-.top_buffer { margin-top: 20px; }
-.bottom_buffer { margin-bottom: 20px; }
-.faq_link { font-size: .9em; }
-.expense_text { 
+.form-control {
+  width: initial;
+}
+.number_select {
+  width: 113px;
+}
+.top_buffer {
+  margin-top: 20px;
+}
+.bottom_buffer {
+  margin-bottom: 20px;
+}
+.faq_link {
+  font-size: 0.9em;
+}
+.expense_text {
   display: inline-block;
   max-width: 50px;
   margin-left: 5px;
 }
 
-.income_text { max-width: 100px; display: inline-block; margin-left: 5px; }
-
+.income_text {
+  max-width: 100px;
+  display: inline-block;
+  margin-left: 5px;
+}
 
 .calculating {
   display: none;
@@ -185,7 +287,7 @@ div.card.intro_container {
   height: 100%;
   margin: 30px 0px;
   font-size: 1.7em;
-  color: $ccl-blue;
+  color: $eicda-blue;
   .spinner {
     svg {
       display: block;
@@ -195,38 +297,60 @@ div.card.intro_container {
   }
 }
 
-div#intro .footer { text-align: center; margin-bottom: 50px; }
-
-.spending_panel {
-  display:none;
-  label { font-size: 1.0em; }
+div#intro .footer {
+  text-align: center;
+  margin-bottom: 50px;
 }
 
-.spending_footer { opacity: 0; }
+.spending_panel {
+  display: none;
+  label {
+    font-size: 1em;
+  }
+}
+
+.spending_footer {
+  opacity: 0;
+}
 
 .search_failed {
   margin: 20px 0px;
   display: none;
 }
 
-.impact_panel { 
-  border-top: 1px solid #eee; 
-  .summary_profit { display: block; }
+.impact_panel {
+  border-top: 1px solid #eee;
+  .summary_profit {
+    display: block;
+  }
 }
-div.header, div.basic_info_data { width: 100%; }
-div.no_print { display: block; }
+div.header,
+div.basic_info_data {
+  width: 100%;
+}
+div.no_print {
+  display: block;
+}
 
 div.basic_info_data {
   padding-bottom: 20px;
-  a {margin-left: 10px;}
+  a {
+    margin-left: 10px;
+  }
   display: none;
 }
 
-label.label_sm{ display: none; }
-.label_lg{ display: inline-block; }
+label.label_sm {
+  display: none;
+}
+.label_lg {
+  display: inline-block;
+}
 
-div.row { margin-left: 0px; margin-right: 0px}
-
+div.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
 
 div.impact_indicator {
   position: fixed;
@@ -242,8 +366,15 @@ div.impact_indicator {
   font-size: 1.2em;
   display: none;
   line-height: 45px;
-  .estimate_message { font-weight: bold; color: $ccl-blue; }
-  .estimate_message, .net_impact { padding-left: 0px; padding-right: 0px; }
+  .estimate_message {
+    font-weight: bold;
+    color: $eicda-blue;
+  }
+  .estimate_message,
+  .net_impact {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
   .spinner {
     margin: 0px auto;
     max-width: 45px;
@@ -254,14 +385,22 @@ div.impact_indicator {
     font-size: 1em;
     margin: 0px 0px;
   }
+  .calculate_success {
+    display: grid;
+    grid-template-columns: 1fr auto;
+  }
 }
 
 /* wrap */
-@media(max-width: $screen-sm-min) {
-  div.card > div { margin-left: 5px; }
-  div.form-group.row { margin: 0px; }
+@media (max-width: $screen-sm-min) {
+  div.ccl_card > div {
+    margin-left: 5px;
+  }
+  div.form-group.row {
+    margin: 0px;
+  }
 
-  div.card {
+  div.ccl_card {
     width: 99%;
     margin-right: auto;
     margin-left: auto;
@@ -269,51 +408,105 @@ div.impact_indicator {
     justify-content: space-between;
   }
 
-  div.basic_info_panel { width: 100%; }
-  .disclaimer{ font-size: .9em; }
-}
-
-a:hover { cursor: pointer; }
-.modal-body {
-  h4 { text-decoration: underline; font-weight: bold; font-size: 1.1em; }
-  font-size: .9em;
-}
-
-.disclaimer { font-size: .8em; }
-.text-muted { color: $muted-gray; }
-#results {
-  .result_row { font-size: 1.2em; }
-  .btn_start_over { margin-right: 40px; }
-}
-
-@media(max-width: $screen-phone) {
-  div.card.basic_info_data, div.tips { display: none; }
-  body { font-size: 15px; }
-  label.label_sm{ display: inline-block; }
-  .label_lg{ display: none; }
-  div#intro { 
-    font-size: 20px;
-    .calculator_title { font-size: 2.0em; }
+  div.basic_info_panel {
+    width: 100%;
   }
-  .disclaimer{ font-size: .9em; }
-  div.card#spending, div.card#results {
+  .disclaimer {
+    font-size: 0.9em;
+  }
+}
+
+a:hover {
+  cursor: pointer;
+}
+.modal-body {
+  h4 {
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+  font-size: 0.9em;
+}
+
+.disclaimer {
+  font-size: 0.8em;
+}
+.text-muted {
+  color: $muted-gray;
+}
+#results {
+  .result_row {
+    font-size: 1.2em;
+  }
+  .btn_start_over {
+    margin-right: 40px;
+  }
+}
+
+@media (max-width: $screen-phone) {
+  div.ccl_card.basic_info_data,
+  div.tips {
+    display: none;
+  }
+  body {
+    font-size: 15px;
+  }
+  label.label_sm {
+    display: inline;
+    margin-left: 0px;
+  }
+  .label_lg {
+    display: none;
+  }
+  div#intro {
+    font-size: 20px;
+    .calculator_title {
+      font-size: 2em;
+    }
+  }
+  .disclaimer {
+    font-size: 0.9em;
+  }
+  div.ccl_card#spending,
+  div.ccl_card#results {
     min-height: 100vh;
   }
-  div.card.intro_container { min-height: 95vh; }
-  .form-group { margin-top: 15px; }
+  div.ccl_card.intro_container {
+    min-height: 95vh;
+  }
+  .form-group {
+    margin-top: 15px;
+  }
   .footer {
     padding-bottom: 0px;
-    button.btn, button.btn.btn-intro, button.btn.disabled{
+    button.btn,
+    button.btn.btn-intro,
+    button.btn.disabled {
       width: 100%;
       border-radius: 4px;
       margin: 20px 0px 10px 0px;
     }
-    .cf_and_d_explanation { display: none; }
+    .cf_and_d_explanation {
+      display: none;
+    }
   }
-  .faq_link { padding-bottom: 10px; }
-  .form-control { width: 100%; }
-  .number_select { width: 100%; }
-  .explanation_prompt { font-size: .93em; }
+  .faq_link {
+    padding-bottom: 10px;
+  }
+  .form-control {
+    width: 100%;
+  }
+  .number_select {
+    width: 100%;
+  }
+  .explanation_prompt {
+    font-size: 0.93em;
+  }
+
+  input.expense_text {
+    margin-bottom: 3px;
+    margin-left: 0px;
+  }
 
   .ribbon {
     background-color: transparent;
@@ -326,6 +519,18 @@ a:hover { cursor: pointer; }
   .ribbon::before {
     display: none;
   }
+
+  div#results.ccl_card > div {
+      div.impact_panel {
+        padding: 20px 0px 0px 0px !important;
+        margin-top: 20px;
+      }
+  }
 }
 
-.print_only, div.pre_calculate, div.print_spending, div.initially_hidden { display: none; }
+.print_only,
+div.pre_calculate,
+div.print_spending,
+div.initially_hidden {
+  display: none;
+}

@@ -14,10 +14,10 @@ class InfoDialog extends React.Component {
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
+              <h3 className="modal-title">{this.props.title}</h3>
               <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-              <h3 className="modal-title">{this.props.title}</h3>
             </div>
             <div className="modal-body">{this.props.children}</div>
             <div className="modal-footer">
