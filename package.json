@@ -38,7 +38,7 @@
     "react-numeric-input": "^2.2.3",
     "react-rangeslider": "^2.2.0",
     "react-rangeslider-extended": "^1.0.10",
-    "react-share": "^3.0.0",
+    "react-share": "^3.0.1",
     "react-visibility-sensor": "^5.1.1",
     "webpack": "^4.39.3"
   },

@@ -2,6 +2,29 @@ import React from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
 import { toCurrency, nextSection, startOver, tagEvent } from '../lib/Utility.js';
 
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+  RedditShareButton,
+  PocketShareButton,
+  EmailShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  LinkedinIcon,
+  RedditIcon,
+  PocketIcon,
+  EmailIcon,
+} from 'react-share';
+
+const SHARE_URL = 'https://energyinnovationact.org/carbon-dividend-calculator/';
+const SHARE_TITLE = 'How will a price on pollution impact your wallet?';
+const SHARE_MESSAGE =
+  'Calculate your financial impact from Energy Innovation Act with this personal carbon dividend calculator. Based on household and lifestyle factors.';
+const LONG_MESSAGE = `${SHARE_TITLE} ${SHARE_MESSAGE}`;
+const SHARE_HASHTAG = '#EnergyInnovationAct';
+const SHARE_HASHTAGS = ['EnergyInnovationAct', 'PriceOnPollution', 'climate', 'BipartisanClimate'];
+
 class Results extends React.Component {
   constructor(props) {
     super(props);
@@ -33,12 +56,6 @@ class Results extends React.Component {
   };
 
   render() {
-    // var VisibilitySensor = require('react-visibility-sensor');
-
-    const share_url = 'https://citizensclimatelobby.org/calculator';
-    const share_message = 'See how much money you can save while fighting climate change!';
-    const share_media =
-      'https://11bup83sxdss1xze1i3lpol4-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/Household-Impact-Study-percent-benefited-by-zip-code.png';
     return (
       <div id="results" className="ccl_card initially_hidden">
         <div>
@@ -136,14 +153,34 @@ class Results extends React.Component {
                 </a>
                 <label>Share: </label>
                 <div className="SocialMediaShareButton">
-                  <a
-                    href="https://www.facebook.com/sharer/sharer.php?u=https://citizensclimatelobby.org/calculator/&amp;t=Calculator&amp;redirect_uri=https://citizensclimatelobby.org?sharing-thankyou=yes"
-                    title={share_message}
-                    target="_blank"
-                    rel="nofollow"
+                  <FacebookShareButton
+                    url={SHARE_URL}
+                    title={SHARE_TITLE}
+                    hashtag={SHARE_HASHTAG}
+                    quote={SHARE_MESSAGE}
                   >
-                    <i className="fa fa-facebook"></i>
-                  </a>
+                    <FacebookIcon size={40} iconBgStyle={{ fill: 'none' }} logoFillColor={'#15527b'} />
+                  </FacebookShareButton>
+                  <TwitterShareButton
+                    url={SHARE_URL}
+                    title={LONG_MESSAGE}
+                    hashtags={SHARE_HASHTAGS}
+                    via={'citizensclimate'}
+                  >
+                    <TwitterIcon size={40} iconBgStyle={{ fill: 'none' }} logoFillColor={'#15527b'} />
+                  </TwitterShareButton>
+                  <RedditShareButton url={SHARE_URL} title={LONG_MESSAGE}>
+                    <RedditIcon size={40} iconBgStyle={{ fill: 'none' }} logoFillColor={'#15527b'} />
+                  </RedditShareButton>
+                  <LinkedinShareButton url={SHARE_URL} title={LONG_MESSAGE}>
+                    <LinkedinIcon size={40} iconBgStyle={{ fill: 'none' }} logoFillColor={'#15527b'} />
+                  </LinkedinShareButton>
+                  <PocketShareButton url={SHARE_URL} title={LONG_MESSAGE}>
+                    <PocketIcon size={40} iconBgStyle={{ fill: 'none' }} logoFillColor={'#15527b'} />
+                  </PocketShareButton>
+                  <EmailShareButton url={SHARE_URL} subject={SHARE_TITLE} body={SHARE_MESSAGE}>
+                    <EmailIcon size={40} iconBgStyle={{ fill: 'none' }} logoFillColor={'#15527b'} />
+                  </EmailShareButton>
                 </div>
               </div>
             </div>

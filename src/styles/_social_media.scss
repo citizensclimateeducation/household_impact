@@ -26,6 +26,7 @@ div.ccl_card#results div.share_row {
 .SocialMediaShareButton,
 .print_button {
   display: inline-block;
+  cursor: pointer;
 }
 
 @media (max-width: $screen-phone) {
