@@ -7,6 +7,7 @@ import { nextAndHideFooter, toCurrency, numberOptionList, tagEvent, fromCurrency
 class FamilyInfo extends React.Component {
   constructor(props) {
     super(props);
+    this.nextButton = React.createRef();
     this.state = {
       income_pos: this.incomeScale.invert(this.props.income),
       current_income: this.props.income,
@@ -73,7 +74,12 @@ class FamilyInfo extends React.Component {
               any form. Family is intended to mean any group of people sharing a home and sharing finances, generally
               filing taxes as a unit.
             </div>
-            <form>
+            <form
+              onSubmit={e => {
+                e.preventDefault();
+                this.nextButton.current.click();
+              }}
+            >
               <div className="form-group">
                 <label htmlFor="adults">How many adult family members (age 19+) live in your home?</label>
                 <a data-toggle="modal" data-target="#houseSizeDetails" className="explanation_prompt">
@@ -157,6 +163,7 @@ class FamilyInfo extends React.Component {
             className="btn btn-default"
             href="#home_questions"
             id="btn_family_next"
+            ref={this.nextButton}
             onClick={e => {
               nextAndHideFooter(e, '#home_questions');
             }}

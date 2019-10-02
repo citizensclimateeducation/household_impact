@@ -9,6 +9,7 @@ import { nextAndHideFooter, tagEvent } from '../lib/Utility.js';
 class Spending extends React.Component {
   constructor(props) {
     super(props);
+    this.nextButton = React.createRef();
   }
 
   handleChange = event => {
@@ -48,7 +49,12 @@ class Spending extends React.Component {
               </strong>
             </div>
 
-            <form>
+            <form
+              onSubmit={e => {
+                e.preventDefault();
+                this.nextButton.current.click();
+              }}
+            >
               <div className="form-group">
                 <label htmlFor="gas" className="label_lg">
                   How much is your family's average monthly gasoline expenditure? ${' '}
@@ -160,6 +166,7 @@ class Spending extends React.Component {
             href="#results"
             className="btn btn-default"
             id="btn_spending_next"
+            ref={this.nextButton}
             onClick={e => {
               nextAndHideFooter(e, '#results');
             }}
