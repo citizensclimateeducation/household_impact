@@ -22,7 +22,7 @@ const SHARE_TITLE = 'How will a price on pollution impact your wallet?';
 const SHARE_MESSAGE =
   'Calculate your financial impact from Energy Innovation Act with this personal carbon dividend calculator. Based on household and lifestyle factors.';
 const LONG_MESSAGE = `${SHARE_TITLE} ${SHARE_MESSAGE}`;
-const SHARE_HASHTAG = '#EnergyInnovationAct';
+const SHARE_HASHTAG = '#PriceOnPollution';
 const SHARE_HASHTAGS = ['EnergyInnovationAct', 'PriceOnPollution', 'climate', 'BipartisanClimate'];
 
 class Results extends React.Component {
