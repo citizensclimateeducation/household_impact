@@ -24,7 +24,7 @@
     "express": "^4.17.1",
     "font-awesome": "^4.7.0",
     "images": "^3.0.2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jquery-easing": "^0.0.1",
     "liquid-fire": "^0.30.0",
     "lodash.debounce": "^4.0.8",
