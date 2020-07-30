@@ -13,7 +13,7 @@ import numeral from 'numeral/min/numeral.min.js';
 import { nextSection, nextAndHideFooter, toCurrency, tagEvent } from '../lib/Utility.js';
 require('./images/favicon.ico');
 
-const impact_study_url = 'https://ummel.ocpu.io/exampleR/R/predictModel2/json';
+const impact_study_url = 'https://ummel.ocpu.io/exampleR/R/predictModel3/json';
 
 class App extends React.Component {
   constructor(props) {
