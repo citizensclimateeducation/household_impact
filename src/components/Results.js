@@ -153,7 +153,7 @@ class Results extends React.Component {
                 </a>
                 <label>Share: </label>
                 <div className="SocialMediaShareButton">
-                  <FacebookShareButton url={SHARE_URL} title={SHARE_TITLE} hashtag={SHARE_HASHTAG}>
+                  <FacebookShareButton url={SHARE_URL} quote={SHARE_TITLE} hashtag={SHARE_HASHTAG}>
                     <FacebookIcon size={40} iconBgStyle={{ fill: 'none' }} logoFillColor={'#15527b'} />
                   </FacebookShareButton>
                   <TwitterShareButton

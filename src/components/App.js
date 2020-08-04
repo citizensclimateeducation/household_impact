@@ -74,8 +74,13 @@ class App extends React.Component {
   setResults = e => {
     const utilities = ['gas', 'heat', 'elec'];
     // if utilities costs have already been selected by user don't overwrite those
+
     Object.keys(e).forEach(key => {
-      utilities.includes(key) ? this.updateUtility(key, e[key]) : this.setState({ [key]: e[key] });
+      if (utilities.includes(key)) {
+        this.updateUtility(key, e[key] / 12);
+      } else {
+        key.includes('_upr') ? Math.round(this.setState({ [key]: e[key] / 12 })) : this.setState({ [key]: e[key] });
+      }
     });
 
     this.setState({ initial_gas: e.gas, initial_elec: e.elec, initial_heat: e.heat });
@@ -130,16 +135,12 @@ class App extends React.Component {
         other_residents_factor = (total_family + Number(this.state.other_residents)) / total_family;
         data_residents.na = Number(this.state.adults) + Number(this.state.other_residents);
         data_residents.hinc = this.state.income * other_residents_factor;
-        console.log(`hinc: ${data_residents.hinc}, factor: ${other_residents_factor}`);
         data_other = { input: [data_residents] };
-        console.log(`data_other:`);
-        console.log(data_other);
       }
 
       this.setLoading(true);
       $('.calculating').fadeIn('slow');
       const zip = this.state.zip;
-      console.log(data);
 
       Promise.all([
         axios.post(impact_study_url, JSON.stringify(data), {
@@ -154,11 +155,8 @@ class App extends React.Component {
           : Promise.resolve(),
       ])
         .then(function([original_call, other_residents_call]) {
-          // TODO: For debug
-          console.log(`Main post response:`);
-          console.log(original_call.data[0]);
-          console.log(`Modified residents response:`);
-          console.log(other_residents_call ? other_residents_call.data[0] : '');
+          //console.log(`Main post response:`);
+          //console.log(original_call.data[0]);
           // success, set results and fade them in
           const res = original_call.data[0];
 
@@ -166,8 +164,6 @@ class App extends React.Component {
             const other_res = other_residents_call.data[0];
             res.elec = other_res.elec / other_residents_factor;
             res.heat = other_res.heat / other_residents_factor;
-            console.log(`Utilities after applying other residents factor:`);
-            console.log(res);
           }
 
           setResults({ ...res });
@@ -202,10 +198,14 @@ class App extends React.Component {
   };
 
   calculateCost = () => {
-    let { elec, gas, heat } = this.state;
+    const { elec: monthly_elec, gas: monthly_gas, heat: monthly_heat } = this.state;
+    const elec = monthly_elec * 12;
+    const gas = monthly_gas * 12;
+    const heat = monthly_heat * 12;
     // cost variable is a string formula (e.g. "428.8 + gas * 0.7924 + elec * 1.12 + heat * 0.7826") returned from
     // the API call and evaled to determine determine cost in real-time
     const cost = eval(this.state.cost);
+    console.log('calculating..');
     const div_post = numeral(this.state.div_pre).value() * (1.0 - numeral(this.state.mrate).value());
     const carbon_cost = Math.round(cost / 12);
     const div = Math.round(div_post / 12);
