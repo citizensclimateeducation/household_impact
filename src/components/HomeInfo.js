@@ -48,7 +48,9 @@ class HomeInfo extends React.Component {
               >
                 <option>Stand-alone house</option>
                 <option value="Apartment building">Apartment or condo</option>
-                <option value="Townhouse or other attached housing">Townhouse, duplex, other attached housing</option>
+                <option value="Townhouse, duplex, other attached housing">
+                  Townhouse, duplex, other attached housing
+                </option>
                 <option>Other</option>
               </select>
             </div>
