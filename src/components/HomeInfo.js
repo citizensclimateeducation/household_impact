@@ -47,7 +47,7 @@ class HomeInfo extends React.Component {
                 onChange={this.props.setAttribute}
               >
                 <option>Stand-alone house</option>
-                <option value="Apartment building">Apartment or condo</option>
+                <option value="Apartment or condo">Apartment or condo</option>
                 <option value="Townhouse, duplex, other attached housing">
                   Townhouse, duplex, other attached housing
                 </option>
