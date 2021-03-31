@@ -7,7 +7,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "parcel ./src/main.js",
+    "start": "parcel ./src/index.html",
     "build": "NODE_ENV=production parcel build ./src/main.js",
     "prod": "NODE_ENV=production node server.js",
     "heroku-postbuild": "parcel build ./src/main.js"

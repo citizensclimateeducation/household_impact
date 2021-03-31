@@ -13,12 +13,7 @@ export const CalcDetails = props => {
         <a href="https://citizensclimatelobby.org/household-impact-study/" target="_blank">
           Citizens' Climate Lobby's Household Impact Study
         </a>{' '}
-        estimates the direct financial effect of a
-        <a href="https://citizensclimatelobby.org/carbon-fee-and-dividend/" target="_blank">
-          {' '}
-          carbon tax and dividend
-        </a>{' '}
-        policy for a large, representative sample of U.S. households. Techniques, data, and assumptions are described in
+        estimates the direct financial effect of a carbon tax and dividend policy for a large, representative sample of U.S. households. Techniques, data, and assumptions are described in
         detail in the associated{' '}
         <a
           href="https://11bup83sxdss1xze1i3lpol4-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/Ummel-Impact-of-CCL-CFD-Policy-v1_4.pdf"
