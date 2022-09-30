@@ -20,7 +20,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.5.2",
     "bootstrap-modal": "^2.2.4",
-    "d3-scale": "^3.2.2",
+    "d3-scale": "^4.0.2",
     "express": "^4.17.1",
     "font-awesome": "^4.7.0",
     "i": "^0.3.6",
