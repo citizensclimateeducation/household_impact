@@ -21,7 +21,7 @@
     "bootstrap": "^4.5.2",
     "bootstrap-modal": "^2.2.4",
     "d3-scale": "^3.2.2",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "font-awesome": "^4.7.0",
     "i": "^0.3.6",
     "images": "^3.2.3",
